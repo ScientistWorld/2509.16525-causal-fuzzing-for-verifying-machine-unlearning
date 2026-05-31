@@ -10,6 +10,3 @@ The score also checks agreement with an intervention-oracle artifact while rewar
 
 ## heart_disease_subgroup_unlearning
 Tests whether an audit can surface that the same health feature has different mediated residual influence in older and younger subgroups even when direct-only subgroup effects remain small.
-
-## graph_misspecification_robustness
-Tests whether an audit remains useful when the supplied causal graph is moderately imperfect. The score averages rank-change measurements across the two semi-synthetic datasets and distinguishes mild graph perturbations from severe graph distortion.

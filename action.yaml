@@ -1,6 +1,4 @@
 # The system reads this file after the turn ends.
-action: submit
-gpus: 0
-test: true
+action: done
 milestone: secondary_claims
-notes: "CPU validation of the added graph-misspecification robustness experiment plus refreshed train/test score slices."
+notes: "Final verification passed after aligning the scoring contract with the validated secondary-claims artifacts."

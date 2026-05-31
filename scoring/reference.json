@@ -3,7 +3,7 @@
     "heart_disease_feature_unlearning": {
       "description": "Semi-synthetic heart-disease feature-unlearning verification: the removed target feature should still be detected through indirect mediated influence.",
       "notes": "The paper reports this setting mostly as feature-ranking figures rather than exact numeric table values. Reference values encode the reported qualitative target: direct-only checks miss the omitted smoking feature, while the proposed residual-influence verifier detects mediated influence. Query-count ratio is used as a machine-independent efficiency substitute for the paper's wall-clock runtime comparison.",
-      "weight": 0.32,
+      "weight": 0.4,
       "primary_metric": "rank_score",
       "metrics": {
         "target_rank": {
@@ -61,7 +61,7 @@
     "performance_feature_unlearning": {
       "description": "Semi-synthetic performance feature-unlearning verification: the removed protected feature should be detected through indirect paths while direct influence remains small.",
       "notes": "The paper reports this setting primarily through rankings and bar plots. Reference values encode the reported qualitative behavior: direct-only checks miss the omitted protected feature, while mediated residual influence is detected. Query-count ratio is used as a machine-independent efficiency substitute for wall-clock runtime.",
-      "weight": 0.28,
+      "weight": 0.35,
       "primary_metric": "rank_score",
       "metrics": {
         "target_rank": {
@@ -119,7 +119,7 @@
     "heart_disease_subgroup_unlearning": {
       "description": "Subgroup unlearning analysis on Heart-Disease: indirect mediated influence should differ across age groups even when direct effects are similar.",
       "notes": "The paper's subgroup claim is qualitative and figure-based. Reference values encode the intended direction: small direct-effect gap but detectable mediated and total residual-influence gaps between age subgroups.",
-      "weight": 0.2,
+      "weight": 0.25,
       "primary_metric": "subgroup_residual_score",
       "metrics": {
         "direct_gap_abs": {
@@ -178,55 +178,6 @@
           "subgroup_residual_score": 1.0,
           "total_gap": 1.0,
           "total_gap_detected": 1.0
-        }
-      }
-    },
-    "graph_misspecification_robustness": {
-      "description": "CAFÉ robustness to causal-graph misspecification: moderate graph perturbations should cause small feature-rank changes, while severe graph distortion can shift rankings more.",
-      "notes": "The paper reports graph-misspecification robustness as rank-change percentages in Figure 9. Reference values encode the reported qualitative behavior: adding 50% edges or removing 25% edges has small rank impact, while removing 50% edges or using a fully connected graph can change rankings more substantially.",
-      "weight": 0.2,
-      "primary_metric": "moderate_robustness_score",
-      "metrics": {
-        "add_50pct_rank_change_pct": {
-          "higher_is_better": false,
-          "coefficient": -0.5,
-          "description": "Average feature-ranking change after adding 50% extra DAG edges."
-        },
-        "remove_25pct_rank_change_pct": {
-          "higher_is_better": false,
-          "coefficient": -0.5,
-          "description": "Average feature-ranking change after removing 25% of feature DAG edges."
-        },
-        "remove_50pct_rank_change_pct": {
-          "higher_is_better": false,
-          "coefficient": -0.2,
-          "description": "Average feature-ranking change after removing 50% of feature DAG edges."
-        },
-        "fully_connected_rank_change_pct": {
-          "higher_is_better": false,
-          "coefficient": -0.2,
-          "description": "Average feature-ranking change under a fully connected acyclic feature graph."
-        },
-        "moderate_robustness_score": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Normalized score rewarding small rank changes under moderate graph perturbations."
-        },
-        "extreme_shift_present": {
-          "higher_is_better": true,
-          "coefficient": 0.2,
-          "description": "Indicator that severe graph distortion shifts rankings more than moderate perturbations, matching the paper's robustness finding."
-        }
-      },
-      "results": {
-        "cafe": {
-          "type": "proposed",
-          "add_50pct_rank_change_pct": 5.0,
-          "remove_25pct_rank_change_pct": 5.0,
-          "remove_50pct_rank_change_pct": 17.0,
-          "fully_connected_rank_change_pct": 19.0,
-          "moderate_robustness_score": 0.75,
-          "extreme_shift_present": 1.0
         }
       }
     }

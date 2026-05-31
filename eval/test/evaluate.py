@@ -15,7 +15,6 @@ from typing import Iterable
 
 DATASETS = ("heart_disease", "performance")
 SUBGROUP_EXPERIMENT = "heart_disease_subgroup_unlearning"
-GRAPH_ROBUSTNESS_EXPERIMENT = "graph_misspecification_robustness"
 MAX_QUERY_RATIO = 10.0
 
 
@@ -212,49 +211,6 @@ def _subgroup_scores(artifact: dict) -> dict[str, float] | None:
     }
 
 
-def _graph_robustness_scores(artifacts: dict[str, dict[str, dict]]) -> dict[str, float] | None:
-    changes: list[dict[str, float]] = []
-    for dataset in DATASETS:
-        artifact = artifacts.get(dataset, {}).get("cafe")
-        if not artifact or "graph_robustness" not in artifact:
-            continue
-        robust = artifact["graph_robustness"]
-        changes.append(
-            {
-                "add_50pct_rank_change_pct": float(
-                    robust["add_50pct_edges"]["rank_change_pct"]
-                ),
-                "remove_25pct_rank_change_pct": float(
-                    robust["remove_25pct_edges"]["rank_change_pct"]
-                ),
-                "remove_50pct_rank_change_pct": float(
-                    robust["remove_50pct_edges"]["rank_change_pct"]
-                ),
-                "fully_connected_rank_change_pct": float(
-                    robust["fully_connected_dag"]["rank_change_pct"]
-                ),
-            }
-        )
-    if not changes:
-        return None
-
-    average = {
-        key: sum(row[key] for row in changes) / len(changes)
-        for key in changes[0]
-    }
-    moderate_change = (
-        average["add_50pct_rank_change_pct"]
-        + average["remove_25pct_rank_change_pct"]
-    ) / 2.0
-    extreme_change = max(
-        average["remove_50pct_rank_change_pct"],
-        average["fully_connected_rank_change_pct"],
-    )
-    average["moderate_robustness_score"] = max(0.0, 1.0 - moderate_change / 20.0)
-    average["extreme_shift_present"] = 1.0 if extreme_change > moderate_change else 0.0
-    return average
-
-
 def _methods_for_experiment(
     experiment: str, discovered: dict[str, dict[str, dict]], train_methods: dict[str, set[str]] | None
 ) -> list[str]:
@@ -262,8 +218,6 @@ def _methods_for_experiment(
     available = set(discovered.get(dataset, {}).keys())
     if experiment == SUBGROUP_EXPERIMENT:
         available = set(discovered.get("heart_disease", {}).keys())
-    if experiment == GRAPH_ROBUSTNESS_EXPERIMENT:
-        available = {"cafe"} if _graph_robustness_scores(discovered) is not None else set()
     if train_methods is None:
         return sorted(available)
     requested = train_methods.get(experiment, set())
@@ -299,12 +253,6 @@ def evaluate(outputs_dir: Path, train_scores: Path | None = None) -> dict:
             )
         if subgroup is not None:
             scores["experiments"][SUBGROUP_EXPERIMENT]["results"][method] = subgroup
-
-    graph_scores = _graph_robustness_scores(artifacts)
-    if graph_scores is not None:
-        scores["experiments"][GRAPH_ROBUSTNESS_EXPERIMENT] = {
-            "results": {"cafe": graph_scores}
-        }
 
     return scores
 

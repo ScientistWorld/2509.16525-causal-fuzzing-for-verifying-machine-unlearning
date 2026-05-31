@@ -21,12 +21,11 @@
 - Final Performance feature-unlearning score: CAFÉ ranks omitted `gender` 2nd with `rank_score=0.6666666667`, `indirect_detected=1.0`, `direct_unlearned=1.0`, and `fuzzing_agreement=1.0`; direct permutation ranks it 4th with `rank_score=0.0`.
 - Final Heart-Disease subgroup-unlearning score: CAFÉ detects the older-vs-younger mediated BMI gap (`indirect_gap=0.4722`, `indirect_gap_detected=1.0`, `total_gap_detected=1.0`) while satisfying the scale-aware direct-gap constraint (`direct_gap_abs=0.0984`, `direct_gap_small=1.0`). Direct permutation reports no mediated gap and fails the direct-gap constraint on the regenerated dataset.
 - Earlier containerized jobs `ae348bd1-9a4`, `d51d701a-975`, and `416d8c69-a53` were used to harden the scoring contract and scheduler path. The final accepted job is `5a7287c3-8f1`.
-- Added an RQ3 graph-misspecification robustness artifact and scorer. The next CPU job will verify the new experiment in the scheduler container before any milestone is updated.
 
 ## Remaining
 
 - No further job is pending. The packaged environment now covers the core claim on two semi-synthetic settings and one secondary subgroup-unlearning setting.
-- Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding model-architecture sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
+- Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding validated graph-misspecification robustness scoring, adding model-architecture sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
 - Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 
 ## Issues

@@ -2,24 +2,22 @@
 
 ## Initial Assessment
 
-The workspace started at `secondary_claims` with completed CPU scheduler jobs, populated method/baseline/evaluation artifacts, and passing validation. The claimed milestone was justified: the implementation runs the paper's causal residual-influence verification procedure on two semi-synthetic feature-unlearning settings and one subgroup-unlearning setting, and the scores support the core and secondary claims.
+The workspace started at `secondary_claims` with completed CPU scheduler jobs, populated method, baseline, evaluation, and scoring artifacts, and a plausible reproduction of the core and subgroup claims. The claimed milestone was justified for the three validated experiments: two feature-unlearning settings and one Heart-Disease subgroup-unlearning setting.
 
 ## Issues Found
 
-- Minor: `eval/evaluate_outputs.py` was hardcoded to the reproduced `cafe` and `direct_permutation` artifacts, so a future method with the same artifact schema but a different method name would not be scored by `scripts/evaluate.sh`.
-- Minor: several method-agnostic or method-safe docs referred to the paper/proposed method or "fast estimator" where generic benchmark language was clearer.
-- Minor: `scoring/reference.json` encoded qualitative figure/ranking claims and a query-count substitute for runtime without an explicit `notes` explanation.
+- Critical: `scoring/reference.json`, `scoring/TARGETS.md`, `scoring/EXPERIMENTS.md`, and the train/test evaluators advertised a new `graph_misspecification_robustness` experiment, but `scores.json`, `scores_train.json`, and `scores_test.json` did not contain that experiment. A gym target without a scored result would give future agents an inconsistent scoring contract.
+- Minor: `MILESTONES.md` and `PROGRESS.md` still described graph-robustness validation as pending, which conflicted with a final `done` state.
 
 ## Fixes Applied
 
-- Rewired `eval/evaluate_outputs.py` to reuse the generic artifact discovery and scoring logic from `eval.train.evaluate`, while omitting the train-slice marker in `scoring/scores.json`.
-- Cleaned method-agnostic wording in `briefing/evaluation.md`, `scoring/EXPERIMENTS.md`, `scoring/TARGETS.md`, `scoring/CONSTRAINTS.md`, and `data/` docstrings.
-- Added `notes` fields to each experiment in `scoring/reference.json` explaining qualitative reference targets and the machine-independent query-count efficiency metric.
-- Reran `scripts/evaluate.sh`, `scripts/evaluate_train.sh`, `scripts/evaluate_test.sh`, and `python validate.py --compare --post-reproducer`; all checks passed and reproduced scores remained stable.
+- Removed the unvalidated graph-robustness experiment from the public scoring contract and train/test evaluators, restoring consistency with the validated three-experiment score files.
+- Updated `scoring/TARGETS.md`, `scoring/EXPERIMENTS.md`, `scoring/CONSTRAINTS.md`, `MILESTONES.md`, and `PROGRESS.md` so they describe only experiments that are actually scored.
+- Reran `scripts/evaluate.sh outputs`, `scripts/evaluate_train.sh outputs`, `scripts/evaluate_test.sh outputs`, `python -m py_compile eval/train/evaluate.py eval/test/evaluate.py eval/evaluate_outputs.py`, and `python validate.py --compare --post-reproducer`. All checks passed.
 
 ## Final Judgment
 
-The workspace is ready to serve as a research gym. Improve-mode agents can run the packaged method and compare against the existing scores; from-scratch agents can use the method-agnostic problem, data, and evaluation files without seeing the paper's implementation. The main limitation is scope: the gym uses reconstructed semi-synthetic datasets rather than the full set of real-world benchmarks from the paper.
+The workspace is ready to serve as a research gym at `secondary_claims`. Improve-mode agents can reproduce and compare against the existing method and baseline artifacts; from-scratch agents can use the method-agnostic problem, data, and evaluation files without relying on `method/`. The main limitation is scope: the gym uses reconstructed semi-synthetic datasets and does not yet score the paper's broader graph-robustness or real-world benchmark claims.
 
 - Milestone: secondary_claims
 - Ready for gym use: yes
