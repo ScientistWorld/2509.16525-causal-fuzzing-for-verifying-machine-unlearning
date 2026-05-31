@@ -3,6 +3,7 @@
 ## What Works
 
 - Implemented the paper's CAFÉ-style adjusted causal effect estimator for total, direct, and indirect residual influence.
+- Added an Algorithm 1-style causal fuzzing oracle that learns structural equations for descendants, propagates interventions through the DAG, and records query-count artifacts for fidelity/efficiency scoring.
 - Implemented two semi-synthetic tabular settings modeled after the paper's Heart-Disease and Performance experiments.
 - Implemented a direct permutation baseline that fails to detect influence from omitted target features.
 - Implemented `scripts/reproduce.sh` and `scripts/evaluate.sh`; evaluation reads artifacts only and does not import from `method/`.
@@ -17,6 +18,7 @@
 ## Remaining
 
 - The environment is usable as a research gym at `core_claim_plus`.
+- Pending CPU test job: regenerate `outputs/` and `scoring/scores.json` after adding causal-fuzzing artifacts and query-ratio metrics.
 - Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding graph-misspecification sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
 - Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 
@@ -25,6 +27,7 @@
 - The paper markdown does not include concrete training hyperparameters or a repository URL despite mentioning an open-sourced prototype.
 - Most reported values for the core ranking experiments are qualitative or figure-based; `reference.json` encodes the paper-supported rank/detection claims rather than copying unreported bar heights.
 - The scheduler-provided absolute stdout/stderr paths for job `ae348bd1-9a4` were not visible inside this container, but the job exit code was 0 and the expected output artifacts were present in the workspace.
+- Local login-node smoke execution could not run because the host Python environment lacks `numpy`; dependency installation remains in `environment/setup.sh`, and execution is being tested through the scheduler container.
 
 ## Deviations from Paper
 

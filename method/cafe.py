@@ -37,6 +37,100 @@ def _descendants(edges: list[tuple[str, str]], node: str) -> set[str]:
     return seen
 
 
+def _topological_order(nodes: list[str], edges: list[tuple[str, str]]) -> list[str]:
+    indegree = {node: 0 for node in nodes}
+    children: dict[str, list[str]] = defaultdict(list)
+    for src, dst in edges:
+        if src in indegree and dst in indegree:
+            children[src].append(dst)
+            indegree[dst] += 1
+    queue = deque([node for node in nodes if indegree[node] == 0])
+    order: list[str] = []
+    while queue:
+        node = queue.popleft()
+        order.append(node)
+        for child in children[node]:
+            indegree[child] -= 1
+            if indegree[child] == 0:
+                queue.append(child)
+    if len(order) != len(nodes):
+        raise ValueError("Causal graph must be acyclic")
+    return order
+
+
+def _fit_structural_models(
+    frame: pd.DataFrame, features: list[str], edges: list[tuple[str, str]]
+) -> dict[str, object]:
+    models: dict[str, object] = {}
+    for feature in features:
+        parents = [p for p in _parents(edges, feature) if p in features]
+        if not parents:
+            continue
+        model = RandomForestRegressor(
+            n_estimators=80,
+            min_samples_leaf=10,
+            random_state=19,
+            n_jobs=1,
+        )
+        model.fit(frame[parents], frame[feature])
+        models[feature] = model
+    return models
+
+
+def causal_fuzzing_effect(
+    frame: pd.DataFrame,
+    model: object,
+    model_features: list[str],
+    features: list[str],
+    edges: list[tuple[str, str]],
+    target_feature: str,
+    seed: int,
+    n_samples: int | None = None,
+) -> dict[str, float | int]:
+    """Algorithm 1-style intervention propagation with learned H_v models.
+
+    The audited model is still treated as a black box: the oracle only calls
+    predict on original and causally propagated counterfactual rows.
+    """
+
+    rng = np.random.default_rng(seed)
+    sample_size = len(frame) if n_samples is None else min(n_samples, len(frame))
+    sample = frame.sample(n=sample_size, random_state=seed).copy()
+    structural_models = _fit_structural_models(frame, features, edges)
+    descendants = _descendants(edges, target_feature)
+    topo = _topological_order(features, edges)
+    source_values = frame[target_feature].to_numpy()
+
+    original_pred = model.predict(sample[model_features])
+    direct_rows = sample.copy()
+    total_rows = sample.copy()
+    intervention_values = rng.choice(source_values, size=len(sample), replace=True)
+    direct_rows[target_feature] = intervention_values
+    total_rows[target_feature] = intervention_values
+
+    changed = {target_feature}
+    for node in topo:
+        if node == target_feature or node not in descendants or node not in structural_models:
+            continue
+        parents = [p for p in _parents(edges, node) if p in features]
+        if changed.intersection(parents):
+            total_rows[node] = structural_models[node].predict(total_rows[parents])
+            changed.add(node)
+
+    direct_pred = model.predict(direct_rows[model_features])
+    total_pred = model.predict(total_rows[model_features])
+    direct = float(np.mean(np.abs(direct_pred - original_pred)))
+    total = float(np.mean(np.abs(total_pred - original_pred)))
+    return {
+        "total_effect": total,
+        "direct_effect": direct,
+        "indirect_effect": max(total - direct, 0.0),
+        "model_query_count": int(3 * len(sample)),
+        "structural_model_count": len(structural_models),
+        "sample_count": int(len(sample)),
+    }
+
+
 def _standardized_linear_effect(
     frame: pd.DataFrame, prediction_col: str, feature: str, controls: list[str]
 ) -> float:
@@ -105,6 +199,15 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         outcome=dataset.outcome,
         edges=dataset.edges,
     )
+    fuzzing = causal_fuzzing_effect(
+        scored,
+        model=model,
+        model_features=model_features,
+        features=dataset.features,
+        edges=dataset.edges,
+        target_feature=dataset.target_feature,
+        seed=seed,
+    )
     ranking = sorted(effects, key=lambda f: effects[f]["total_effect"], reverse=True)
     direct_ranking = sorted(
         effects, key=lambda f: effects[f]["direct_effect"], reverse=True
@@ -126,6 +229,13 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         "target_total_effect": effects[target]["total_effect"],
         "target_direct_effect": effects[target]["direct_effect"],
         "target_indirect_effect": effects[target]["indirect_effect"],
+        "causal_fuzzing": fuzzing,
+        "cafe_model_query_count": int(len(scored)),
+        "fuzzing_model_query_count": fuzzing["model_query_count"],
+        "fuzzing_relative_total_error": float(
+            abs(effects[target]["total_effect"] - fuzzing["total_effect"])
+            / max(abs(fuzzing["total_effect"]), 1e-12)
+        ),
         "prediction_r2": float(model.score(test[model_features], test[dataset.outcome])),
     }
     output_dir.mkdir(parents=True, exist_ok=True)

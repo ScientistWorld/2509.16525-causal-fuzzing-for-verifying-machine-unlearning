@@ -20,6 +20,14 @@
         "direct_unlearned": {
           "higher_is_better": true,
           "coefficient": 0.5
+        },
+        "fuzzing_agreement": {
+          "higher_is_better": true,
+          "coefficient": 0.5
+        },
+        "query_ratio_vs_fuzzing": {
+          "higher_is_better": true,
+          "coefficient": 0.3
         }
       },
       "results": {
@@ -28,14 +36,18 @@
           "target_rank": 5.0,
           "rank_score": 0.0,
           "indirect_detected": 0.0,
-          "direct_unlearned": 1.0
+          "direct_unlearned": 1.0,
+          "fuzzing_agreement": 0.0,
+          "query_ratio_vs_fuzzing": 0.0
         },
         "cafe": {
           "type": "proposed",
           "target_rank": 1.0,
           "rank_score": 1.0,
           "indirect_detected": 1.0,
-          "direct_unlearned": 1.0
+          "direct_unlearned": 1.0,
+          "fuzzing_agreement": 1.0,
+          "query_ratio_vs_fuzzing": 3.0
         }
       }
     },
@@ -59,6 +71,14 @@
         "direct_unlearned": {
           "higher_is_better": true,
           "coefficient": 0.5
+        },
+        "fuzzing_agreement": {
+          "higher_is_better": true,
+          "coefficient": 0.5
+        },
+        "query_ratio_vs_fuzzing": {
+          "higher_is_better": true,
+          "coefficient": 0.3
         }
       },
       "results": {
@@ -67,14 +87,18 @@
           "target_rank": 4.0,
           "rank_score": 0.0,
           "indirect_detected": 0.0,
-          "direct_unlearned": 1.0
+          "direct_unlearned": 1.0,
+          "fuzzing_agreement": 0.0,
+          "query_ratio_vs_fuzzing": 0.0
         },
         "cafe": {
           "type": "proposed",
           "target_rank": 2.0,
           "rank_score": 0.6666666667,
           "indirect_detected": 1.0,
-          "direct_unlearned": 1.0
+          "direct_unlearned": 1.0,
+          "fuzzing_agreement": 1.0,
+          "query_ratio_vs_fuzzing": 3.0
         }
       }
     }

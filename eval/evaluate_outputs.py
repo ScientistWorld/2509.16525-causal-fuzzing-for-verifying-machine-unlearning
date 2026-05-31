@@ -34,6 +34,13 @@ def evaluate(outputs_dir: Path) -> dict:
         indirect_fraction = target_indirect / max(total, 1e-12)
         indirect_detected = 1.0 if indirect_fraction >= 0.5 and target_indirect > 0.05 else 0.0
         direct_near_zero = 1.0 if float(cafe["target_direct_effect"]) <= 0.15 * max(total, 1e-12) else 0.0
+        fuzzing = cafe["causal_fuzzing"]
+        fuzz_total = float(fuzzing["total_effect"])
+        fuzz_indirect = float(fuzzing["indirect_effect"])
+        cafe_fuzzing_agreement = 1.0 if fuzz_total > 0 and target_indirect > 0 else 0.0
+        query_ratio = float(cafe["fuzzing_model_query_count"]) / max(
+            float(cafe["cafe_model_query_count"]), 1.0
+        )
         scores["experiments"][exp_name] = {
             "results": {
                 "direct_permutation": {
@@ -41,12 +48,18 @@ def evaluate(outputs_dir: Path) -> dict:
                     "rank_score": _rank_score(int(baseline["target_total_rank"]), n_features),
                     "indirect_detected": 0.0,
                     "direct_unlearned": 1.0,
+                    "fuzzing_agreement": 0.0,
+                    "query_ratio_vs_fuzzing": 0.0,
                 },
                 "cafe": {
                     "target_rank": float(cafe["target_total_rank"]),
                     "rank_score": _rank_score(int(cafe["target_total_rank"]), n_features),
                     "indirect_detected": indirect_detected,
                     "direct_unlearned": direct_near_zero,
+                    "fuzzing_agreement": cafe_fuzzing_agreement,
+                    "query_ratio_vs_fuzzing": query_ratio,
+                    "fuzzing_total_effect": fuzz_total,
+                    "fuzzing_indirect_effect": fuzz_indirect,
                 },
             }
         }
