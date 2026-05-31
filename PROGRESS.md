@@ -17,6 +17,7 @@
 
 - Run the containerized job to produce official `scoring/scores.json`.
 - If the job passes, update milestone to `core_claim`; if it fails, fix and resubmit.
+- Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 
 ## Issues
 
