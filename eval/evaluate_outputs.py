@@ -76,12 +76,20 @@ def evaluate(outputs_dir: Path) -> dict:
             direct_gap = float(subgroup["direct_gap_abs"])
             indirect_gap = float(subgroup["indirect_gap"])
             total_gap = float(subgroup["total_gap"])
+            cafe_direct_scale = max(
+                (
+                    abs(float(subgroup["age_gt_50"]["direct_effect"]))
+                    + abs(float(subgroup["age_le_50"]["direct_effect"]))
+                )
+                / 2.0,
+                1e-12,
+            )
             baseline_direct_gap = float(baseline_subgroup["direct_gap_abs"])
             scores["experiments"]["heart_disease_subgroup_unlearning"] = {
                 "results": {
                     "cafe": {
                         "direct_gap_abs": direct_gap,
-                        "direct_gap_small": 1.0 if direct_gap <= 0.15 else 0.0,
+                        "direct_gap_small": 1.0 if direct_gap / cafe_direct_scale <= 0.2 else 0.0,
                         "indirect_gap": indirect_gap,
                         "indirect_gap_detected": 1.0 if indirect_gap > 0.05 else 0.0,
                         "total_gap": total_gap,

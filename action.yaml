@@ -4,5 +4,5 @@
 action: submit
 gpus: 0
 test: true
-milestone: none
-notes: "CPU test job to regenerate outputs and scores after replacing the CAFÉ estimator with a backdoor/mediator-conditioned expected-prediction contrast implementation."
+milestone: core_claim_plus
+notes: "CPU test job to verify the patched Heart-Disease subgroup generator and scale-aware direct-gap scoring after job 8970ea62-4e7 restored the core feature-unlearning claims but failed the secondary subgroup claim."

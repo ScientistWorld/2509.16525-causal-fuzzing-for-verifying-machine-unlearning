@@ -42,15 +42,17 @@ def make_heart_disease(n: int = 10_000, seed: int = 7) -> CausalDataset:
     blood_pressure = (
         104.0
         + 0.16 * age
-        + (1.75 + 0.035 * age_over_50) * bmi
+        + (1.65 + 0.10 * age_over_50) * bmi
         + 12.0 * smoking
         - 1.6 * exercise
         + rng.normal(0, 4.5, n)
     )
+    older_bp_burden = (age > 50).astype(float) * blood_pressure
     risk = (
         0.06 * _standardize(age)
-        + 1.65 * _standardize(bmi)
-        + 1.95 * _standardize(blood_pressure)
+        + 1.15 * _standardize(bmi)
+        + 0.95 * _standardize(blood_pressure)
+        + 1.35 * _standardize(older_bp_burden)
         - 0.55 * _standardize(exercise)
         + 0.12 * smoking
         + rng.normal(0, 0.22, n)

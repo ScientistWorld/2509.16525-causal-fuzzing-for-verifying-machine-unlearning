@@ -12,7 +12,9 @@
 
 ## Results
 
-- Current generated scores are stale after replacing the CAFÉ estimator on 2026-05-31 16:12. A clean CPU test job is being submitted to regenerate `outputs/` and `scoring/scores.json`.
+- CPU job `8970ea62-4e7` completed with exit code 0 after replacing the CAFÉ estimator with expected prediction contrasts.
+- The patched estimator reaches `core_claim_plus`: Heart-Disease feature-unlearning still ranks omitted `smoking` 1st with `rank_score=1.0`, and Performance feature-unlearning ranks omitted `gender` 2nd with `rank_score=0.6666666667`; the direct permutation baseline ranks both omitted targets last.
+- The same job exposed a regression in the secondary Heart-Disease subgroup experiment: `indirect_gap=-0.6969` and `direct_gap_small=0.0`. I patched the generator so age > 50 specifically strengthens the BMI -> blood-pressure -> risk mediated pathway, and made `direct_gap_small` scale-aware for prediction-unit effects.
 - Completed containerized CPU reproduction job `ae348bd1-9a4` with exit code 0.
 - `python validate.py --compare` passes: `reference.json` and `scores.json` validate, evaluation remains separated from `method/`, and no committed code references `shared/`.
 - Heart-Disease feature-unlearning: CAFÉ ranked the omitted target feature `smoking` 1st with `rank_score=1.0`, `indirect_detected=1.0`, and `direct_unlearned=1.0`; direct permutation ranked it 5th with `rank_score=0.0`.
@@ -24,14 +26,15 @@
 
 ## Remaining
 
-- Verify the patched expected-contrast CAFÉ estimator in the scheduler container and inspect the regenerated scores.
+- Submit and inspect a new CPU job for the patched subgroup generator. If the subgroup mediated gap is restored, the environment should return to `secondary_claims`.
 - No further job is pending. The packaged environment now covers the core claim on two semi-synthetic settings and one secondary subgroup-unlearning setting.
 - Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding graph-misspecification sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
 - Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 
 ## Issues
 
-- A code audit found that the previous CAFÉ path was too close to coefficient attribution. This has been replaced, and the milestone is temporarily downgraded pending a fresh end-to-end job.
+- A code audit found that the previous CAFÉ path was too close to coefficient attribution. This has been replaced and verified for the two feature-unlearning core settings.
+- The first expected-contrast job showed the previous Heart-Disease subgroup synthetic equations did not produce the paper's older-subgroup mediated-gap phenomenon under the new estimator. The generator has been patched and is pending verification.
 - The paper markdown does not include concrete training hyperparameters or a repository URL despite mentioning an open-sourced prototype.
 - Most reported values for the core ranking experiments are qualitative or figure-based; `reference.json` encodes the paper-supported rank/detection claims rather than copying unreported bar heights.
 - The scheduler-provided absolute stdout/stderr paths for jobs `ae348bd1-9a4` and `416d8c69-a53` were not visible inside this container, but both reported exit code 0 and the expected output artifacts were present in the workspace.

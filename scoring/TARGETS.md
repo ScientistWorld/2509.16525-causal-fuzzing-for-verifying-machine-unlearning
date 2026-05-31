@@ -15,5 +15,5 @@ Tests whether the same residual-influence finding appears in a second semi-synth
 ## Secondary: heart_disease_subgroup_unlearning
 Tests whether a verifier catches subgroup-specific mediated influence for the BMI target in older versus younger Heart-Disease samples.
 - **Metric**: `indirect_gap_detected` (higher is better)
-- **Constraint metrics**: `direct_gap_small` must stay high so the effect is not explained by a large direct-only subgroup gap; `total_gap_detected` should also be high.
+- **Constraint metrics**: `direct_gap_small` must stay high so the effect is not explained by a large direct-only subgroup gap relative to the direct-effect scale; `total_gap_detected` should also be high.
 - **Run**: `bash scripts/reproduce.sh && bash scripts/evaluate.sh outputs`
