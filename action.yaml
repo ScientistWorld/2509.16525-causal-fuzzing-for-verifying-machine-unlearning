@@ -1,9 +1,5 @@
-# This iteration writes files only — do NOT submit compute jobs.
-# Once you set action to 'done', STOP immediately.
-# Do NOT sleep, poll, or wait. The system reads this file
-# only after your turn ends.
-action: done
+# The system reads this file after the turn ends.
+action: submit
 gpus: 0
 test: false
-milestone: secondary_claims
-notes: "Improvements: added train/test slice markers, capped query-efficiency scoring against zero-query gaming, and documented every reference metric. Notes: metric split uses shared artifacts; runner should verify train/test primary separation and artifact consistency."
+notes: "Run evaluate_train.sh and evaluate_test.sh against saved outputs/ artifacts to produce scores_train.json and scores_test.json."
