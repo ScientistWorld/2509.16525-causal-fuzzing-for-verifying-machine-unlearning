@@ -76,6 +76,11 @@ def evaluate(outputs_dir: Path) -> dict:
             direct_gap = float(subgroup["direct_gap_abs"])
             indirect_gap = float(subgroup["indirect_gap"])
             total_gap = float(subgroup["total_gap"])
+            positive_indirect_gap = max(indirect_gap, 0.0)
+            residual_score = positive_indirect_gap / max(
+                positive_indirect_gap + direct_gap,
+                1e-12,
+            )
             cafe_direct_scale = max(
                 (
                     abs(float(subgroup["age_gt_50"]["direct_effect"]))
@@ -92,6 +97,7 @@ def evaluate(outputs_dir: Path) -> dict:
                         "direct_gap_small": 1.0 if direct_gap / cafe_direct_scale <= 0.2 else 0.0,
                         "indirect_gap": indirect_gap,
                         "indirect_gap_detected": 1.0 if indirect_gap > 0.05 else 0.0,
+                        "subgroup_residual_score": residual_score,
                         "total_gap": total_gap,
                         "total_gap_detected": 1.0 if total_gap > 0.05 else 0.0,
                     },
@@ -100,6 +106,7 @@ def evaluate(outputs_dir: Path) -> dict:
                         "direct_gap_small": 1.0 if baseline_direct_gap <= 0.15 else 0.0,
                         "indirect_gap": 0.0,
                         "indirect_gap_detected": 0.0,
+                        "subgroup_residual_score": 0.0,
                         "total_gap": 0.0,
                         "total_gap_detected": 0.0,
                     },

@@ -1,10 +1,11 @@
 #!/bin/bash
-# Run the visible and held-out evaluation slices against all discovered method
-# artifacts in outputs/.
+# Standard reproduction job: generate method/baseline artifacts, score them,
+# and validate the main reproduction claim.
 
 set -e
 
 cd /home/user
 
-bash scripts/evaluate_train.sh outputs
-bash scripts/evaluate_test.sh outputs
+bash scripts/reproduce.sh
+bash scripts/evaluate.sh outputs
+python validate.py --compare --post-reproducer

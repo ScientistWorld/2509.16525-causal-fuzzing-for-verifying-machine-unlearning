@@ -2,4 +2,5 @@
 action: done
 gpus: 0
 test: false
-notes: "Metric split over saved outputs; 19 train metrics, 19 test metrics. Cafe primary train→test: heart rank_score 0.75→0.8125, performance rank_score 0.6667→0.75, subgroup_residual_score 0.8276→0.7059. validate.py --post-design passes."
+milestone: secondary_claims
+notes: "Actual CAFE method has scheduler-verified scores supporting the core claim on Heart-Disease and Performance and the subgroup secondary claim. Main evaluator now emits subgroup_residual_score; validate.py --compare --post-reproducer passes."
