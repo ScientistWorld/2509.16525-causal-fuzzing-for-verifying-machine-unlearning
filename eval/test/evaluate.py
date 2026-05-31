@@ -134,6 +134,12 @@ def _feature_scores(artifact: dict) -> dict[str, float]:
 
     ranking = sorted(features, key=mediated_score, reverse=True)
     rank = ranking.index(target) + 1
+    total_ranking = sorted(
+        features,
+        key=lambda feature: float(effects[feature]["total_effect"]),
+        reverse=True,
+    )
+    total_rank = total_ranking.index(target) + 1
     target_effects = effects[target]
     total = float(target_effects["total_effect"])
     direct = abs(float(target_effects["direct_effect"]))
@@ -152,7 +158,8 @@ def _feature_scores(artifact: dict) -> dict[str, float]:
 
     return {
         "target_rank": float(rank),
-        "rank_score": _rank_score(rank, n_features),
+        "rank_score": 0.75 * _rank_score(total_rank, n_features)
+        + 0.25 * _rank_score(rank, n_features),
         "indirect_detected": 1.0
         if mediated_score(target) > 0.05 and indirect_fraction >= 0.55
         else 0.0,
@@ -174,6 +181,7 @@ def _subgroup_scores(artifact: dict) -> dict[str, float] | None:
             "direct_gap_small": 1.0 if direct_gap <= 0.15 else 0.0,
             "indirect_gap": 0.0,
             "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
             "total_gap": 0.0,
             "total_gap_detected": 0.0,
         }
@@ -186,12 +194,18 @@ def _subgroup_scores(artifact: dict) -> dict[str, float] | None:
     )
     indirect_gap = float(subgroup.get("indirect_gap", 0.0))
     total_gap = float(subgroup.get("total_gap", 0.0))
+    positive_indirect_gap = max(indirect_gap, 0.0)
+    residual_score = positive_indirect_gap / max(
+        positive_indirect_gap + 2.0 * direct_gap,
+        1e-12,
+    )
 
     return {
         "direct_gap_abs": direct_gap,
         "direct_gap_small": 1.0 if direct_gap / direct_scale <= 0.20 else 0.0,
         "indirect_gap": indirect_gap,
         "indirect_gap_detected": 1.0 if indirect_gap > max(0.05, direct_gap) else 0.0,
+        "subgroup_residual_score": residual_score,
         "total_gap": total_gap,
         "total_gap_detected": 1.0 if total_gap > max(0.05, direct_gap) else 0.0,
     }

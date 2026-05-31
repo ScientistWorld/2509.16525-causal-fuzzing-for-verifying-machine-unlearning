@@ -163,6 +163,7 @@ def _subgroup_scores(artifact: dict) -> dict[str, float] | None:
             "direct_gap_small": 1.0 if direct_gap <= 0.15 else 0.0,
             "indirect_gap": 0.0,
             "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
             "total_gap": 0.0,
             "total_gap_detected": 0.0,
         }
@@ -175,12 +176,18 @@ def _subgroup_scores(artifact: dict) -> dict[str, float] | None:
     )
     indirect_gap = float(subgroup.get("indirect_gap", 0.0))
     total_gap = float(subgroup.get("total_gap", 0.0))
+    positive_indirect_gap = max(indirect_gap, 0.0)
+    residual_score = positive_indirect_gap / max(
+        positive_indirect_gap + direct_gap,
+        1e-12,
+    )
 
     return {
         "direct_gap_abs": direct_gap,
         "direct_gap_small": 1.0 if direct_gap / direct_scale <= 0.20 else 0.0,
         "indirect_gap": indirect_gap,
         "indirect_gap_detected": 1.0 if indirect_gap > 0.05 else 0.0,
+        "subgroup_residual_score": residual_score,
         "total_gap": total_gap,
         "total_gap_detected": 1.0 if total_gap > 0.05 else 0.0,
     }

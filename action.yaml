@@ -2,4 +2,4 @@
 action: submit
 gpus: 0
 test: false
-notes: "Run evaluate_train.sh and evaluate_test.sh against saved outputs/ artifacts to produce scores_train.json and scores_test.json."
+notes: "Re-run train/test evaluators after fixing saturated test rank scoring and subgroup primary metric differentiation."

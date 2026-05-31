@@ -8,7 +8,7 @@
           "fuzzing_agreement": 1.0,
           "indirect_detected": 1.0,
           "query_ratio_vs_fuzzing": 3.0,
-          "rank_score": 1.0,
+          "rank_score": 0.8125,
           "target_rank": 1.0
         },
         "direct_permutation": {
@@ -28,6 +28,7 @@
           "direct_gap_small": 1.0,
           "indirect_gap": 0.4721530572039021,
           "indirect_gap_detected": 1.0,
+          "subgroup_residual_score": 0.7058995316630144,
           "total_gap": 0.5705101385036082,
           "total_gap_detected": 1.0
         },
@@ -36,6 +37,7 @@
           "direct_gap_small": 0.0,
           "indirect_gap": 0.0,
           "indirect_gap_detected": 0.0,
+          "subgroup_residual_score": 0.0,
           "total_gap": 0.0,
           "total_gap_detected": 0.0
         }
@@ -48,7 +50,7 @@
           "fuzzing_agreement": 1.0,
           "indirect_detected": 1.0,
           "query_ratio_vs_fuzzing": 3.0,
-          "rank_score": 1.0,
+          "rank_score": 0.75,
           "target_rank": 1.0
         },
         "direct_permutation": {
