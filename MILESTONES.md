@@ -19,5 +19,4 @@
 - Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
 
 ## Stop Justification
-- Final verification accepted the validated three-experiment package at `secondary_claims`.
-- Additional paper claims such as graph-misspecification robustness remain future work because they were not present in the validated score artifacts.
+- Completed at milestone `secondary_claims`.
