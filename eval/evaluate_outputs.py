@@ -1,4 +1,4 @@
-"""Evaluate method artifacts without importing method code."""
+"""Evaluate verifier artifacts without importing method code."""
 
 from __future__ import annotations
 
@@ -6,112 +6,19 @@ import argparse
 import json
 from pathlib import Path
 
-
-def _load(path: Path) -> dict:
-    if not path.exists():
-        raise FileNotFoundError(f"Missing artifact: {path}")
-    return json.loads(path.read_text())
-
-
-def _rank_score(rank: int, n_features: int) -> float:
-    if n_features <= 1:
-        return 1.0
-    return float((n_features - rank) / (n_features - 1))
+from eval.train.evaluate import evaluate as evaluate_artifacts
 
 
 def evaluate(outputs_dir: Path) -> dict:
-    method_dir = outputs_dir / "method"
-    baseline_dir = outputs_dir / "baseline"
-    scores = {"experiments": {}}
+    """Score every compatible method artifact under an outputs directory.
 
-    for dataset in ["heart_disease", "performance"]:
-        cafe = _load(method_dir / f"{dataset}_cafe.json")
-        baseline = _load(baseline_dir / f"{dataset}_direct_permutation.json")
-        exp_name = f"{dataset}_feature_unlearning"
-        n_features = len(cafe["features"])
-        target = cafe["target_feature"]
-        effects = cafe["effects"]
-        ranking = sorted(
-            cafe["features"],
-            key=lambda feature: float(effects[feature]["total_effect"]),
-            reverse=True,
-        )
-        target_rank = ranking.index(target) + 1
-        target_effects = effects[target]
-        target_indirect = float(target_effects["indirect_effect"])
-        total = float(target_effects["total_effect"])
-        indirect_fraction = target_indirect / max(total, 1e-12)
-        indirect_detected = 1.0 if indirect_fraction >= 0.5 and target_indirect > 0.05 else 0.0
-        direct_near_zero = 1.0 if float(target_effects["direct_effect"]) <= 0.15 * max(total, 1e-12) else 0.0
-        fuzzing = cafe["causal_fuzzing"]
-        fuzz_total = float(fuzzing["total_effect"])
-        relative_error = abs(total - fuzz_total) / max(abs(fuzz_total), 1e-12)
-        cafe_fuzzing_agreement = 1.0 if relative_error <= 0.75 and target_indirect > 0 else 0.0
-        query_ratio = float(cafe["fuzzing_model_query_count"]) / max(
-            float(cafe["cafe_model_query_count"]), 1.0
-        )
-        scores["experiments"][exp_name] = {
-            "results": {
-                "direct_permutation": {
-                    "target_rank": float(baseline["target_total_rank"]),
-                    "rank_score": _rank_score(int(baseline["target_total_rank"]), n_features),
-                    "indirect_detected": 0.0,
-                    "direct_unlearned": 1.0,
-                    "fuzzing_agreement": 0.0,
-                    "query_ratio_vs_fuzzing": 0.0,
-                },
-                "cafe": {
-                    "target_rank": float(target_rank),
-                    "rank_score": _rank_score(int(target_rank), n_features),
-                    "indirect_detected": indirect_detected,
-                    "direct_unlearned": direct_near_zero,
-                    "fuzzing_agreement": cafe_fuzzing_agreement,
-                    "query_ratio_vs_fuzzing": query_ratio,
-                },
-            }
-        }
-        if dataset == "heart_disease":
-            subgroup = cafe["subgroup_unlearning"]
-            baseline_subgroup = baseline["subgroup_unlearning"]
-            direct_gap = float(subgroup["direct_gap_abs"])
-            indirect_gap = float(subgroup["indirect_gap"])
-            total_gap = float(subgroup["total_gap"])
-            positive_indirect_gap = max(indirect_gap, 0.0)
-            residual_score = positive_indirect_gap / max(
-                positive_indirect_gap + direct_gap,
-                1e-12,
-            )
-            cafe_direct_scale = max(
-                (
-                    abs(float(subgroup["age_gt_50"]["direct_effect"]))
-                    + abs(float(subgroup["age_le_50"]["direct_effect"]))
-                )
-                / 2.0,
-                1e-12,
-            )
-            baseline_direct_gap = float(baseline_subgroup["direct_gap_abs"])
-            scores["experiments"]["heart_disease_subgroup_unlearning"] = {
-                "results": {
-                    "cafe": {
-                        "direct_gap_abs": direct_gap,
-                        "direct_gap_small": 1.0 if direct_gap / cafe_direct_scale <= 0.2 else 0.0,
-                        "indirect_gap": indirect_gap,
-                        "indirect_gap_detected": 1.0 if indirect_gap > 0.05 else 0.0,
-                        "subgroup_residual_score": residual_score,
-                        "total_gap": total_gap,
-                        "total_gap_detected": 1.0 if total_gap > 0.05 else 0.0,
-                    },
-                    "direct_permutation": {
-                        "direct_gap_abs": baseline_direct_gap,
-                        "direct_gap_small": 1.0 if baseline_direct_gap <= 0.15 else 0.0,
-                        "indirect_gap": 0.0,
-                        "indirect_gap_detected": 0.0,
-                        "subgroup_residual_score": 0.0,
-                        "total_gap": 0.0,
-                        "total_gap_detected": 0.0,
-                    },
-                }
-            }
+    The train-slice evaluator contains the generic artifact discovery and metric
+    logic. The top-level score file keeps the same metrics but omits the slice
+    marker so it mirrors ``scoring/reference.json``.
+    """
+
+    scores = evaluate_artifacts(outputs_dir)
+    scores.pop("_slice", None)
     return scores
 
 
@@ -120,6 +27,7 @@ def main() -> None:
     parser.add_argument("--outputs-dir", default="outputs")
     parser.add_argument("--scores", default="scoring/scores.json")
     args = parser.parse_args()
+
     scores = evaluate(Path(args.outputs_dir))
     score_path = Path(args.scores)
     score_path.parent.mkdir(parents=True, exist_ok=True)

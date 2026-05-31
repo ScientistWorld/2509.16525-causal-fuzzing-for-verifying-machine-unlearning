@@ -1,1 +1,1 @@
-"""Data generators and loaders for the CAFÉ reproduction."""
+"""Data generators and loaders for residual-influence verification."""

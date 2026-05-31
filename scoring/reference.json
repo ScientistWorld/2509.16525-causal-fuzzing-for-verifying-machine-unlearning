@@ -2,6 +2,7 @@
   "experiments": {
     "heart_disease_feature_unlearning": {
       "description": "Semi-synthetic heart-disease feature-unlearning verification: the removed target feature should still be detected through indirect mediated influence.",
+      "notes": "The paper reports this setting mostly as feature-ranking figures rather than exact numeric table values. Reference values encode the reported qualitative target: direct-only checks miss the omitted smoking feature, while the proposed residual-influence verifier detects mediated influence. Query-count ratio is used as a machine-independent efficiency substitute for the paper's wall-clock runtime comparison.",
       "weight": 0.4,
       "primary_metric": "rank_score",
       "metrics": {
@@ -28,7 +29,7 @@
         "fuzzing_agreement": {
           "higher_is_better": true,
           "coefficient": 0.5,
-          "description": "Indicator that the fast estimator remains consistent with causal fuzzing on the target effect."
+          "description": "Indicator that the submitted verifier remains consistent with an intervention-oracle artifact on the target effect."
         },
         "query_ratio_vs_fuzzing": {
           "higher_is_better": true,
@@ -59,6 +60,7 @@
     },
     "performance_feature_unlearning": {
       "description": "Semi-synthetic performance feature-unlearning verification: the removed protected feature should be detected through indirect paths while direct influence remains small.",
+      "notes": "The paper reports this setting primarily through rankings and bar plots. Reference values encode the reported qualitative behavior: direct-only checks miss the omitted protected feature, while mediated residual influence is detected. Query-count ratio is used as a machine-independent efficiency substitute for wall-clock runtime.",
       "weight": 0.35,
       "primary_metric": "rank_score",
       "metrics": {
@@ -85,7 +87,7 @@
         "fuzzing_agreement": {
           "higher_is_better": true,
           "coefficient": 0.5,
-          "description": "Indicator that the fast estimator remains consistent with causal fuzzing on the target effect."
+          "description": "Indicator that the submitted verifier remains consistent with an intervention-oracle artifact on the target effect."
         },
         "query_ratio_vs_fuzzing": {
           "higher_is_better": true,
@@ -116,6 +118,7 @@
     },
     "heart_disease_subgroup_unlearning": {
       "description": "Subgroup unlearning analysis on Heart-Disease: indirect mediated influence should differ across age groups even when direct effects are similar.",
+      "notes": "The paper's subgroup claim is qualitative and figure-based. Reference values encode the intended direction: small direct-effect gap but detectable mediated and total residual-influence gaps between age subgroups.",
       "weight": 0.25,
       "primary_metric": "subgroup_residual_score",
       "metrics": {

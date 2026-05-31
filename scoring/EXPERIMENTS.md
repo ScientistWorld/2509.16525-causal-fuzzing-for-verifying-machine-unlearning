@@ -1,12 +1,12 @@
 # Experiment Overview
 
 ## heart_disease_feature_unlearning
-Tests whether an audit can identify that a removed health-behavior feature still affects model predictions through other observed health variables. This is the paper's clearest semi-synthetic demonstration that direct-only verification can give false confidence.
-The score also checks that the fast audit agrees with a slower intervention oracle while using fewer model queries.
+Tests whether an audit can identify that a removed health-behavior feature still affects model predictions through other observed health variables. This setting checks whether direct-only verification can give false confidence.
+The score also checks agreement with an intervention-oracle artifact while rewarding lower model-query use.
 
 ## performance_feature_unlearning
 Tests whether residual influence of a removed protected attribute is detectable in a second tabular setting where downstream socioeconomic variables carry mediated signal. This checks that the effect is not specific to one synthetic causal graph.
-The score also checks that the fast audit agrees with a slower intervention oracle while using fewer model queries.
+The score also checks agreement with an intervention-oracle artifact while rewarding lower model-query use.
 
 ## heart_disease_subgroup_unlearning
-Tests whether an audit can surface that the same health feature has different mediated residual influence in older and younger subgroups even when direct-only subgroup effects remain small. This corresponds to the paper's claim that targeted subgroup unlearning can hide failures if only direct effects are inspected.
+Tests whether an audit can surface that the same health feature has different mediated residual influence in older and younger subgroups even when direct-only subgroup effects remain small.

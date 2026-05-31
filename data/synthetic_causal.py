@@ -1,8 +1,7 @@
 """Semi-synthetic tabular datasets with known causal DAGs.
 
-The paper evaluates CAFÉ on semi-synthetic heart-disease and performance
-datasets. These generators keep the same kind of tabular causal structure:
-an upstream target feature has little or no direct access in the audited model,
+These generators define fixed residual-influence verification tasks: an
+upstream target feature has little or no direct access in the audited model,
 but affects model predictions through downstream mediators.
 """
 
