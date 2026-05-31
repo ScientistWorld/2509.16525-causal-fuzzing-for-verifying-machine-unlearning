@@ -232,6 +232,30 @@ Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, trai
 
 </details>
 
+### Iteration 6: gpt-5.5 (designer_stage_3)
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 4m | **GPU**: 0.0h
+- **Jobs**: 7 total (6 completed, 1 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-31 16:12] - none
+- Audited the existing scaffold and found that the previous CAFÉ estimator used adjusted regression coefficients rather than the paper's expected-prediction contrast.
+- Replaced the CAFÉ path with a backdoor/mediator-conditioned expected prediction contrast estimator and submitted a fresh CPU job to verify it end-to-end.
+
+### [2026-05-31 16:16] - core_claim_plus
+- CPU job `8970ea62-4e7` completed successfully with the patched CAFÉ estimator.
+- Reproduced the core claim on Heart-Disease and Performance feature-unlearning settings: CAFÉ detected mediated residual influence while direct permutation ranked the omitted target feature last.
+- The secondary subgroup experiment regressed after the estimator fix, so the Heart-Disease generator and scale-aware subgroup constraint were patched and another CPU job is being submitted.
+
+### [2026-05-31 16:20] - secondary_claims
+- CPU job `5a7287c3-8f1` completed successfully after the subgroup-generator patch.
+- `python validate.py --compare` passes in the scheduler container.
+- Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
+
+</details>
+
 
 ---
 
