@@ -3,4 +3,4 @@ action: done
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Actual CAFE method has scheduler-verified scores supporting the core claim on Heart-Disease and Performance and the subgroup secondary claim. Main evaluator now emits subgroup_residual_score; validate.py --compare --post-reproducer passes."
+notes: "Packaging audit complete: no external artifacts are required; scripts/download.sh creates data/downloads for reproducible synthetic-data runs."
