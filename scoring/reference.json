@@ -1,0 +1,82 @@
+{
+  "experiments": {
+    "heart_disease_feature_unlearning": {
+      "description": "Semi-synthetic heart-disease feature-unlearning verification: the removed target feature should still be detected through indirect mediated influence.",
+      "weight": 0.5,
+      "primary_metric": "rank_score",
+      "metrics": {
+        "target_rank": {
+          "higher_is_better": false,
+          "coefficient": -0.5
+        },
+        "rank_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        },
+        "indirect_detected": {
+          "higher_is_better": true,
+          "coefficient": 0.8
+        },
+        "direct_unlearned": {
+          "higher_is_better": true,
+          "coefficient": 0.5
+        }
+      },
+      "results": {
+        "direct_permutation": {
+          "type": "baseline",
+          "target_rank": 5.0,
+          "rank_score": 0.0,
+          "indirect_detected": 0.0,
+          "direct_unlearned": 1.0
+        },
+        "cafe": {
+          "type": "proposed",
+          "target_rank": 1.0,
+          "rank_score": 1.0,
+          "indirect_detected": 1.0,
+          "direct_unlearned": 1.0
+        }
+      }
+    },
+    "performance_feature_unlearning": {
+      "description": "Semi-synthetic performance feature-unlearning verification: the removed protected feature should be detected through indirect paths while direct influence remains small.",
+      "weight": 0.5,
+      "primary_metric": "rank_score",
+      "metrics": {
+        "target_rank": {
+          "higher_is_better": false,
+          "coefficient": -0.5
+        },
+        "rank_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        },
+        "indirect_detected": {
+          "higher_is_better": true,
+          "coefficient": 0.8
+        },
+        "direct_unlearned": {
+          "higher_is_better": true,
+          "coefficient": 0.5
+        }
+      },
+      "results": {
+        "direct_permutation": {
+          "type": "baseline",
+          "target_rank": 4.0,
+          "rank_score": 0.0,
+          "indirect_detected": 0.0,
+          "direct_unlearned": 1.0
+        },
+        "cafe": {
+          "type": "proposed",
+          "target_rank": 2.0,
+          "rank_score": 0.6666666667,
+          "indirect_detected": 1.0,
+          "direct_unlearned": 1.0
+        }
+      }
+    }
+  }
+}

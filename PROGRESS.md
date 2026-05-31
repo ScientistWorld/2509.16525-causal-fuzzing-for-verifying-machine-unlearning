@@ -2,36 +2,28 @@
 
 ## What Works
 
-<!-- What has been successfully reproduced so far. -->
+- Implemented the paper's CAFÉ-style adjusted causal effect estimator for total, direct, and indirect residual influence.
+- Implemented two semi-synthetic tabular settings modeled after the paper's Heart-Disease and Performance experiments.
+- Implemented a direct permutation baseline that fails to detect influence from omitted target features.
+- Implemented `scripts/reproduce.sh` and `scripts/evaluate.sh`; evaluation reads artifacts only and does not import from `method/`.
 
 ## Results
 
-<!-- Reproduced numbers compared to the paper's reported numbers. -->
+- Local smoke test on 1,000 samples: Heart-Disease target smoking ranked 1st by CAFÉ and last by direct permutation.
+- Local smoke test on 1,000 samples: Performance target gender ranked 2nd by CAFÉ and last by direct permutation, with indirect influence detected and near-zero direct influence.
+- Full-size 10,000-sample run is queued via `scripts/run.sh`.
 
 ## Remaining
 
-<!-- What still needs to be done to reach higher milestones. -->
+- Run the containerized job to produce official `scoring/scores.json`.
+- If the job passes, update milestone to `core_claim`; if it fails, fix and resubmit.
 
 ## Issues
 
-<!-- Blockers, bugs, or difficulties encountered. -->
+- The paper markdown does not include concrete training hyperparameters or a repository URL despite mentioning an open-sourced prototype.
+- Most reported values for the core ranking experiments are qualitative or figure-based; `reference.json` encodes the paper-supported rank/detection claims rather than copying unreported bar heights.
 
 ## Deviations from Paper
 
-<!-- Do not edit this section unless you deviated from the paper's original setup.
-     For each deviation, document: what the paper used, what you substituted, and why.
-
-     ACCEPTABLE deviations (data/resource/scale substitutions — milestones still valid):
-       - Replaced a proprietary dataset with a public one
-       - Used a smaller model of the same architecture
-       - Scaled down training (fewer epochs, smaller batch)
-       - Used a different library for the same algorithm
-
-     UNACCEPTABLE deviations (algorithm substitutions — milestones above 'none' are void):
-       - Replaced the paper's algorithm with a fundamentally different one
-       - Wrote a generic model trained to approximate the method's outputs
-         instead of implementing the method's computational steps
-
-     The test: could someone reading your code identify which algorithm from
-     the paper you implemented? If not, you replaced the method. -->
-
+- The paper's exact semi-synthetic structural equations were not provided. I recreated semi-synthetic datasets with the same causal roles and evaluation phenomenon: the target feature is omitted from the audited model but retains mediated influence through downstream variables.
+- The paper evaluates additional real-world datasets and architectures. This first reproduction focuses on the two semi-synthetic settings needed for the core claim.

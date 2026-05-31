@@ -10,5 +10,13 @@ set -e
 
 cd /home/user
 
-# TODO: run the paper's method
-# TODO: call scripts/evaluate.sh to score
+DATASETS=("$@")
+if [ ${#DATASETS[@]} -eq 0 ]; then
+  DATASETS=(heart_disease performance)
+fi
+
+python -m method.cafe --datasets "${DATASETS[@]}" --output-dir outputs/method
+
+if [ -d outputs/baseline ]; then
+  bash scripts/evaluate.sh outputs
+fi

@@ -1,17 +1,13 @@
 # Problem Definition
 
-What problem does this paper address? Write this so that someone with no knowledge of the paper can understand what needs to be solved and how success is measured.
-
-Do NOT describe the paper's method or solution here — only the problem itself. Think about if a future scientist agent try to solve this problem from scratch without knowing what approach the paper took. If you leak the solution, you compromise the benchmark.
-
 ## Research Question
 
-<!-- What problem or challenge does this paper tackle? What gap in existing work does it address? -->
+How can a deployed black-box tabular ML model be audited to determine whether a specified feature or feature-subgroup target still influences predictions after unlearning?
 
 ## Why It Matters
 
-<!-- Why is this problem important? What would a good solution enable? Make it short -->
+Unlearning claims are difficult to verify when the removed signal can still affect predictions through correlated or downstream variables. A useful verifier should detect residual influence without requiring model weights, gradients, or training logs.
 
 ## Success Criteria
 
-<!-- What would a successful solution look like? What properties should it have? This is about the goal, not the paper's specific approach. Make it short -->
+An effective verifier should identify target features with residual influence, separate direct influence from mediated influence, work with prediction-only access, and expose cases where direct-only attribution methods incorrectly conclude that unlearning succeeded.

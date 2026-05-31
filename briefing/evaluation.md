@@ -4,12 +4,15 @@ How success is measured. Describe only the metrics, targets, and evaluation proc
 
 ## Metrics
 
-<!-- What metrics are used? How are they computed? What does higher/lower mean? -->
+- `target_rank`: rank of the unlearned target feature by residual influence; lower is better.
+- `rank_score`: normalized rank quality, where 1 means the target is ranked first and 0 means last; higher is better.
+- `indirect_detected`: binary indicator that the verifier found substantial mediated residual influence; higher is better.
+- `direct_unlearned`: binary indicator that the direct effect is near zero after direct feature removal; higher is better.
 
 ## Baselines and Targets
 
-<!-- What performance levels exist as reference points? Include the paper's reported numbers as targets, and any standard baselines. A scientist agent should know what "good" looks like. -->
+The main baseline is direct permutation importance, representative of direct-only attribution checks. The target behavior is that direct-only checks rank the removed feature last or near-last, while a successful verifier still detects residual mediated influence. The paper reports this most explicitly for the semi-synthetic Heart-Disease setting: smoking is ranked first by the proposed verifier and ground truth, while conventional methods rank it second-last or lower.
 
 ## Evaluation Protocol
 
-<!-- How should evaluation be run? What data split, what conditions? Any important details about how to compare fairly (e.g., fixed seeds, specific test sets, averaging over runs). -->
+Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, train black-box random-forest predictors with the target feature omitted, run the direct-only baseline and proposed verifier, and write comparable artifacts under `outputs/`. Then run `scripts/evaluate.sh outputs`; evaluation reads only those artifacts and writes `scoring/scores.json`.

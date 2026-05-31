@@ -18,7 +18,9 @@ set -e
 
 cd /home/user
 
-# TODO: implement full reproduction pipeline
-# e.g.:
-#   bash scripts/baseline.sh
-#   bash scripts/method.sh
+rm -rf outputs
+mkdir -p outputs
+
+bash scripts/baseline.sh heart_disease performance
+bash scripts/method.sh heart_disease performance
+bash scripts/evaluate.sh outputs

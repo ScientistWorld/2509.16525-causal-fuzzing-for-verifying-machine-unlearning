@@ -80,6 +80,7 @@ shared/
 
 # Credentials — never commit
 .git-credentials
+.git-shims/
 .env
 .envrc
 .claude/
@@ -140,6 +141,8 @@ nvidia/cu*/
 tmp_pip/
 tmp_pkgs/
 tmp_pylib*/
+tmp/*
+!tmp/.gitkeep
 site-packages/
 *.egg-info/
 node_modules/

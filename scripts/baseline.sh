@@ -17,4 +17,9 @@ set -e
 
 cd /home/user
 
-# TODO: run baseline
+DATASETS=("$@")
+if [ ${#DATASETS[@]} -eq 0 ]; then
+  DATASETS=(heart_disease performance)
+fi
+
+python -m baseline.direct_permutation --datasets "${DATASETS[@]}" --output-dir outputs/baseline
