@@ -50,6 +50,37 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         "target_total_effect": scores[target],
         "prediction_r2": float(model.score(test[model_features], test[dataset.outcome])),
     }
+    if dataset.name == "heart_disease":
+        subgroup_feature = "bmi"
+        subgroup_scores = {}
+        for label, rows in {
+            "age_le_50": test[test["age"] <= 50],
+            "age_gt_50": test[test["age"] > 50],
+        }.items():
+            subgroup_result = permutation_importance(
+                model,
+                rows[model_features],
+                rows[dataset.outcome],
+                n_repeats=8,
+                random_state=seed,
+                n_jobs=1,
+            )
+            importances = {
+                feature: float(abs(score))
+                for feature, score in zip(
+                    model_features, subgroup_result.importances_mean
+                )
+            }
+            subgroup_scores[label] = importances[subgroup_feature]
+        payload["subgroup_unlearning"] = {
+            "feature": subgroup_feature,
+            "split": "age > 50 vs age <= 50",
+            "age_le_50_direct_importance": subgroup_scores["age_le_50"],
+            "age_gt_50_direct_importance": subgroup_scores["age_gt_50"],
+            "direct_gap_abs": float(
+                abs(subgroup_scores["age_gt_50"] - subgroup_scores["age_le_50"])
+            ),
+        }
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / f"{dataset.name}_direct_permutation.json").write_text(
         json.dumps(payload, indent=2, sort_keys=True)

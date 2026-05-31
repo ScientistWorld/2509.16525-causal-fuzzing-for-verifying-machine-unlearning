@@ -63,6 +63,33 @@ def evaluate(outputs_dir: Path) -> dict:
                 },
             }
         }
+        if dataset == "heart_disease":
+            subgroup = cafe["subgroup_unlearning"]
+            baseline_subgroup = baseline["subgroup_unlearning"]
+            direct_gap = float(subgroup["direct_gap_abs"])
+            indirect_gap = float(subgroup["indirect_gap"])
+            total_gap = float(subgroup["total_gap"])
+            baseline_direct_gap = float(baseline_subgroup["direct_gap_abs"])
+            scores["experiments"]["heart_disease_subgroup_unlearning"] = {
+                "results": {
+                    "cafe": {
+                        "direct_gap_abs": direct_gap,
+                        "direct_gap_small": 1.0 if direct_gap <= 0.15 else 0.0,
+                        "indirect_gap": indirect_gap,
+                        "indirect_gap_detected": 1.0 if indirect_gap > 0.05 else 0.0,
+                        "total_gap": total_gap,
+                        "total_gap_detected": 1.0 if total_gap > 0.05 else 0.0,
+                    },
+                    "direct_permutation": {
+                        "direct_gap_abs": baseline_direct_gap,
+                        "direct_gap_small": 1.0 if baseline_direct_gap <= 0.15 else 0.0,
+                        "indirect_gap": 0.0,
+                        "indirect_gap_detected": 0.0,
+                        "total_gap": 0.0,
+                        "total_gap_detected": 0.0,
+                    },
+                }
+            }
     return scores
 
 

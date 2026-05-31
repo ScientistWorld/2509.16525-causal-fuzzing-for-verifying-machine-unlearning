@@ -238,6 +238,37 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         ),
         "prediction_r2": float(model.score(test[model_features], test[dataset.outcome])),
     }
+    if dataset.name == "heart_disease":
+        young = scored[scored["age"] <= 50]
+        older = scored[scored["age"] > 50]
+        subgroup_feature = "bmi"
+        young_effects = cafe_scores(
+            young,
+            features=dataset.features,
+            outcome=dataset.outcome,
+            edges=dataset.edges,
+        )[subgroup_feature]
+        older_effects = cafe_scores(
+            older,
+            features=dataset.features,
+            outcome=dataset.outcome,
+            edges=dataset.edges,
+        )[subgroup_feature]
+        payload["subgroup_unlearning"] = {
+            "feature": subgroup_feature,
+            "split": "age > 50 vs age <= 50",
+            "age_le_50": young_effects,
+            "age_gt_50": older_effects,
+            "direct_gap_abs": float(
+                abs(older_effects["direct_effect"] - young_effects["direct_effect"])
+            ),
+            "indirect_gap": float(
+                older_effects["indirect_effect"] - young_effects["indirect_effect"]
+            ),
+            "total_gap": float(
+                older_effects["total_effect"] - young_effects["total_effect"]
+            ),
+        }
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / f"{dataset.name}_cafe.json").write_text(
         json.dumps(payload, indent=2, sort_keys=True)

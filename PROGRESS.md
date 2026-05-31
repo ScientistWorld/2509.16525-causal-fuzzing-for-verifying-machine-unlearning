@@ -5,6 +5,7 @@
 - Implemented the paper's CAFÉ-style adjusted causal effect estimator for total, direct, and indirect residual influence.
 - Added an Algorithm 1-style causal fuzzing oracle that learns structural equations for descendants, propagates interventions through the DAG, and records query-count artifacts for fidelity/efficiency scoring.
 - Implemented two semi-synthetic tabular settings modeled after the paper's Heart-Disease and Performance experiments.
+- Added a Heart-Disease subgroup-unlearning setting that tests whether mediated BMI influence differs for age > 50 versus age <= 50 while direct-only subgroup effects remain small.
 - Implemented a direct permutation baseline that fails to detect influence from omitted target features.
 - Implemented `scripts/reproduce.sh` and `scripts/evaluate.sh`; evaluation reads artifacts only and does not import from `method/`.
 
@@ -18,7 +19,7 @@
 ## Remaining
 
 - The environment is usable as a research gym at `core_claim_plus`.
-- Pending CPU test job: regenerate `outputs/` and `scoring/scores.json` after adding causal-fuzzing artifacts and query-ratio metrics.
+- Pending CPU test job: regenerate `outputs/` and `scoring/scores.json` after adding causal-fuzzing artifacts, query-ratio metrics, and subgroup-unlearning scoring.
 - Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding graph-misspecification sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
 - Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 

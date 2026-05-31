@@ -38,10 +38,11 @@ def make_heart_disease(n: int = 10_000, seed: int = 7) -> CausalDataset:
     smoking = rng.binomial(1, 0.42, n)
     exercise = (rng.normal(4.8, 1.4, n) - 1.15 * smoking - 0.004 * (age - 50)).clip(0, 9)
     bmi = 24.0 + 0.025 * (age - 50) + 6.4 * smoking - 0.75 * exercise + rng.normal(0, 1.2, n)
+    age_over_50 = np.maximum(age - 50, 0)
     blood_pressure = (
         104.0
         + 0.16 * age
-        + 2.15 * bmi
+        + (1.75 + 0.035 * age_over_50) * bmi
         + 12.0 * smoking
         - 1.6 * exercise
         + rng.normal(0, 4.5, n)

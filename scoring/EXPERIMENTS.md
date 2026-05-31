@@ -7,3 +7,6 @@ The score also checks that the fast audit agrees with a slower intervention orac
 ## performance_feature_unlearning
 Tests whether residual influence of a removed protected attribute is detectable in a second tabular setting where downstream socioeconomic variables carry mediated signal. This checks that the effect is not specific to one synthetic causal graph.
 The score also checks that the fast audit agrees with a slower intervention oracle while using fewer model queries.
+
+## heart_disease_subgroup_unlearning
+Tests whether an audit can surface that the same health feature has different mediated residual influence in older and younger subgroups even when direct-only subgroup effects remain small. This corresponds to the paper's claim that targeted subgroup unlearning can hide failures if only direct effects are inspected.
