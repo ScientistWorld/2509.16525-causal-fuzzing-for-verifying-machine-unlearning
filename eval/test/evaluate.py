@@ -15,6 +15,7 @@ from typing import Iterable
 
 DATASETS = ("heart_disease", "performance")
 SUBGROUP_EXPERIMENT = "heart_disease_subgroup_unlearning"
+MAX_QUERY_RATIO = 10.0
 
 
 def _load_json(path: Path) -> dict:
@@ -27,6 +28,12 @@ def _rank_score(rank: int, n_features: int) -> float:
     if n_features <= 1:
         return 1.0
     return float((n_features - rank) / (n_features - 1))
+
+
+def _query_ratio_score(fuzzing_queries: float, cafe_queries: float) -> float:
+    if fuzzing_queries <= 0 or cafe_queries <= 0:
+        return 0.0
+    return min(fuzzing_queries / cafe_queries, MAX_QUERY_RATIO)
 
 
 def _artifact_files(outputs_dir: Path) -> Iterable[Path]:
@@ -151,7 +158,7 @@ def _feature_scores(artifact: dict) -> dict[str, float]:
         else 0.0,
         "direct_unlearned": 1.0 if direct_fraction <= 0.12 else 0.0,
         "fuzzing_agreement": 1.0 if has_fuzzing and relative_error <= 0.75 and indirect > 0 else 0.0,
-        "query_ratio_vs_fuzzing": fuzzing_queries / max(cafe_queries, 1.0),
+        "query_ratio_vs_fuzzing": _query_ratio_score(fuzzing_queries, cafe_queries),
     }
 
 
@@ -212,7 +219,7 @@ def _methods_for_experiment(
 def evaluate(outputs_dir: Path, train_scores: Path | None = None) -> dict:
     artifacts = _discover_artifacts(outputs_dir)
     train_method_sets = _train_methods(train_scores) if train_scores is not None else None
-    scores = {"experiments": {}}
+    scores = {"_slice": "test", "experiments": {}}
 
     for dataset in DATASETS:
         experiment = f"{dataset}_feature_unlearning"

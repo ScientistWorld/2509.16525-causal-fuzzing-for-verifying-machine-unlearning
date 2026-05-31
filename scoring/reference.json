@@ -7,27 +7,33 @@
       "metrics": {
         "target_rank": {
           "higher_is_better": false,
-          "coefficient": -0.5
+          "coefficient": -0.5,
+          "description": "Rank of the unlearned target feature under the evaluated causal influence ordering."
         },
         "rank_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "Normalized reward for ranking the residual-influence target near the top."
         },
         "indirect_detected": {
           "higher_is_better": true,
-          "coefficient": 0.8
+          "coefficient": 0.8,
+          "description": "Indicator that residual mediated influence remains visible after direct unlearning."
         },
         "direct_unlearned": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Constraint indicator that the target's direct effect remains small."
         },
         "fuzzing_agreement": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Indicator that the fast estimator remains consistent with causal fuzzing on the target effect."
         },
         "query_ratio_vs_fuzzing": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "Machine-independent query-count advantage over causal fuzzing, capped by the train/test evaluators."
         }
       },
       "results": {
@@ -58,27 +64,33 @@
       "metrics": {
         "target_rank": {
           "higher_is_better": false,
-          "coefficient": -0.5
+          "coefficient": -0.5,
+          "description": "Rank of the unlearned protected feature under the evaluated causal influence ordering."
         },
         "rank_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "Normalized reward for ranking the residual-influence target near the top."
         },
         "indirect_detected": {
           "higher_is_better": true,
-          "coefficient": 0.8
+          "coefficient": 0.8,
+          "description": "Indicator that residual mediated influence remains visible after direct unlearning."
         },
         "direct_unlearned": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Constraint indicator that the target's direct effect remains small."
         },
         "fuzzing_agreement": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Indicator that the fast estimator remains consistent with causal fuzzing on the target effect."
         },
         "query_ratio_vs_fuzzing": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "Machine-independent query-count advantage over causal fuzzing, capped by the train/test evaluators."
         }
       },
       "results": {
@@ -109,27 +121,33 @@
       "metrics": {
         "direct_gap_abs": {
           "higher_is_better": false,
-          "coefficient": -0.4
+          "coefficient": -0.4,
+          "description": "Absolute direct-effect gap between the two Heart-Disease age subgroups."
         },
         "direct_gap_small": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Constraint indicator that subgroup disparity is not explained by a large direct-effect gap."
         },
         "indirect_gap": {
           "higher_is_better": true,
-          "coefficient": 0.7
+          "coefficient": 0.7,
+          "description": "Magnitude of the mediated-effect gap between the two age subgroups."
         },
         "indirect_gap_detected": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "Indicator that the evaluator detects subgroup-specific mediated residual influence."
         },
         "total_gap": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Magnitude of the total-effect gap between the two age subgroups."
         },
         "total_gap_detected": {
           "higher_is_better": true,
-          "coefficient": 0.7
+          "coefficient": 0.7,
+          "description": "Indicator that total subgroup influence differs after accounting for mediated paths."
         }
       },
       "results": {
