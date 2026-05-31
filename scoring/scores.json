@@ -1,0 +1,36 @@
+{
+  "experiments": {
+    "heart_disease_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_unlearned": 1.0,
+          "indirect_detected": 1.0,
+          "rank_score": 1.0,
+          "target_rank": 1.0
+        },
+        "direct_permutation": {
+          "direct_unlearned": 1.0,
+          "indirect_detected": 0.0,
+          "rank_score": 0.0,
+          "target_rank": 5.0
+        }
+      }
+    },
+    "performance_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_unlearned": 1.0,
+          "indirect_detected": 1.0,
+          "rank_score": 0.6666666666666666,
+          "target_rank": 2.0
+        },
+        "direct_permutation": {
+          "direct_unlearned": 1.0,
+          "indirect_detected": 0.0,
+          "rank_score": 0.0,
+          "target_rank": 4.0
+        }
+      }
+    }
+  }
+}
