@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
-gpus: 0
-test: true
-milestone: core_claim_plus
-notes: "Job ae348bd1-9a4 completed successfully. CAFÉ reproduced the core feature-unlearning verification claim on Heart-Disease and Performance semi-synthetic settings; validate.py --compare passes and scoring/scores.json is populated."
+action: pending
+gpus: 1
+test: false
+milestone: core_claim
+notes: ""
