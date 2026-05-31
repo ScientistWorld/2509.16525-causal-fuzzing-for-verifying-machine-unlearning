@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: true
 milestone: core_claim
-notes: "CPU smoke test after adding causal-fuzzing fidelity metrics and a Heart-Disease subgroup-unlearning experiment; regenerate outputs and scores through scripts/reproduce.sh."
+notes: "Retry CPU validation after removing undeclared diagnostic metrics from scores; regenerate outputs and validate all three experiments through scripts/reproduce.sh."

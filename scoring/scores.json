@@ -5,8 +5,6 @@
         "cafe": {
           "direct_unlearned": 1.0,
           "fuzzing_agreement": 1.0,
-          "fuzzing_indirect_effect": 3.9336786324705475,
-          "fuzzing_total_effect": 3.9336786324705475,
           "indirect_detected": 1.0,
           "query_ratio_vs_fuzzing": 3.0,
           "rank_score": 1.0,
@@ -47,8 +45,6 @@
         "cafe": {
           "direct_unlearned": 1.0,
           "fuzzing_agreement": 1.0,
-          "fuzzing_indirect_effect": 2.7659050013177278,
-          "fuzzing_total_effect": 2.7659050013177278,
           "indirect_detected": 1.0,
           "query_ratio_vs_fuzzing": 3.0,
           "rank_score": 0.6666666666666666,

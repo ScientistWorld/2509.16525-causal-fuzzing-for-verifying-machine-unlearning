@@ -15,11 +15,13 @@
 - `python validate.py --compare` passes: `reference.json` and `scores.json` validate, evaluation remains separated from `method/`, and no committed code references `shared/`.
 - Heart-Disease feature-unlearning: CAFÉ ranked the omitted target feature `smoking` 1st with `rank_score=1.0`, `indirect_detected=1.0`, and `direct_unlearned=1.0`; direct permutation ranked it 5th with `rank_score=0.0`.
 - Performance feature-unlearning: CAFÉ ranked the omitted target feature `gender` 2nd with `rank_score=0.6666666667`, `indirect_detected=1.0`, and `direct_unlearned=1.0`; direct permutation ranked it 4th with `rank_score=0.0`.
+- Job `d51d701a-975` regenerated all artifacts but failed final validation because `scores.json` included two diagnostic fields not declared in `reference.json`. The evaluator now omits those diagnostics from the scoring contract while keeping the underlying method artifacts in `outputs/`.
+- Re-running `scripts/evaluate.sh outputs && python validate.py --compare` on the generated artifacts passes locally after the schema fix. A CPU test job is being resubmitted to verify the full clean reproduction path in the scheduler container.
 
 ## Remaining
 
 - The environment is usable as a research gym at `core_claim_plus`.
-- Pending CPU test job: regenerate `outputs/` and `scoring/scores.json` after adding causal-fuzzing artifacts, query-ratio metrics, and subgroup-unlearning scoring.
+- Pending CPU test job: regenerate `outputs/` and `scoring/scores.json` after removing undeclared diagnostic metrics from the evaluator output.
 - Higher milestones would require expanding beyond the accessible semi-synthetic reproduction, for example by reconstructing additional paper datasets, adding graph-misspecification sensitivity runs, or recovering the paper's open-source prototype if it becomes available.
 - Current audit found no reason to rewrite the environment; the existing `setup.sh` installs only Python dependencies and `container.def` is a reasonable CPU base.
 
