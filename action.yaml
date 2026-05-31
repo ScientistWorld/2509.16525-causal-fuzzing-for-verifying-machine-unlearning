@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: submit
+action: done
 gpus: 0
 test: true
-milestone: core_claim_plus
-notes: "CPU test job to verify the patched Heart-Disease subgroup generator and scale-aware direct-gap scoring after job 8970ea62-4e7 restored the core feature-unlearning claims but failed the secondary subgroup claim."
+milestone: secondary_claims
+notes: "Job 5a7287c3-8f1 verified the expected-contrast CAFE reproduction: core feature-unlearning claims on two semi-synthetic settings plus the Heart-Disease subgroup mediated-gap secondary claim. Validation passes."

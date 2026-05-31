@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: secondary_claims**
 
 ## Progress Log
 
@@ -13,5 +13,10 @@
 - Reproduced the core claim on Heart-Disease and Performance feature-unlearning settings: CAFÉ detected mediated residual influence while direct permutation ranked the omitted target feature last.
 - The secondary subgroup experiment regressed after the estimator fix, so the Heart-Disease generator and scale-aware subgroup constraint were patched and another CPU job is being submitted.
 
+### [2026-05-31 16:20] - secondary_claims
+- CPU job `5a7287c3-8f1` completed successfully after the subgroup-generator patch.
+- `python validate.py --compare` passes in the scheduler container.
+- Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
+
 ## Stop Justification
-- Not stopped; secondary subgroup verification is pending after a generator fix.
+- Stopped at `secondary_claims`. The reusable environment is validated and covers the core claim plus one secondary subgroup claim. Higher milestones would require reconstructing additional paper experiments such as real-world datasets, graph-misspecification sensitivity, and broader architecture comparisons.
