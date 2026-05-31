@@ -165,4 +165,7 @@ Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, trai
 
 # Reproduction Milestones
 
-**Current: secondary_claims**
+**Current: core_claim_plus**
+
+## Stop Justification
+- Completed at milestone `core_claim_plus`.

@@ -1,6 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
-milestone: secondary_claims
-notes: "CPU validation job 416d8c69-a53 completed successfully. The workspace reproduces the core CAFÉ residual-influence claim on two semi-synthetic settings plus the subgroup-unlearning secondary claim, and validate.py --compare passes."
+action: pending
+gpus: 1
+test: false
+milestone: core_claim_plus
+notes: ""
