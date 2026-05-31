@@ -229,6 +229,109 @@ def cafe_scores(
     return rows
 
 
+def _rank_change_pct(reference: list[str], candidate: list[str]) -> float:
+    if len(reference) <= 1:
+        return 0.0
+    ref_pos = {feature: idx for idx, feature in enumerate(reference)}
+    total_shift = sum(abs(ref_pos[feature] - idx) for idx, feature in enumerate(candidate))
+    max_shift = len(reference) * (len(reference) - 1)
+    return float(100.0 * total_shift / max_shift)
+
+
+def _feature_edges(
+    edges: list[tuple[str, str]], features: list[str]
+) -> list[tuple[str, str]]:
+    feature_set = set(features)
+    return [(src, dst) for src, dst in edges if src in feature_set and dst in feature_set]
+
+
+def _add_dag_edges(
+    edges: list[tuple[str, str]], features: list[str], fraction: float, seed: int
+) -> list[tuple[str, str]]:
+    rng = np.random.default_rng(seed)
+    existing = set(edges)
+    base_order = _topological_order(features, edges)
+    order = {feature: idx for idx, feature in enumerate(base_order)}
+    candidates = [
+        (src, dst)
+        for src in features
+        for dst in features
+        if src != dst and order[src] < order[dst] and (src, dst) not in existing
+    ]
+    rng.shuffle(candidates)
+    count = max(1, int(round(fraction * max(len(_feature_edges(edges, features)), 1))))
+    return edges + candidates[: min(count, len(candidates))]
+
+
+def _remove_dag_edges(
+    edges: list[tuple[str, str]], features: list[str], fraction: float, seed: int
+) -> list[tuple[str, str]]:
+    rng = np.random.default_rng(seed)
+    removable = _feature_edges(edges, features)
+    remove_count = max(1, int(round(fraction * len(removable)))) if removable else 0
+    remove_indices = set(
+        rng.choice(len(removable), size=min(remove_count, len(removable)), replace=False)
+    )
+    remove_edges = {edge for idx, edge in enumerate(removable) if idx in remove_indices}
+    return [edge for edge in edges if edge not in remove_edges]
+
+
+def _fully_connected_dag(
+    edges: list[tuple[str, str]], features: list[str]
+) -> list[tuple[str, str]]:
+    base_order = _topological_order(features, edges)
+    full_edges = {
+        (src, dst)
+        for src_index, src in enumerate(base_order)
+        for dst in base_order[src_index + 1 :]
+    }
+    return [edge for edge in edges if edge[1] not in features] + sorted(full_edges)
+
+
+def graph_robustness_scores(
+    scored: pd.DataFrame,
+    features: list[str],
+    outcome: str,
+    edges: list[tuple[str, str]],
+    reference_ranking: list[str],
+    seed: int,
+) -> dict[str, dict[str, float | int | list[str]]]:
+    """RQ3-style rank stability under causal-DAG misspecification.
+
+    The paper perturbs the causal graph by adding/removing edges and measures
+    how often CAFÉ's feature ranking changes. This keeps the audited model and
+    predictions fixed and only changes the adjustment/mediator sets used by
+    the estimator.
+    """
+
+    variants = {
+        "add_50pct_edges": _add_dag_edges(edges, features, fraction=0.50, seed=seed + 17),
+        "remove_25pct_edges": _remove_dag_edges(
+            edges, features, fraction=0.25, seed=seed + 23
+        ),
+        "remove_50pct_edges": _remove_dag_edges(
+            edges, features, fraction=0.50, seed=seed + 29
+        ),
+        "fully_connected_dag": _fully_connected_dag(edges, features),
+    }
+    rows: dict[str, dict[str, float | int | list[str]]] = {}
+    for name, variant_edges in variants.items():
+        effects = cafe_scores(
+            scored,
+            features=features,
+            outcome=outcome,
+            edges=variant_edges,
+            seed=seed,
+        )
+        ranking = sorted(effects, key=lambda f: effects[f]["total_effect"], reverse=True)
+        rows[name] = {
+            "ranking": ranking,
+            "rank_change_pct": _rank_change_pct(reference_ranking, ranking),
+            "edge_count": len(_feature_edges(variant_edges, features)),
+        }
+    return rows
+
+
 def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
     dataset = load_dataset(name, n=n, seed=seed)
     train, test = train_test_split(dataset.frame, test_size=0.35, random_state=seed)
@@ -281,6 +384,14 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         "target_direct_effect": effects[target]["direct_effect"],
         "target_indirect_effect": effects[target]["indirect_effect"],
         "causal_fuzzing": fuzzing,
+        "graph_robustness": graph_robustness_scores(
+            scored,
+            features=dataset.features,
+            outcome=dataset.outcome,
+            edges=dataset.edges,
+            reference_ranking=ranking,
+            seed=seed,
+        ),
         "cafe_model_query_count": int(len(scored)),
         "fuzzing_model_query_count": fuzzing["model_query_count"],
         "fuzzing_relative_total_error": float(

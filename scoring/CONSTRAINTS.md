@@ -10,7 +10,7 @@ Keep the black-box audited predictor family and target-feature omission used by 
 Do not edit `eval/` or `scripts/evaluate.sh` when reporting improved method scores. Evaluation must consume output artifacts in the same format and must not import from `method/`.
 
 ## Compliance Checklist
-- [ ] Scored experiments are `heart_disease_feature_unlearning`, `performance_feature_unlearning`, and `heart_disease_subgroup_unlearning`.
+- [ ] Scored experiments are `heart_disease_feature_unlearning`, `performance_feature_unlearning`, `heart_disease_subgroup_unlearning`, and `graph_misspecification_robustness`.
 - [ ] The removed target feature is not used as an input to the audited predictor.
 - [ ] No external data are added to the scored experiments.
 - [ ] `scripts/evaluate.sh` runs without importing from `method/`.

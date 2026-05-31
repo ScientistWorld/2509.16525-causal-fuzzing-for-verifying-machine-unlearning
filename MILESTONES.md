@@ -18,5 +18,9 @@
 - `python validate.py --compare` passes in the scheduler container.
 - Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
 
+### [2026-05-31 16:49] - secondary_claims
+- Added a new RQ3 graph-misspecification robustness experiment to the method artifacts and evaluator.
+- Submitting a CPU validation job before counting the new robustness experiment as reproduced.
+
 ## Stop Justification
-- Completed at milestone `secondary_claims`.
+- No stop signal in the current turn; graph-robustness validation is pending.

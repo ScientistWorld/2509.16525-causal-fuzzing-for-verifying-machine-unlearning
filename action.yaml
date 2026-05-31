@@ -1,6 +1,6 @@
 # The system reads this file after the turn ends.
-action: done
+action: submit
 gpus: 0
-test: false
+test: true
 milestone: secondary_claims
-notes: "Final verification passed; reusable evaluator and method-agnostic docs were tightened, milestone remains secondary_claims."
+notes: "CPU validation of the added graph-misspecification robustness experiment plus refreshed train/test score slices."

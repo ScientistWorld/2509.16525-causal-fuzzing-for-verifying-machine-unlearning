@@ -17,3 +17,9 @@ Tests whether a verifier catches subgroup-specific mediated influence for the BM
 - **Metric**: `subgroup_residual_score` (higher is better)
 - **Constraint metrics**: `direct_gap_small` must stay high so the effect is not explained by a large direct-only subgroup gap relative to the direct-effect scale; `indirect_gap_detected` and `total_gap_detected` should also be high.
 - **Run**: `bash scripts/reproduce.sh && bash scripts/evaluate.sh outputs`
+
+## Secondary: graph_misspecification_robustness
+Tests whether the verifier's feature rankings remain stable under moderate causal-DAG perturbations.
+- **Metric**: `moderate_robustness_score` (higher is better)
+- **Constraint metrics**: `add_50pct_rank_change_pct` and `remove_25pct_rank_change_pct` should stay small; `extreme_shift_present` checks that severe graph distortion is distinguishable from moderate misspecification.
+- **Run**: `bash scripts/reproduce.sh && bash scripts/evaluate.sh outputs`
