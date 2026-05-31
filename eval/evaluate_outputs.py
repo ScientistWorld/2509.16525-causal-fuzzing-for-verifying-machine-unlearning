@@ -29,14 +29,24 @@ def evaluate(outputs_dir: Path) -> dict:
         baseline = _load(baseline_dir / f"{dataset}_direct_permutation.json")
         exp_name = f"{dataset}_feature_unlearning"
         n_features = len(cafe["features"])
-        target_indirect = float(cafe["target_indirect_effect"])
-        total = float(cafe["target_total_effect"])
+        target = cafe["target_feature"]
+        effects = cafe["effects"]
+        ranking = sorted(
+            cafe["features"],
+            key=lambda feature: float(effects[feature]["total_effect"]),
+            reverse=True,
+        )
+        target_rank = ranking.index(target) + 1
+        target_effects = effects[target]
+        target_indirect = float(target_effects["indirect_effect"])
+        total = float(target_effects["total_effect"])
         indirect_fraction = target_indirect / max(total, 1e-12)
         indirect_detected = 1.0 if indirect_fraction >= 0.5 and target_indirect > 0.05 else 0.0
-        direct_near_zero = 1.0 if float(cafe["target_direct_effect"]) <= 0.15 * max(total, 1e-12) else 0.0
+        direct_near_zero = 1.0 if float(target_effects["direct_effect"]) <= 0.15 * max(total, 1e-12) else 0.0
         fuzzing = cafe["causal_fuzzing"]
         fuzz_total = float(fuzzing["total_effect"])
-        cafe_fuzzing_agreement = 1.0 if fuzz_total > 0 and target_indirect > 0 else 0.0
+        relative_error = abs(total - fuzz_total) / max(abs(fuzz_total), 1e-12)
+        cafe_fuzzing_agreement = 1.0 if relative_error <= 0.75 and target_indirect > 0 else 0.0
         query_ratio = float(cafe["fuzzing_model_query_count"]) / max(
             float(cafe["cafe_model_query_count"]), 1.0
         )
@@ -51,8 +61,8 @@ def evaluate(outputs_dir: Path) -> dict:
                     "query_ratio_vs_fuzzing": 0.0,
                 },
                 "cafe": {
-                    "target_rank": float(cafe["target_total_rank"]),
-                    "rank_score": _rank_score(int(cafe["target_total_rank"]), n_features),
+                    "target_rank": float(target_rank),
+                    "rank_score": _rank_score(int(target_rank), n_features),
                     "indirect_detected": indirect_detected,
                     "direct_unlearned": direct_near_zero,
                     "fuzzing_agreement": cafe_fuzzing_agreement,

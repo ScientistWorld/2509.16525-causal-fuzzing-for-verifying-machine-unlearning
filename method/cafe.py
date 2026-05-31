@@ -10,10 +10,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
 
 from data.synthetic_causal import load_dataset
 
@@ -131,24 +128,68 @@ def causal_fuzzing_effect(
     }
 
 
-def _standardized_linear_effect(
-    frame: pd.DataFrame, prediction_col: str, feature: str, controls: list[str]
-) -> float:
-    """Estimate an adjusted effect as the standardized coefficient of feature.
+def _intervention_values(values: pd.Series) -> tuple[float, float]:
+    """Choose the two treatment values used in Definition 4 contrasts."""
 
-    This implements the CAFÉ backdoor adjustment in a compact finite-sample
-    form: total effect adjusts for a valid backdoor set, while direct effect
-    additionally adjusts for mediators on directed paths to the outcome.
+    unique = np.sort(values.dropna().unique())
+    if len(unique) <= 1:
+        only = float(unique[0]) if len(unique) == 1 else 0.0
+        return only, only
+    if len(unique) == 2 and set(np.round(unique, 8)).issubset({0.0, 1.0}):
+        return float(unique[0]), float(unique[-1])
+    return float(values.quantile(0.25)), float(values.quantile(0.75))
+
+
+def _conditional_prediction_contrast(
+    frame: pd.DataFrame,
+    prediction_col: str,
+    feature: str,
+    controls: list[str],
+    seed: int,
+) -> dict[str, float | int | list[str]]:
+    """Finite-sample CAFÉ effect from adjusted expected prediction contrasts.
+
+    The paper's CAFÉ score compares black-box predictions under two values of a
+    target feature while adjusting for a valid backdoor set. For direct effects,
+    the adjustment set is augmented with mediators. We estimate the conditional
+    expectation E[M'(X) | feature, controls] with a lightweight regression model,
+    then average the prediction contrast over the empirical control distribution.
     """
 
-    columns = [feature] + [c for c in controls if c != feature]
-    x = frame[columns].to_numpy(dtype=float)
-    y = frame[prediction_col].to_numpy(dtype=float)
-    if np.std(x[:, 0]) < 1e-10 or np.std(y) < 1e-10:
-        return 0.0
-    reg = make_pipeline(StandardScaler(), LinearRegression())
-    reg.fit(x, y)
-    return float(abs(reg.named_steps["linearregression"].coef_[0]))
+    controls = [c for c in controls if c != feature]
+    theta_low, theta_high = _intervention_values(frame[feature])
+    if abs(theta_high - theta_low) < 1e-12 or frame[prediction_col].std() < 1e-12:
+        return {
+            "effect": 0.0,
+            "theta_low": theta_low,
+            "theta_high": theta_high,
+            "controls": controls,
+            "response_model_rows": int(len(frame)),
+        }
+
+    columns = [feature] + controls
+    response_model = RandomForestRegressor(
+        n_estimators=80,
+        min_samples_leaf=12,
+        random_state=seed,
+        n_jobs=1,
+    )
+    response_model.fit(frame[columns], frame[prediction_col])
+
+    low_rows = frame[columns].copy()
+    high_rows = frame[columns].copy()
+    low_rows[feature] = theta_low
+    high_rows[feature] = theta_high
+    low_mu = response_model.predict(low_rows)
+    high_mu = response_model.predict(high_rows)
+    effect = float(np.mean(np.abs(high_mu - low_mu)))
+    return {
+        "effect": effect,
+        "theta_low": theta_low,
+        "theta_high": theta_high,
+        "controls": controls,
+        "response_model_rows": int(len(frame)),
+    }
 
 
 def cafe_scores(
@@ -157,6 +198,7 @@ def cafe_scores(
     outcome: str,
     edges: list[tuple[str, str]],
     prediction_col: str = "prediction",
+    seed: int = 7,
 ) -> dict[str, dict[str, float | int]]:
     rows: dict[str, dict[str, float | int]] = {}
     for feature in features:
@@ -164,10 +206,14 @@ def cafe_scores(
         mediators = [
             d for d in _descendants(edges, feature) if d in features and d != outcome
         ]
-        total = _standardized_linear_effect(frame, prediction_col, feature, backdoor)
-        direct = _standardized_linear_effect(
-            frame, prediction_col, feature, backdoor + mediators
+        total_estimate = _conditional_prediction_contrast(
+            frame, prediction_col, feature, backdoor, seed=seed
         )
+        direct_estimate = _conditional_prediction_contrast(
+            frame, prediction_col, feature, backdoor + mediators, seed=seed + 101
+        )
+        total = float(total_estimate["effect"])
+        direct = float(direct_estimate["effect"])
         indirect = max(total - direct, 0.0)
         rows[feature] = {
             "total_effect": total,
@@ -175,6 +221,10 @@ def cafe_scores(
             "indirect_effect": indirect,
             "num_backdoor_controls": len(backdoor),
             "num_mediators": len(mediators),
+            "total_controls": total_estimate["controls"],
+            "direct_controls": direct_estimate["controls"],
+            "theta_low": total_estimate["theta_low"],
+            "theta_high": total_estimate["theta_high"],
         }
     return rows
 
@@ -198,6 +248,7 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
         features=dataset.features,
         outcome=dataset.outcome,
         edges=dataset.edges,
+        seed=seed,
     )
     fuzzing = causal_fuzzing_effect(
         scored,
@@ -247,12 +298,14 @@ def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
             features=dataset.features,
             outcome=dataset.outcome,
             edges=dataset.edges,
+            seed=seed,
         )[subgroup_feature]
         older_effects = cafe_scores(
             older,
             features=dataset.features,
             outcome=dataset.outcome,
             edges=dataset.edges,
+            seed=seed,
         )[subgroup_feature]
         payload["subgroup_unlearning"] = {
             "feature": subgroup_feature,

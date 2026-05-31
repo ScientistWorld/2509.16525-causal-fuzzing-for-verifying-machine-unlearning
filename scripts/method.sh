@@ -16,7 +16,3 @@ if [ ${#DATASETS[@]} -eq 0 ]; then
 fi
 
 python -m method.cafe --datasets "${DATASETS[@]}" --output-dir outputs/method
-
-if [ -d outputs/baseline ]; then
-  bash scripts/evaluate.sh outputs
-fi
