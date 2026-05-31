@@ -25,4 +25,4 @@
 - Both reproduced experiments match the reference rank and detection claims encoded from the paper.
 
 ## Stop Justification
-- Stopped at `core_claim_plus`: the core CAFÉ claim is reproduced on two accessible semi-synthetic settings and the reusable environment is packaged. Higher milestones would require reconstructing additional paper experiments whose exact data-generating equations and prototype repository were not available in the paper artifact.
+- Completed at milestone `core_claim_plus`.
