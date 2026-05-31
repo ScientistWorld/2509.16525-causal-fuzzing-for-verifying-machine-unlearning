@@ -1,5 +1,5 @@
 # The system reads this file after the turn ends.
-action: submit
+action: done
 gpus: 0
 test: false
-notes: "Re-run train/test evaluators after fixing saturated test rank scoring and subgroup primary metric differentiation."
+notes: "Metric split over saved outputs; 19 train metrics, 19 test metrics. Cafe primary train→test: heart rank_score 0.75→0.8125, performance rank_score 0.6667→0.75, subgroup_residual_score 0.8276→0.7059. validate.py --post-design passes."
