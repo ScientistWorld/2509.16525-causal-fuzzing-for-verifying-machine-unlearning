@@ -57,7 +57,7 @@ The paper also presents a causal-fuzzing oracle that intervenes on target featur
 
 # Evaluation
 
-How success is measured. Describe only the metrics, targets, and evaluation procedure — do NOT describe the paper's method or how they achieved these results. Think of this as a general evaluation protocal for other scientists trying to solve the same problem, where they should not see this paper's solution.
+How success is measured. Describe only the metrics, targets, and evaluation procedure — do NOT describe the paper's method or how they achieved these results. Think of this as a general evaluation protocol for other scientists trying to solve the same problem, where they should not see this paper's solution.
 
 ## Metrics
 
@@ -65,6 +65,10 @@ How success is measured. Describe only the metrics, targets, and evaluation proc
 - `rank_score`: normalized rank quality, where 1 means the target is ranked first and 0 means last; higher is better.
 - `indirect_detected`: binary indicator that the verifier found substantial mediated residual influence; higher is better.
 - `direct_unlearned`: binary indicator that the direct effect is near zero after direct feature removal; higher is better.
+- `fuzzing_agreement`: binary indicator that the fast verifier and a slower intervention oracle agree that mediated influence remains; higher is better.
+- `query_ratio_vs_fuzzing`: model-query ratio of the intervention oracle over the fast verifier; higher is better.
+- `indirect_gap_detected`: binary indicator that subgroup-specific mediated influence differs across target subpopulations; higher is better.
+- `direct_gap_small`: binary indicator that a subgroup result is not explained by a large direct-only subgroup difference; higher is better.
 
 ## Baselines and Targets
 
@@ -72,7 +76,7 @@ The main baseline is direct permutation importance, representative of direct-onl
 
 ## Evaluation Protocol
 
-Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, train black-box random-forest predictors with the target feature omitted, run the direct-only baseline and proposed verifier, and write comparable artifacts under `outputs/`. Then run `scripts/evaluate.sh outputs`; evaluation reads only those artifacts and writes `scoring/scores.json`.
+Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, train black-box random-forest predictors with the target feature omitted, run the direct-only baseline and verifier, and write comparable artifacts under `outputs/`. Then run `scripts/evaluate.sh outputs`; evaluation reads only those artifacts and writes `scoring/scores.json`.
 
 ---
 
@@ -131,12 +135,34 @@ Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, trai
 
 </details>
 
+### Iteration 2: gpt-5.5
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 9m | **GPU**: 0.0h
+- **Jobs**: 3 total (2 completed, 1 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-31 00:00] - core_claim
+- Existing reproduction implements CAFÉ-style causal residual influence scoring on two semi-synthetic feature-unlearning settings.
+- Audit found stale scores for newly added fidelity metrics and limited coverage of subgroup-unlearning claims.
+- Added a Heart-Disease subgroup-unlearning experiment for age-stratified mediated influence; pending containerized CPU validation before raising the milestone.
+
+### [2026-05-31 00:00] - core_claim
+- Job `d51d701a-975` ran the method and baseline artifacts but failed validation due to undeclared diagnostic score fields.
+- Fixed the evaluator to keep `scores.json` aligned with `reference.json`; local validation of the generated artifacts now passes.
+- Resubmitting a CPU test job to validate the full reproduction script after the fix.
+
+### [2026-05-31 00:00] - secondary_claims
+- CPU test job `416d8c69-a53` completed with exit code 0, regenerating method, baseline, and evaluation artifacts.
+- Final `python validate.py --compare` passes for the two feature-unlearning experiments and the Heart-Disease subgroup-unlearning experiment.
+- The reproduction now supports the core residual-influence claim and a secondary subgroup-unlearning claim; remaining paper coverage would require additional datasets and paper-specific implementation details that were not available in the markdown.
+
+</details>
+
 
 ---
 
 # Reproduction Milestones
 
-**Current: core_claim**
-
-## Stop Justification
-- Completed at milestone `core_claim`.
+**Current: secondary_claims**
