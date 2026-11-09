@@ -1,15 +1,28 @@
 # Research Direction
 
 ## Research Problem
-The research problem is black-box verification of machine unlearning for tabular models when a removed feature may still influence predictions indirectly through other variables.
+Black-box verification of machine unlearning for tabular models: deciding
+whether a removed feature, globally or within a subgroup, still influences a
+deployed model's predictions, directly or through other inputs it causally
+affects, using only predictions and a causal graph.
 
 ## Core Contribution
-The contribution area is causal residual-influence estimation with decomposition into direct and mediated effects. Improvements should make this kind of verifier more accurate, robust, interpretable, or efficient under the same black-box and causal-graph setting.
+Causal residual-influence estimation with a decomposition into direct and
+mediated effects. Improvements should make such a verifier more accurate
+(total, direct and mediated influence, subgroup differences), more robust
+across audited-model architectures and causal mechanisms, or cheaper in
+black-box queries at the same accuracy.
 
 ## Approach Scope
-Work should remain within causal or intervention-aware verification of unlearning targets. A scientist may improve adjustment-set selection, effect estimation, subgroup handling, path-specific decomposition, or robustness to imperfect causal graphs.
+Work within causal or intervention-aware verification under the given graph
+and query budget: better adjustment and mediator handling, better effect or
+response estimation, handling of weak overlap between correlated inputs,
+subgroup-specific estimation, counterfactual propagation, or more
+query-efficient designs.
 
 ## Out of Bounds
-- Replacing the verifier with ordinary predictive accuracy, fairness-only, or attribution-only scoring that cannot distinguish direct from indirect influence.
-- Changing the task into model retraining or unlearning itself rather than verification of a provided unlearned model.
-- Using the removed feature inside the audited predictor to make the verification target easier.
+- Attribution-only or fairness-metric scoring that cannot separate direct
+  from mediated influence.
+- Retraining or unlearning the model instead of verifying the given one.
+- Using knowledge of the task generators, fixed priors or published answer
+  patterns in place of measurement.

@@ -1,5 +1,12 @@
 # Progress
 
+## Final hardening (iteration 11)
+
+- The gym was rebuilt around an evaluator-owned protocol. Hidden held-out SCM tasks live in `eval/test/`. Audited black-box models are reachable only through a counted oracle. Ground truth is exact, and every metric is recomputed from raw per-feature total/direct estimates. CAFÉ (`method/cafe.py`) and the baselines are verifiers in `scripts/verifiers/`.
+- Final hidden test (24 tasks), CAFÉ vs direct permutation: rank Spearman 0.938 / 0.983 vs 0.234 / 0.542; residual capture 1.0 vs ~0.01; subgroup gap direction 1.0 vs 0. `validate.py` passes.
+- A better verifier at equal query cost scores +0.41 (all runs) / +2.30 (honest runs) above CAFÉ, against a seed spread of 0.03. All red-team shortcuts fail. See `HARDENING.md`.
+- The sections below describe the pre-hardening gym and are kept as history.
+
 ## What Works
 
 - Implemented the paper's CAFÉ-style adjusted expected-prediction contrast estimator for total, direct, and indirect residual influence. The estimator identifies backdoor controls and mediators from the causal DAG, estimates conditional expected black-box predictions under two intervention values, and averages the contrast over the observed control distribution.

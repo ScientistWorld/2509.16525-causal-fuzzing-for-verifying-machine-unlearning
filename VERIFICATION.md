@@ -1,3 +1,5 @@
+> **Superseded.** This file describes the gym before the final hardening iteration (artifact re-scoring evaluator, old metrics). The current protocol, metrics and evidence are in `HARDENING.md`, `briefing/evaluation.md` and `scoring/`.
+
 # Verification Report
 
 ## Initial Assessment

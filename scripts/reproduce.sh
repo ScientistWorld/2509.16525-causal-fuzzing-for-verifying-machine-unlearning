@@ -3,7 +3,7 @@
 # evaluator builds the semi-synthetic tasks and audited black-box models,
 # runs CAFÉ and the baselines (every scripts/verifiers/*.sh) against the
 # counted oracle, and writes scoring/scores.json. No training step is needed
-# by any verifier. Takes ~10-15 CPU minutes.
+# by any verifier. Takes ~4 CPU minutes.
 
 set -e
 
