@@ -20,5 +20,17 @@
   "all_eighteen_runs_have_artifacts_scores_rank_and_valid_shell": true,
   "all_python_sources_parse": true,
   "original_output_tree_restored": true,
-  "job_id": "af9f53fd-930"
+  "job_id": "af9f53fd-930",
+  "job_entry_and_all_scoring_files_equal_initial_git_versions": true,
+  "pre_existing_status_preserved": [
+    " M README.md",
+    " M manifest.json",
+    " D trajectory/session.json",
+    " D trajectory/turn_0001_raw.jsonl",
+    " D trajectory/turn_0002_raw.jsonl",
+    " D trajectory/turn_0003_raw.jsonl",
+    " D trajectory/turn_0004_raw.jsonl",
+    "?? redteam/"
+  ],
+  "no_new_tracked_changes_outside_audit_before_completion_signal": true
 }
