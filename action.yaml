@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Rerun hardening check (resumable): smoke, reference CAFE x3 seeds, variants, baselines, 10 shortcuts through hidden test; honest ones on train; ranking; official score files; validate. Fixes: single-thread BLAS/OpenMP (previous run thrashed on 1 CPU), stronger age-dependent mediation, efficiency metric."
+notes: "Round-3 hardening check (resumable, raw answers cached): smoke, all hardening verifiers incl. hybrid subgroup shortcuts through hidden test, honest ones on train, ranking, official score files, validate."
