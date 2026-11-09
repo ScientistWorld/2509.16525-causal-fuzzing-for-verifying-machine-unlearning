@@ -1,0 +1,1079 @@
+{
+ "diagnostics": {
+  "failed_tasks": 0,
+  "mean_query_budget_fraction": 0.5,
+  "refused_rows": 0,
+  "status": "ok",
+  "tasks": 24
+ },
+ "metrics": {
+  "heart_disease_feature_unlearning": {
+   "direct_effect_nmae": 1.5936602169855723,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 1.9413525617062075,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": 0.9142857142857143,
+   "residual_capture": 1.0,
+   "total_effect_nmae": 2.0
+  },
+  "heart_disease_subgroup_unlearning": {
+   "direct_gap_nmae": 1.9643576804365719,
+   "indirect_gap_capture": 1.0,
+   "indirect_gap_nmae": 2.0,
+   "total_gap_nmae": 2.0
+  },
+  "performance_feature_unlearning": {
+   "direct_effect_nmae": 1.5816007281488993,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 1.8959515164816423,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": 0.9833333333333333,
+   "residual_capture": 1.0,
+   "total_effect_nmae": 2.0
+  }
+ },
+ "records": {
+  "heart_disease_feature_unlearning": [
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     1.428904288449534
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     1.1759414124930283
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.028062959091975277,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.8492214032359482,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8857142857142858,
+    "task_id": "heart_disease_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.006656651562253124,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     1.284092304336886,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.009131581203806223,
+     2.0,
+     2.0,
+     2.0,
+     1.8480404938343922
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     1.2917134929480507,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.4856856650613908,
+     3.8178159871412644e-05,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8285714285714287,
+    "task_id": "heart_disease_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     0.5400568655005854,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.01712003470133167,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.04617680921446216,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.014419239700740891,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     2.0,
+     0.010111505538621113,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     1.17641582983303,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8857142857142858,
+    "task_id": "heart_disease_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.2919577627467444,
+     0.017173588195497233,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.6,
+    "task_id": "heart_disease_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "heart_disease_subgroup_unlearning": [
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_00",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_01",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_02",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_03",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_04",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_05",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_06",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     1.1445843304777288,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_07",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_08",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_09",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_10",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     1.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_11",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "performance_feature_unlearning": [
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     0.03253965084487804,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.05369782008174686,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.11893121235049202
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.07815175998144919,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.7999999999999999,
+    "task_id": "performance_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0,
+     1.0
+    ],
+    "direct_err": [
+     0.026412294302947937,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     1.9160376537194275,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.1355039757577506,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.1351441960251655,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0387117751222123,
+     1.9651993344790346
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.03942333023204122,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     1.549244794597007,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.2010729632408458,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.05712795810647456,
+     2.0,
+     2.0,
+     2.0,
+     1.2878059833200586
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.16896621863037273,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.030393521946955302,
+     2.0,
+     2.0,
+     2.0,
+     0.7855311138723425
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     1.0
+    ],
+    "direct_err": [
+     0.03323912122129824,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ]
+ }
+}

@@ -30,7 +30,7 @@
         "residual_capture": {
           "higher_is_better": true,
           "coefficient": 0.8,
-          "description": "For unlearned features whose true residual total influence is at least 20% of the task scale: reported total influence in the true direction as a fraction of the truth, clipped to [0, 1], pooled."
+          "description": "For unlearned features whose true residual total influence is at least 20% of the task scale: reported total influence scored with credit 1 when it has the true sign and lies within a factor of two of the truth, linearly less outside (0 at zero or the wrong sign, 0 at three times the truth), pooled."
         },
         "false_alarm_rate": {
           "higher_is_better": false,
@@ -142,7 +142,7 @@
         "residual_capture": {
           "higher_is_better": true,
           "coefficient": 0.8,
-          "description": "For unlearned features whose true residual total influence is at least 20% of the task scale: reported total influence in the true direction as a fraction of the truth, clipped to [0, 1], pooled."
+          "description": "For unlearned features whose true residual total influence is at least 20% of the task scale: reported total influence scored with credit 1 when it has the true sign and lies within a factor of two of the truth, linearly less outside (0 at zero or the wrong sign, 0 at three times the truth), pooled."
         },
         "false_alarm_rate": {
           "higher_is_better": false,
@@ -226,7 +226,7 @@
       }
     },
     "heart_disease_subgroup_unlearning": {
-      "description": "Heart-Disease subgroup unlearning: for BMI and blood pressure, estimate total and direct influence separately for age > 50 and age <= 50; the scored quantities are the between-subgroup gaps in mediated, total and direct influence.",
+      "description": "Heart-Disease subgroup unlearning: for BMI and blood pressure, estimate total and direct influence separately for age > 50 and age <= 50; scored are each group's total/direct/mediated influence and the between-group gaps in mediated and direct influence.",
       "notes": "Paper Fig. 7 / Sec. 5.3.1: the direct effect of BMI is nearly identical across the two age groups while the indirect effect is much larger for age > 50; baselines conclude there is no discrepancy. Encoded as indirect_gap_capture 1 for CAF\u00c9 and 0 for the direct-only baseline; the gap errors have no paper value. Previous encoding kept under _paper_reported_previous_encoding.",
       "weight": 0.25,
       "primary_metric": "indirect_gap_capture",
@@ -236,20 +236,20 @@
           "coefficient": 1.0,
           "description": "Absolute error of the between-subgroup gap (age > 50 minus age <= 50) in mediated influence, per subgroup feature and task, in units of the largest true total influence among the subgroup features; capped at 2, invalid answers count as 2."
         },
-        "total_gap_nmae": {
-          "higher_is_better": false,
-          "coefficient": 0.5,
-          "description": "Same error for the between-subgroup gap in total influence."
-        },
         "direct_gap_nmae": {
           "higher_is_better": false,
           "coefficient": 0.5,
           "description": "Constraint side: same error for the gap in direct influence (a verifier must not attribute the subgroup disparity to the wrong pathway)."
         },
+        "subgroup_effect_nmae": {
+          "higher_is_better": false,
+          "coefficient": 0.5,
+          "description": "Error of each age group's reported total, direct and mediated influence for each subgroup feature (the per-group bars of the paper's Fig. 7), in units of the largest true total influence among the subgroup features; capped at 2, invalid answers count as 2."
+        },
         "indirect_gap_capture": {
           "higher_is_better": true,
           "coefficient": 0.8,
-          "description": "For subgroup features whose true mediated-influence gap is at least 10% of the subgroup features' influence scale: reported gap in the true direction as a fraction of the truth, clipped to [0, 1], pooled."
+          "description": "For subgroup features whose true mediated-influence gap is at least 10% of the subgroup features' influence scale: reported gap scored with credit 1 when it has the true sign and lies within a factor of two of the truth, linearly less outside (0 at zero or the wrong sign, 0 at three times the truth), pooled."
         }
       },
       "results": {

@@ -438,7 +438,17 @@ def _err(estimate: float, truth: float, scale: float) -> float:
 
 
 def _capture(estimate: float, truth: float) -> float:
-    return float(np.clip(estimate * np.sign(truth) / abs(truth), 0.0, 1.0))
+    """Credit for recovering a nonzero true effect: 1 when the estimate has the
+    true sign and lies within a factor of two of it; linearly less outside
+    (0 at zero or the wrong sign, 0 at three times the truth)."""
+    ratio = estimate / truth
+    if ratio <= 0:
+        return 0.0
+    if ratio < 0.5:
+        return float(ratio / 0.5)
+    if ratio <= 2.0:
+        return 1.0
+    return float(max(0.0, 3.0 - ratio))
 
 
 def _spearman(a: list[float], b: list[float]) -> float:
@@ -505,9 +515,15 @@ def subgroup_record(task: Task, parsed: dict | None) -> dict:
             indirect_gap_err=[ERROR_CAP] * len(features),
             total_gap_err=[ERROR_CAP] * len(features),
             direct_gap_err=[ERROR_CAP] * len(features),
+            effect_err=[ERROR_CAP] * (3 * len(features) * len(true_groups)),
             gap_capture=[0.0] * len(eligible),
         )
         return record
+    record["effect_err"] = []
+    for group, entries in true_groups.items():
+        for f in features:
+            (t, d), (te, de) = entries[f], parsed["subgroups"][group][f]
+            record["effect_err"] += [_err(te, t, scale), _err(de, d, scale), _err(te - de, t - d, scale)]
     est_gaps = {f: _gaps(parsed["subgroups"], f, first, second) for f in features}
     record["indirect_gap_err"] = [_err(est_gaps[f][0], true_gaps[f][0], scale) for f in features]
     record["total_gap_err"] = [_err(est_gaps[f][1], true_gaps[f][1], scale) for f in features]
@@ -536,8 +552,8 @@ def aggregate_feature(records: list[dict]) -> dict:
 def aggregate_subgroup(records: list[dict]) -> dict:
     return {
         "indirect_gap_nmae": _pooled(records, "indirect_gap_err", ERROR_CAP),
-        "total_gap_nmae": _pooled(records, "total_gap_err", ERROR_CAP),
         "direct_gap_nmae": _pooled(records, "direct_gap_err", ERROR_CAP),
+        "subgroup_effect_nmae": _pooled(records, "effect_err", ERROR_CAP),
         "indirect_gap_capture": _pooled(records, "gap_capture"),
     }
 
@@ -568,7 +584,7 @@ def score_run(tasks: dict[str, Task], run: dict) -> dict:
     }
     if run.get("log_tail"):
         diagnostics["log_tail"] = run["log_tail"]
-    return {"metrics": metrics, "diagnostics": diagnostics, "records": records}
+    return {"metrics": metrics, "diagnostics": diagnostics, "records": records, "run": run}
 
 
 def evaluate(
@@ -586,9 +602,10 @@ def evaluate(
     details = {}
     for name, script in verifiers.items():
         cache = per_method_dir / f"{name}.json" if per_method_dir is not None else None
-        if cache is not None and cache.is_file():
-            entry = json.loads(cache.read_text())
-            print(f"[{slice_name}] {name}: reusing {cache}", flush=True)
+        if cache is not None and cache.is_file() and "run" in json.loads(cache.read_text()):
+            # Audit runs only: rescore the cached raw answers with the current scoring code.
+            entry = score_run(tasks, json.loads(cache.read_text())["run"])
+            print(f"[{slice_name}] {name}: rescored cached answers from {cache}", flush=True)
         else:
             print(f"[{slice_name}] running verifier {name} on {len(tasks)} tasks", flush=True)
             entry = score_run(tasks, run_verifier(name, script, tasks))
