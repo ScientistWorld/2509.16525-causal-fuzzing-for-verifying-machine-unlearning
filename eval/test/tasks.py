@@ -91,15 +91,15 @@ class HeldOutHeart(_Family):
             "b_e": u(-1.1, -0.4),
             "b_q": u(0.0, 0.12),
             "p_a": u(0.08, 0.25),
-            "p_b": u(1.1, 2.1),
-            "p_ab": u(0.0, 0.12),
+            "p_b": u(0.3, 1.1),
+            "p_ab": u(0.04, 0.25),
             "p_s": u(5.0, 13.0),
             "p_e": u(-2.4, -0.9),
-            "p_f": u(5.0, 11.0) if control_active else 0.0,
+            "p_f": u(8.0, 15.0) if control_active else 0.0,
             "c_age": u(0.0, 0.2),
             "c_bmi": u(0.6, 1.4),
             "c_bp": u(0.6, 1.3),
-            "c_old": u(0.3, 1.5),
+            "c_old": u(0.3, 1.3),
             "c_ex": u(0.25, 0.8),
             "c_sm": u(0.0, 0.35),
             "c_fh": u(0.2, 0.6),
@@ -160,9 +160,9 @@ class HeldOutHeart(_Family):
             n,
             "blood_pressure",
             do,
-            lambda: 100.0
+            lambda: 135.0
             + p["p_a"] * age
-            + (p["p_b"] + p["p_ab"] * 5.0 * _softplus((age - 50.0) / 5.0)) * bmi
+            + (p["p_b"] + p["p_ab"] * 5.0 * _softplus((age - 50.0) / 5.0)) * (bmi - 23.5)
             + p["p_s"] * smoking
             + p["p_e"] * exercise
             + p["p_f"] * fh
@@ -187,7 +187,7 @@ class HeldOutHeart(_Family):
             p["c_age"] * _z(age)
             + p["c_bmi"] * _z(frame["bmi"])
             + p["c_bp"] * _z(bp)
-            + p["c_old"] * _z(_sigmoid((age - 50.0) / 3.0) * bp)
+            + p["c_old"] * _sigmoid((age - 50.0) / 3.0) * _z(bp)
             - p["c_ex"] * _z(frame["exercise"])
             + p["c_sm"] * frame["smoking"].to_numpy()
             + p["c_fh"] * frame["family_history"].to_numpy()
@@ -349,7 +349,7 @@ def _plan(smoke: bool):
     return plan
 
 
-def build_tasks(smoke: bool = False) -> dict:
+def build_tasks(smoke: bool = False, log=None) -> dict:
     n_total, n_audit = (2_000, 700) if smoke else (N_TOTAL, N_AUDIT)
     tasks = {}
     for task_id, family, seed, architecture, control_active, target_retained in _plan(smoke):
@@ -363,4 +363,6 @@ def build_tasks(smoke: bool = False) -> dict:
             n_total=n_total,
             n_audit=n_audit,
         )
+        if log is not None:
+            log(f"built {task_id} ({architecture})")
     return tasks

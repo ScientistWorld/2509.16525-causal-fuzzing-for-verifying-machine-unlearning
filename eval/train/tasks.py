@@ -39,7 +39,7 @@ def _plan(smoke: bool):
     return plan
 
 
-def build_tasks(smoke: bool = False) -> dict:
+def build_tasks(smoke: bool = False, log=None) -> dict:
     n_total, n_audit = (2_000, 700) if smoke else (N_TOTAL, N_AUDIT)
     tasks = {}
     for item in _plan(smoke):
@@ -54,4 +54,6 @@ def build_tasks(smoke: bool = False) -> dict:
             n_audit=n_audit,
             params=item["params"],
         )
+        if log is not None:
+            log(f"built {item['task_id']} ({item['architecture']})")
     return tasks

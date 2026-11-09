@@ -11,6 +11,7 @@ the scored reference is method/cafe.py.
   abduction     counterfactual fuzzing: learned structural models with
                 additive-noise abduction (cross-fitted residuals) propagate
                 f <- theta for subsampled rows; direct by probes.
+  abduction_half  the same with half the query budget (CAFÉ's own cost).
   direct_only   weaker ablation: report CAFÉ's direct effect as the total
                 (ignores mediated influence).
   no_backdoor   weaker ablation: CAFÉ without the back-door adjustment set.
@@ -114,10 +115,10 @@ def _abduct(sample, rows, spec, models, feature, value):
     return out
 
 
-def abduction(spec, audit, blackbox, seed):
+def abduction(spec, audit, blackbox, seed, fraction=1.0):
     rng = np.random.default_rng(seed)
     models = _crossfit_models(audit, spec, seed + 5)
-    allocation = row_allocation(spec, 4, blackbox.remaining)
+    allocation = row_allocation(spec, 4, int(blackbox.remaining * fraction))
     effects, per_row = {}, {}
     for feature in spec["estimate_features"]:
         lo, hi = spec["interventions"][feature]
@@ -193,6 +194,7 @@ VARIANTS = {
     "hgb": lambda s, a, b, seed: cafe.estimate_task(s, a, b, seed=seed, response_model=hgb_response),
     "hgb_probe": lambda s, a, b, seed: cafe_probe(s, a, b, seed, response=hgb_response),
     "abduction": abduction,
+    "abduction_half": lambda s, a, b, seed: abduction(s, a, b, seed, fraction=0.5),
     "direct_only": direct_only,
     "no_backdoor": no_backdoor,
 }

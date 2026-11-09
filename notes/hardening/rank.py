@@ -63,6 +63,8 @@ def rank_cohort(table: dict, members: list[str], specs: list[tuple]) -> tuple[di
 def aggregate(records: list[dict], idx: np.ndarray, metric: str) -> float:
     if metric == "rank_spearman":
         return float(np.mean([records[i]["spearman"] for i in idx]))
+    if metric == "query_budget_fraction":
+        return float(np.mean([records[i]["query_fraction"] for i in idx]))
     key, empty = POOLED[metric]
     values = [v for i in idx for v in records[i][key]]
     return float(np.mean(values)) if values else empty

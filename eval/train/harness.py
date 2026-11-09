@@ -28,8 +28,21 @@ from dataclasses import dataclass, field
 from multiprocessing.connection import Client, Listener
 from pathlib import Path
 
-import numpy as np
-import pandas as pd
+# One thread for OpenMP/BLAS in the evaluator and (inherited) in every verifier:
+# keeps the audited models deterministic and avoids oversubscribing small CPU
+# allocations. Must be set before numpy / scikit-learn load their runtimes.
+for _variable in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+    os.environ[_variable] = "1"
+
+import numpy as np  # noqa: E402
+import pandas as pd  # noqa: E402
+
+try:  # also cap pools that were already initialised
+    from threadpoolctl import threadpool_limits
+
+    threadpool_limits(1)
+except Exception:  # pragma: no cover
+    pass
 
 WORKSPACE = Path(__file__).resolve().parents[2]
 DEFAULT_VERIFIERS_DIR = WORKSPACE / "scripts" / "verifiers"
@@ -42,7 +55,7 @@ MAX_COLS = 64
 ERROR_CAP = 2.0                   # per-quantity normalized error cap (failed tasks get it)
 DETECT_FRACTION = 0.10            # |estimate| >= 0.10 * scale counts as "influence found"
 POSITIVE_FRACTION = 0.20          # unlearned features with |truth| >= 0.20 * scale are positives
-GAP_FRACTION = 0.10               # subgroup indirect gaps with |truth| >= 0.10 * scale are scored for capture
+GAP_FRACTION = 0.10               # subgroup indirect gaps >= 0.10 * subgroup scale are scored for capture
 VERIFIER_TIMEOUT_S = 3 * 3600
 _NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.\-]*$")
 
@@ -135,6 +148,7 @@ def compute_truth(spec: dict, audit: pd.DataFrame, noise_audit: dict, scm, predi
     positives = [f for f in spec["unlearned_features"] if abs(total[f]) >= POSITIVE_FRACTION * scale]
     negatives = [f for f in spec["unlearned_features"] if abs(total[f]) <= 1e-12 * scale]
 
+    subgroup_scale = max([abs(total[f]) for f in spec.get("subgroup_features", [])] or [scale])
     subgroups = {}
     for name, rule in spec.get("subgroups", {}).items():
         mask = subgroup_mask(audit, rule)
@@ -151,6 +165,7 @@ def compute_truth(spec: dict, audit: pd.DataFrame, noise_audit: dict, scm, predi
         "positives": positives,
         "negatives": negatives,
         "subgroups": subgroups,
+        "subgroup_scale": float(subgroup_scale if subgroup_scale > 0 else scale),
     }
 
 
@@ -434,7 +449,7 @@ def _spearman(a: list[float], b: list[float]) -> float:
     return float(np.corrcoef(ra, rb)[0, 1])
 
 
-def feature_record(task: Task, parsed: dict | None) -> dict:
+def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
     truth, spec = task.truth, task.spec
     features = spec["estimate_features"]
     scale = truth["scale"]
@@ -447,6 +462,7 @@ def feature_record(task: Task, parsed: dict | None) -> dict:
             spearman=-1.0,
             capture=[0.0] * len(truth["positives"]),
             false_alarms=[1.0] * len(truth["negatives"]),
+            query_fraction=1.0,
         )
         return record
     est = parsed["effects"]
@@ -460,6 +476,10 @@ def feature_record(task: Task, parsed: dict | None) -> dict:
     record["false_alarms"] = [
         1.0 if abs(est[f][0]) >= DETECT_FRACTION * scale else 0.0 for f in truth["negatives"]
     ]
+    # Efficiency counts only when the answer beats the trivial all-zero answer.
+    trivial = float(np.mean([min(abs(truth["total"][f]) / scale, ERROR_CAP) for f in features]))
+    solved = float(np.mean(record["total_err"])) < trivial
+    record["query_fraction"] = float(used_rows / spec["query_budget"]) if solved else 1.0
     return record
 
 
@@ -471,7 +491,7 @@ def _gaps(groups: dict, feature: str, first: str, second: str) -> tuple[float, f
 
 def subgroup_record(task: Task, parsed: dict | None) -> dict:
     truth, spec = task.truth, task.spec
-    scale = truth["scale"]
+    scale = truth["subgroup_scale"]
     first, second = spec["subgroup_gap"]
     true_groups = {
         g: {f: (v["total"], v["direct"]) for f, v in entries.items()} for g, entries in truth["subgroups"].items()
@@ -509,6 +529,7 @@ def aggregate_feature(records: list[dict]) -> dict:
         "rank_spearman": float(np.mean([r["spearman"] for r in records])) if records else -1.0,
         "residual_capture": _pooled(records, "capture"),
         "false_alarm_rate": _pooled(records, "false_alarms"),
+        "query_budget_fraction": float(np.mean([r["query_fraction"] for r in records])) if records else 1.0,
     }
 
 
@@ -528,7 +549,7 @@ def score_run(tasks: dict[str, Task], run: dict) -> dict:
     for task_id, task in tasks.items():
         parsed = parse_task_answer(task, answers.get(task_id)) if answers is not None else None
         failed += parsed is None
-        records[FEATURE_EXPERIMENTS[task.family]].append(feature_record(task, parsed))
+        records[FEATURE_EXPERIMENTS[task.family]].append(feature_record(task, parsed, run["used"][task_id]))
         if task.spec.get("subgroups"):
             records[SUBGROUP_EXPERIMENT].append(subgroup_record(task, parsed))
     metrics = {}
@@ -697,7 +718,7 @@ def run_cli(slice_name: str, build_tasks, default_scores: str, argv: list[str] |
     if not verifiers:
         raise SystemExit(f"No verifier scripts found in {args.verifiers_dir}")
     start = time.time()
-    tasks = build_tasks(smoke=args.smoke)
+    tasks = build_tasks(smoke=args.smoke, log=lambda msg: print(f"[{slice_name}] {msg} ({time.time() - start:.1f}s)", flush=True))
     print(f"[{slice_name}] built {len(tasks)} tasks in {time.time() - start:.1f}s", flush=True)
     scores = evaluate(
         tasks,

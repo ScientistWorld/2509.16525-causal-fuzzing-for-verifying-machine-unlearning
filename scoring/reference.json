@@ -1,5 +1,5 @@
 {
-  "_notes": "Paper 2509.16525 (CAF\u00c9). Scores come from eval/{train,test}: the evaluator builds each task (data, audited black-box model, intervention contrasts, query budget = 2 oracle rows per audit row, exact ground truth from the structural equations), runs each verifier in scripts/verifiers/ against a counted prediction oracle, and recomputes every metric from the reported per-feature total/direct effects. Table 3 wall-clock times (CAF\u00c9 0.026-0.030s vs causal fuzzing 1.42-1.54s, SHAP up to 565s) are not scored (no metric depends on wall-clock time); efficiency is enforced through the oracle's query budget.",
+  "_notes": "Paper 2509.16525 (CAF\u00c9). Scores come from eval/{train,test}: the evaluator builds each task (data, audited black-box model, intervention contrasts, query budget = 2 oracle rows per audit row, exact ground truth from the structural equations), runs each verifier in scripts/verifiers/ against a counted prediction oracle, and recomputes every metric from the reported per-feature total/direct effects. Table 3 wall-clock times (CAF\u00c9 0.026-0.030s vs causal fuzzing 1.42-1.54s, SHAP up to 565s) are not scored (no metric depends on wall-clock time); efficiency is enforced through the oracle's query budget and scored as query_budget_fraction.",
   "experiments": {
     "heart_disease_feature_unlearning": {
       "description": "Heart-Disease feature-unlearning verification: the audited model was trained without smoking (and without a family-history control); estimate every feature's total, direct and mediated influence on the black-box output, and in particular recover the residual mediated influence of the unlearned features.",
@@ -36,6 +36,11 @@
           "higher_is_better": false,
           "coefficient": 0.8,
           "description": "Constraint: fraction of unlearned features with exactly zero true influence (no causal path to any model input) whose reported |total influence| is at least 10% of the task scale."
+        },
+        "query_budget_fraction": {
+          "higher_is_better": false,
+          "coefficient": 0.5,
+          "description": "Constraint (efficiency, paper G4/RQ4): black-box oracle rows actually used by the verifier, counted by the evaluator, as a fraction of the per-task budget (2 rows per audit row; requests beyond it are refused). A task counts as 1.0 unless its total-effect answer beats the trivial all-zero answer, so efficiency is only credited for solved tasks."
         }
       },
       "results": {
@@ -143,6 +148,11 @@
           "higher_is_better": false,
           "coefficient": 0.8,
           "description": "Constraint: fraction of unlearned features with exactly zero true influence (no causal path to any model input) whose reported |total influence| is at least 10% of the task scale."
+        },
+        "query_budget_fraction": {
+          "higher_is_better": false,
+          "coefficient": 0.5,
+          "description": "Constraint (efficiency, paper G4/RQ4): black-box oracle rows actually used by the verifier, counted by the evaluator, as a fraction of the per-task budget (2 rows per audit row; requests beyond it are refused). A task counts as 1.0 unless its total-effect answer beats the trivial all-zero answer, so efficiency is only credited for solved tasks."
         }
       },
       "results": {
@@ -224,7 +234,7 @@
         "indirect_gap_nmae": {
           "higher_is_better": false,
           "coefficient": 1.0,
-          "description": "Absolute error of the between-subgroup gap (age > 50 minus age <= 50) in mediated influence, per subgroup feature and task, in units of the task's largest true total influence; capped at 2, invalid answers count as 2."
+          "description": "Absolute error of the between-subgroup gap (age > 50 minus age <= 50) in mediated influence, per subgroup feature and task, in units of the largest true total influence among the subgroup features; capped at 2, invalid answers count as 2."
         },
         "total_gap_nmae": {
           "higher_is_better": false,
@@ -239,7 +249,7 @@
         "indirect_gap_capture": {
           "higher_is_better": true,
           "coefficient": 0.8,
-          "description": "For subgroup features whose true mediated-influence gap is at least 10% of the task scale: reported gap in the true direction as a fraction of the truth, clipped to [0, 1], pooled."
+          "description": "For subgroup features whose true mediated-influence gap is at least 10% of the subgroup features' influence scale: reported gap in the true direction as a fraction of the truth, clipped to [0, 1], pooled."
         }
       },
       "results": {
@@ -316,6 +326,19 @@
           }
         },
         "notes": "The paper's subgroup claim is qualitative and figure-based. Reference values encode the intended direction: small direct-effect gap but detectable mediated and total residual-influence gaps between age subgroups."
+      },
+      "_paper_fig7_bmi": {
+        "note": "Values read from paper Fig. 7 (CAF\u00c9 score for BMI on the paper's Heart-Disease instance); not on this gym's scale.",
+        "age_ge_50": {
+          "total": 4.8,
+          "direct": 0.7,
+          "indirect": 4.2
+        },
+        "age_lt_50": {
+          "total": 1.35,
+          "direct": 0.7,
+          "indirect": 0.7
+        }
       }
     }
   }

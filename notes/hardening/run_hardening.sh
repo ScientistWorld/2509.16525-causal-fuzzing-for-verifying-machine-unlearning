@@ -7,6 +7,11 @@ RES=notes/hardening/results
 REG=notes/hardening/registry
 mkdir -p "$RES"
 
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
+
+if [ -f "$RES/smoke_ok" ]; then
+  echo "=== smoke already passed, skipping"
+else
 echo "=== smoke $(date -u +%FT%TZ)"
 python -m eval.test.evaluate --smoke --verifiers-dir "$REG" \
   --methods cafe variant_probe_direct variant_abduction direct_permutation causal_fuzzing shortcut_forged_fields shortcut_nonfinite_values shortcut_overbudget_bruteforce \
@@ -25,6 +30,8 @@ bad = [k for k in must_pass if diag[k]["failed_tasks"] != 0] + [k for k in must_
 print("smoke problems:", bad)
 sys.exit(1 if bad else 0)
 PY
+touch "$RES/smoke_ok"
+fi
 
 echo "=== hidden test, all hardening verifiers $(date -u +%FT%TZ)"
 python -m eval.test.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/test" \
@@ -32,7 +39,7 @@ python -m eval.test.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/test"
 
 echo "=== visible train, honest verifiers $(date -u +%FT%TZ)"
 python -m eval.train.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/train" \
-  --methods cafe cafe_seed11 cafe_seed19 variant_probe_direct variant_hgb variant_hgb_probe variant_abduction variant_direct_only variant_no_backdoor direct_permutation causal_fuzzing \
+  --methods cafe cafe_seed11 cafe_seed19 variant_probe_direct variant_hgb variant_abduction variant_abduction_half variant_direct_only variant_no_backdoor direct_permutation causal_fuzzing \
   --scores "$RES/scores_train_all.json" || echo "TRAIN RUN FAILED"
 
 echo "=== ranking $(date -u +%FT%TZ)"

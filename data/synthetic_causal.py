@@ -5,7 +5,10 @@ Two families follow the paper's semi-synthetic settings (Fig. 2):
 * ``heart_disease``: age, smoking, exercise, bmi, blood_pressure -> risk, plus a
   ``family_history`` control. ``smoking`` is the paper's unlearning target: the
   audited model is trained without it, yet it still moves exercise, BMI and
-  blood pressure, which the model does use.
+  blood pressure, which the model does use. As in the paper's Fig. 7, BMI's
+  mediated influence (via blood pressure) is much larger above age 50: the
+  BMI -> blood-pressure slope and blood pressure's weight on risk both grow
+  with age, while BMI's direct weight does not.
 * ``performance``: gender, education_years, experience_years, income -> score,
   plus a ``region`` control. ``gender`` is the paper's unlearning target.
 
@@ -106,15 +109,15 @@ class HeartDiseaseSCM(_SCM):
             "b_s": 6.4,
             "b_e": -0.75,
             "p_a": 0.16,
-            "p_b": 1.65,
-            "p_ab": 0.10,
+            "p_b": 0.7,
+            "p_ab": 0.22,
             "p_s": 12.0,
             "p_e": -1.6,
-            "p_f": 8.0 if control_active else 0.0,
+            "p_f": 11.0 if control_active else 0.0,
             "c_age": 0.06,
             "c_bmi": 1.15,
             "c_bp": 0.95,
-            "c_old": 1.35,
+            "c_old": 0.8,
             "c_ex": 0.55,
             "c_sm": 0.12,
             "c_fh": 0.35,
@@ -133,15 +136,15 @@ class HeartDiseaseSCM(_SCM):
             "b_s": u(3.5, 7.5),
             "b_e": u(-1.0, -0.4),
             "p_a": u(0.08, 0.25),
-            "p_b": u(1.2, 2.0),
-            "p_ab": u(0.0, 0.14),
+            "p_b": u(0.4, 1.0),
+            "p_ab": u(0.05, 0.3),
             "p_s": u(6.0, 14.0),
             "p_e": u(-2.2, -1.0),
-            "p_f": u(5.0, 10.0) if control_active else 0.0,
+            "p_f": u(8.0, 14.0) if control_active else 0.0,
             "c_age": u(0.0, 0.15),
             "c_bmi": u(0.7, 1.4),
             "c_bp": u(0.6, 1.2),
-            "c_old": u(0.4, 1.6),
+            "c_old": u(0.3, 1.2),
             "c_ex": u(0.3, 0.8),
             "c_sm": u(0.0, 0.3),
             "c_fh": u(0.2, 0.5),
@@ -196,9 +199,9 @@ class HeartDiseaseSCM(_SCM):
             n,
             "blood_pressure",
             do,
-            lambda: 104.0
+            lambda: 140.0
             + p["p_a"] * age
-            + (p["p_b"] + p["p_ab"] * np.maximum(age - 50.0, 0.0)) * bmi
+            + (p["p_b"] + p["p_ab"] * np.maximum(age - 50.0, 0.0)) * (bmi - 24.0)
             + p["p_s"] * smoking
             + p["p_e"] * exercise
             + p["p_f"] * family_history
@@ -217,12 +220,13 @@ class HeartDiseaseSCM(_SCM):
 
     def outcome_values(self, frame: pd.DataFrame, noise: dict) -> np.ndarray:
         p = self.params
-        older_bp = (frame["age"].to_numpy() > 50).astype(float) * frame["blood_pressure"].to_numpy()
+        older = (frame["age"].to_numpy() > 50).astype(float)
+        bp = _standardize(frame["blood_pressure"])
         return (
             p["c_age"] * _standardize(frame["age"])
             + p["c_bmi"] * _standardize(frame["bmi"])
-            + p["c_bp"] * _standardize(frame["blood_pressure"])
-            + p["c_old"] * _standardize(older_bp)
+            + p["c_bp"] * bp
+            + p["c_old"] * older * bp
             - p["c_ex"] * _standardize(frame["exercise"])
             + p["c_sm"] * frame["smoking"].to_numpy()
             + p["c_fh"] * frame["family_history"].to_numpy()
