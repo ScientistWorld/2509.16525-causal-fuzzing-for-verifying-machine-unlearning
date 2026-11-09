@@ -60,18 +60,21 @@
         "cafe": {
           "direct_gap_nmae": 0.39414082776578613,
           "indirect_gap_capture": 0.5333715610558609,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.27332176614936016,
           "subgroup_effect_nmae": 0.249062239638424
         },
         "causal_fuzzing": {
           "direct_gap_nmae": 0.006125962112355704,
           "indirect_gap_capture": 0.9667955946141611,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.060883652259461574,
           "subgroup_effect_nmae": 0.06293106323641427
         },
         "direct_permutation": {
           "direct_gap_nmae": 0.006384331420479982,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 0.181664415243156,
           "subgroup_effect_nmae": 0.09358301674051596
         }

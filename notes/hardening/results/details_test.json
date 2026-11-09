@@ -452,6 +452,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515016,
      0.0
@@ -484,6 +487,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -518,6 +524,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -551,6 +560,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995053,
      0.0
@@ -582,6 +594,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690147058,
      0.0
@@ -613,6 +626,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -648,6 +664,9 @@
     "gap_capture": [
      0.1995512399216448
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7449450089942752,
      0.0
@@ -681,6 +700,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625686,
      0.0
@@ -712,6 +734,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -744,6 +767,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -778,6 +804,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26178842333585234,
      0.0
@@ -810,6 +839,9 @@
     "failed": false,
     "gap_capture": [
      0.32393477830204365
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946927,
@@ -1664,6 +1696,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26697857747131337,
      0.0
@@ -1696,6 +1731,9 @@
     "failed": false,
     "gap_capture": [
      0.64501955510391
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.7626404396024244,
@@ -1730,6 +1768,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.6505320861557289,
      0.0
@@ -1763,6 +1804,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.18240336042694064,
      0.0
@@ -1794,6 +1838,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.012910063851154046,
      0.0
@@ -1825,6 +1870,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -1860,6 +1908,9 @@
     "gap_capture": [
      0.13160050418118585
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7730599782006974,
      0.0
@@ -1893,6 +1944,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.04543377518185348,
      0.0
@@ -1924,6 +1978,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.044785248866814495,
      0.0
@@ -1956,6 +2011,9 @@
     "failed": false,
     "gap_capture": [
      0.4891650716346265
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6386335939855025,
@@ -1990,6 +2048,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.32295428517776953,
      0.0
@@ -2022,6 +2083,9 @@
     "failed": false,
     "gap_capture": [
      0.3174963721208681
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46868995106238137,
@@ -2876,6 +2940,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2904228989291109,
      0.0
@@ -2908,6 +2975,9 @@
     "failed": false,
     "gap_capture": [
      0.7204729822196443
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.7201720519280429,
@@ -2942,6 +3012,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.6797534711540629,
      0.0
@@ -2975,6 +3048,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1653812163265168,
      0.0
@@ -3006,6 +3082,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.042930065646231495,
      0.0
@@ -3037,6 +3114,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -3072,6 +3152,9 @@
     "gap_capture": [
      0.15115411402128487
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7649695707527401,
      0.0
@@ -3105,6 +3188,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.02304230651938409,
      0.0
@@ -3136,6 +3222,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.03260113405895579,
      0.0
@@ -3168,6 +3255,9 @@
     "failed": false,
     "gap_capture": [
      0.362827911000156
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6920366186542594,
@@ -3202,6 +3292,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3123100840963137,
      0.0
@@ -3234,6 +3327,9 @@
     "failed": false,
     "gap_capture": [
      0.1846371030596563
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.5057001561416874,
@@ -4088,6 +4184,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.18901442648273112,
      0.0
@@ -4119,6 +4218,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -4154,6 +4256,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.08781710461778375,
      0.0
@@ -4187,6 +4292,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.06348053374106184,
      0.0
@@ -4218,6 +4326,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.0725358819987625,
      0.0
@@ -4249,6 +4358,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -4284,6 +4396,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.011100416759147578,
      0.0
@@ -4317,6 +4432,9 @@
     "gap_capture": [
      0.7145927733352686
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.1501489988610343,
      0.0
@@ -4348,6 +4466,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.019366475744746457,
      0.0
@@ -4380,6 +4499,9 @@
     "failed": false,
     "gap_capture": [
      0.8701769096313517
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.23878948229989633,
@@ -4414,6 +4536,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.00469314097527414,
      0.0
@@ -4445,6 +4570,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -5300,6 +5428,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.5210778532142017,
      0.0
@@ -5331,6 +5462,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -5366,6 +5500,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.21933696568517905,
      0.0
@@ -5399,6 +5536,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4483702750715342,
      0.0
@@ -5430,6 +5570,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.029757848845188627,
      0.0
@@ -5461,6 +5602,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -5496,6 +5640,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4137551845473544,
      0.0
@@ -5529,6 +5676,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.23362090354918655,
      0.0
@@ -5560,6 +5710,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.009335734186319963,
      0.0
@@ -5591,6 +5742,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -5626,6 +5780,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.3395652515563482,
      0.0
@@ -5657,6 +5814,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -6512,6 +6672,9 @@
     "gap_capture": [
      0.896611771667325
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2874755846407059,
      0.0
@@ -6545,6 +6708,9 @@
     "gap_capture": [
      0.6613359374928283
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.37672844392552407,
      0.0
@@ -6576,6 +6742,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -6611,6 +6780,9 @@
     "gap_capture": [
      0.603562897248168
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3130604439404676,
      0.0
@@ -6642,6 +6814,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.12383354187197129,
      0.0
@@ -6673,6 +6846,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -6708,6 +6884,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.14447757484758975,
      0.0
@@ -6741,6 +6920,9 @@
     "gap_capture": [
      0.9563617430212639
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2438157125738705,
      0.0
@@ -6772,6 +6954,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.17410542959695066,
      0.0
@@ -6804,6 +6987,9 @@
     "failed": false,
     "gap_capture": [
      0.885021868782673
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.23565198215432,
@@ -6838,6 +7024,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1541915742547692,
      0.0
@@ -6869,6 +7058,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -7724,6 +7916,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26685237760900377,
      0.0
@@ -7755,6 +7950,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -7790,6 +7988,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.5214855404066192,
      0.0
@@ -7823,6 +8024,9 @@
     "gap_capture": [
      0.5527157200034778
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.648919250728748,
      0.0
@@ -7854,6 +8058,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.1958842648478907,
      0.0
@@ -7885,6 +8090,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -7920,6 +8128,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3455516868667905,
      0.0
@@ -7953,6 +8164,9 @@
     "gap_capture": [
      0.6972410314346162
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.30435172734305127,
      0.0
@@ -7984,6 +8198,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.2637311125766017,
      0.0
@@ -8016,6 +8231,9 @@
     "failed": false,
     "gap_capture": [
      0.30213692129373815
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.717690847419464,
@@ -8050,6 +8268,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.059083816015366025,
      0.0
@@ -8081,6 +8302,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -8936,6 +9160,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.13424179056025248,
      0.7963014826833573
@@ -8967,6 +9194,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -9002,6 +9232,9 @@
     "gap_capture": [
      0.7847046080554474
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26655920368029856,
      0.5034155461372718
@@ -9035,6 +9268,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.19297297228443921,
      0.032646584475078615
@@ -9066,6 +9302,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.22573779982765,
      0.0742189231749866
@@ -9097,6 +9334,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -9132,6 +9372,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.11366982332387893,
      0.4931924485727161
@@ -9165,6 +9408,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09646589202577906,
      0.13097076829556734
@@ -9196,6 +9442,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.3053775161971222,
      0.1669344049417931
@@ -9227,6 +9474,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -9262,6 +9512,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.13981074788081763,
      0.22850416565472026
@@ -9293,6 +9546,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -10148,6 +10404,9 @@
     "gap_capture": [
      0.896611771667325
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2874755846407059,
      0.0
@@ -10181,6 +10440,9 @@
     "gap_capture": [
      0.6613359374928283
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.37672844392552407,
      0.0
@@ -10212,6 +10474,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -10247,6 +10512,9 @@
     "gap_capture": [
      0.603562897248168
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3130604439404676,
      0.0
@@ -10278,6 +10546,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.12383354187197129,
      0.0
@@ -10309,6 +10578,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -10344,6 +10616,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.14447757484758975,
      0.0
@@ -10377,6 +10652,9 @@
     "gap_capture": [
      0.9563617430212639
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2438157125738705,
      0.0
@@ -10408,6 +10686,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.17410542959695066,
      0.0
@@ -10440,6 +10719,9 @@
     "failed": false,
     "gap_capture": [
      0.885021868782673
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.23565198215432,
@@ -10474,6 +10756,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1541915742547692,
      0.0
@@ -10505,6 +10790,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -10573,7 +10861,7 @@
      0.0,
      0.0
     ],
-    "query_fraction": 0.0,
+    "query_fraction": 0.5,
     "spearman": 0.6708203932499368,
     "task_id": "performance_01",
     "total_err": [
@@ -10606,7 +10894,7 @@
      0.0,
      0.0
     ],
-    "query_fraction": 0.0,
+    "query_fraction": 0.5,
     "spearman": 0.8944271909999157,
     "task_id": "performance_02",
     "total_err": [
@@ -10638,7 +10926,7 @@
      0.0,
      0.2257210719203141
     ],
-    "query_fraction": 0.0,
+    "query_fraction": 0.5,
     "spearman": 0.6708203932499368,
     "task_id": "performance_03",
     "total_err": [
@@ -11360,6 +11648,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515016,
      0.0
@@ -11392,6 +11683,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -11426,6 +11720,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -11459,6 +11756,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995053,
      0.0
@@ -11490,6 +11790,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690147058,
      0.0
@@ -11521,6 +11822,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -11556,6 +11860,9 @@
     "gap_capture": [
      0.1995512399216448
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7449450089942752,
      0.0
@@ -11589,6 +11896,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625686,
      0.0
@@ -11620,6 +11930,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -11652,6 +11963,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -11686,6 +12000,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26178842333585234,
      0.0
@@ -11718,6 +12035,9 @@
     "failed": false,
     "gap_capture": [
      0.32393477830204365
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946927,
@@ -12572,6 +12892,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12603,6 +12926,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -12638,6 +12964,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12671,6 +13000,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12702,6 +13034,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12733,6 +13066,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -12768,6 +13104,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12801,6 +13140,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12832,6 +13174,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12863,6 +13206,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -12898,6 +13244,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -12929,6 +13278,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -13784,6 +14136,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515016,
      0.0
@@ -13816,6 +14171,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -13850,6 +14208,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -13883,6 +14244,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995053,
      0.0
@@ -13914,6 +14278,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690147058,
      0.0
@@ -13945,6 +14310,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -13980,6 +14348,9 @@
     "gap_capture": [
      0.1995512399216448
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7449450089942752,
      0.0
@@ -14013,6 +14384,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625686,
      0.0
@@ -14044,6 +14418,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -14076,6 +14451,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -14110,6 +14488,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26178842333585234,
      0.0
@@ -14142,6 +14523,9 @@
     "failed": false,
     "gap_capture": [
      0.32393477830204365
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946927,
@@ -14996,6 +15380,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515016,
      0.0
@@ -15028,6 +15415,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -15062,6 +15452,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -15095,6 +15488,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995053,
      0.0
@@ -15126,6 +15522,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690147058,
      0.0
@@ -15157,6 +15554,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -15192,6 +15592,9 @@
     "gap_capture": [
      0.1995512399216448
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7449450089942752,
      0.0
@@ -15225,6 +15628,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625686,
      0.0
@@ -15256,6 +15662,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -15288,6 +15695,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -15322,6 +15732,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26178842333585234,
      0.0
@@ -15354,6 +15767,9 @@
     "failed": false,
     "gap_capture": [
      0.32393477830204365
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946927,
@@ -16208,6 +16624,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16239,6 +16658,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -16274,6 +16696,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16307,6 +16732,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16338,6 +16766,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16369,6 +16798,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -16404,6 +16836,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16437,6 +16872,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16468,6 +16906,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16499,6 +16938,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -16534,6 +16976,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -16565,6 +17010,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -17420,6 +17868,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17451,6 +17902,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -17486,6 +17940,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17519,6 +17976,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17550,6 +18010,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17581,6 +18042,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -17616,6 +18080,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17649,6 +18116,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17680,6 +18150,7 @@
     ],
     "failed": true,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17711,6 +18182,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -17746,6 +18220,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      2.0,
      2.0
@@ -17777,6 +18254,9 @@
     ],
     "failed": true,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -18632,6 +19112,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18664,6 +19147,9 @@
     "failed": false,
     "gap_capture": [
      0.0
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      2.0,
@@ -18698,6 +19184,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18731,6 +19220,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18762,6 +19254,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18794,6 +19287,9 @@
     "failed": false,
     "gap_capture": [
      0.0
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      2.0,
@@ -18828,6 +19324,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18861,6 +19360,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18892,6 +19394,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18924,6 +19427,9 @@
     "failed": false,
     "gap_capture": [
      0.0
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      2.0,
@@ -18958,6 +19464,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      2.0,
      0.0
@@ -18990,6 +19499,9 @@
     "failed": false,
     "gap_capture": [
      0.0
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      2.0,
@@ -19844,6 +20356,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515016,
      0.0
@@ -19876,6 +20391,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -19910,6 +20428,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -19943,6 +20464,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995053,
      0.0
@@ -19974,6 +20498,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690147058,
      0.0
@@ -20005,6 +20530,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -20040,6 +20568,9 @@
     "gap_capture": [
      0.1995512399216448
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7449450089942752,
      0.0
@@ -20073,6 +20604,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625686,
      0.0
@@ -20104,6 +20638,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -20136,6 +20671,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -20170,6 +20708,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.26178842333585234,
      0.0
@@ -20202,6 +20743,9 @@
     "failed": false,
     "gap_capture": [
      0.32393477830204365
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946927,
@@ -21056,6 +21600,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.5210778532142017,
      0.0
@@ -21087,6 +21634,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -21122,6 +21672,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.21933696568517905,
      0.0
@@ -21155,6 +21708,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4483702750715342,
      0.0
@@ -21186,6 +21742,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.029757848845188627,
      0.0
@@ -21217,6 +21774,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -21252,6 +21812,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4137551845473544,
      0.0
@@ -21285,6 +21848,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.23362090354918655,
      0.0
@@ -21316,6 +21882,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.009335734186319963,
      0.0
@@ -21347,6 +21914,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -21382,6 +21952,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.3395652515563482,
      0.0
@@ -21413,6 +21986,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -22268,6 +22844,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1482642464227977,
      0.0
@@ -22299,6 +22878,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -22334,6 +22916,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.10402792797473788,
      0.0
@@ -22367,6 +22952,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.06262934737192288,
      0.0
@@ -22398,6 +22986,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.05478589618831431,
      0.0
@@ -22429,6 +23018,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -22464,6 +23056,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.00515718210808161,
      0.0
@@ -22497,6 +23092,9 @@
     "gap_capture": [
      0.7862947003286599
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.14177346437582736,
      0.0
@@ -22528,6 +23126,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.02596092002630674,
      0.0
@@ -22560,6 +23159,9 @@
     "failed": false,
     "gap_capture": [
      0.8557367434195905
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.24184142896608266,
@@ -22594,6 +23196,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.02710180480627457,
      0.0
@@ -22625,6 +23230,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -23053,7 +23661,7 @@
      0.0,
      0.0008519914095823593
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_00",
     "total_err": [
@@ -23088,7 +23696,7 @@
      0.0,
      0.00813758448843031
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_01",
     "total_err": [
@@ -23123,7 +23731,7 @@
      0.0,
      0.015042697354120196
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_02",
     "total_err": [
@@ -23159,7 +23767,7 @@
      0.0,
      0.0018671678129852291
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_03",
     "total_err": [
@@ -23195,7 +23803,7 @@
      0.0,
      0.0003273800541280883
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_04",
     "total_err": [
@@ -23230,7 +23838,7 @@
      0.0,
      0.017606902330938683
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_05",
     "total_err": [
@@ -23265,7 +23873,7 @@
      0.0,
      0.043932024683275256
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_06",
     "total_err": [
@@ -23301,7 +23909,7 @@
      0.0,
      6.590462389974809e-05
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_07",
     "total_err": [
@@ -23337,7 +23945,7 @@
      0.0,
      0.00044251708319255497
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_08",
     "total_err": [
@@ -23372,7 +23980,7 @@
      0.0,
      0.003087370398249053
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_09",
     "total_err": [
@@ -23407,7 +24015,7 @@
      0.0,
      0.022397565631863965
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_10",
     "total_err": [
@@ -23443,7 +24051,7 @@
      0.0,
      0.004600325498643574
     ],
-    "query_fraction": 0.4982857142857143,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_11",
     "total_err": [
@@ -23480,6 +24088,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.16542717872465357,
      0.0
@@ -23511,6 +24122,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -23546,6 +24160,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.08333704569042967,
      0.0
@@ -23579,6 +24196,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.049481326521374006,
      0.0
@@ -23610,6 +24230,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.054755966571192076,
      0.0
@@ -23641,6 +24262,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -23676,6 +24300,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.052446256057886505,
      0.0
@@ -23709,6 +24336,9 @@
     "gap_capture": [
      0.8126460383287842
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.13869535267916783,
      0.0
@@ -23740,6 +24370,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.011359359222095836,
      0.0
@@ -23772,6 +24403,9 @@
     "failed": false,
     "gap_capture": [
      0.8245013606528044
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.2484430650486717,
@@ -23806,6 +24440,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.04293791898750504,
      0.0
@@ -23837,6 +24474,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -24265,7 +24905,7 @@
      0.0,
      0.001482087723926728
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_00",
     "total_err": [
@@ -24300,7 +24940,7 @@
      0.0,
      0.17757553775835122
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_01",
     "total_err": [
@@ -24335,7 +24975,7 @@
      0.0,
      0.20802142066908638
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_02",
     "total_err": [
@@ -24371,7 +25011,7 @@
      0.0,
      0.007408359677832793
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_03",
     "total_err": [
@@ -24407,7 +25047,7 @@
      0.0,
      0.043479223741571545
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_04",
     "total_err": [
@@ -24442,7 +25082,7 @@
      0.0,
      0.16871455915541073
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_05",
     "total_err": [
@@ -24477,7 +25117,7 @@
      0.0,
      0.212976623960454
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_06",
     "total_err": [
@@ -24513,7 +25153,7 @@
      0.0,
      0.061759942883221015
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_07",
     "total_err": [
@@ -24549,7 +25189,7 @@
      0.0,
      0.0015147785271652369
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 1.0,
     "task_id": "heart_disease_08",
     "total_err": [
@@ -24584,7 +25224,7 @@
      0.0,
      0.11731228688647655
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.942857142857143,
     "task_id": "heart_disease_09",
     "total_err": [
@@ -24619,7 +25259,7 @@
      0.0,
      0.22362506616812214
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.8857142857142858,
     "task_id": "heart_disease_10",
     "total_err": [
@@ -24655,7 +25295,7 @@
      0.0,
      0.02848187526824174
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.8285714285714287,
     "task_id": "heart_disease_11",
     "total_err": [
@@ -24692,6 +25332,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3457069523630861,
      0.0
@@ -24724,6 +25367,9 @@
     "failed": false,
     "gap_capture": [
      0.3165969042799537
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.9474906311629256,
@@ -24758,6 +25404,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.6899409015531777,
      0.0
@@ -24791,6 +25440,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.049953901168202405,
      0.0
@@ -24822,6 +25474,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.015105655234820714,
      0.0
@@ -24853,6 +25506,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -24888,6 +25544,9 @@
     "gap_capture": [
      0.07937592131813753
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.7946681701211065,
      0.0
@@ -24921,6 +25580,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.11885449798110748,
      0.0
@@ -24952,6 +25614,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.12727873317324062,
      0.0
@@ -24984,6 +25647,9 @@
     "failed": false,
     "gap_capture": [
      0.5364028926388342
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6186660523080008,
@@ -25018,6 +25684,9 @@
     "gap_capture": [
      0.5255566025664584
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.5006697431551171,
      0.0
@@ -25050,6 +25719,9 @@
     "failed": false,
     "gap_capture": [
      0.8442904608637103
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.3219425137423998,
@@ -25084,7 +25756,7 @@
      0.0,
      0.2087100683793636
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_00",
     "total_err": [
@@ -25117,7 +25789,7 @@
      0.0,
      0.04011901246543488
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_01",
     "total_err": [
@@ -25150,7 +25822,7 @@
      0.0,
      0.09770030861523077
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.8999999999999998,
     "task_id": "performance_02",
     "total_err": [
@@ -25182,7 +25854,7 @@
      0.0,
      0.2663897875708043
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.8999999999999998,
     "task_id": "performance_03",
     "total_err": [
@@ -25213,7 +25885,7 @@
      0.0,
      0.24550259433069793
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_04",
     "total_err": [
@@ -25246,7 +25918,7 @@
      0.0,
      0.001363901517339057
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_05",
     "total_err": [
@@ -25279,7 +25951,7 @@
      0.0,
      0.03955518027204646
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_06",
     "total_err": [
@@ -25310,7 +25982,7 @@
      0.0,
      0.22815647230694444
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_07",
     "total_err": [
@@ -25341,7 +26013,7 @@
      0.0,
      0.10938611045675566
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.8999999999999998,
     "task_id": "performance_08",
     "total_err": [
@@ -25374,7 +26046,7 @@
      0.0,
      0.03865184650337278
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_09",
     "total_err": [
@@ -25407,7 +26079,7 @@
      0.0,
      0.05363129455768083
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_10",
     "total_err": [
@@ -25438,7 +26110,7 @@
      0.0,
      0.056890342920702545
     ],
-    "query_fraction": 0.25,
+    "query_fraction": 0.5,
     "spearman": 0.9999999999999999,
     "task_id": "performance_11",
     "total_err": [
@@ -25904,6 +26576,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.5210778532142017,
      0.0
@@ -25935,6 +26610,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -25970,6 +26648,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.21933696568517905,
      0.0
@@ -26003,6 +26684,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4483702750715342,
      0.0
@@ -26034,6 +26718,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.029757848845188627,
      0.0
@@ -26065,6 +26750,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -26100,6 +26788,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.4137551845473544,
      0.0
@@ -26133,6 +26824,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.23362090354918655,
      0.0
@@ -26164,6 +26858,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.009335734186319963,
      0.0
@@ -26195,6 +26890,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -26230,6 +26928,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.3395652515563482,
      0.0
@@ -26261,6 +26962,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     0.0
+    ],
+    "gap_direction": [
      0.0
     ],
     "indirect_gap_err": [
@@ -27116,6 +27820,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.07749634846857538,
      0.0
@@ -27148,6 +27855,9 @@
     "failed": false,
     "gap_capture": [
      0.8372258690157053
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6544585774300192,
@@ -27182,6 +27892,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.4571817512052275,
      0.0
@@ -27215,6 +27928,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.030383643427109697,
      0.0
@@ -27246,6 +27962,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.20888183322359796,
      0.0
@@ -27277,6 +27994,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -27312,6 +28032,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3322404659940484,
      0.0
@@ -27345,6 +28068,9 @@
     "gap_capture": [
      0.5116370244349877
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.173856351580327,
      0.0
@@ -27376,6 +28102,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07952717176794896,
      0.0
@@ -27407,6 +28134,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -27442,6 +28172,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.20730861555606203,
      0.0
@@ -27473,6 +28206,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -28328,6 +29064,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2848474545034057,
      0.0
@@ -28360,6 +29099,9 @@
     "failed": false,
     "gap_capture": [
      0.5355363837483011
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.8242622100465816,
@@ -28394,6 +29136,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.5840258702179919,
      0.0
@@ -28427,6 +29172,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.005398354963966103,
      0.0
@@ -28458,6 +29206,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.03464985699983598,
      0.0
@@ -28489,6 +29238,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -28524,6 +29276,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.852816662345624,
      0.0
@@ -28557,6 +29312,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     0.0
+    ],
     "indirect_gap_err": [
      0.24006634710537622,
      0.0
@@ -28588,6 +29346,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.03727895016023206,
      0.0
@@ -28620,6 +29379,9 @@
     "failed": false,
     "gap_capture": [
      0.7678162113406577
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.5208470803978428,
@@ -28654,6 +29416,9 @@
     "gap_capture": [
      0.9235051317568916
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.3655402507340891,
      0.0
@@ -28685,6 +29450,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -29540,6 +30308,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.33547148484515027,
      0.0
@@ -29572,6 +30343,9 @@
     "failed": false,
     "gap_capture": [
      0.7223500583171143
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.719115553920611,
@@ -29606,6 +30380,9 @@
     "gap_capture": [
      0.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.664347561219091,
      0.0
@@ -29639,6 +30416,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.1777595590995052,
      0.0
@@ -29670,6 +30450,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.025511723690146922,
      0.0
@@ -29701,6 +30482,9 @@
     ],
     "failed": false,
     "gap_capture": [
+     1.0
+    ],
+    "gap_direction": [
      1.0
     ],
     "indirect_gap_err": [
@@ -29736,6 +30520,9 @@
     "gap_capture": [
      0.19955123992164525
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.744945008994275,
      0.0
@@ -29769,6 +30556,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.09761047635625697,
      0.0
@@ -29800,6 +30590,7 @@
     ],
     "failed": false,
     "gap_capture": [],
+    "gap_direction": [],
     "indirect_gap_err": [
      0.07989809263827542,
      0.0
@@ -29832,6 +30623,9 @@
     "failed": false,
     "gap_capture": [
      0.48276699848818927
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.6413380750451985,
@@ -29866,6 +30660,9 @@
     "gap_capture": [
      1.0
     ],
+    "gap_direction": [
+     1.0
+    ],
     "indirect_gap_err": [
      0.2617884233358525,
      0.0
@@ -29898,6 +30695,9 @@
     "failed": false,
     "gap_capture": [
      0.3239347783020423
+    ],
+    "gap_direction": [
+     1.0
     ],
     "indirect_gap_err": [
      0.46689642370946965,

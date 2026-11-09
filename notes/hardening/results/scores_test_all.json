@@ -356,7 +356,7 @@
           "direct_effect_nmae": 0.002675240230962134,
           "false_alarm_rate": 0.0,
           "indirect_effect_nmae": 0.039222217409234296,
-          "query_budget_fraction": 0.4982857142857143,
+          "query_budget_fraction": 0.5,
           "rank_spearman": 0.961904761904762,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.04022795300707936
@@ -365,7 +365,7 @@
           "direct_effect_nmae": 0.062199078425341,
           "false_alarm_rate": 0.0,
           "indirect_effect_nmae": 0.0791357688313579,
-          "query_budget_fraction": 0.25,
+          "query_budget_fraction": 0.5,
           "rank_spearman": 0.9571428571428573,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.09257445452696834
@@ -413,150 +413,175 @@
         "cafe": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.6728603075028992,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19441080098473537,
           "subgroup_effect_nmae": 0.205645096010715
         },
         "cafe_seed11": {
           "direct_gap_nmae": 0.26872958604185465,
           "indirect_gap_capture": 0.658328150304059,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19192278716242692,
           "subgroup_effect_nmae": 0.21260178735483165
         },
         "cafe_seed19": {
           "direct_gap_nmae": 0.26292796136458035,
           "indirect_gap_capture": 0.6419092110300741,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.1946543802821958,
           "subgroup_effect_nmae": 0.20929682336013988
         },
         "causal_fuzzing": {
           "direct_gap_nmae": 0.0077382908561981914,
           "indirect_gap_capture": 0.958476968296662,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.046131736563303306,
           "subgroup_effect_nmae": 0.038115928824392104
         },
         "direct_permutation": {
           "direct_gap_nmae": 0.004890556449793255,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 0.16947563636229704,
           "subgroup_effect_nmae": 0.10285051171320886
         },
         "shortcut_cafe_constant_subgroup": {
           "direct_gap_nmae": 0.10275423448255024,
           "indirect_gap_capture": 0.6002894218212258,
+          "indirect_gap_direction": 0.7,
           "indirect_gap_nmae": 0.17624876533685008,
           "subgroup_effect_nmae": 0.3822754340142165
         },
         "shortcut_cafe_prior_subgroup": {
           "direct_gap_nmae": 0.10275423448255024,
           "indirect_gap_capture": 0.5552093672731833,
+          "indirect_gap_direction": 0.7,
           "indirect_gap_nmae": 0.25950791543480045,
           "subgroup_effect_nmae": 0.20364594296543043
         },
         "shortcut_cafe_zero_direct_gap": {
           "direct_gap_nmae": 0.10275423448255024,
           "indirect_gap_capture": 0.9784704608055448,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.27295010616242527,
           "subgroup_effect_nmae": 0.21565104023048587
         },
         "shortcut_constant_answers": {
           "direct_gap_nmae": 0.10275423448255024,
           "indirect_gap_capture": 0.6002894218212258,
+          "indirect_gap_direction": 0.7,
           "indirect_gap_nmae": 0.17624876533685008,
           "subgroup_effect_nmae": 0.3822754340142165
         },
         "shortcut_direct_retention_claim": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.6728603075028992,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19441080098473537,
           "subgroup_effect_nmae": 0.205645096010715
         },
         "shortcut_drop_features": {
           "direct_gap_nmae": 2.0,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 2.0,
           "subgroup_effect_nmae": 2.0
         },
         "shortcut_flag_all_unlearned": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.6728603075028992,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19441080098473537,
           "subgroup_effect_nmae": 0.205645096010715
         },
         "shortcut_forged_fields": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.6728603075028992,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19441080098473537,
           "subgroup_effect_nmae": 0.205645096010715
         },
         "shortcut_nonfinite_values": {
           "direct_gap_nmae": 2.0,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 2.0,
           "subgroup_effect_nmae": 2.0
         },
         "shortcut_overbudget_bruteforce": {
           "direct_gap_nmae": 2.0,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 2.0,
           "subgroup_effect_nmae": 2.0
         },
         "shortcut_rescale_units": {
           "direct_gap_nmae": 1.9643576804365719,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 1.0,
           "subgroup_effect_nmae": 1.6666666666666667
         },
         "shortcut_scores_file_forgery": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.6728603075028992,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.19441080098473537,
           "subgroup_effect_nmae": 0.205645096010715
         },
         "shortcut_zero_output": {
           "direct_gap_nmae": 0.10275423448255024,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 0.16947563636229704,
           "subgroup_effect_nmae": 0.5625302995135117
         },
         "variant_abduction": {
           "direct_gap_nmae": 0.0077382908561981914,
           "indirect_gap_capture": 0.964203144374825,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.04685759347222488,
           "subgroup_effect_nmae": 0.03747095421335938
         },
         "variant_abduction_half": {
           "direct_gap_nmae": 0.009474615886548942,
           "indirect_gap_capture": 0.9637147398981589,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.04792810045047926,
           "subgroup_effect_nmae": 0.038773569066363825
         },
         "variant_cafe_half_rows": {
           "direct_gap_nmae": 0.3349854193531083,
           "indirect_gap_capture": 0.6302222781667094,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.21199471220175767,
           "subgroup_effect_nmae": 0.23383331305646435
         },
         "variant_direct_only": {
           "direct_gap_nmae": 0.2557401325706763,
           "indirect_gap_capture": 0.0,
+          "indirect_gap_direction": 0.0,
           "indirect_gap_nmae": 0.16947563636229704,
           "subgroup_effect_nmae": 0.19548160543776738
         },
         "variant_hgb": {
           "direct_gap_nmae": 0.15311912162672187,
           "indirect_gap_capture": 0.8348862893450694,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.12634981370915727,
           "subgroup_effect_nmae": 0.11627377780569163
         },
         "variant_no_backdoor": {
           "direct_gap_nmae": 0.23388292256323076,
           "indirect_gap_capture": 0.622685772684585,
+          "indirect_gap_direction": 0.9,
           "indirect_gap_nmae": 0.1698425417586661,
           "subgroup_effect_nmae": 0.44766055987744874
         },
         "variant_probe_direct": {
           "direct_gap_nmae": 0.012910459348920761,
           "indirect_gap_capture": 0.672860307502899,
+          "indirect_gap_direction": 1.0,
           "indirect_gap_nmae": 0.1944108009847354,
           "subgroup_effect_nmae": 0.13153851940564787
         }
@@ -640,7 +665,7 @@
           "direct_effect_nmae": 0.16226129990337998,
           "false_alarm_rate": 0.0,
           "indirect_effect_nmae": 0.22431204776513472,
-          "query_budget_fraction": 0.75,
+          "query_budget_fraction": 0.875,
           "rank_spearman": 0.6894542930624351,
           "residual_capture": 0.5637488540099981,
           "total_effect_nmae": 0.3788329690192923
@@ -748,7 +773,7 @@
           "direct_effect_nmae": 0.05744557946036872,
           "false_alarm_rate": 0.0,
           "indirect_effect_nmae": 0.05003777320486982,
-          "query_budget_fraction": 0.25,
+          "query_budget_fraction": 0.5,
           "rank_spearman": 0.975,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.04238181050685121
