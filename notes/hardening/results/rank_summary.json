@@ -1,0 +1,1275 @@
+{
+ "cohorts": {
+  "all_hardening_runs": {
+   "members": [
+    "cafe",
+    "cafe_seed11",
+    "cafe_seed19",
+    "causal_fuzzing",
+    "direct_permutation",
+    "shortcut_cafe_constant_subgroup",
+    "shortcut_cafe_prior_subgroup",
+    "shortcut_constant_answers",
+    "shortcut_direct_retention_claim",
+    "shortcut_drop_features",
+    "shortcut_flag_all_unlearned",
+    "shortcut_forged_fields",
+    "shortcut_nonfinite_values",
+    "shortcut_overbudget_bruteforce",
+    "shortcut_rescale_units",
+    "shortcut_scores_file_forgery",
+    "shortcut_zero_output",
+    "variant_abduction",
+    "variant_abduction_half",
+    "variant_direct_only",
+    "variant_hgb",
+    "variant_no_backdoor",
+    "variant_probe_direct"
+   ],
+   "paired_bootstrap_vs_reference": {
+    "cafe_seed11": {
+     "ci95": [
+      -0.038663357092903694,
+      0.003331496668710369
+     ],
+     "p_not_better": 0.9465,
+     "point": -0.016765507658601
+    },
+    "cafe_seed19": {
+     "ci95": [
+      -0.038326304373861114,
+      -0.0022007284771839615
+     ],
+     "p_not_better": 0.9845,
+     "point": -0.018817777151852063
+    },
+    "causal_fuzzing": {
+     "ci95": [
+      -0.6910778576395975,
+      -0.3527779437990065
+     ],
+     "p_not_better": 1.0,
+     "point": -0.5260019516850507
+    },
+    "direct_permutation": {
+     "ci95": [
+      -3.4503756425750307,
+      -3.184993989118337
+     ],
+     "p_not_better": 1.0,
+     "point": -3.3232712243782334
+    },
+    "shortcut_cafe_constant_subgroup": {
+     "ci95": [
+      -0.22787460732454978,
+      0.13532277699026987
+     ],
+     "p_not_better": 0.691,
+     "point": -0.04946200468136497
+    },
+    "shortcut_cafe_prior_subgroup": {
+     "ci95": [
+      -0.2089944945733171,
+      0.15745763278705605
+     ],
+     "p_not_better": 0.605,
+     "point": -0.028111559798042196
+    },
+    "shortcut_constant_answers": {
+     "ci95": [
+      -1.097098139861059,
+      -0.5817680212350946
+     ],
+     "p_not_better": 1.0,
+     "point": -0.8495838436537562
+    },
+    "shortcut_direct_retention_claim": {
+     "ci95": [
+      -0.2751543445154134,
+      -0.2526770151177851
+     ],
+     "p_not_better": 1.0,
+     "point": -0.26404885008772816
+    },
+    "shortcut_flag_all_unlearned": {
+     "ci95": [
+      -2.7731150421504167,
+      -2.560692669370748
+     ],
+     "p_not_better": 1.0,
+     "point": -2.674037792811532
+    },
+    "shortcut_forged_fields": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "p_not_better": 1.0,
+     "point": 0.0
+    },
+    "shortcut_rescale_units": {
+     "ci95": [
+      -10.09037871101972,
+      -9.839271522992572
+     ],
+     "p_not_better": 1.0,
+     "point": -9.97500399963921
+    },
+    "shortcut_scores_file_forgery": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "p_not_better": 1.0,
+     "point": 0.0
+    },
+    "shortcut_zero_output": {
+     "ci95": [
+      -4.231314962863973,
+      -3.9993735183385843
+     ],
+     "p_not_better": 1.0,
+     "point": -4.122181316484392
+    },
+    "variant_abduction": {
+     "ci95": [
+      -0.4814069646292795,
+      -0.22789018775086703
+     ],
+     "p_not_better": 1.0,
+     "point": -0.36478712743118996
+    },
+    "variant_abduction_half": {
+     "ci95": [
+      0.1969330820391602,
+      0.4471322510885585
+     ],
+     "p_not_better": 0.0,
+     "point": 0.3129846171976853
+    },
+    "variant_direct_only": {
+     "ci95": [
+      -3.121586286042474,
+      -2.882195948384477
+     ],
+     "p_not_better": 1.0,
+     "point": -3.00640793612748
+    },
+    "variant_hgb": {
+     "ci95": [
+      0.018334582224725456,
+      0.2785753382926814
+     ],
+     "p_not_better": 0.0115,
+     "point": 0.14041690170902082
+    },
+    "variant_no_backdoor": {
+     "ci95": [
+      -0.782474774976354,
+      -0.4788721399916012
+     ],
+     "p_not_better": 1.0,
+     "point": -0.6223677660161806
+    },
+    "variant_probe_direct": {
+     "ci95": [
+      -0.6758640228727817,
+      -0.5876988182264662
+     ],
+     "p_not_better": 1.0,
+     "point": -0.6301691295778913
+    }
+   },
+   "reference_seed_spread": 0.018817777151852063,
+   "scores": {
+    "cafe": {
+     "score": 0.0,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "cafe_seed11": {
+     "score": -0.016765507658601,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0001971694865287728,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.0020295590532866605,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.004641250052992571,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.0028741522356048794,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.003501964713710022,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.010844105119472803,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0015228037695822706,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.001020979018577965,
+      "performance_feature_unlearning/direct_effect_nmae": -0.00010166273970985931,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 8.122720784126227e-05,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 7.94887452404601e-05
+     }
+    },
+    "cafe_seed19": {
+     "score": -0.018817777151852063,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 2.233158887557196e-05,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.00025572172585709317,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.006961875079488857,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.0003583180704894699,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.001922363035610702,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.01132325227029981,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.0008864085845694307,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0002755978823181403,
+      "performance_feature_unlearning/direct_effect_nmae": 6.167483925915907e-05,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.00011304444737985184,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.0004792553111490539
+     }
+    },
+    "causal_fuzzing": {
+     "score": -0.5260019516850507,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.015440650876867839,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.004512489205865883,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.35514383247354603,
+      "heart_disease_feature_unlearning/rank_spearman": -0.05337437560941467,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.0005431290517191825,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.036591641647497,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.05796869774270398,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.044674099085995296,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.0286747073091668,
+      "performance_feature_unlearning/direct_effect_nmae": 0.012788557967864078,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.008650863924963939,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.00701116345007855,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.0011081480438753697
+     }
+    },
+    "direct_permutation": {
+     "score": -3.3232712243782334,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.015665426005738444,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.1252429001724103,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.35677855667365427,
+      "heart_disease_feature_unlearning/rank_spearman": -0.32089837322414644,
+      "heart_disease_feature_unlearning/residual_capture": -0.6968459132437593,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.11981621621887002,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.03666070553074844,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.0004303784634104147,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.01678527839128846,
+      "performance_feature_unlearning/direct_effect_nmae": 0.012867275386802034,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.11928815539720554,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.18565864369946738,
+      "performance_feature_unlearning/residual_capture": -0.6140372085142679,
+      "performance_feature_unlearning/total_effect_nmae": -0.12470973341357226
+     }
+    },
+    "shortcut_cafe_constant_subgroup": {
+     "score": -0.04946200468136497,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.021639590368117485,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.05633426996928723,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.016303643959535666,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.031070969039730882,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "shortcut_cafe_prior_subgroup": {
+     "score": -0.028111559798042196,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.021639590368117485,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.043619865356673754,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.006341356952798449,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.00021007214331252187,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "shortcut_constant_answers": {
+     "score": -0.8495838436537562,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0315950788801985,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.09475272306313937,
+      "heart_disease_feature_unlearning/query_budget_fraction": 0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": -0.06114792659181585,
+      "heart_disease_feature_unlearning/residual_capture": -0.44468612523673895,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.16483742033818585,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.021639590368117485,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.05633426996928723,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.016303643959535666,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.031070969039730882,
+      "performance_feature_unlearning/direct_effect_nmae": -0.02751059598655284,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.08544477149782659,
+      "performance_feature_unlearning/query_budget_fraction": 0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.12362603915348944,
+      "performance_feature_unlearning/residual_capture": -0.27024173889399383,
+      "performance_feature_unlearning/total_effect_nmae": -0.16627592470095745
+     }
+    },
+    "shortcut_direct_retention_claim": {
+     "score": -0.26404885008772816,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.04946172617141217,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.09792408672505187,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": -0.04060453036662079,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.07605850682464334,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "shortcut_drop_features": {
+     "score": -12.056379373636794,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.554463997591749,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.7758121192946426,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -1.0877246757766699,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": -0.93289126065151,
+      "heart_disease_feature_unlearning/residual_capture": -0.705062983810029,
+      "heart_disease_feature_unlearning/total_effect_nmae": -1.0779072868706006,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.3143871009466312,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.6487519907544562,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.3273359602223526,
+      "performance_feature_unlearning/direct_effect_nmae": -0.48713147993648315,
+      "performance_feature_unlearning/false_alarm_rate": -0.678835604382812,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.9601443051921551,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.8343284505593505,
+      "performance_feature_unlearning/residual_capture": -0.6194636767789427,
+      "performance_feature_unlearning/total_effect_nmae": -0.9521379744958347
+     }
+    },
+    "shortcut_flag_all_unlearned": {
+     "score": -2.674037792811532,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.004182960697424652,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.7758121192946426,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.07145328760748997,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.29532553436604336,
+      "heart_disease_feature_unlearning/residual_capture": -0.21379936431823815,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.07881375865259735,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": 0.005402458097006611,
+      "performance_feature_unlearning/false_alarm_rate": -0.678835604382812,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0989736862315909,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.2764810603919315,
+      "performance_feature_unlearning/residual_capture": -0.08849481096842039,
+      "performance_feature_unlearning/total_effect_nmae": -0.10563398539219723
+     }
+    },
+    "shortcut_forged_fields": {
+     "score": 0.0,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "shortcut_nonfinite_values": {
+     "score": -12.056379373636794,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.554463997591749,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.7758121192946426,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -1.0877246757766699,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": -0.93289126065151,
+      "heart_disease_feature_unlearning/residual_capture": -0.705062983810029,
+      "heart_disease_feature_unlearning/total_effect_nmae": -1.0779072868706006,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.3143871009466312,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.6487519907544562,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.3273359602223526,
+      "performance_feature_unlearning/direct_effect_nmae": -0.48713147993648315,
+      "performance_feature_unlearning/false_alarm_rate": -0.678835604382812,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.9601443051921551,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.8343284505593505,
+      "performance_feature_unlearning/residual_capture": -0.6194636767789427,
+      "performance_feature_unlearning/total_effect_nmae": -0.9521379744958347
+     }
+    },
+    "shortcut_overbudget_bruteforce": {
+     "score": -12.056379373636794,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.554463997591749,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.7758121192946426,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -1.0877246757766699,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": -0.93289126065151,
+      "heart_disease_feature_unlearning/residual_capture": -0.705062983810029,
+      "heart_disease_feature_unlearning/total_effect_nmae": -1.0779072868706006,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.3143871009466312,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.6487519907544562,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.3273359602223526,
+      "performance_feature_unlearning/direct_effect_nmae": -0.48713147993648315,
+      "performance_feature_unlearning/false_alarm_rate": -0.678835604382812,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.9601443051921551,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.8343284505593505,
+      "performance_feature_unlearning/residual_capture": -0.6194636767789427,
+      "performance_feature_unlearning/total_effect_nmae": -0.9521379744958347
+     }
+    },
+    "shortcut_rescale_units": {
+     "score": -9.97500399963921,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.4385727604363698,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.7758121192946426,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -1.054331096614626,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": -0.705062983810029,
+      "heart_disease_feature_unlearning/total_effect_nmae": -1.0779072868706006,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.30810916516282316,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.6487519907544562,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.32463928981318446,
+      "performance_feature_unlearning/direct_effect_nmae": -0.3824892676556515,
+      "performance_feature_unlearning/false_alarm_rate": -0.678835604382812,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.9088902771966597,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": -0.6194636767789427,
+      "performance_feature_unlearning/total_effect_nmae": -0.9521379744958347
+     }
+    },
+    "shortcut_scores_file_forgery": {
+     "score": 0.0,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "shortcut_zero_output": {
+     "score": -4.122181316484392,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.03355440350781272,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.1252429001724103,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3575959187737086,
+      "heart_disease_feature_unlearning/rank_spearman": -0.4455600050872883,
+      "heart_disease_feature_unlearning/residual_capture": -0.705062983810029,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.21781145236260033,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.021639590368117485,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.0004303784634104147,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.06463240176350325,
+      "performance_feature_unlearning/direct_effect_nmae": -0.05103955281264847,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.11928815539720554,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.41365864355463583,
+      "performance_feature_unlearning/residual_capture": -0.6194636767789427,
+      "performance_feature_unlearning/total_effect_nmae": -0.24893660369626747
+     }
+    },
+    "variant_abduction": {
+     "score": -0.36478712743118996,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.015440650876867839,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.028352472963500935,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.35514383247354603,
+      "heart_disease_feature_unlearning/rank_spearman": 0.018565000211970446,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.03331365028903788,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.036591641647497,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.06269666094199916,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.04504796418578594,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.028847348106294347,
+      "performance_feature_unlearning/direct_effect_nmae": 0.012788557967864078,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.01608783158294877,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.003505581725039275,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.008531094590427947
+     }
+    },
+    "variant_abduction_half": {
+     "score": 0.3129846171976853,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.015193243166123614,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.028732671941869396,
+      "heart_disease_feature_unlearning/query_budget_fraction": 0.0012260431500812933,
+      "heart_disease_feature_unlearning/rank_spearman": 0.025526875291459302,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.03340718439116166,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.03636303436619432,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.06078104620467551,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.042951525616459915,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.02821437788449553,
+      "performance_feature_unlearning/direct_effect_nmae": 0.01274326798401047,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.016036386370511423,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.003505581725039275,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.008303379105603553
+     }
+    },
+    "variant_direct_only": {
+     "score": -3.00640793612748,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.1252429001724103,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.4339568799548069,
+      "heart_disease_feature_unlearning/residual_capture": -0.7050577713468256,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.13493363842272327,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4300040010020685,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.0004303784634104147,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.0020483572950042235,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.11928815539720554,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.2979744466283394,
+      "performance_feature_unlearning/residual_capture": -0.6193734205789101,
+      "performance_feature_unlearning/total_effect_nmae": -0.143055458382605
+     }
+    },
+    "variant_hgb": {
+     "score": 0.14041690170902082,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.005308661984223749,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.009930834526864338,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.004641250052992571,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.018236194548345307,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.015550770524769917,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.04830737394762594,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.022838292411298314,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.015772222273602192,
+      "performance_feature_unlearning/direct_effect_nmae": 0.004432370026380633,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.0019328363796660823,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.00701116345007855,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.00047725848333032627
+     }
+    },
+    "variant_no_backdoor": {
+     "score": -0.6223677660161806,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.018885032205379328,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.03303862169379048,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.016244375185474,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.06979959021822428,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.0034566069166344026,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.09142220985420367,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.004170550759891422,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.04377981916092541,
+      "performance_feature_unlearning/direct_effect_nmae": -0.03431748973718732,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.03545118288766913,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.17177350452692505,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.10694199670314497
+     }
+    },
+    "variant_probe_direct": {
+     "score": -0.6301691295778913,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.01536278123924981,
+      "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.001050583221964837,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.3563698756236274,
+      "heart_disease_feature_unlearning/rank_spearman": -0.009282500105985142,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.00560177254661899,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.035748876719721746,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 5.680180653641627e-17,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.004389094458721072,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.013031992857403304,
+      "performance_feature_unlearning/direct_effect_nmae": 0.012826506941380588,
+      "performance_feature_unlearning/false_alarm_rate": -0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.00048608782702307026,
+      "performance_feature_unlearning/query_budget_fraction": -0.312400586596799,
+      "performance_feature_unlearning/rank_spearman": -0.03155023552535356,
+      "performance_feature_unlearning/residual_capture": -0.0021419668946125936,
+      "performance_feature_unlearning/total_effect_nmae": -0.006921660643597108
+     }
+    }
+   },
+   "sigma": {
+    "heart_disease_feature_unlearning/direct_effect_nmae": 0.7012433260499833,
+    "heart_disease_feature_unlearning/false_alarm_rate": 0.4124709991523973,
+    "heart_disease_feature_unlearning/indirect_effect_nmae": 0.7024995794455351,
+    "heart_disease_feature_unlearning/query_budget_fraction": 0.27964524970790094,
+    "heart_disease_feature_unlearning/rank_spearman": 0.6566375465277944,
+    "heart_disease_feature_unlearning/residual_capture": 0.45386016192593137,
+    "heart_disease_feature_unlearning/total_effect_nmae": 0.7055495673488626,
+    "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.7096743418305652,
+    "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.3909111672050009,
+    "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.7039449578704757,
+    "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.6890327235758646,
+    "performance_feature_unlearning/direct_effect_nmae": 0.699716404861932,
+    "performance_feature_unlearning/false_alarm_rate": 0.4124709991523973,
+    "performance_feature_unlearning/indirect_effect_nmae": 0.7105191661156051,
+    "performance_feature_unlearning/query_budget_fraction": 0.280089102754894,
+    "performance_feature_unlearning/rank_spearman": 0.6656051737910014,
+    "performance_feature_unlearning/residual_capture": 0.4520039035314072,
+    "performance_feature_unlearning/total_effect_nmae": 0.7220204372909348
+   }
+  },
+  "honest_runs": {
+   "members": [
+    "cafe",
+    "cafe_seed11",
+    "cafe_seed19",
+    "causal_fuzzing",
+    "direct_permutation",
+    "variant_abduction",
+    "variant_abduction_half",
+    "variant_direct_only",
+    "variant_hgb",
+    "variant_no_backdoor",
+    "variant_probe_direct"
+   ],
+   "paired_bootstrap_vs_reference": {
+    "cafe_seed11": {
+     "ci95": [
+      -0.13410195795362242,
+      0.05457857731675131
+     ],
+     "p_not_better": 0.808,
+     "point": -0.04123193125916409
+    },
+    "cafe_seed19": {
+     "ci95": [
+      -0.10483376892184364,
+      0.06309246645697214
+     ],
+     "p_not_better": 0.748,
+     "point": -0.02647306611267535
+    },
+    "causal_fuzzing": {
+     "ci95": [
+      -0.04753836376448341,
+      1.4247031504006342
+     ],
+     "p_not_better": 0.0355,
+     "point": 0.6644101594004008
+    },
+    "direct_permutation": {
+     "ci95": [
+      -7.09197455648626,
+      -6.15712389537034
+     ],
+     "p_not_better": 1.0,
+     "point": -6.637870937030007
+    },
+    "variant_abduction": {
+     "ci95": [
+      0.8792464650336107,
+      1.990446804988206
+     ],
+     "p_not_better": 0.0,
+     "point": 1.4255898740559059
+    },
+    "variant_abduction_half": {
+     "ci95": [
+      1.6750657959360566,
+      2.7495468344795926
+     ],
+     "p_not_better": 0.0,
+     "point": 2.202341567899546
+    },
+    "variant_direct_only": {
+     "ci95": [
+      -7.888644411237181,
+      -7.058274176270069
+     ],
+     "p_not_better": 1.0,
+     "point": -7.47688820235106
+    },
+    "variant_hgb": {
+     "ci95": [
+      0.510125515105808,
+      1.3620285588770795
+     ],
+     "p_not_better": 0.0,
+     "point": 0.9282414432376556
+    },
+    "variant_no_backdoor": {
+     "ci95": [
+      -3.904866122126489,
+      -2.8933910058527545
+     ],
+     "p_not_better": 1.0,
+     "point": -3.403078305164056
+    },
+    "variant_probe_direct": {
+     "ci95": [
+      -0.23079093775928525,
+      0.19019212189318757
+     ],
+     "p_not_better": 0.601,
+     "point": -0.027917800997870435
+    }
+   },
+   "reference_seed_spread": 0.04123193125916409,
+   "scores": {
+    "cafe": {
+     "score": 0.0,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.0,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.0,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.0,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.0
+     }
+    },
+    "cafe_seed11": {
+     "score": -0.04123193125916409,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0037612858422867695,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.015574165146505257,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.01009936854123727,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.02031888990828704,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.024840662628646197,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.012310324298616504,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.019435463876078786,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.006407374992324917,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0013496902743796722,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.0005907561230208492,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.0004884280165928788
+     }
+    },
+    "cafe_seed19": {
+     "score": -0.02647306611267535,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.00042600653149847364,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0019623239755444514,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.015149052811855905,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.002533138410774936,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.013635994512005173,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.012854256393377067,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.011313185827988294,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.001729574209627219,
+      "performance_feature_unlearning/direct_effect_nmae": 0.000818804716060035,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.0008221592399638229,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.0,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.0029448410634489025
+     }
+    },
+    "causal_fuzzing": {
+     "score": 0.6644101594004008,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.2945521772223143,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.034627350211943464,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.4147190231917347,
+      "heart_disease_feature_unlearning/rank_spearman": -0.11614273822422884,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.003839664187290995,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.25955733409741555,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.06580657975177001,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.5701731610635584,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.1799543371428859,
+      "performance_feature_unlearning/direct_effect_nmae": 0.1697828758287228,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.0629167365087802,
+      "performance_feature_unlearning/query_budget_fraction": -0.3637908052713812,
+      "performance_feature_unlearning/rank_spearman": -0.019701936502715442,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.006809146999666394
+     }
+    },
+    "direct_permutation": {
+     "score": -6.637870937030007,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.29884007959911446,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.9610726071526082,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.41662797151482656,
+      "heart_disease_feature_unlearning/rank_spearman": -0.6982754427084837,
+      "heart_disease_feature_unlearning/residual_capture": -0.8247947359394012,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.8470436869765795,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.2600472284178686,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4881443552711916,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.005492897539221324,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.10533965051833304,
+      "performance_feature_unlearning/direct_effect_nmae": 0.17082794047156094,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.8675690089271277,
+      "performance_feature_unlearning/query_budget_fraction": -0.3637908052713812,
+      "performance_feature_unlearning/rank_spearman": -0.5217158087087809,
+      "performance_feature_unlearning/residual_capture": -0.7230905728317759,
+      "performance_feature_unlearning/total_effect_nmae": -0.7662937382739493
+     }
+    },
+    "variant_abduction": {
+     "score": 1.4255898740559059,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.2945521772223143,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.21756750340933337,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.4147190231917347,
+      "heart_disease_feature_unlearning/rank_spearman": 0.04039747416494944,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.23551166993897216,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.25955733409741555,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.07117380550382707,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.5749447815353811,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.18103778186216207,
+      "performance_feature_unlearning/direct_effect_nmae": 0.1697828758287228,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.11700494534206181,
+      "performance_feature_unlearning/query_budget_fraction": -0.3637908052713812,
+      "performance_feature_unlearning/rank_spearman": -0.009850968251357721,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.05242032186523972
+     }
+    },
+    "variant_abduction_half": {
+     "score": 2.202341567899546,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.2898325264483643,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.2204850246650239,
+      "heart_disease_feature_unlearning/query_budget_fraction": 0.001431711242319,
+      "heart_disease_feature_unlearning/rank_spearman": 0.05554652697680534,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.2361729115740464,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.25793574255851176,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.06899918266608666,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.54818804708513,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.17706544012326042,
+      "performance_feature_unlearning/direct_effect_nmae": 0.16918159899014376,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.11663079023990854,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": 0.009850968251357721,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.051021097078588394
+     }
+    },
+    "variant_direct_only": {
+     "score": -7.47688820235106,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.9610726071526082,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.9442909586056881,
+      "heart_disease_feature_unlearning/residual_capture": -0.8345143844398311,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.9539166750013572,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": -0.0,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.4881443552711916,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.005492897539221324,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.01285490991346375,
+      "performance_feature_unlearning/direct_effect_nmae": -0.0,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.8675690089271277,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.8373323013654093,
+      "performance_feature_unlearning/residual_capture": -0.729374499253613,
+      "performance_feature_unlearning/total_effect_nmae": -0.8790212197869189
+     }
+    },
+    "variant_hgb": {
+     "score": 0.9282414432376556,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.10127020927162048,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.07620594075030168,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": 0.01009936854123727,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.1289212258083298,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.11030706354892517,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.05483895930167121,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.2914839167182217,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.09898199740678763,
+      "performance_feature_unlearning/direct_effect_nmae": 0.058844830801640706,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.014057296273394158,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.019701936502715442,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": 0.0029325713182412226
+     }
+    },
+    "variant_no_backdoor": {
+     "score": -3.403078305164056,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": -0.3602586055061684,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": -0.25352745939505705,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.0,
+      "heart_disease_feature_unlearning/rank_spearman": -0.03534778989433045,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": -0.4934499194991912,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.02451892388287214,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": -0.10378330337101481,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": -0.053228518510600856,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": -0.27474973859004903,
+      "performance_feature_unlearning/direct_effect_nmae": -0.45560430765091803,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": -0.25783236819059707,
+      "performance_feature_unlearning/query_budget_fraction": -0.0,
+      "performance_feature_unlearning/rank_spearman": -0.48269744431653006,
+      "performance_feature_unlearning/residual_capture": 0.0,
+      "performance_feature_unlearning/total_effect_nmae": -0.6571177741224707
+     }
+    },
+    "variant_probe_direct": {
+     "score": -0.027917800997870435,
+     "terms": {
+      "heart_disease_feature_unlearning/direct_effect_nmae": 0.29306670413683283,
+      "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+      "heart_disease_feature_unlearning/indirect_effect_nmae": 0.008061828293456882,
+      "heart_disease_feature_unlearning/query_budget_fraction": -0.41615073443405376,
+      "heart_disease_feature_unlearning/rank_spearman": -0.02019873708247454,
+      "heart_disease_feature_unlearning/residual_capture": 0.0,
+      "heart_disease_feature_unlearning/total_effect_nmae": 0.03960186877229265,
+      "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.25357930720178135,
+      "heart_disease_subgroup_unlearning/indirect_gap_capture": 6.448191450624315e-17,
+      "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.05601778016649593,
+      "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.08178509412562085,
+      "performance_feature_unlearning/direct_effect_nmae": 0.170286692277346,
+      "performance_feature_unlearning/false_alarm_rate": 0.0,
+      "performance_feature_unlearning/indirect_effect_nmae": 0.0035352607552503515,
+      "performance_feature_unlearning/query_budget_fraction": -0.3637908052713812,
+      "performance_feature_unlearning/rank_spearman": -0.08865871426221975,
+      "performance_feature_unlearning/residual_capture": -0.0025223814572405204,
+      "performance_feature_unlearning/total_effect_nmae": -0.04253096421957756
+     }
+    }
+   },
+   "sigma": {
+    "heart_disease_feature_unlearning/direct_effect_nmae": 0.03675971258939018,
+    "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
+    "heart_disease_feature_unlearning/indirect_effect_nmae": 0.09154676144638736,
+    "heart_disease_feature_unlearning/query_budget_fraction": 0.23947366809930565,
+    "heart_disease_feature_unlearning/rank_spearman": 0.30176332660553395,
+    "heart_disease_feature_unlearning/residual_capture": 0.3834537070147753,
+    "heart_disease_feature_unlearning/total_effect_nmae": 0.09980155783504342,
+    "heart_disease_subgroup_unlearning/direct_gap_nmae": 0.100047834490938,
+    "heart_disease_subgroup_unlearning/indirect_gap_capture": 0.3443517560315814,
+    "heart_disease_subgroup_unlearning/indirect_gap_nmae": 0.05515536147006897,
+    "heart_disease_subgroup_unlearning/subgroup_effect_nmae": 0.10979347310361304,
+    "performance_feature_unlearning/direct_effect_nmae": 0.052704748703098825,
+    "performance_feature_unlearning/false_alarm_rate": 0.0,
+    "performance_feature_unlearning/indirect_effect_nmae": 0.09769426965251406,
+    "performance_feature_unlearning/query_budget_fraction": 0.24052284646041733,
+    "performance_feature_unlearning/rank_spearman": 0.23686334924607338,
+    "performance_feature_unlearning/residual_capture": 0.38383464753944174,
+    "performance_feature_unlearning/total_effect_nmae": 0.11750451785828513
+   }
+  }
+ },
+ "diagnostics": {
+  "cafe": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "cafe_seed11": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "cafe_seed19": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "causal_fuzzing": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9982857142857142,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "direct_permutation": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9994285714285714,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_cafe_constant_subgroup": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_cafe_prior_subgroup": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_constant_answers": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.0,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_direct_retention_claim": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_drop_features": {
+   "failed_tasks": 24,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_flag_all_unlearned": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_forged_fields": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_nonfinite_values": {
+   "failed_tasks": 24,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_overbudget_bruteforce": {
+   "failed_tasks": 24,
+   "log_tail": "Traceback (most recent call last):\n  File \"/home/user/notes/hardening/shortcuts.py\", line 250, in <module>\n    main()\n  File \"/home/user/notes/hardening/shortcuts.py\", line 245, in main\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 245, in <dictcomp>\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 157, in overbudget_bruteforce\n    preds = blackbox.predict(batch).reshape(4, len(sample))\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/data/blackbox.py\", line 110, in predict\n    raise BudgetExceeded(f\"{self.task_id}: {error}\")\ndata.blackbox.BudgetExceeded: heart_disease_00: budget_exceeded (remaining 7000 rows)",
+   "mean_query_budget_fraction": 0.0,
+   "refused_rows": 14000,
+   "status": "exit_code_1",
+   "tasks": 24
+  },
+  "shortcut_rescale_units": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_scores_file_forgery": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "shortcut_zero_output": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.0,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_abduction": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9982857142857142,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_abduction_half": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.4991428571428571,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_direct_only": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_hgb": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_no_backdoor": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  },
+  "variant_probe_direct": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9991428571428571,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 24
+  }
+ },
+ "rule": "rank(m) = sum_experiments weight * sum_metrics |coefficient| * direction *\n          (value_m - value_reference) / sigma_metric\ndirection comes from higher_is_better, sigma is the population std of the\nmetric over the ranked cohort (zero-variance metrics contribute 0). The\nreference is the ``cafe`` entry. Paired bootstraps resample held-out tasks\n(the same tasks for both methods) to put an interval on rank differences."
+}

@@ -26,84 +26,84 @@
     "heart_disease_feature_unlearning": {
       "results": {
         "cafe": {
-          "direct_effect_nmae": 0.047688982852929516,
+          "direct_effect_nmae": 0.04463054759068655,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.08696307160011477,
+          "indirect_effect_nmae": 0.08436177396042303,
           "query_budget_fraction": 0.5,
-          "rank_spearman": 0.9714285714285715,
-          "residual_capture": 0.9855962263071937,
-          "total_effect_nmae": 0.08855618094791277
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.08929011723156045
         },
         "causal_fuzzing": {
-          "direct_effect_nmae": 0.0015617824475516794,
+          "direct_effect_nmae": 0.0020452891886192717,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.105875113355373,
+          "indirect_effect_nmae": 0.08610586355840831,
           "query_budget_fraction": 0.9965714285714286,
-          "rank_spearman": 0.8000000000000002,
-          "residual_capture": 0.9856425036766772,
-          "total_effect_nmae": 0.10591980411049054
+          "rank_spearman": 0.8190476190476191,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.08714244542291216
         },
         "direct_permutation": {
-          "direct_effect_nmae": 0.0013490693576109322,
+          "direct_effect_nmae": 0.0012433974193048396,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.29295596514513034,
+          "indirect_effect_nmae": 0.29362553141519254,
           "query_budget_fraction": 0.998857142857143,
           "rank_spearman": 0.2915885190393741,
-          "residual_capture": 0.010533150725618199,
-          "total_effect_nmae": 0.29314221986783756
+          "residual_capture": 0.01746200231950929,
+          "total_effect_nmae": 0.2939113225658059
         }
       }
     },
     "heart_disease_subgroup_unlearning": {
       "results": {
         "cafe": {
-          "direct_gap_nmae": 0.4464673373771646,
-          "indirect_gap_capture": 1.0,
-          "indirect_gap_nmae": 0.3228166615681353,
-          "total_gap_nmae": 0.26214314738855193
+          "direct_gap_nmae": 0.5288266902257742,
+          "indirect_gap_capture": 0.6186953942069701,
+          "indirect_gap_nmae": 0.34922810115990915,
+          "subgroup_effect_nmae": 0.2791778327780495
         },
         "causal_fuzzing": {
-          "direct_gap_nmae": 0.0051420897257270105,
-          "indirect_gap_capture": 0.6423046902048091,
-          "indirect_gap_nmae": 0.06321180470254545,
-          "total_gap_nmae": 0.06835389442827246
+          "direct_gap_nmae": 0.007548870837977721,
+          "indirect_gap_capture": 0.7217380666742587,
+          "indirect_gap_nmae": 0.06158377465942045,
+          "subgroup_effect_nmae": 0.06991639083817607
         },
         "direct_permutation": {
-          "direct_gap_nmae": 0.0028605540822115483,
+          "direct_gap_nmae": 0.004524481966087612,
           "indirect_gap_capture": 0.0,
-          "indirect_gap_nmae": 0.25561235282308226,
-          "total_gap_nmae": 0.25584604311907144
+          "indirect_gap_nmae": 0.2478982494370717,
+          "subgroup_effect_nmae": 0.12136972169707781
         }
       }
     },
     "performance_feature_unlearning": {
       "results": {
         "cafe": {
-          "direct_effect_nmae": 0.051059356656449666,
+          "direct_effect_nmae": 0.044582158021249346,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.052466759327040285,
+          "indirect_effect_nmae": 0.05187889241767264,
           "query_budget_fraction": 0.5,
-          "rank_spearman": 0.9333333333333332,
-          "residual_capture": 0.9927404485584057,
-          "total_effect_nmae": 0.045279243925008525
+          "rank_spearman": 0.9333333333333331,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.038058338388476574
         },
         "causal_fuzzing": {
-          "direct_effect_nmae": 0.001444505936175785,
+          "direct_effect_nmae": 0.0013371249463480562,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.03577194707228516,
+          "indirect_effect_nmae": 0.0474530210836356,
           "query_budget_fraction": 1.0,
           "rank_spearman": 0.9333333333333331,
-          "residual_capture": 0.9369897685512727,
-          "total_effect_nmae": 0.03590236193824259
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.04756502806361832
         },
         "direct_permutation": {
-          "direct_effect_nmae": 0.0010165312742609785,
+          "direct_effect_nmae": 0.0010041343234108832,
           "false_alarm_rate": 0.0,
-          "indirect_effect_nmae": 0.3351024014690211,
+          "indirect_effect_nmae": 0.3379158466907599,
           "query_budget_fraction": 1.0,
-          "rank_spearman": 0.30519567041703083,
-          "residual_capture": 0.0027794930716289325,
-          "total_effect_nmae": 0.3350541143688748
+          "rank_spearman": 0.287663058680859,
+          "residual_capture": 0.0051170696334544635,
+          "total_effect_nmae": 0.33802618568353304
         }
       }
     }

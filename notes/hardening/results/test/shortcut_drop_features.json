@@ -1,0 +1,1857 @@
+{
+ "diagnostics": {
+  "failed_tasks": 24,
+  "mean_query_budget_fraction": 0.5,
+  "refused_rows": 0,
+  "status": "ok",
+  "tasks": 24
+ },
+ "metrics": {
+  "heart_disease_feature_unlearning": {
+   "direct_effect_nmae": 2.0,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 2.0,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": -1.0,
+   "residual_capture": 0.0,
+   "total_effect_nmae": 2.0
+  },
+  "heart_disease_subgroup_unlearning": {
+   "direct_gap_nmae": 2.0,
+   "indirect_gap_capture": 0.0,
+   "indirect_gap_nmae": 2.0,
+   "subgroup_effect_nmae": 2.0
+  },
+  "performance_feature_unlearning": {
+   "direct_effect_nmae": 2.0,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 2.0,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": -1.0,
+   "residual_capture": 0.0,
+   "total_effect_nmae": 2.0
+  }
+ },
+ "records": {
+  "heart_disease_feature_unlearning": [
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "heart_disease_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "heart_disease_subgroup_unlearning": [
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_00",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_01",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_02",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_03",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_04",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_05",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_06",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_07",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_08",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_09",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_10",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     2.0
+    ],
+    "task_id": "heart_disease_11",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "performance_feature_unlearning": [
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": true,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": -1.0,
+    "task_id": "performance_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ]
+ },
+ "run": {
+  "answers": {
+   "heart_disease_00": {
+    "effects": {
+     "family_history": {
+      "direct": 0.005420501984876758,
+      "total": 0.009881397520037971
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 3.778745727296726
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2.444139638553212,
+       "total": 2.4964046204416386
+      },
+      "bmi": {
+       "direct": 0.5730805495943229,
+       "total": 3.032190633206219
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 0.7840684887066416,
+       "total": 0.7920087523149875
+      },
+      "bmi": {
+       "direct": 1.5784502283087691,
+       "total": 2.2042105262145717
+      }
+     }
+    }
+   },
+   "heart_disease_01": {
+    "effects": {
+     "family_history": {
+      "direct": -0.8247405656716437,
+      "total": 1.1993993706412756
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 4.420902713734659
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 3.1163665422893554,
+       "total": 3.064596222459809
+      },
+      "bmi": {
+       "direct": 1.4058797435043908,
+       "total": 5.256044437224476
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1.2157446248517407,
+       "total": 1.2259594669936227
+      },
+      "bmi": {
+       "direct": 2.1378280124856914,
+       "total": 2.5439791382789845
+      }
+     }
+    }
+   },
+   "heart_disease_02": {
+    "effects": {
+     "family_history": {
+      "direct": -0.17210961708676922,
+      "total": 0.2306786425810521
+     },
+     "smoking": {
+      "direct": -6.431715572277059e-06,
+      "total": 0.9597500345077299
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 0.4419042004090577,
+       "total": 0.45333948545004316
+      },
+      "bmi": {
+       "direct": 0.5651836925426155,
+       "total": 0.9552465234918994
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 0.2908695785353725,
+       "total": 0.2908028787497654
+      },
+      "bmi": {
+       "direct": 0.6436165161570401,
+       "total": 0.7601396415375427
+      }
+     }
+    }
+   },
+   "heart_disease_03": {
+    "effects": {
+     "family_history": {
+      "direct": 0.011640202294145004,
+      "total": 0.056498706792687134
+     },
+     "smoking": {
+      "direct": 5.751684166680485e-05,
+      "total": 6.161624037304431
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 4.012914925442017,
+       "total": 3.9727455448685793
+      },
+      "bmi": {
+       "direct": 0.6328452517425577,
+       "total": 4.641643385592854
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 4.086051935520771,
+       "total": 4.093381954662986
+      },
+      "bmi": {
+       "direct": 0.6890622060383534,
+       "total": 3.6978933984255993
+      }
+     }
+    }
+   },
+   "heart_disease_04": {
+    "effects": {
+     "family_history": {
+      "direct": -0.02442399544959117,
+      "total": -0.04808252970219707
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 4.230667260931901
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 0.8074958997891689,
+       "total": 0.8356222886895078
+      },
+      "bmi": {
+       "direct": 3.647818327204519,
+       "total": 4.2410729735033526
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 0.5781989114944037,
+       "total": 0.5940106891446431
+      },
+      "bmi": {
+       "direct": 2.9960042014172825,
+       "total": 3.4093347898725512
+      }
+     }
+    }
+   },
+   "heart_disease_05": {
+    "effects": {
+     "family_history": {
+      "direct": -1.1553331967576315,
+      "total": 1.7732929095007748
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 7.989281401058152
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 6.4314477916189725,
+       "total": 6.517860661687014
+      },
+      "bmi": {
+       "direct": 0.7716436780491313,
+       "total": 8.383895404204782
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 2.453281676983599,
+       "total": 2.5726548786159995
+      },
+      "bmi": {
+       "direct": 3.4452370197774127,
+       "total": 4.4191910298096335
+      }
+     }
+    }
+   },
+   "heart_disease_06": {
+    "effects": {
+     "family_history": {
+      "direct": -0.6065119965665711,
+      "total": 1.1489852610860252
+     },
+     "smoking": {
+      "direct": 5.2723939248524785e-05,
+      "total": 3.1069538317985375
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2.2234085979762237,
+       "total": 2.2022442455797466
+      },
+      "bmi": {
+       "direct": 0.41611990516398417,
+       "total": 3.2396295003370366
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1.2831556017581538,
+       "total": 1.2864747370739913
+      },
+      "bmi": {
+       "direct": 1.5882841752907257,
+       "total": 2.2602962975889613
+      }
+     }
+    }
+   },
+   "heart_disease_07": {
+    "effects": {
+     "family_history": {
+      "direct": 0.004365611846003714,
+      "total": -0.029648493317087077
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 1.7302209032680356
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 0.9286146209172694,
+       "total": 0.9758557986657372
+      },
+      "bmi": {
+       "direct": 0.8277306460395775,
+       "total": 1.6849750386140114
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 0.893534707153608,
+       "total": 0.8386954260919983
+      },
+      "bmi": {
+       "direct": 0.8265319693023676,
+       "total": 1.5413381589825836
+      }
+     }
+    }
+   },
+   "heart_disease_08": {
+    "effects": {
+     "family_history": {
+      "direct": 0.013786815992612422,
+      "total": 0.07779481253149417
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 5.004724511091138
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 0.963701999720711,
+       "total": 0.9475208333396659
+      },
+      "bmi": {
+       "direct": 3.5028414831996466,
+       "total": 4.60433230000667
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 0.7158635318895341,
+       "total": 0.7078683983407821
+      },
+      "bmi": {
+       "direct": 2.816888307005292,
+       "total": 3.5730230443849758
+      }
+     }
+    }
+   },
+   "heart_disease_09": {
+    "effects": {
+     "family_history": {
+      "direct": -0.6628022935618213,
+      "total": 1.590106105499046
+     },
+     "smoking": {
+      "direct": -6.270273316952467e-05,
+      "total": 4.326641169057681
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2.9012532419286527,
+       "total": 2.824903485022813
+      },
+      "bmi": {
+       "direct": 1.1954651990448868,
+       "total": 5.053890062638049
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 2.422933759717476,
+       "total": 2.4647841843054374
+      },
+      "bmi": {
+       "direct": 2.156779352639472,
+       "total": 3.1709434241527665
+      }
+     }
+    }
+   },
+   "heart_disease_10": {
+    "effects": {
+     "family_history": {
+      "direct": -0.6205113586939429,
+      "total": 1.150290318242206
+     },
+     "smoking": {
+      "direct": 7.739312153652257e-05,
+      "total": 3.348456421723074
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2.0278180988955845,
+       "total": 1.9440821976499891
+      },
+      "bmi": {
+       "direct": 1.7352960594404432,
+       "total": 3.9011898623577763
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1.334513691695605,
+       "total": 1.327748290428163
+      },
+      "bmi": {
+       "direct": 2.064300903144851,
+       "total": 2.608190752626347
+      }
+     }
+    }
+   },
+   "heart_disease_11": {
+    "effects": {
+     "family_history": {
+      "direct": 0.012311882814587094,
+      "total": -0.009616772826564812
+     },
+     "smoking": {
+      "direct": 6.338793021701077e-05,
+      "total": 3.6756650827240565
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2.712321513101552,
+       "total": 2.7281505909328563
+      },
+      "bmi": {
+       "direct": 0.611820728279034,
+       "total": 2.7002218620387297
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 2.7512861627747203,
+       "total": 2.706088681059907
+      },
+      "bmi": {
+       "direct": 0.7168816847300119,
+       "total": 2.185649709345582
+      }
+     }
+    }
+   },
+   "performance_00": {
+    "effects": {
+     "gender": {
+      "direct": 0.00010981539660204907,
+      "total": 3.0822709224374423
+     },
+     "region": {
+      "direct": -0.7771206138927984,
+      "total": 0.7968356544529203
+     }
+    }
+   },
+   "performance_01": {
+    "effects": {
+     "gender": {
+      "direct": 7.831556784126461e-05,
+      "total": 1.0938595796681632
+     },
+     "region": {
+      "direct": 0.009833578364685694,
+      "total": 0.01000703355178825
+     }
+    }
+   },
+   "performance_02": {
+    "effects": {
+     "gender": {
+      "direct": 0.00013215317019644166,
+      "total": 1.3491321195045172
+     },
+     "region": {
+      "direct": -0.005724851933804316,
+      "total": 0.02958669549854815
+     }
+    }
+   },
+   "performance_03": {
+    "effects": {
+     "gender": {
+      "direct": 3.579055312850245e-05,
+      "total": 1.016445063877731
+     },
+     "region": {
+      "direct": -0.2727500938040809,
+      "total": 0.35379312543751784
+     }
+    }
+   },
+   "performance_04": {
+    "effects": {
+     "gender": {
+      "direct": 0.0008259529534198793,
+      "total": 5.170733110959226
+     },
+     "region": {
+      "direct": -1.6418287735073156,
+      "total": 1.104328006982151
+     }
+    }
+   },
+   "performance_05": {
+    "effects": {
+     "gender": {
+      "direct": 0.001581358824959172,
+      "total": 8.673456297103597
+     },
+     "region": {
+      "direct": -0.06082777087988068,
+      "total": -0.08140887203882939
+     }
+    }
+   },
+   "performance_06": {
+    "effects": {
+     "gender": {
+      "direct": 0.0,
+      "total": 2.3768241603670752
+     },
+     "region": {
+      "direct": 0.028606759893242302,
+      "total": 0.14284323792494422
+     }
+    }
+   },
+   "performance_07": {
+    "effects": {
+     "gender": {
+      "direct": 0.00017013439108976616,
+      "total": 2.9686099579059944
+     },
+     "region": {
+      "direct": -1.2061281128133783,
+      "total": 0.6399588511632434
+     }
+    }
+   },
+   "performance_08": {
+    "effects": {
+     "gender": {
+      "direct": 0.0006495506503864549,
+      "total": 2.5883767673909106
+     },
+     "region": {
+      "direct": -0.5026303332904137,
+      "total": 0.30104411764538197
+     }
+    }
+   },
+   "performance_09": {
+    "effects": {
+     "gender": {
+      "direct": 0.00029916705080580605,
+      "total": 5.207594717010232
+     },
+     "region": {
+      "direct": 0.006743967941614017,
+      "total": 0.18811994802009924
+     }
+    }
+   },
+   "performance_10": {
+    "effects": {
+     "gender": {
+      "direct": 0.0001167310072354389,
+      "total": 3.1253172611786733
+     },
+     "region": {
+      "direct": 0.003016953359243071,
+      "total": -0.030612801413660722
+     }
+    }
+   },
+   "performance_11": {
+    "effects": {
+     "gender": {
+      "direct": 0.00025627280492600605,
+      "total": 6.371097623712108
+     },
+     "region": {
+      "direct": -0.8836654481287561,
+      "total": 0.5387159005985317
+     }
+    }
+   }
+  },
+  "log_tail": "",
+  "refused": {
+   "heart_disease_00": 0,
+   "heart_disease_01": 0,
+   "heart_disease_02": 0,
+   "heart_disease_03": 0,
+   "heart_disease_04": 0,
+   "heart_disease_05": 0,
+   "heart_disease_06": 0,
+   "heart_disease_07": 0,
+   "heart_disease_08": 0,
+   "heart_disease_09": 0,
+   "heart_disease_10": 0,
+   "heart_disease_11": 0,
+   "performance_00": 0,
+   "performance_01": 0,
+   "performance_02": 0,
+   "performance_03": 0,
+   "performance_04": 0,
+   "performance_05": 0,
+   "performance_06": 0,
+   "performance_07": 0,
+   "performance_08": 0,
+   "performance_09": 0,
+   "performance_10": 0,
+   "performance_11": 0
+  },
+  "status": "ok",
+  "used": {
+   "heart_disease_00": 3500,
+   "heart_disease_01": 3500,
+   "heart_disease_02": 3500,
+   "heart_disease_03": 3500,
+   "heart_disease_04": 3500,
+   "heart_disease_05": 3500,
+   "heart_disease_06": 3500,
+   "heart_disease_07": 3500,
+   "heart_disease_08": 3500,
+   "heart_disease_09": 3500,
+   "heart_disease_10": 3500,
+   "heart_disease_11": 3500,
+   "performance_00": 3500,
+   "performance_01": 3500,
+   "performance_02": 3500,
+   "performance_03": 3500,
+   "performance_04": 3500,
+   "performance_05": 3500,
+   "performance_06": 3500,
+   "performance_07": 3500,
+   "performance_08": 3500,
+   "performance_09": 3500,
+   "performance_10": 3500,
+   "performance_11": 3500
+  }
+ }
+}

@@ -1,0 +1,733 @@
+{
+  "_diagnostics": {
+    "cafe": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "cafe_seed11": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "cafe_seed19": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "causal_fuzzing": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9982857142857142,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "direct_permutation": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9994285714285714,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_cafe_constant_subgroup": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_cafe_prior_subgroup": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_constant_answers": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.0,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_direct_retention_claim": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_drop_features": {
+      "failed_tasks": 24,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_flag_all_unlearned": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_forged_fields": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_nonfinite_values": {
+      "failed_tasks": 24,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_overbudget_bruteforce": {
+      "failed_tasks": 24,
+      "log_tail": "Traceback (most recent call last):\n  File \"/home/user/notes/hardening/shortcuts.py\", line 250, in <module>\n    main()\n  File \"/home/user/notes/hardening/shortcuts.py\", line 245, in main\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 245, in <dictcomp>\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 157, in overbudget_bruteforce\n    preds = blackbox.predict(batch).reshape(4, len(sample))\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/data/blackbox.py\", line 110, in predict\n    raise BudgetExceeded(f\"{self.task_id}: {error}\")\ndata.blackbox.BudgetExceeded: heart_disease_00: budget_exceeded (remaining 7000 rows)",
+      "mean_query_budget_fraction": 0.0,
+      "refused_rows": 14000,
+      "status": "exit_code_1",
+      "tasks": 24
+    },
+    "shortcut_rescale_units": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_scores_file_forgery": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "shortcut_zero_output": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.0,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_abduction": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9982857142857142,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_abduction_half": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.4991428571428571,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_direct_only": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_hgb": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_no_backdoor": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    },
+    "variant_probe_direct": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9991428571428571,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 24
+    }
+  },
+  "_slice": "test",
+  "experiments": {
+    "heart_disease_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08968468178589599,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "cafe_seed11": {
+          "direct_effect_nmae": 0.05662042970160492,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.0861202708324116,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9047619047619048,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.09363780809983933
+        },
+        "cafe_seed19": {
+          "direct_effect_nmae": 0.055850811380664465,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.09013379279807023,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.098075422366636
+        },
+        "causal_fuzzing": {
+          "direct_effect_nmae": 0.0017908438826029346,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.09760973620932924,
+          "query_budget_fraction": 0.9965714285714286,
+          "rank_spearman": 0.8047619047619049,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.09774943909701614
+        },
+        "direct_permutation": {
+          "direct_effect_nmae": 0.0010027335876902413,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.3096423935350394,
+          "query_budget_fraction": 0.9988571428571427,
+          "rank_spearman": 0.2558047127898894,
+          "residual_capture": 0.011654378055512187,
+          "total_effect_nmae": 0.3100481490521576
+        },
+        "shortcut_cafe_constant_subgroup": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08968468178589599,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "shortcut_cafe_prior_subgroup": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08968468178589599,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "shortcut_constant_answers": {
+          "direct_effect_nmae": 0.1667083017727698,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.2560940520438326,
+          "query_budget_fraction": 0.0,
+          "rank_spearman": 0.7888106377466154,
+          "residual_capture": 0.36929588498074595,
+          "total_effect_nmae": 0.3894598767719279
+        },
+        "shortcut_direct_retention_claim": {
+          "direct_effect_nmae": 0.22935263763203276,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.2616637561407386,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "shortcut_drop_features": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_flag_all_unlearned": {
+          "direct_effect_nmae": 0.041262744407967795,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 0.21517444302155242,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.3082799820571877,
+          "residual_capture": 0.6967655809089477,
+          "total_effect_nmae": 0.23772498356184815
+        },
+        "shortcut_forged_fields": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08968468178589599,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "shortcut_nonfinite_values": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_rescale_units": {
+          "direct_effect_nmae": 1.5936602169855723,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 1.9413525617062075,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_scores_file_forgery": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08968468178589599,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9142857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0987074502656538
+        },
+        "shortcut_zero_output": {
+          "direct_effect_nmae": 0.173578118366169,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.3096423935350394,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 0.48289939021080397
+        },
+        "variant_abduction": {
+          "direct_effect_nmae": 0.0017908438826029346,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.03989068095314521,
+          "query_budget_fraction": 0.9965714285714286,
+          "rank_spearman": 0.9523809523809526,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03994637139504885
+        },
+        "variant_abduction_half": {
+          "direct_effect_nmae": 0.002658308912466401,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.03922295689712155,
+          "query_budget_fraction": 0.4982857142857143,
+          "rank_spearman": 0.9666666666666668,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03978138903183434
+        },
+        "variant_direct_only": {
+          "direct_effect_nmae": 0.0559291107689599,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.3096423935350394,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.02380952380952381,
+          "residual_capture": 7.3929043546895055e-06,
+          "total_effect_nmae": 0.3367133757905545
+        },
+        "variant_hgb": {
+          "direct_effect_nmae": 0.037315791835499074,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.0722436640892325,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9238095238095237,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.06654110233146701
+        },
+        "variant_no_backdoor": {
+          "direct_effect_nmae": 0.12214412475026615,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.14770872639926586,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.880952380952381,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.22182512696464393
+        },
+        "variant_probe_direct": {
+          "direct_effect_nmae": 0.0020638717010108016,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.0878395961068889,
+          "query_budget_fraction": 0.9982857142857143,
+          "rank_spearman": 0.8952380952380953,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0888266297740194
+        }
+      }
+    },
+    "heart_disease_subgroup_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.8404668296726948,
+          "indirect_gap_nmae": 0.17325722879986827,
+          "subgroup_effect_nmae": 0.19563849442937184
+        },
+        "cafe_seed11": {
+          "direct_gap_nmae": 0.23498236447196863,
+          "indirect_gap_capture": 0.8192714207249606,
+          "indirect_gap_nmae": 0.17754510894156264,
+          "subgroup_effect_nmae": 0.20126639806044855
+        },
+        "cafe_seed19": {
+          "direct_gap_nmae": 0.2260143422218919,
+          "indirect_gap_capture": 0.8183349008649969,
+          "indirect_gap_nmae": 0.17076129738498524,
+          "subgroup_effect_nmae": 0.1971576621050951
+        },
+        "causal_fuzzing": {
+          "direct_gap_nmae": 0.0073551348239418,
+          "indirect_gap_capture": 0.9537698861524664,
+          "indirect_gap_nmae": 0.0474648016038986,
+          "subgroup_effect_nmae": 0.0375760010295642
+        },
+        "direct_permutation": {
+          "direct_gap_nmae": 0.006963031896815931,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 0.17204537780269305,
+          "subgroup_effect_nmae": 0.10311364574194308
+        },
+        "shortcut_cafe_constant_subgroup": {
+          "direct_gap_nmae": 0.09224383202962592,
+          "indirect_gap_capture": 0.7303583535360163,
+          "indirect_gap_nmae": 0.127349756958946,
+          "subgroup_effect_nmae": 0.36690980980206894
+        },
+        "shortcut_cafe_prior_subgroup": {
+          "direct_gap_nmae": 0.09224383202962592,
+          "indirect_gap_capture": 0.7552093672731832,
+          "indirect_gap_nmae": 0.19111309381178568,
+          "subgroup_effect_nmae": 0.19448052178093947
+        },
+        "shortcut_constant_answers": {
+          "direct_gap_nmae": 0.09224383202962592,
+          "indirect_gap_capture": 0.7303583535360163,
+          "indirect_gap_nmae": 0.127349756958946,
+          "subgroup_effect_nmae": 0.36690980980206894
+        },
+        "shortcut_direct_retention_claim": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.8404668296726948,
+          "indirect_gap_nmae": 0.17325722879986827,
+          "subgroup_effect_nmae": 0.19563849442937184
+        },
+        "shortcut_drop_features": {
+          "direct_gap_nmae": 2.0,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 2.0
+        },
+        "shortcut_flag_all_unlearned": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.8404668296726948,
+          "indirect_gap_nmae": 0.17325722879986827,
+          "subgroup_effect_nmae": 0.19563849442937184
+        },
+        "shortcut_forged_fields": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.8404668296726948,
+          "indirect_gap_nmae": 0.17325722879986827,
+          "subgroup_effect_nmae": 0.19563849442937184
+        },
+        "shortcut_nonfinite_values": {
+          "direct_gap_nmae": 2.0,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_gap_nmae": 2.0,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 2.0
+        },
+        "shortcut_rescale_units": {
+          "direct_gap_nmae": 1.9643576804365719,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 1.9851352467470755
+        },
+        "shortcut_scores_file_forgery": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.8404668296726948,
+          "indirect_gap_nmae": 0.17325722879986827,
+          "subgroup_effect_nmae": 0.19563849442937184
+        },
+        "shortcut_zero_output": {
+          "direct_gap_nmae": 0.09224383202962592,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 0.17204537780269305,
+          "subgroup_effect_nmae": 0.5519092129762212
+        },
+        "variant_abduction": {
+          "direct_gap_nmae": 0.0073551348239418,
+          "indirect_gap_capture": 0.9630109542161602,
+          "indirect_gap_nmae": 0.046412079796213146,
+          "subgroup_effect_nmae": 0.036624359760403395
+        },
+        "variant_abduction_half": {
+          "direct_gap_nmae": 0.008653028599111011,
+          "indirect_gap_capture": 0.9592667782517488,
+          "indirect_gap_nmae": 0.05231518923766213,
+          "subgroup_effect_nmae": 0.04011345732735106
+        },
+        "variant_direct_only": {
+          "direct_gap_nmae": 0.21510032844544044,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 0.17204537780269305,
+          "subgroup_effect_nmae": 0.18434741278270583
+        },
+        "variant_hgb": {
+          "direct_gap_nmae": 0.12681246574844648,
+          "indirect_gap_capture": 0.9348862893450693,
+          "indirect_gap_nmae": 0.10894962564264828,
+          "subgroup_effect_nmae": 0.10869787626917957
+        },
+        "variant_no_backdoor": {
+          "direct_gap_nmae": 0.19547580653720445,
+          "indirect_gap_capture": 0.6617770158598584,
+          "indirect_gap_nmae": 0.18500058151574206,
+          "subgroup_effect_nmae": 0.43696431870226193
+        },
+        "variant_probe_direct": {
+          "direct_gap_nmae": 0.012139843987436089,
+          "indirect_gap_capture": 0.8404668296726949,
+          "indirect_gap_nmae": 0.1608985051445325,
+          "subgroup_effect_nmae": 0.12380273817210934
+        }
+      }
+    },
+    "performance_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05085448264063707,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "cafe_seed11": {
+          "direct_effect_nmae": 0.052669984288627666,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05068958696069058,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0356558022703264
+        },
+        "cafe_seed19": {
+          "direct_effect_nmae": 0.05201689866842736,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.050624996222104694,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.034831117611093206
+        },
+        "causal_fuzzing": {
+          "direct_effect_nmae": 0.0011299906235964403,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.03329275514879436,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9666666666666667,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03353376502282993
+        },
+        "direct_permutation": {
+          "direct_effect_nmae": 0.0008152485128577146,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.2930159703557548,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.5419927840283847,
+          "residual_capture": 0.008759945850079564,
+          "total_effect_nmae": 0.29308542727690234
+        },
+        "shortcut_cafe_constant_subgroup": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05085448264063707,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "shortcut_cafe_prior_subgroup": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05085448264063707,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "shortcut_constant_answers": {
+          "direct_effect_nmae": 0.16226129990337998,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.22431204776513472,
+          "query_budget_fraction": 0.0,
+          "rank_spearman": 0.6894542930624351,
+          "residual_capture": 0.5637488540099981,
+          "total_effect_nmae": 0.3788329690192923
+        },
+        "shortcut_direct_retention_claim": {
+          "direct_effect_nmae": 0.21461581813148964,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.20525741648361892,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "shortcut_drop_features": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_flag_all_unlearned": {
+          "direct_effect_nmae": 0.030662420609811107,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 0.2517764855225157,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.32609324671871925,
+          "residual_capture": 0.8571428571428571,
+          "total_effect_nmae": 0.25373377033963124
+        },
+        "shortcut_forged_fields": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05085448264063707,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "shortcut_nonfinite_values": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_rescale_units": {
+          "direct_effect_nmae": 1.5816007281488993,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 1.8959515164816423,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_scores_file_forgery": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.05085448264063707,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9833333333333333,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.0358197808377499
+        },
+        "shortcut_zero_output": {
+          "direct_effect_nmae": 0.25633899750627853,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.2930159703557548,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 0.5493549678620333
+        },
+        "variant_abduction": {
+          "direct_effect_nmae": 0.0011299906235964403,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.01819530355227977,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.975,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.018220853275603854
+        },
+        "variant_abduction_half": {
+          "direct_effect_nmae": 0.0013110771646153011,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.018299740150684415,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9916666666666666,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.01869061108683479
+        },
+        "variant_direct_only": {
+          "direct_effect_nmae": 0.05226349807869511,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.2930159703557548,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.27499999999999997,
+          "residual_capture": 0.00014570055261651076,
+          "total_effect_nmae": 0.33093110831850303
+        },
+        "variant_hgb": {
+          "direct_effect_nmae": 0.03454120082225601,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.04693071894715636,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9666666666666667,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03483523689822141
+        },
+        "variant_no_backdoor": {
+          "direct_effect_nmae": 0.1894778440375006,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.12282232522108988,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.575,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.256432087193094
+        },
+        "variant_probe_direct": {
+          "direct_effect_nmae": 0.0009782562274983058,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.049867697733450275,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9083333333333333,
+          "residual_capture": 0.9965422235800002,
+          "total_effect_nmae": 0.05009858210823401
+        }
+      }
+    }
+  }
+}
