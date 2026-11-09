@@ -1,0 +1,111 @@
+{
+  "cafe_model_query_count": 0,
+  "causal_fuzzing": {
+    "total_effect": 0.0
+  },
+  "dataset": "performance",
+  "direct_ranking": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "effects": {
+    "education_years": {
+      "direct_controls": [
+        "gender",
+        "experience_years",
+        "income"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 1,
+      "num_mediators": 2,
+      "theta_high": 13.125874435988258,
+      "theta_low": 10.740930713282467,
+      "total_controls": [
+        "gender"
+      ],
+      "total_effect": 0.0
+    },
+    "experience_years": {
+      "direct_controls": [
+        "gender",
+        "education_years",
+        "income"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 2,
+      "num_mediators": 1,
+      "theta_high": 19.75150867237563,
+      "theta_low": 15.218302658261074,
+      "total_controls": [
+        "gender",
+        "education_years"
+      ],
+      "total_effect": 0.0
+    },
+    "gender": {
+      "direct_controls": [
+        "experience_years",
+        "income",
+        "education_years"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 0,
+      "num_mediators": 3,
+      "theta_high": 1.0,
+      "theta_low": 0.0,
+      "total_controls": [],
+      "total_effect": 0.0
+    },
+    "income": {
+      "direct_controls": [
+        "education_years",
+        "experience_years"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 2,
+      "num_mediators": 0,
+      "theta_high": 78396.03823336467,
+      "theta_low": 63894.28309970348,
+      "total_controls": [
+        "education_years",
+        "experience_years"
+      ],
+      "total_effect": 0.0
+    }
+  },
+  "expected_low_direct_feature": "gender",
+  "expected_top_feature": "gender",
+  "features": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "fuzzing_model_query_count": 0,
+  "fuzzing_relative_total_error": 0.3543499969075256,
+  "method": "cafe",
+  "model_features": [
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "prediction_r2": 0.9893166902330117,
+  "ranking": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "target_direct_effect": 0.0,
+  "target_direct_rank": 1,
+  "target_feature": "gender",
+  "target_indirect_effect": 0.0,
+  "target_total_effect": 0.0,
+  "target_total_rank": 1
+}

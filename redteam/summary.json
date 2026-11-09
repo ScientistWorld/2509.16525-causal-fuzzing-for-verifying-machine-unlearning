@@ -1,0 +1,2230 @@
+{
+  "anchor": "original scoring/scores_test.json cafe results",
+  "cohorts": {
+    "all_audit_attempts": {
+      "members": [
+        "_state",
+        "better_exact_direct",
+        "better_more_data",
+        "brute_force",
+        "reference_seed11",
+        "reference_seed19",
+        "reference_seed7",
+        "shortcut_baseline_move",
+        "shortcut_constant_answers",
+        "shortcut_constraint_failure",
+        "shortcut_feature_list",
+        "shortcut_impossible_gap",
+        "shortcut_replace_oracle",
+        "shortcut_reported_queries",
+        "shortcut_rescale_units",
+        "shortcut_scores_file",
+        "shortcut_zero_output",
+        "simple_baseline",
+        "weak_direct_only"
+      ],
+      "metric_sigma": {
+        "heart_disease_feature_unlearning/direct_unlearned": 0.3,
+        "heart_disease_feature_unlearning/fuzzing_agreement": 0.4,
+        "heart_disease_feature_unlearning/indirect_detected": 0.3570714214271425,
+        "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 2.482618010790222,
+        "heart_disease_feature_unlearning/rank_score": 0.24356964481437338,
+        "heart_disease_feature_unlearning/target_rank": 0.8874119674649424,
+        "heart_disease_subgroup_unlearning/direct_gap_abs": 21.405535498770387,
+        "heart_disease_subgroup_unlearning/direct_gap_small": 0.4,
+        "heart_disease_subgroup_unlearning/indirect_gap": 235.94552895460637,
+        "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.458257569495584,
+        "heart_disease_subgroup_unlearning/subgroup_residual_score": 102903373111.6637,
+        "heart_disease_subgroup_unlearning/total_gap": 244.99031401207372,
+        "heart_disease_subgroup_unlearning/total_gap_detected": 0.4,
+        "performance_feature_unlearning/direct_unlearned": 0.3,
+        "performance_feature_unlearning/fuzzing_agreement": 0.3570714214271425,
+        "performance_feature_unlearning/indirect_detected": 0.3570714214271425,
+        "performance_feature_unlearning/query_ratio_vs_fuzzing": 2.4755266958518143,
+        "performance_feature_unlearning/rank_score": 0.2301494079940246,
+        "performance_feature_unlearning/target_rank": 0.653834841531101
+      },
+      "reference_seed_scores": [
+        0.0,
+        -1.799015647959682,
+        -0.5526822754565703
+      ],
+      "reference_seed_spread": 1.799015647959682,
+      "scores": {
+        "_state": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "better_exact_direct": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "better_more_data": {
+          "score_vs_reference": 0.3075288615426003,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0009558790826096364,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.00045580665559050767,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.55202569121716e-13,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0001087904019741434,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "brute_force": {
+          "score_vs_reference": -0.8143502289433573,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.14138300716197416,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.004754077363504164,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.3125,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.00040583247014316145,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -9.53293293453232e-13,
+            "heart_disease_subgroup_unlearning/total_gap": 0.000798400682357671,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.11929279554724602,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed11": {
+          "score_vs_reference": -1.799015647959682,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.5,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0032049657560510553,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.3125,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.00036494188842717203,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.714957222289061e-12,
+            "heart_disease_subgroup_unlearning/total_gap": 9.89852764919627e-05,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.43749999999999994,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed19": {
+          "score_vs_reference": -0.5526822754565703,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.002339973397987761,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.3125,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.00028039510645133116,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.5380791137767867e-12,
+            "heart_disease_subgroup_unlearning/total_gap": 6.267507158731276e-05,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed7": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_baseline_move": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_constant_answers": {
+          "score_vs_reference": 0.6891780882912638,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.0004594936730517959,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.00039150229037435516,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 7.145063845911247e-13,
+            "heart_disease_subgroup_unlearning/total_gap": 0.00021913614382486642,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.38018781261549783,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_constraint_failure": {
+          "score_vs_reference": 1.3251060440893716,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": -0.6666666666666667,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.33835249577224585,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.0004594936730517959,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.7413464200402022,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 7.145063845911247e-13,
+            "heart_disease_subgroup_unlearning/total_gap": 0.5099331650578245,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": -0.5833333333333334,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.29690651336203455,
+            "performance_feature_unlearning/rank_score": 0.38018781261549783,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_feature_list": {
+          "score_vs_reference": 0.6881079561832983,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.30792014356780045,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.38018781261549783,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_impossible_gap": {
+          "score_vs_reference": 1.1522098518045247,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.0051311824521409425,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 1.1470786693523838,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_replace_oracle": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_reported_queries": {
+          "score_vs_reference": 0.6352590091342805,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.33835249577224585,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.29690651336203455,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_rescale_units": {
+          "score_vs_reference": 0.181606971520061,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.45903417937874413,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.34984412966584705,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.2907970212329581,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_scores_file": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_zero_output": {
+          "score_vs_reference": -3.873741208820981,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.5,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8961792537779265,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.14500821247381965,
+            "heart_disease_feature_unlearning/rank_score": -0.10264004785593348,
+            "heart_disease_feature_unlearning/target_rank": -0.22537446792760443,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.0004594936730517959,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.0003501943239898369,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.714957222289061e-12,
+            "heart_disease_subgroup_unlearning/total_gap": -0.0002910881093423004,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.43749999999999994,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": -0.4900980294098034,
+            "performance_feature_unlearning/indirect_detected": -0.7841568470556854,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.1272456485837291,
+            "performance_feature_unlearning/rank_score": 0.38018781261549783,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "simple_baseline": {
+          "score_vs_reference": -8.418734871558234,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.5,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8961792537779265,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.14500821247381965,
+            "heart_disease_feature_unlearning/rank_score": -1.334320622127135,
+            "heart_disease_feature_unlearning/target_rank": -0.9014978717104177,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0005238720012302028,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.3125,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.0003501943239898369,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.714957222289061e-12,
+            "heart_disease_subgroup_unlearning/total_gap": -0.0002910881093423004,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.43749999999999994,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": -0.4900980294098034,
+            "performance_feature_unlearning/indirect_detected": -0.7841568470556854,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.1272456485837291,
+            "performance_feature_unlearning/rank_score": -1.1405634378464935,
+            "performance_feature_unlearning/target_rank": -0.802955068546966
+          }
+        },
+        "weak_direct_only": {
+          "score_vs_reference": -6.588206010034489,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": -0.6666666666666667,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.5,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8961792537779265,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": -0.9237604307034012,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.0003501943239898369,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5455447255899809,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -1.714957222289061e-12,
+            "heart_disease_subgroup_unlearning/total_gap": -0.00024090394099245555,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.43749999999999994,
+            "performance_feature_unlearning/direct_unlearned": -0.5833333333333334,
+            "performance_feature_unlearning/fuzzing_agreement": -0.4900980294098034,
+            "performance_feature_unlearning/indirect_detected": -0.7841568470556854,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": -0.7603756252309957,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        }
+      }
+    },
+    "honest_variants": {
+      "members": [
+        "_state",
+        "better_exact_direct",
+        "better_more_data",
+        "brute_force",
+        "reference_seed11",
+        "reference_seed19",
+        "reference_seed7",
+        "simple_baseline",
+        "weak_direct_only"
+      ],
+      "metric_sigma": {
+        "heart_disease_feature_unlearning/direct_unlearned": 0.3,
+        "heart_disease_feature_unlearning/fuzzing_agreement": 0.458257569495584,
+        "heart_disease_feature_unlearning/indirect_detected": 0.4,
+        "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 1.18511866494457,
+        "heart_disease_feature_unlearning/rank_score": 0.31875,
+        "heart_disease_feature_unlearning/target_rank": 1.2,
+        "heart_disease_subgroup_unlearning/direct_gap_abs": 0.3429080111590101,
+        "heart_disease_subgroup_unlearning/direct_gap_small": 0.4898979485566356,
+        "heart_disease_subgroup_unlearning/indirect_gap": 0.3827971211274606,
+        "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.5,
+        "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.3201896366328947,
+        "heart_disease_subgroup_unlearning/total_gap": 0.5463054861753351,
+        "heart_disease_subgroup_unlearning/total_gap_detected": 0.458257569495584,
+        "performance_feature_unlearning/direct_unlearned": 0.3,
+        "performance_feature_unlearning/fuzzing_agreement": 0.4,
+        "performance_feature_unlearning/indirect_detected": 0.4,
+        "performance_feature_unlearning/query_ratio_vs_fuzzing": 1.1632558026934574,
+        "performance_feature_unlearning/rank_score": 0.25617376914899,
+        "performance_feature_unlearning/target_rank": 0.9
+      },
+      "reference_seed_scores": [
+        0.0,
+        -2.5052451769761,
+        -1.3049635276496934
+      ],
+      "reference_seed_spread": 2.5052451769761,
+      "scores": {
+        "_state": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "better_exact_direct": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "better_more_data": {
+          "score_vs_reference": 0.4554789097354094,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.05966936603835894,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.2809465811487198,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.04987940286315922,
+            "heart_disease_subgroup_unlearning/total_gap": 0.04878697984114889,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "brute_force": {
+          "score_vs_reference": -1.0648532851384351,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.2961728731328494,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.2967663876514109,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.2551551815399144,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.2501438792247323,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.3063718629142747,
+            "heart_disease_subgroup_unlearning/total_gap": 0.3580422288043477,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.25386720557612474,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed11": {
+          "score_vs_reference": -2.5052451769761,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.4364357804719848,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.2000653412313599,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.2551551815399144,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.22494005871577868,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.5511573852656775,
+            "heart_disease_subgroup_unlearning/total_gap": 0.04438987816160202,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.38188130791298663,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed19": {
+          "score_vs_reference": -1.3049635276496934,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.14606944721853954,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.2551551815399144,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.17282776712919365,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.49431184152188606,
+            "heart_disease_subgroup_unlearning/total_gap": 0.028106592112781527,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "reference_seed7": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_baseline_move": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_constant_answers": {
+          "score_vs_reference": 1.1747548831058026,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.02868322643360376,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.24131115384893256,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.2296299088797329,
+            "heart_disease_subgroup_unlearning/total_gap": 0.09827145076448772,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.3415650255319866,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_constraint_failure": {
+          "score_vs_reference": 686.5503541044918,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": -0.6666666666666667,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.7087897818563917,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.02868322643360376,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 456.9453727859849,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.2296299088797329,
+            "heart_disease_subgroup_unlearning/total_gap": 228.67917199094637,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": -0.5833333333333334,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.6318472672116884,
+            "performance_feature_unlearning/rank_score": 0.3415650255319866,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_feature_list": {
+          "score_vs_reference": 0.5768591431790455,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.23529411764705888,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.3415650255319866,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_impossible_gap": {
+          "score_vs_reference": 368651107956.48706,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.32030662613781463,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 368651107956.16675,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_replace_oracle": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_reported_queries": {
+          "score_vs_reference": 1.3406370490680801,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.7087897818563917,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.6318472672116884,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_rescale_units": {
+          "score_vs_reference": 317.3873969563408,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -28.654543207170157,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 215.6342189370523,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 130.40772122645865,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_scores_file": {
+          "score_vs_reference": 0.0,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": 0.0,
+            "heart_disease_feature_unlearning/indirect_detected": 0.0,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": 0.0,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": 0.0,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap": 0.0,
+            "heart_disease_subgroup_unlearning/total_gap_detected": 0.0,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": 0.0,
+            "performance_feature_unlearning/indirect_detected": 0.0,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": 0.0,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "shortcut_zero_output": {
+          "score_vs_reference": -4.602771324707639,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.4364357804719848,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8000000000000002,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.30376704936702503,
+            "heart_disease_feature_unlearning/rank_score": -0.07843137254901962,
+            "heart_disease_feature_unlearning/target_rank": -0.16666666666666669,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": 0.02868322643360376,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.21585006900605838,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.5511573852656775,
+            "heart_disease_subgroup_unlearning/total_gap": -0.1305382594859446,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.38188130791298663,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": -0.43749999999999994,
+            "performance_feature_unlearning/indirect_detected": -0.6999999999999998,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.27079168594786646,
+            "performance_feature_unlearning/rank_score": 0.3415650255319866,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        },
+        "simple_baseline": {
+          "score_vs_reference": -8.310081588974537,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": 0.0,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.4364357804719848,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8000000000000002,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": -0.30376704936702503,
+            "heart_disease_feature_unlearning/rank_score": -1.019607843137255,
+            "heart_disease_feature_unlearning/target_rank": -0.6666666666666667,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.03270195024386598,
+            "heart_disease_subgroup_unlearning/direct_gap_small": -0.2551551815399144,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.21585006900605838,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.5511573852656775,
+            "heart_disease_subgroup_unlearning/total_gap": -0.1305382594859446,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.38188130791298663,
+            "performance_feature_unlearning/direct_unlearned": 0.0,
+            "performance_feature_unlearning/fuzzing_agreement": -0.43749999999999994,
+            "performance_feature_unlearning/indirect_detected": -0.6999999999999998,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": -0.27079168594786646,
+            "performance_feature_unlearning/rank_score": -1.0246950765959595,
+            "performance_feature_unlearning/target_rank": -0.5833333333333333
+          }
+        },
+        "weak_direct_only": {
+          "score_vs_reference": -6.769870150874537,
+          "terms": {
+            "heart_disease_feature_unlearning/direct_unlearned": -0.6666666666666667,
+            "heart_disease_feature_unlearning/fuzzing_agreement": -0.4364357804719848,
+            "heart_disease_feature_unlearning/indirect_detected": -0.8000000000000002,
+            "heart_disease_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "heart_disease_feature_unlearning/rank_score": -0.7058823529411765,
+            "heart_disease_feature_unlearning/target_rank": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_abs": -0.0,
+            "heart_disease_subgroup_unlearning/direct_gap_small": 0.0,
+            "heart_disease_subgroup_unlearning/indirect_gap": -0.21585006900605838,
+            "heart_disease_subgroup_unlearning/indirect_gap_detected": -0.5,
+            "heart_disease_subgroup_unlearning/subgroup_residual_score": -0.5511573852656775,
+            "heart_disease_subgroup_unlearning/total_gap": -0.10803320421268064,
+            "heart_disease_subgroup_unlearning/total_gap_detected": -0.38188130791298663,
+            "performance_feature_unlearning/direct_unlearned": -0.5833333333333334,
+            "performance_feature_unlearning/fuzzing_agreement": -0.43749999999999994,
+            "performance_feature_unlearning/indirect_detected": -0.6999999999999998,
+            "performance_feature_unlearning/query_ratio_vs_fuzzing": 0.0,
+            "performance_feature_unlearning/rank_score": -0.6831300510639732,
+            "performance_feature_unlearning/target_rank": -0.0
+          }
+        }
+      }
+    }
+  },
+  "normalization": "population standard deviation over the listed cohort and the saved reference; zero-variance metrics contribute zero",
+  "raw_test_metrics": {
+    "_state": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "better_exact_direct": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "better_more_data": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.30296811765303255,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 1.0866990140858017,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.6420160601501316,
+            "total_gap": 0.7837308964327692,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "brute_force": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 0.075,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 1.1159927989835972,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 1.0193208105460891,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.3135111498187559,
+            "total_gap": 2.1353136095296863,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 0.1875,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "reference_seed11": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.7843971639346494,
+            "direct_gap_small": 0.0,
+            "indirect_gap": -0.01988355366833816,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.7645136102663113,
+            "total_gap_detected": 0.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "reference_seed19": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.59924091766776,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.09410750458708783,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0728054159820956,
+            "total_gap": 0.6933484222548478,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "reference_seed7": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_baseline_move": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 1000000.0,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_constant_answers": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 1.0,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 1.0,
+            "total_gap": 1.0,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_constraint_failure": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 10.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 1000.0,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 1.0,
+            "total_gap": 1000.0,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 10.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_feature_list": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_impossible_gap": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": -1.0,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 472153057203.9021,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_replace_oracle": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_reported_queries": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 10.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 10.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_rescale_units": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 98.35708129970611,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 472.1530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 570.5101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_scores_file": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.8125,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.4721530572039021,
+            "indirect_gap_detected": 1.0,
+            "subgroup_residual_score": 0.7058995316630144,
+            "total_gap": 0.5705101385036082,
+            "total_gap_detected": 1.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 1.0,
+            "indirect_detected": 1.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.75,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "shortcut_zero_output": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.75,
+            "target_rank": 2.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 1.0,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "simple_baseline": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    },
+    "weak_direct_only": {
+      "heart_disease_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.25,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 5.0
+          }
+        }
+      },
+      "heart_disease_subgroup_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_gap_abs": 0.0983570812997061,
+            "direct_gap_small": 1.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0983570812997061,
+            "total_gap_detected": 0.0
+          },
+          "direct_permutation": {
+            "direct_gap_abs": 0.210494688491156,
+            "direct_gap_small": 0.0,
+            "indirect_gap": 0.0,
+            "indirect_gap_detected": 0.0,
+            "subgroup_residual_score": 0.0,
+            "total_gap": 0.0,
+            "total_gap_detected": 0.0
+          }
+        }
+      },
+      "performance_feature_unlearning": {
+        "results": {
+          "cafe": {
+            "direct_unlearned": 0.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 3.0,
+            "rank_score": 0.25,
+            "target_rank": 1.0
+          },
+          "direct_permutation": {
+            "direct_unlearned": 1.0,
+            "fuzzing_agreement": 0.0,
+            "indirect_detected": 0.0,
+            "query_ratio_vs_fuzzing": 0.0,
+            "rank_score": 0.0,
+            "target_rank": 4.0
+          }
+        }
+      }
+    }
+  }
+}

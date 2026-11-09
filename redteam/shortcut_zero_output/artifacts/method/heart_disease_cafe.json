@@ -1,0 +1,189 @@
+{
+  "cafe_model_query_count": 0,
+  "causal_fuzzing": {
+    "total_effect": 0.0
+  },
+  "dataset": "heart_disease",
+  "direct_ranking": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "effects": {
+    "age": {
+      "direct_controls": [
+        "exercise",
+        "smoking",
+        "blood_pressure",
+        "bmi"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 0,
+      "num_mediators": 4,
+      "theta_high": 60.14679963732274,
+      "theta_low": 43.78392580280595,
+      "total_controls": [],
+      "total_effect": 0.0
+    },
+    "blood_pressure": {
+      "direct_controls": [
+        "age",
+        "smoking",
+        "exercise",
+        "bmi"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 4,
+      "num_mediators": 0,
+      "theta_high": 175.22743074447072,
+      "theta_low": 142.19602427197222,
+      "total_controls": [
+        "age",
+        "smoking",
+        "exercise",
+        "bmi"
+      ],
+      "total_effect": 0.0
+    },
+    "bmi": {
+      "direct_controls": [
+        "age",
+        "smoking",
+        "exercise",
+        "blood_pressure"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 3,
+      "num_mediators": 1,
+      "theta_high": 27.420580077448317,
+      "theta_low": 20.091403964558538,
+      "total_controls": [
+        "age",
+        "smoking",
+        "exercise"
+      ],
+      "total_effect": 0.0
+    },
+    "exercise": {
+      "direct_controls": [
+        "age",
+        "smoking",
+        "blood_pressure",
+        "bmi"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 2,
+      "num_mediators": 2,
+      "theta_high": 5.316572027495006,
+      "theta_low": 3.240326025269526,
+      "total_controls": [
+        "age",
+        "smoking"
+      ],
+      "total_effect": 0.0
+    },
+    "smoking": {
+      "direct_controls": [
+        "age",
+        "blood_pressure",
+        "exercise",
+        "bmi"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 1,
+      "num_mediators": 3,
+      "theta_high": 1.0,
+      "theta_low": 0.0,
+      "total_controls": [
+        "age"
+      ],
+      "total_effect": 0.0
+    }
+  },
+  "expected_low_direct_feature": "smoking",
+  "expected_top_feature": "smoking",
+  "features": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "fuzzing_model_query_count": 0,
+  "fuzzing_relative_total_error": 0.6795809507113435,
+  "method": "cafe",
+  "model_features": [
+    "age",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "prediction_r2": 0.9912967973102783,
+  "ranking": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "subgroup_unlearning": {
+    "age_gt_50": {
+      "direct_controls": [
+        "age",
+        "smoking",
+        "exercise",
+        "blood_pressure"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 3,
+      "num_mediators": 1,
+      "theta_high": 27.527044166341604,
+      "theta_low": 20.381959378741776,
+      "total_controls": [
+        "age",
+        "smoking",
+        "exercise"
+      ],
+      "total_effect": 0.0
+    },
+    "age_le_50": {
+      "direct_controls": [
+        "age",
+        "smoking",
+        "exercise",
+        "blood_pressure"
+      ],
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 3,
+      "num_mediators": 1,
+      "theta_high": 27.28659216764173,
+      "theta_low": 19.82722178141759,
+      "total_controls": [
+        "age",
+        "smoking",
+        "exercise"
+      ],
+      "total_effect": 0.0
+    },
+    "direct_gap_abs": 0.0,
+    "feature": "bmi",
+    "indirect_gap": 0.0,
+    "split": "age > 50 vs age <= 50",
+    "total_gap": 0.0
+  },
+  "target_direct_effect": 0.0,
+  "target_direct_rank": 2,
+  "target_feature": "smoking",
+  "target_indirect_effect": 0.0,
+  "target_total_effect": 0.0,
+  "target_total_rank": 2
+}

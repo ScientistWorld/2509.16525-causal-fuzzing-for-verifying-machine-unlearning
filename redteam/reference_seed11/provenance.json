@@ -1,0 +1,8 @@
+{
+  "candidate_uses_hidden_test": false,
+  "case": "reference_seed11",
+  "change": "reference rerun",
+  "n": 10000,
+  "preparation_seconds": 62.2175609220285,
+  "seed": 11
+}

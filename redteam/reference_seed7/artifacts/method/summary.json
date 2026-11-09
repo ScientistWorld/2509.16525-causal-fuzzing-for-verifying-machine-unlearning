@@ -1,0 +1,400 @@
+{
+  "heart_disease": {
+    "cafe_model_query_count": 3500,
+    "causal_fuzzing": {
+      "direct_effect": 0.0,
+      "indirect_effect": 2.406577445040256,
+      "model_query_count": 10500,
+      "sample_count": 3500,
+      "structural_model_count": 4,
+      "total_effect": 2.406577445040256
+    },
+    "dataset": "heart_disease",
+    "direct_ranking": [
+      "blood_pressure",
+      "age",
+      "bmi",
+      "exercise",
+      "smoking"
+    ],
+    "effects": {
+      "age": {
+        "direct_controls": [
+          "blood_pressure",
+          "exercise",
+          "bmi",
+          "smoking"
+        ],
+        "direct_effect": 1.5743078405000477,
+        "indirect_effect": 2.873108028616862,
+        "num_backdoor_controls": 0,
+        "num_mediators": 4,
+        "theta_high": 60.14679963732274,
+        "theta_low": 43.78392580280595,
+        "total_controls": [],
+        "total_effect": 4.4474158691169094
+      },
+      "blood_pressure": {
+        "direct_controls": [
+          "age",
+          "smoking",
+          "exercise",
+          "bmi"
+        ],
+        "direct_effect": 3.3155662070873984,
+        "indirect_effect": 0.0,
+        "num_backdoor_controls": 4,
+        "num_mediators": 0,
+        "theta_high": 175.22743074447072,
+        "theta_low": 142.19602427197222,
+        "total_controls": [
+          "age",
+          "smoking",
+          "exercise",
+          "bmi"
+        ],
+        "total_effect": 3.266977763741588
+      },
+      "bmi": {
+        "direct_controls": [
+          "age",
+          "smoking",
+          "exercise",
+          "blood_pressure"
+        ],
+        "direct_effect": 1.3776267758289427,
+        "indirect_effect": 2.4131008614613,
+        "num_backdoor_controls": 3,
+        "num_mediators": 1,
+        "theta_high": 27.420580077448317,
+        "theta_low": 20.091403964558538,
+        "total_controls": [
+          "age",
+          "smoking",
+          "exercise"
+        ],
+        "total_effect": 3.7907276372902428
+      },
+      "exercise": {
+        "direct_controls": [
+          "age",
+          "smoking",
+          "bmi",
+          "blood_pressure"
+        ],
+        "direct_effect": 0.6566155713829986,
+        "indirect_effect": 0.9477029320260115,
+        "num_backdoor_controls": 2,
+        "num_mediators": 2,
+        "theta_high": 5.316572027495006,
+        "theta_low": 3.240326025269526,
+        "total_controls": [
+          "age",
+          "smoking"
+        ],
+        "total_effect": 1.6043185034090102
+      },
+      "smoking": {
+        "direct_controls": [
+          "age",
+          "exercise",
+          "bmi",
+          "blood_pressure"
+        ],
+        "direct_effect": 0.0014785090382580133,
+        "indirect_effect": 4.040563124062931,
+        "num_backdoor_controls": 1,
+        "num_mediators": 3,
+        "theta_high": 1.0,
+        "theta_low": 0.0,
+        "total_controls": [
+          "age"
+        ],
+        "total_effect": 4.0420416331011895
+      }
+    },
+    "expected_low_direct_feature": "smoking",
+    "expected_top_feature": "smoking",
+    "features": [
+      "age",
+      "smoking",
+      "exercise",
+      "bmi",
+      "blood_pressure"
+    ],
+    "fuzzing_model_query_count": 10500,
+    "fuzzing_relative_total_error": 0.6795809507113435,
+    "graph_robustness": {
+      "add_50pct_edges": {
+        "edge_count": 10,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "age",
+          "smoking",
+          "bmi",
+          "blood_pressure",
+          "exercise"
+        ]
+      },
+      "fully_connected_dag": {
+        "edge_count": 10,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "age",
+          "smoking",
+          "bmi",
+          "blood_pressure",
+          "exercise"
+        ]
+      },
+      "remove_25pct_edges": {
+        "edge_count": 8,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "age",
+          "smoking",
+          "bmi",
+          "blood_pressure",
+          "exercise"
+        ]
+      },
+      "remove_50pct_edges": {
+        "edge_count": 5,
+        "rank_change_pct": 10.0,
+        "ranking": [
+          "age",
+          "smoking",
+          "blood_pressure",
+          "bmi",
+          "exercise"
+        ]
+      }
+    },
+    "method": "cafe",
+    "model_features": [
+      "age",
+      "exercise",
+      "bmi",
+      "blood_pressure"
+    ],
+    "prediction_r2": 0.9912967973102783,
+    "ranking": [
+      "age",
+      "smoking",
+      "bmi",
+      "blood_pressure",
+      "exercise"
+    ],
+    "subgroup_unlearning": {
+      "age_gt_50": {
+        "direct_controls": [
+          "age",
+          "smoking",
+          "exercise",
+          "blood_pressure"
+        ],
+        "direct_effect": 2.5912244786153322,
+        "indirect_effect": 1.166531284570739,
+        "num_backdoor_controls": 3,
+        "num_mediators": 1,
+        "theta_high": 27.527044166341604,
+        "theta_low": 20.381959378741776,
+        "total_controls": [
+          "age",
+          "smoking",
+          "exercise"
+        ],
+        "total_effect": 3.757755763186071
+      },
+      "age_le_50": {
+        "direct_controls": [
+          "age",
+          "smoking",
+          "exercise",
+          "blood_pressure"
+        ],
+        "direct_effect": 2.492867397315626,
+        "indirect_effect": 0.6943782273668369,
+        "num_backdoor_controls": 3,
+        "num_mediators": 1,
+        "theta_high": 27.28659216764173,
+        "theta_low": 19.82722178141759,
+        "total_controls": [
+          "age",
+          "smoking",
+          "exercise"
+        ],
+        "total_effect": 3.187245624682463
+      },
+      "direct_gap_abs": 0.0983570812997061,
+      "feature": "bmi",
+      "indirect_gap": 0.4721530572039021,
+      "split": "age > 50 vs age <= 50",
+      "total_gap": 0.5705101385036082
+    },
+    "target_direct_effect": 0.0014785090382580133,
+    "target_direct_rank": 5,
+    "target_feature": "smoking",
+    "target_indirect_effect": 4.040563124062931,
+    "target_total_effect": 4.0420416331011895,
+    "target_total_rank": 2
+  },
+  "performance": {
+    "cafe_model_query_count": 3500,
+    "causal_fuzzing": {
+      "direct_effect": 0.0,
+      "indirect_effect": 2.7659050013177278,
+      "model_query_count": 10500,
+      "sample_count": 3500,
+      "structural_model_count": 3,
+      "total_effect": 2.7659050013177278
+    },
+    "dataset": "performance",
+    "direct_ranking": [
+      "education_years",
+      "income",
+      "experience_years",
+      "gender"
+    ],
+    "effects": {
+      "education_years": {
+        "direct_controls": [
+          "gender",
+          "experience_years",
+          "income"
+        ],
+        "direct_effect": 2.1368921084704358,
+        "indirect_effect": 1.6875530357894637,
+        "num_backdoor_controls": 1,
+        "num_mediators": 2,
+        "theta_high": 13.125874435988258,
+        "theta_low": 10.740930713282467,
+        "total_controls": [
+          "gender"
+        ],
+        "total_effect": 3.8244451442598995
+      },
+      "experience_years": {
+        "direct_controls": [
+          "gender",
+          "education_years",
+          "income"
+        ],
+        "direct_effect": 0.782555043613673,
+        "indirect_effect": 0.7996241565191513,
+        "num_backdoor_controls": 2,
+        "num_mediators": 1,
+        "theta_high": 19.75150867237563,
+        "theta_low": 15.218302658261074,
+        "total_controls": [
+          "gender",
+          "education_years"
+        ],
+        "total_effect": 1.5821792001328243
+      },
+      "gender": {
+        "direct_controls": [
+          "experience_years",
+          "education_years",
+          "income"
+        ],
+        "direct_effect": 6.87324849028996e-05,
+        "indirect_effect": 3.7459346974962715,
+        "num_backdoor_controls": 0,
+        "num_mediators": 3,
+        "theta_high": 1.0,
+        "theta_low": 0.0,
+        "total_controls": [],
+        "total_effect": 3.746003429981174
+      },
+      "income": {
+        "direct_controls": [
+          "education_years",
+          "experience_years"
+        ],
+        "direct_effect": 0.9005881659326964,
+        "indirect_effect": 0.029460096065158647,
+        "num_backdoor_controls": 2,
+        "num_mediators": 0,
+        "theta_high": 78396.03823336467,
+        "theta_low": 63894.28309970348,
+        "total_controls": [
+          "education_years",
+          "experience_years"
+        ],
+        "total_effect": 0.9300482619978551
+      }
+    },
+    "expected_low_direct_feature": "gender",
+    "expected_top_feature": "gender",
+    "features": [
+      "gender",
+      "education_years",
+      "experience_years",
+      "income"
+    ],
+    "fuzzing_model_query_count": 10500,
+    "fuzzing_relative_total_error": 0.3543499969075256,
+    "graph_robustness": {
+      "add_50pct_edges": {
+        "edge_count": 6,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "education_years",
+          "gender",
+          "experience_years",
+          "income"
+        ]
+      },
+      "fully_connected_dag": {
+        "edge_count": 6,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "education_years",
+          "gender",
+          "experience_years",
+          "income"
+        ]
+      },
+      "remove_25pct_edges": {
+        "edge_count": 4,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "education_years",
+          "gender",
+          "experience_years",
+          "income"
+        ]
+      },
+      "remove_50pct_edges": {
+        "edge_count": 3,
+        "rank_change_pct": 0.0,
+        "ranking": [
+          "education_years",
+          "gender",
+          "experience_years",
+          "income"
+        ]
+      }
+    },
+    "method": "cafe",
+    "model_features": [
+      "education_years",
+      "experience_years",
+      "income"
+    ],
+    "prediction_r2": 0.9893166902330117,
+    "ranking": [
+      "education_years",
+      "gender",
+      "experience_years",
+      "income"
+    ],
+    "target_direct_effect": 6.87324849028996e-05,
+    "target_direct_rank": 4,
+    "target_feature": "gender",
+    "target_indirect_effect": 3.7459346974962715,
+    "target_total_effect": 3.746003429981174,
+    "target_total_rank": 2
+  }
+}

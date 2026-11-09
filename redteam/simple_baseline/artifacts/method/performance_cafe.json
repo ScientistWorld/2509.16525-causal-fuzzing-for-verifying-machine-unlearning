@@ -1,0 +1,27 @@
+{
+  "dataset": "performance",
+  "expected_top_feature": "gender",
+  "features": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "importance": {
+    "education_years": 0.6422466799393476,
+    "experience_years": 0.07562530618013959,
+    "gender": 0.0,
+    "income": 0.12062469960323856
+  },
+  "method": "cafe",
+  "prediction_r2": 0.9893166902330117,
+  "ranking": [
+    "education_years",
+    "income",
+    "experience_years",
+    "gender"
+  ],
+  "target_feature": "gender",
+  "target_total_effect": 0.0,
+  "target_total_rank": 4
+}

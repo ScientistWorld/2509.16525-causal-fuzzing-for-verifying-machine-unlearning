@@ -1,0 +1,81 @@
+{
+  "cafe_model_query_count": 1,
+  "causal_fuzzing": {
+    "total_effect": 1.0
+  },
+  "dataset": "heart_disease",
+  "direct_ranking": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "effects": {
+    "age": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "blood_pressure": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "bmi": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "exercise": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "smoking": {
+      "direct_effect": 0.0,
+      "indirect_effect": 1.0,
+      "total_effect": 1.0
+    }
+  },
+  "features": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "fuzzing_model_query_count": 3,
+  "method": "cafe",
+  "prediction_r2": 0.0,
+  "ranking": [
+    "smoking",
+    "age",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "subgroup_unlearning": {
+    "age_gt_50": {
+      "direct_effect": 0.0,
+      "indirect_effect": 1.0,
+      "total_effect": 1.0
+    },
+    "age_le_50": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "direct_gap_abs": 0.0,
+    "feature": "bmi",
+    "indirect_gap": 1.0,
+    "split": "age > 50 vs age <= 50",
+    "total_gap": 1.0
+  },
+  "target_direct_effect": 0.0,
+  "target_direct_rank": 2,
+  "target_feature": "smoking",
+  "target_indirect_effect": 1.0,
+  "target_total_effect": 1.0,
+  "target_total_rank": 1
+}

@@ -1,0 +1,6 @@
+{
+  "candidate_uses_hidden_test": false,
+  "case": "better_exact_direct",
+  "change": "exact structural direct-effect zero for an omitted model input",
+  "preparation_seconds": 3.92788173398003
+}

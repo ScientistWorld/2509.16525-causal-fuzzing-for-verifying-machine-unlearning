@@ -1,0 +1,158 @@
+{
+  "cafe_model_query_count": 3500,
+  "causal_fuzzing": {
+    "direct_effect": 0.0,
+    "indirect_effect": 2.852006323219781,
+    "model_query_count": 10500,
+    "sample_count": 3500,
+    "structural_model_count": 3,
+    "total_effect": 2.852006323219781
+  },
+  "dataset": "performance",
+  "direct_ranking": [
+    "education_years",
+    "income",
+    "experience_years",
+    "gender"
+  ],
+  "effects": {
+    "education_years": {
+      "direct_controls": [
+        "gender",
+        "experience_years",
+        "income"
+      ],
+      "direct_effect": 2.308794248597941,
+      "indirect_effect": 1.4923392551266188,
+      "num_backdoor_controls": 1,
+      "num_mediators": 2,
+      "theta_high": 13.13563295851727,
+      "theta_low": 10.682760023331456,
+      "total_controls": [
+        "gender"
+      ],
+      "total_effect": 3.80113350372456
+    },
+    "experience_years": {
+      "direct_controls": [
+        "gender",
+        "education_years",
+        "income"
+      ],
+      "direct_effect": 0.6386184552975083,
+      "indirect_effect": 0.8185251286336557,
+      "num_backdoor_controls": 2,
+      "num_mediators": 1,
+      "theta_high": 19.756715748506103,
+      "theta_low": 15.247813766225574,
+      "total_controls": [
+        "gender",
+        "education_years"
+      ],
+      "total_effect": 1.457143583931164
+    },
+    "gender": {
+      "direct_controls": [
+        "experience_years",
+        "education_years",
+        "income"
+      ],
+      "direct_effect": 9.448062952633909e-05,
+      "indirect_effect": 3.6966843447137037,
+      "num_backdoor_controls": 0,
+      "num_mediators": 3,
+      "theta_high": 1.0,
+      "theta_low": 0.0,
+      "total_controls": [],
+      "total_effect": 3.69677882534323
+    },
+    "income": {
+      "direct_controls": [
+        "education_years",
+        "experience_years"
+      ],
+      "direct_effect": 0.9924300379132015,
+      "indirect_effect": 0.0,
+      "num_backdoor_controls": 2,
+      "num_mediators": 0,
+      "theta_high": 78159.24607603539,
+      "theta_low": 63854.93831606829,
+      "total_controls": [
+        "education_years",
+        "experience_years"
+      ],
+      "total_effect": 0.9506837851410191
+    }
+  },
+  "expected_low_direct_feature": "gender",
+  "expected_top_feature": "gender",
+  "features": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "fuzzing_model_query_count": 10500,
+  "fuzzing_relative_total_error": 0.2962028854023509,
+  "graph_robustness": {
+    "add_50pct_edges": {
+      "edge_count": 6,
+      "rank_change_pct": 0.0,
+      "ranking": [
+        "education_years",
+        "gender",
+        "experience_years",
+        "income"
+      ]
+    },
+    "fully_connected_dag": {
+      "edge_count": 6,
+      "rank_change_pct": 0.0,
+      "ranking": [
+        "education_years",
+        "gender",
+        "experience_years",
+        "income"
+      ]
+    },
+    "remove_25pct_edges": {
+      "edge_count": 4,
+      "rank_change_pct": 0.0,
+      "ranking": [
+        "education_years",
+        "gender",
+        "experience_years",
+        "income"
+      ]
+    },
+    "remove_50pct_edges": {
+      "edge_count": 3,
+      "rank_change_pct": 0.0,
+      "ranking": [
+        "education_years",
+        "gender",
+        "experience_years",
+        "income"
+      ]
+    }
+  },
+  "method": "cafe",
+  "model_features": [
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "prediction_r2": 0.9894954161659936,
+  "ranking": [
+    "education_years",
+    "gender",
+    "experience_years",
+    "income"
+  ],
+  "target_direct_effect": 9.448062952633909e-05,
+  "target_direct_rank": 4,
+  "target_feature": "gender",
+  "target_indirect_effect": 3.6966843447137037,
+  "target_total_effect": 3.69677882534323,
+  "target_total_rank": 2
+}

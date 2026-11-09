@@ -1,0 +1,8 @@
+{
+  "candidate_uses_hidden_test": false,
+  "case": "better_more_data",
+  "change": "more samples",
+  "n": 30000,
+  "preparation_seconds": 164.16847180901095,
+  "seed": 7
+}

@@ -1,0 +1,67 @@
+{
+  "cafe_model_query_count": 140000,
+  "causal_fuzzing": {
+    "direct_effect": 0.0,
+    "indirect_effect": 2.406577445040256,
+    "model_query_count": 10500,
+    "sample_count": 3500,
+    "structural_model_count": 4,
+    "total_effect": 2.406577445040256
+  },
+  "dataset": "heart_disease",
+  "effects": {
+    "age": {
+      "direct_effect": 1.6489663279684226,
+      "indirect_effect": 2.0301958569116687,
+      "total_effect": 3.679162184880091
+    },
+    "blood_pressure": {
+      "direct_effect": 3.321270772152599,
+      "indirect_effect": 0.0,
+      "total_effect": 3.321270772152599
+    },
+    "bmi": {
+      "direct_effect": 1.4368612883358587,
+      "indirect_effect": 2.145014341257183,
+      "total_effect": 3.581875629593042
+    },
+    "exercise": {
+      "direct_effect": 0.7289160113130398,
+      "indirect_effect": 0.7808118368439266,
+      "total_effect": 1.5097278481569665
+    },
+    "smoking": {
+      "direct_effect": 0.0,
+      "indirect_effect": 4.052882823421465,
+      "total_effect": 4.052882823421465
+    }
+  },
+  "features": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "fuzzing_model_query_count": 10500,
+  "method": "cafe",
+  "prediction_r2": 0.9912967973102783,
+  "subgroup_unlearning": {
+    "age_gt_50": {
+      "direct_effect": 1.9137698255553588,
+      "indirect_effect": 1.9818088255160256,
+      "total_effect": 3.8955786510713843
+    },
+    "age_le_50": {
+      "direct_effect": 0.7977770265717616,
+      "indirect_effect": 0.9624880149699364,
+      "total_effect": 1.760265041541698
+    },
+    "direct_gap_abs": 1.1159927989835972,
+    "feature": "bmi",
+    "indirect_gap": 1.0193208105460891,
+    "split": "age > 50 vs age <= 50",
+    "total_gap": 2.1353136095296863
+  },
+  "target_feature": "smoking"
+}

@@ -1,0 +1,44 @@
+{
+  "cafe_model_query_count": 56000,
+  "causal_fuzzing": {
+    "direct_effect": 0.0,
+    "indirect_effect": 2.7659050013177278,
+    "model_query_count": 10500,
+    "sample_count": 3500,
+    "structural_model_count": 3,
+    "total_effect": 2.7659050013177278
+  },
+  "dataset": "performance",
+  "effects": {
+    "education_years": {
+      "direct_effect": 2.2190541523552385,
+      "indirect_effect": 1.7643014377547006,
+      "total_effect": 3.983355590109939
+    },
+    "experience_years": {
+      "direct_effect": 0.8784317780972464,
+      "indirect_effect": 1.0948933259675269,
+      "total_effect": 1.9733251040647732
+    },
+    "gender": {
+      "direct_effect": 0.0,
+      "indirect_effect": 3.3062340434604445,
+      "total_effect": 3.3062340434604445
+    },
+    "income": {
+      "direct_effect": 0.9951670308098195,
+      "indirect_effect": 0.0,
+      "total_effect": 0.9951670308098195
+    }
+  },
+  "features": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "fuzzing_model_query_count": 10500,
+  "method": "cafe",
+  "prediction_r2": 0.9893166902330117,
+  "target_feature": "gender"
+}

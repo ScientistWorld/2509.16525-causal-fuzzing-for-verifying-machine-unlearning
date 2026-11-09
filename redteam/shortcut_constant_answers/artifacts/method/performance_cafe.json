@@ -1,0 +1,56 @@
+{
+  "cafe_model_query_count": 1,
+  "causal_fuzzing": {
+    "total_effect": 1.0
+  },
+  "dataset": "performance",
+  "direct_ranking": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "effects": {
+    "education_years": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "experience_years": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    },
+    "gender": {
+      "direct_effect": 0.0,
+      "indirect_effect": 1.0,
+      "total_effect": 1.0
+    },
+    "income": {
+      "direct_effect": 0.0,
+      "indirect_effect": 0.0,
+      "total_effect": 0.0
+    }
+  },
+  "features": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "fuzzing_model_query_count": 3,
+  "method": "cafe",
+  "prediction_r2": 0.0,
+  "ranking": [
+    "gender",
+    "education_years",
+    "experience_years",
+    "income"
+  ],
+  "target_direct_effect": 0.0,
+  "target_direct_rank": 1,
+  "target_feature": "gender",
+  "target_indirect_effect": 1.0,
+  "target_total_effect": 1.0,
+  "target_total_rank": 1
+}
