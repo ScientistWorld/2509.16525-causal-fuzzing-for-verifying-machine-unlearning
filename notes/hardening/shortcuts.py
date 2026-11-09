@@ -23,6 +23,10 @@ the hardened test must not reward them.
                           the evaluator is waiting
   direct_retention_claim  CAFÉ totals, but all influence of unlearned
                           features claimed as direct (constraint failure)
+  cafe_constant_subgroup  CAFÉ for the feature tasks, constant_answers'
+                          fixed guesses for the subgroup task
+  cafe_prior_subgroup     CAFÉ for the feature tasks, subgroup effects from
+                          a fixed public prior scaled by CAFÉ's estimates
 """
 
 from __future__ import annotations
@@ -185,6 +189,31 @@ def direct_retention_claim(spec, audit):
     return answer
 
 
+def cafe_constant_subgroup(spec, audit):
+    """CAFÉ for the feature tasks, fixed public-metadata guesses for subgroups."""
+    answer = _cafe(spec, audit)
+    if spec.get("subgroups"):
+        answer["subgroup_effects"] = constant_answers(spec, audit)["subgroup_effects"]
+    return answer
+
+
+def cafe_prior_subgroup(spec, audit):
+    """CAFÉ for the feature tasks; subgroup effects from a fixed prior on the
+    split (older keeps 160% and younger 40% of the population mediated effect,
+    direct effects identical), scaled by CAFÉ's own population estimates."""
+    answer = _cafe(spec, audit)
+    if spec.get("subgroups"):
+        first, second = spec["subgroup_gap"]
+        groups = {}
+        for g, share in ((first, 1.6), (second, 0.4)):
+            groups[g] = {}
+            for f in spec["subgroup_features"]:
+                v = answer["effects"][f]
+                groups[g][f] = {"total": v["direct"] + share * (v["total"] - v["direct"]), "direct": v["direct"]}
+        answer["subgroup_effects"] = groups
+    return answer
+
+
 KINDS = {
     name: fn
     for name, fn in globals().items()
@@ -201,6 +230,8 @@ KINDS = {
         "overbudget_bruteforce",
         "scores_file_forgery",
         "direct_retention_claim",
+        "cafe_constant_subgroup",
+        "cafe_prior_subgroup",
     }
 }
 

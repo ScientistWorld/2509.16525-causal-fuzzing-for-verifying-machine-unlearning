@@ -8,7 +8,9 @@ Two families follow the paper's semi-synthetic settings (Fig. 2):
   blood pressure, which the model does use. As in the paper's Fig. 7, BMI's
   mediated influence (via blood pressure) is much larger above age 50: the
   BMI -> blood-pressure slope and blood pressure's weight on risk both grow
-  with age, while BMI's direct weight does not.
+  with age. In drawn instances BMI's direct weight may also differ by age
+  (``c_bmi_old``), and every drawn instance has its own outcome scale
+  (``out_scale``); the canonical instance has neither.
 * ``performance``: gender, education_years, experience_years, income -> score,
   plus a ``region`` control. ``gender`` is the paper's unlearning target.
 
@@ -121,6 +123,8 @@ class HeartDiseaseSCM(_SCM):
             "c_ex": 0.55,
             "c_sm": 0.12,
             "c_fh": 0.35,
+            "c_bmi_old": 0.0,
+            "out_scale": 1.0,
         }
 
     @staticmethod
@@ -148,6 +152,8 @@ class HeartDiseaseSCM(_SCM):
             "c_ex": u(0.3, 0.8),
             "c_sm": u(0.0, 0.3),
             "c_fh": u(0.2, 0.5),
+            "c_bmi_old": u(-0.5, 0.5),
+            "out_scale": float(np.exp(u(np.log(0.3), np.log(4.0)))),
         }
 
     @staticmethod
@@ -222,9 +228,11 @@ class HeartDiseaseSCM(_SCM):
         p = self.params
         older = (frame["age"].to_numpy() > 50).astype(float)
         bp = _standardize(frame["blood_pressure"])
-        return (
+        bmi = _standardize(frame["bmi"])
+        return p["out_scale"] * (
             p["c_age"] * _standardize(frame["age"])
-            + p["c_bmi"] * _standardize(frame["bmi"])
+            + p["c_bmi"] * bmi
+            + p["c_bmi_old"] * older * bmi
             + p["c_bp"] * bp
             + p["c_old"] * older * bp
             - p["c_ex"] * _standardize(frame["exercise"])
@@ -273,6 +281,7 @@ class PerformanceSCM(_SCM):
             "c_i": 0.92,
             "c_g": 0.03,
             "c_r": 0.3,
+            "out_scale": 1.0,
         }
 
     @staticmethod
@@ -293,6 +302,7 @@ class PerformanceSCM(_SCM):
             "c_i": u(0.6, 1.2),
             "c_g": u(0.0, 0.1),
             "c_r": u(0.2, 0.5),
+            "out_scale": float(np.exp(u(np.log(0.3), np.log(4.0)))),
         }
 
     @staticmethod
@@ -352,7 +362,7 @@ class PerformanceSCM(_SCM):
 
     def outcome_values(self, frame: pd.DataFrame, noise: dict) -> np.ndarray:
         p = self.params
-        return (
+        return p["out_scale"] * (
             p["c_e"] * _standardize(frame["education_years"])
             + p["c_x"] * _standardize(frame["experience_years"])
             + p["c_i"] * _standardize(frame["income"])

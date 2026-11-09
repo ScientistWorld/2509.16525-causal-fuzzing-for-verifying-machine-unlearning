@@ -104,6 +104,8 @@ class HeldOutHeart(_Family):
             "c_sm": u(0.0, 0.35),
             "c_fh": u(0.2, 0.6),
             "c_int": u(-0.25, 0.25),
+            "c_bmi_old": u(-0.6, 0.6),
+            "out_scale": float(np.exp(u(np.log(0.25), np.log(5.0)))),
         }
 
     @staticmethod
@@ -183,9 +185,10 @@ class HeldOutHeart(_Family):
         p = self.params
         age = frame["age"].to_numpy()
         bp = frame["blood_pressure"].to_numpy()
-        return (
+        return p["out_scale"] * (
             p["c_age"] * _z(age)
             + p["c_bmi"] * _z(frame["bmi"])
+            + p["c_bmi_old"] * _sigmoid((age - 50.0) / 3.0) * _z(frame["bmi"])
             + p["c_bp"] * _z(bp)
             + p["c_old"] * _sigmoid((age - 50.0) / 3.0) * _z(bp)
             - p["c_ex"] * _z(frame["exercise"])
@@ -238,6 +241,7 @@ class HeldOutPerformance(_Family):
             "c_i": u(0.6, 1.3),
             "c_g": u(0.0, 0.12),
             "c_r": u(0.2, 0.5),
+            "out_scale": float(np.exp(u(np.log(0.25), np.log(5.0)))),
         }
 
     @staticmethod
@@ -302,7 +306,7 @@ class HeldOutPerformance(_Family):
 
     def outcome_values(self, frame, noise):
         p = self.params
-        return (
+        return p["out_scale"] * (
             p["c_e"] * _z(frame["education_years"])
             + p["c_x"] * _z(np.sqrt(frame["experience_years"].to_numpy() + 1.0))
             + p["c_i"] * _z(np.log(np.maximum(frame["income"].to_numpy(), 2_000.0)))
