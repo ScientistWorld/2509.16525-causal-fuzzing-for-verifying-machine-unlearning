@@ -1,8 +1,3 @@
-# Once you set action to 'submit' or 'done', STOP immediately.
-# Do NOT sleep, poll, or wait for jobs. The system reads this file
-# only after your turn ends.
-action: pending
-gpus: 0
-test: false
+action: done
 milestone: secondary_claims
-notes: ""
+notes: "Audit complete: 18 runs, six shortcuts beat the reference, and quality sensitivity plus seed spread documented in REDTEAM.md. Original workspace files restored."
