@@ -15,7 +15,7 @@ def main():
     weights = json.loads((ROOT / 'scoring/reference.json').read_text())
     cases = {}
     for path in sorted(AUDIT.glob('*/scores_test.json')):
-        if path.parent.name != 'reference_original':
+        if (path.parent / 'completed.json').exists():
             cases[path.parent.name] = json.loads(path.read_text())
     specs = []
     for experiment, body in weights['experiments'].items():
@@ -49,6 +49,11 @@ def main():
             'reference_seed_spread': max(seeds) - min(seeds) if seeds else None}
     summary['raw_test_metrics'] = {case: cases[case]['experiments'] for case in cases}
     (AUDIT / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
+    for case in cases:
+        scorecard = {'reference_score': 0.0, 'method_entry': 'cafe',
+                     'scores_vs_reference': {label: cohort['scores'][case]['score_vs_reference']
+                                             for label, cohort in summary['cohorts'].items()}}
+        (AUDIT / case / 'rank.json').write_text(json.dumps(scorecard, indent=2, sort_keys=True) + '\n')
     for label, cohort in summary['cohorts'].items():
         print(label, 'seed_spread=', cohort['reference_seed_spread'])
         for case, body in sorted(cohort['scores'].items(), key=lambda pair: pair[1]['score_vs_reference'], reverse=True):

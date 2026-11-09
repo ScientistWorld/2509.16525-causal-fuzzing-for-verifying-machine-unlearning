@@ -1,0 +1,8 @@
+{
+  "method_entry": "cafe",
+  "reference_score": 0.0,
+  "scores_vs_reference": {
+    "all_audit_attempts": 0.6193482329057052,
+    "honest_variants": 1.2898679294327802
+  }
+}

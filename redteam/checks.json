@@ -1,0 +1,24 @@
+{
+  "cohort_counts": {
+    "all_attempts": 18,
+    "honest_attempts": 8
+  },
+  "exact_reference_metric_ties": [
+    "reference_seed7",
+    "better_exact_direct",
+    "shortcut_replace_oracle",
+    "shortcut_scores_file",
+    "shortcut_baseline_move"
+  ],
+  "strict_metric_dominance_shortcuts": [
+    "shortcut_constant_answers",
+    "shortcut_reported_queries",
+    "shortcut_feature_list",
+    "shortcut_impossible_gap"
+  ],
+  "failed_constraints_can_outrank_reference_in_both_cohorts": true,
+  "all_eighteen_runs_have_artifacts_scores_rank_and_valid_shell": true,
+  "all_python_sources_parse": true,
+  "original_output_tree_restored": true,
+  "job_id": "af9f53fd-930"
+}
