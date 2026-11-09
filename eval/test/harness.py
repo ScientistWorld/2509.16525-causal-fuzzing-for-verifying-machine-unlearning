@@ -488,10 +488,13 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
         1.0 if abs(est[f][0]) >= DETECT_FRACTION * scale else 0.0 for f in truth["negatives"]
     ]
     # Efficiency counts only on solved tasks: the total-effect error must be at
-    # most half that of the trivial all-zero answer.
+    # most half that of the trivial all-zero answer. One pass over the audit
+    # rows is free (the audit sample size is fixed by the evaluator; querying
+    # fewer rows only shrinks it), so only querying beyond one pass is charged.
     trivial = float(np.mean([min(abs(truth["total"][f]) / scale, ERROR_CAP) for f in features]))
     solved = float(np.mean(record["total_err"])) <= SOLVED_FRACTION * trivial
-    record["query_fraction"] = float(used_rows / spec["query_budget"]) if solved else 1.0
+    charged = max(int(used_rows), int(spec["n_rows"]))
+    record["query_fraction"] = float(charged / spec["query_budget"]) if solved else 1.0
     return record
 
 
@@ -519,6 +522,7 @@ def subgroup_record(task: Task, parsed: dict | None) -> dict:
             direct_gap_err=[ERROR_CAP] * len(features),
             effect_err=[ERROR_CAP] * (3 * len(features) * len(true_groups)),
             gap_capture=[0.0] * len(eligible),
+            gap_direction=[0.0] * len(eligible),
         )
         return record
     record["effect_err"] = []
@@ -531,6 +535,12 @@ def subgroup_record(task: Task, parsed: dict | None) -> dict:
     record["total_gap_err"] = [_err(est_gaps[f][1], true_gaps[f][1], scale) for f in features]
     record["direct_gap_err"] = [_err(est_gaps[f][2], true_gaps[f][2], scale) for f in features]
     record["gap_capture"] = [_capture(est_gaps[f][0], true_gaps[f][0]) for f in eligible]
+    # Direction: the reported mediated-influence gap is detected (at least the
+    # detection fraction of the scale) and points to the right subgroup.
+    record["gap_direction"] = [
+        1.0 if (est_gaps[f][0] * true_gaps[f][0] > 0 and abs(est_gaps[f][0]) >= DETECT_FRACTION * scale) else 0.0
+        for f in eligible
+    ]
     return record
 
 
@@ -557,6 +567,7 @@ def aggregate_subgroup(records: list[dict]) -> dict:
         "direct_gap_nmae": _pooled(records, "direct_gap_err", ERROR_CAP),
         "subgroup_effect_nmae": _pooled(records, "effect_err", ERROR_CAP),
         "indirect_gap_capture": _pooled(records, "gap_capture"),
+        "indirect_gap_direction": _pooled(records, "gap_direction"),
     }
 
 

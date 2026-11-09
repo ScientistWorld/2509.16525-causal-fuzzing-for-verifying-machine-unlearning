@@ -38,6 +38,7 @@ POOLED = {
     "direct_gap_nmae": ("direct_gap_err", CAP),
     "subgroup_effect_nmae": ("effect_err", CAP),
     "indirect_gap_capture": ("gap_capture", 0.0),
+    "indirect_gap_direction": ("gap_direction", 0.0),
 }
 
 
