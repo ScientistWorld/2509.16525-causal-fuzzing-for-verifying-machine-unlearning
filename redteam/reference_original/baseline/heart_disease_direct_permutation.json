@@ -1,0 +1,37 @@
+{
+  "dataset": "heart_disease",
+  "expected_top_feature": "smoking",
+  "features": [
+    "age",
+    "smoking",
+    "exercise",
+    "bmi",
+    "blood_pressure"
+  ],
+  "importance": {
+    "age": 0.18619364109488878,
+    "blood_pressure": 0.7800252494126927,
+    "bmi": 0.17392627570991814,
+    "exercise": 0.05053701236433278,
+    "smoking": 0.0
+  },
+  "method": "direct_permutation",
+  "prediction_r2": 0.9912967973102783,
+  "ranking": [
+    "blood_pressure",
+    "age",
+    "bmi",
+    "exercise",
+    "smoking"
+  ],
+  "subgroup_unlearning": {
+    "age_gt_50_direct_importance": 0.34983935037042907,
+    "age_le_50_direct_importance": 0.13934466187927308,
+    "direct_gap_abs": 0.210494688491156,
+    "feature": "bmi",
+    "split": "age > 50 vs age <= 50"
+  },
+  "target_feature": "smoking",
+  "target_total_effect": 0.0,
+  "target_total_rank": 5
+}

@@ -1,0 +1,6 @@
+_state/
+**/method.log
+**/train.log
+**/test.log
+**/run.log
+**/__pycache__/
