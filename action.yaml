@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Round-3 hardening check (resumable, raw answers cached): smoke, all hardening verifiers incl. hybrid subgroup shortcuts through hidden test, honest ones on train, ranking, official score files, validate."
+notes: "Final hardening check (resumable): smoke; all 25 hardening verifiers (CAFE x3 seeds, better/weaker variants, baselines, shortcuts incl. hybrid subgroup priors) through the rebuilt hidden test; honest ones on the 24 train tasks; pure-Python ranking; official score files from the registered verifiers; validate."

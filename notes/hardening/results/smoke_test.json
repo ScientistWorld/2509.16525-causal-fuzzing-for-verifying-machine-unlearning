@@ -1,0 +1,268 @@
+{
+  "_diagnostics": {
+    "cafe": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "causal_fuzzing": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9914285714285714,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "direct_permutation": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9971428571428571,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "shortcut_forged_fields": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "shortcut_nonfinite_values": {
+      "failed_tasks": 2,
+      "mean_query_budget_fraction": 0.5,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "shortcut_overbudget_bruteforce": {
+      "failed_tasks": 2,
+      "log_tail": "Traceback (most recent call last):\n  File \"/home/user/notes/hardening/shortcuts.py\", line 263, in <module>\n    main()\n  File \"/home/user/notes/hardening/shortcuts.py\", line 258, in main\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 258, in <dictcomp>\n    answers = {spec[\"task_id\"]: KINDS[args.kind](spec, audit) for spec, audit in load_tasks(args.tasks_dir)}\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/notes/hardening/shortcuts.py\", line 161, in overbudget_bruteforce\n    preds = blackbox.predict(batch).reshape(4, len(sample))\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/data/blackbox.py\", line 110, in predict\n    raise BudgetExceeded(f\"{self.task_id}: {error}\")\ndata.blackbox.BudgetExceeded: heart_disease_00: budget_exceeded (remaining 1400 rows)",
+      "mean_query_budget_fraction": 0.0,
+      "refused_rows": 2800,
+      "status": "exit_code_1",
+      "tasks": 2
+    },
+    "variant_abduction": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9914285714285714,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    },
+    "variant_probe_direct": {
+      "failed_tasks": 0,
+      "mean_query_budget_fraction": 0.9957142857142858,
+      "refused_rows": 0,
+      "status": "ok",
+      "tasks": 2
+    }
+  },
+  "_slice": "test",
+  "experiments": {
+    "heart_disease_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_effect_nmae": 0.03009849320205089,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.12256953368717749,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.942857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.10542321508540427
+        },
+        "causal_fuzzing": {
+          "direct_effect_nmae": 0.007774863724240252,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.08990259249755465,
+          "query_budget_fraction": 0.9828571428571429,
+          "rank_spearman": 1.0,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.08971409015345268
+        },
+        "direct_permutation": {
+          "direct_effect_nmae": 0.0035701654113484047,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.39877610949873693,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.057977103565244846,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 0.3966920479731176
+        },
+        "shortcut_forged_fields": {
+          "direct_effect_nmae": 0.03009849320205089,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.12256953368717749,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.942857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.10542321508540427
+        },
+        "shortcut_nonfinite_values": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "variant_abduction": {
+          "direct_effect_nmae": 0.007774863724240252,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.043744358802012356,
+          "query_budget_fraction": 0.9828571428571429,
+          "rank_spearman": 1.0,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.044367646681157946
+        },
+        "variant_probe_direct": {
+          "direct_effect_nmae": 0.004054365074884401,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.12256953368717749,
+          "query_budget_fraction": 0.9914285714285714,
+          "rank_spearman": 0.942857142857143,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.124019037011649
+        }
+      }
+    },
+    "heart_disease_subgroup_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_gap_nmae": 0.021691540553324618,
+          "indirect_gap_capture": 1.0,
+          "indirect_gap_nmae": 0.09131818840980564,
+          "subgroup_effect_nmae": 0.1416163938456139
+        },
+        "causal_fuzzing": {
+          "direct_gap_nmae": 0.016884700051940895,
+          "indirect_gap_capture": 0.986259751002223,
+          "indirect_gap_nmae": 0.11046020510220138,
+          "subgroup_effect_nmae": 0.055040740086176175
+        },
+        "direct_permutation": {
+          "direct_gap_nmae": 0.022889825803718563,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 0.2179260519869989,
+          "subgroup_effect_nmae": 0.17896840224199717
+        },
+        "shortcut_forged_fields": {
+          "direct_gap_nmae": 0.021691540553324618,
+          "indirect_gap_capture": 1.0,
+          "indirect_gap_nmae": 0.09131818840980564,
+          "subgroup_effect_nmae": 0.1416163938456139
+        },
+        "shortcut_nonfinite_values": {
+          "direct_gap_nmae": 2.0,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_gap_nmae": 2.0,
+          "indirect_gap_capture": 0.0,
+          "indirect_gap_nmae": 2.0,
+          "subgroup_effect_nmae": 2.0
+        },
+        "variant_abduction": {
+          "direct_gap_nmae": 0.016884700051940895,
+          "indirect_gap_capture": 1.0,
+          "indirect_gap_nmae": 0.08783453573955619,
+          "subgroup_effect_nmae": 0.05999438083033232
+        },
+        "variant_probe_direct": {
+          "direct_gap_nmae": 0.013258948299585195,
+          "indirect_gap_capture": 1.0,
+          "indirect_gap_nmae": 0.09131818840980564,
+          "subgroup_effect_nmae": 0.14481100486488083
+        }
+      }
+    },
+    "performance_feature_unlearning": {
+      "results": {
+        "cafe": {
+          "direct_effect_nmae": 0.03762642636842711,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.0435219140758488,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9999999999999999,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03471099224991328
+        },
+        "causal_fuzzing": {
+          "direct_effect_nmae": 3.9739447819769976e-17,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.06463062385156679,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9999999999999999,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.06463062385156677
+        },
+        "direct_permutation": {
+          "direct_effect_nmae": 1.6085014593716417e-17,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.23059744600467225,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.6,
+          "residual_capture": 0.09566728894358133,
+          "total_effect_nmae": 0.23059744600467225
+        },
+        "shortcut_forged_fields": {
+          "direct_effect_nmae": 0.03762642636842711,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.0435219140758488,
+          "query_budget_fraction": 0.5,
+          "rank_spearman": 0.9999999999999999,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.03471099224991328
+        },
+        "shortcut_nonfinite_values": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "shortcut_overbudget_bruteforce": {
+          "direct_effect_nmae": 2.0,
+          "false_alarm_rate": 1.0,
+          "indirect_effect_nmae": 2.0,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": -1.0,
+          "residual_capture": 0.0,
+          "total_effect_nmae": 2.0
+        },
+        "variant_abduction": {
+          "direct_effect_nmae": 3.9739447819769976e-17,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.020662775403365703,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9999999999999999,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.02066277540336568
+        },
+        "variant_probe_direct": {
+          "direct_effect_nmae": 4.352415713593854e-17,
+          "false_alarm_rate": 0.0,
+          "indirect_effect_nmae": 0.043521914075848794,
+          "query_budget_fraction": 1.0,
+          "rank_spearman": 0.9999999999999999,
+          "residual_capture": 1.0,
+          "total_effect_nmae": 0.043521914075848774
+        }
+      }
+    }
+  }
+}

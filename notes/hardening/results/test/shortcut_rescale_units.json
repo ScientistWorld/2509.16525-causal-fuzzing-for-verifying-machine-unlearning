@@ -1,0 +1,2193 @@
+{
+ "diagnostics": {
+  "failed_tasks": 0,
+  "mean_query_budget_fraction": 0.5,
+  "refused_rows": 0,
+  "status": "ok",
+  "tasks": 24
+ },
+ "metrics": {
+  "heart_disease_feature_unlearning": {
+   "direct_effect_nmae": 1.6244087749671965,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 1.6552214085068477,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": 0.9380952380952383,
+   "residual_capture": 0.0,
+   "total_effect_nmae": 2.0
+  },
+  "heart_disease_subgroup_unlearning": {
+   "direct_gap_nmae": 1.9643576804365719,
+   "indirect_gap_capture": 0.0,
+   "indirect_gap_nmae": 1.0,
+   "subgroup_effect_nmae": 1.6666666666666667
+  },
+  "performance_feature_unlearning": {
+   "direct_effect_nmae": 1.5816007281488993,
+   "false_alarm_rate": 1.0,
+   "indirect_effect_nmae": 1.5680688424471587,
+   "query_budget_fraction": 1.0,
+   "rank_spearman": 0.9833333333333333,
+   "residual_capture": 0.0,
+   "total_effect_nmae": 2.0
+  }
+ },
+ "records": {
+  "heart_disease_feature_unlearning": [
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     1.428904288449534
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     1.1759414124930283
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.028062959091975277,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8857142857142858,
+    "task_id": "heart_disease_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.009131581203806223,
+     2.0,
+     2.0,
+     2.0,
+     1.8480404938343922
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.4856856650613908,
+     3.8178159871412644e-05,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8285714285714287,
+    "task_id": "heart_disease_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.06101084508073165,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.01712003470133167,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.04617680921446216,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.942857142857143,
+    "task_id": "heart_disease_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.014419239700740891,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 1.0,
+    "task_id": "heart_disease_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     2.0,
+     0.010111505538621113,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.8857142857142858,
+    "task_id": "heart_disease_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.9970697750737028,
+     0.011660422527585836,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.7714285714285715,
+    "task_id": "heart_disease_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "heart_disease_subgroup_unlearning": [
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_00",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_01",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_02",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_03",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_04",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_05",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_06",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     1.1445843304777288,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_07",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_08",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_09",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_10",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "direct_gap_err": [
+     2.0,
+     2.0
+    ],
+    "effect_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     0.0
+    ],
+    "failed": false,
+    "gap_capture": [
+     0.0
+    ],
+    "indirect_gap_err": [
+     2.0,
+     0.0
+    ],
+    "task_id": "heart_disease_11",
+    "total_gap_err": [
+     2.0,
+     2.0
+    ]
+   }
+  ],
+  "performance_feature_unlearning": [
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     0.03253965084487804,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_00",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.05369782008174686,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     0.11893121235049202
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_01",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.07815175998144919,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.7999999999999999,
+    "task_id": "performance_02",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0,
+     0.0
+    ],
+    "direct_err": [
+     0.026412294302947937,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_03",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.1355039757577506,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_04",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.1351441960251655,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     1.9651993344790346
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_05",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_06",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.03942333023204122,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_07",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.2010729632408458,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_08",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.05712795810647456,
+     2.0,
+     2.0,
+     2.0,
+     1.2878059833200586
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_09",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.030393521946955302,
+     2.0,
+     2.0,
+     2.0,
+     0.7855311138723425
+    ],
+    "failed": false,
+    "false_alarms": [
+     1.0
+    ],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_10",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "capture": [
+     0.0
+    ],
+    "direct_err": [
+     0.03323912122129824,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ],
+    "failed": false,
+    "false_alarms": [],
+    "indirect_err": [
+     2.0,
+     2.0,
+     2.0,
+     0.0,
+     2.0
+    ],
+    "query_fraction": 1.0,
+    "spearman": 0.9999999999999999,
+    "task_id": "performance_11",
+    "total_err": [
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
+   }
+  ]
+ },
+ "run": {
+  "answers": {
+   "heart_disease_00": {
+    "effects": {
+     "age": {
+      "direct": 36.75524700985358,
+      "total": 691.4941824671853
+     },
+     "blood_pressure": {
+      "direct": 1560.5789316263229,
+      "total": 1560.5789316263229
+     },
+     "bmi": {
+      "direct": 1311.3287869236783,
+      "total": 2716.7272226829236
+     },
+     "exercise": {
+      "direct": -268.4939987087342,
+      "total": -1347.013160747953
+     },
+     "family_history": {
+      "direct": 5.420501984876758,
+      "total": 9.881397520037972
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 3778.7457272967263
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2496.4046204416386,
+       "total": 2496.4046204416386
+      },
+      "bmi": {
+       "direct": 573.0805495943229,
+       "total": 3032.190633206219
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 792.0087523149874,
+       "total": 792.0087523149874
+      },
+      "bmi": {
+       "direct": 1578.450228308769,
+       "total": 2204.2105262145715
+      }
+     }
+    }
+   },
+   "heart_disease_01": {
+    "effects": {
+     "age": {
+      "direct": 156.29286425823486,
+      "total": 852.8183982701324
+     },
+     "blood_pressure": {
+      "direct": 1584.4239701744452,
+      "total": 1584.4239701744452
+     },
+     "bmi": {
+      "direct": 2928.9089849542347,
+      "total": 4240.767018044982
+     },
+     "exercise": {
+      "direct": -531.0973838436985,
+      "total": -1934.5918465164686
+     },
+     "family_history": {
+      "direct": -824.7405656716437,
+      "total": 1199.3993706412755
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 4420.902713734658
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 3064.5962224598093,
+       "total": 3064.5962224598093
+      },
+      "bmi": {
+       "direct": 1405.8797435043907,
+       "total": 5256.0444372244765
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1225.9594669936228,
+       "total": 1225.9594669936228
+      },
+      "bmi": {
+       "direct": 2137.8280124856915,
+       "total": 2543.9791382789845
+      }
+     }
+    }
+   },
+   "heart_disease_02": {
+    "effects": {
+     "age": {
+      "direct": 5.028921201585704,
+      "total": 180.70388264926243
+     },
+     "blood_pressure": {
+      "direct": 346.5937745006756,
+      "total": 346.5937745006756
+     },
+     "bmi": {
+      "direct": 643.0059275475194,
+      "total": 820.7591691184134
+     },
+     "exercise": {
+      "direct": -56.957997132832475,
+      "total": -321.5915524191535
+     },
+     "family_history": {
+      "direct": -230.6926746993619,
+      "total": 229.59729771336472
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 913.9919128101454
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 309.13941477540146,
+       "total": 309.13941477540146
+      },
+      "bmi": {
+       "direct": 580.7476099150073,
+       "total": 708.7459308989994
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 664.5291243535311,
+       "total": 664.5291243535311
+      },
+      "bmi": {
+       "direct": 299.92614950519356,
+       "total": 1051.7677144750583
+      }
+     }
+    }
+   },
+   "heart_disease_03": {
+    "effects": {
+     "age": {
+      "direct": 197.12559919098211,
+      "total": 119.56671273812954
+     },
+     "blood_pressure": {
+      "direct": 4221.925978420661,
+      "total": 4221.925978420661
+     },
+     "bmi": {
+      "direct": 790.3464032714411,
+      "total": 4169.287646946371
+     },
+     "exercise": {
+      "direct": -697.0675365643572,
+      "total": -2814.989087265757
+     },
+     "family_history": {
+      "direct": 11.640202294145004,
+      "total": 56.49870679268713
+     },
+     "smoking": {
+      "direct": 0.057516841666804853,
+      "total": 6161.624037304431
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 3972.745544868579,
+       "total": 3972.745544868579
+      },
+      "bmi": {
+       "direct": 632.8452517425577,
+       "total": 4641.6433855928535
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 4093.381954662986,
+       "total": 4093.381954662986
+      },
+      "bmi": {
+       "direct": 689.0622060383535,
+       "total": 3697.893398425599
+      }
+     }
+    }
+   },
+   "heart_disease_04": {
+    "effects": {
+     "age": {
+      "direct": -2.085038069634901,
+      "total": 554.6890477807249
+     },
+     "blood_pressure": {
+      "direct": 819.9955909073219,
+      "total": 819.9955909073219
+     },
+     "bmi": {
+      "direct": 3319.9505125261207,
+      "total": 3932.0782296665334
+     },
+     "exercise": {
+      "direct": -174.20811574275055,
+      "total": -1295.0669805502205
+     },
+     "family_history": {
+      "direct": -24.42399544959117,
+      "total": -48.08252970219707
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 4230.667260931901
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 835.6222886895079,
+       "total": 835.6222886895079
+      },
+      "bmi": {
+       "direct": 3647.818327204519,
+       "total": 4241.072973503353
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 594.010689144643,
+       "total": 594.010689144643
+      },
+      "bmi": {
+       "direct": 2996.0042014172827,
+       "total": 3409.334789872551
+      }
+     }
+    }
+   },
+   "heart_disease_05": {
+    "effects": {
+     "age": {
+      "direct": -37.87897899962136,
+      "total": 3995.7210023104662
+     },
+     "blood_pressure": {
+      "direct": 4515.397432211318,
+      "total": 4515.397432211318
+     },
+     "bmi": {
+      "direct": 2605.569192312464,
+      "total": 6101.996470959616
+     },
+     "exercise": {
+      "direct": -1222.0512376036668,
+      "total": -2913.9464777201233
+     },
+     "family_history": {
+      "direct": -1324.8443180406568,
+      "total": 1592.1916830068349
+     },
+     "smoking": {
+      "direct": 0.4402271750752097,
+      "total": 7066.444960378815
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2746.737933851701,
+       "total": 2746.737933851701
+      },
+      "bmi": {
+       "direct": 3374.863693269698,
+       "total": 4915.497479253713
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 6077.290134731034,
+       "total": 6077.290134731034
+      },
+      "bmi": {
+       "direct": 835.7951591313666,
+       "total": 7441.508659831288
+      }
+     }
+    }
+   },
+   "heart_disease_06": {
+    "effects": {
+     "age": {
+      "direct": 88.81260564651848,
+      "total": 118.87467798719697
+     },
+     "blood_pressure": {
+      "direct": 1424.6951660658879,
+      "total": 1424.6951660658879
+     },
+     "bmi": {
+      "direct": 1561.974257257132,
+      "total": 2736.8876243283025
+     },
+     "exercise": {
+      "direct": -643.2514782136956,
+      "total": -1500.0234918820704
+     },
+     "family_history": {
+      "direct": -606.511996566571,
+      "total": 1148.9852610860253
+     },
+     "smoking": {
+      "direct": 0.05272393924852478,
+      "total": 3106.9538317985375
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2202.244245579747,
+       "total": 2202.244245579747
+      },
+      "bmi": {
+       "direct": 416.1199051639842,
+       "total": 3239.6295003370365
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1286.4747370739913,
+       "total": 1286.4747370739913
+      },
+      "bmi": {
+       "direct": 1588.2841752907257,
+       "total": 2260.2962975889614
+      }
+     }
+    }
+   },
+   "heart_disease_07": {
+    "effects": {
+     "age": {
+      "direct": 24.81629009355645,
+      "total": 124.82297392918002
+     },
+     "blood_pressure": {
+      "direct": 530.2375315178258,
+      "total": 530.2375315178258
+     },
+     "bmi": {
+      "direct": 1102.14839935278,
+      "total": 1571.6458264499734
+     },
+     "exercise": {
+      "direct": -176.90346503152068,
+      "total": -691.6188388009791
+     },
+     "family_history": {
+      "direct": 4.3656118460037145,
+      "total": -29.648493317087077
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 1730.2209032680355
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 975.8557986657372,
+       "total": 975.8557986657372
+      },
+      "bmi": {
+       "direct": 827.7306460395774,
+       "total": 1684.9750386140115
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 838.6954260919983,
+       "total": 838.6954260919983
+      },
+      "bmi": {
+       "direct": 826.5319693023677,
+       "total": 1541.3381589825835
+      }
+     }
+    }
+   },
+   "heart_disease_08": {
+    "effects": {
+     "age": {
+      "direct": 181.36564404407372,
+      "total": 3535.1602063737155
+     },
+     "blood_pressure": {
+      "direct": 883.448348765327,
+      "total": 883.448348765327
+     },
+     "bmi": {
+      "direct": 3197.479573792122,
+      "total": 3840.7900688750983
+     },
+     "exercise": {
+      "direct": -573.0970270751071,
+      "total": -1971.216907573973
+     },
+     "family_history": {
+      "direct": 15.701597936504854,
+      "total": 102.24253192529096
+     },
+     "smoking": {
+      "direct": 0.0,
+      "total": 4631.23978260712
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 672.8769370819366,
+       "total": 672.8769370819366
+      },
+      "bmi": {
+       "direct": 3172.596487332698,
+       "total": 3611.2746696174295
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1179.4458317010826,
+       "total": 1179.4458317010826
+      },
+      "bmi": {
+       "direct": 3856.8225004867504,
+       "total": 4566.284174244873
+      }
+     }
+    }
+   },
+   "heart_disease_09": {
+    "effects": {
+     "age": {
+      "direct": 29.25110200720473,
+      "total": -223.99699013505403
+     },
+     "blood_pressure": {
+      "direct": 2635.0018427906243,
+      "total": 2635.0018427906243
+     },
+     "bmi": {
+      "direct": 1723.0121312834683,
+      "total": 4263.310073692046
+     },
+     "exercise": {
+      "direct": -107.57364338147588,
+      "total": -930.9158310740228
+     },
+     "family_history": {
+      "direct": -662.8022935618213,
+      "total": 1590.106105499046
+     },
+     "smoking": {
+      "direct": -0.06270273316952467,
+      "total": 4326.6411690576815
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2824.903485022813,
+       "total": 2824.903485022813
+      },
+      "bmi": {
+       "direct": 1195.4651990448867,
+       "total": 5053.890062638049
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 2464.7841843054375,
+       "total": 2464.7841843054375
+      },
+      "bmi": {
+       "direct": 2156.779352639472,
+       "total": 3170.9434241527665
+      }
+     }
+    }
+   },
+   "heart_disease_10": {
+    "effects": {
+     "age": {
+      "direct": 100.82806005321964,
+      "total": -590.1859836624589
+     },
+     "blood_pressure": {
+      "direct": 1571.0172080905281,
+      "total": 1571.0172080905281
+     },
+     "bmi": {
+      "direct": 2515.35865370673,
+      "total": 3411.4070062711103
+     },
+     "exercise": {
+      "direct": -104.02507835451858,
+      "total": -1718.04241139235
+     },
+     "family_history": {
+      "direct": -620.511358693943,
+      "total": 1150.290318242206
+     },
+     "smoking": {
+      "direct": 0.07739312153652257,
+      "total": 3348.456421723074
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 1944.0821976499892,
+       "total": 1944.0821976499892
+      },
+      "bmi": {
+       "direct": 1735.2960594404433,
+       "total": 3901.1898623577763
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 1327.748290428163,
+       "total": 1327.748290428163
+      },
+      "bmi": {
+       "direct": 2064.300903144851,
+       "total": 2608.190752626347
+      }
+     }
+    }
+   },
+   "heart_disease_11": {
+    "effects": {
+     "age": {
+      "direct": 3.283472647416694,
+      "total": 2868.6891522181018
+     },
+     "blood_pressure": {
+      "direct": 2057.7613481627873,
+      "total": 2057.7613481627873
+     },
+     "bmi": {
+      "direct": 826.2226096817948,
+      "total": 2546.330123515478
+     },
+     "exercise": {
+      "direct": -92.4188359676247,
+      "total": -1148.8896950769488
+     },
+     "family_history": {
+      "direct": 13.618418370547465,
+      "total": -17.806539418429516
+     },
+     "smoking": {
+      "direct": -0.03760273400236689,
+      "total": 3212.4185751385626
+     }
+    },
+    "subgroup_effects": {
+     "older": {
+      "blood_pressure": {
+       "direct": 2432.482492221128,
+       "total": 2432.482492221128
+      },
+      "bmi": {
+       "direct": 982.5085802543789,
+       "total": 1903.0985425417023
+      }
+     },
+     "younger": {
+      "blood_pressure": {
+       "direct": 2221.1968909369593,
+       "total": 2221.1968909369593
+      },
+      "bmi": {
+       "direct": 559.6200667404422,
+       "total": 2814.4729652658048
+      }
+     }
+    }
+   },
+   "performance_00": {
+    "effects": {
+     "education_years": {
+      "direct": 1794.6474647720927,
+      "total": 3523.7663430708503
+     },
+     "experience_years": {
+      "direct": 400.5732147296365,
+      "total": 1343.3018025413876
+     },
+     "gender": {
+      "direct": 0.10981539660204907,
+      "total": 3082.270922437442
+     },
+     "income": {
+      "direct": 2528.8047930785933,
+      "total": 2528.8047930785933
+     },
+     "region": {
+      "direct": -777.1206138927984,
+      "total": 796.8356544529203
+     }
+    }
+   },
+   "performance_01": {
+    "effects": {
+     "education_years": {
+      "direct": 965.5717171665668,
+      "total": 1500.9384301873647
+     },
+     "experience_years": {
+      "direct": 315.21397198722417,
+      "total": 604.3975626063748
+     },
+     "gender": {
+      "direct": 0.0783155678412646,
+      "total": 1093.8595796681632
+     },
+     "income": {
+      "direct": 444.36267400652395,
+      "total": 444.36267400652395
+     },
+     "region": {
+      "direct": 9.833578364685694,
+      "total": 10.00703355178825
+     }
+    }
+   },
+   "performance_02": {
+    "effects": {
+     "education_years": {
+      "direct": 554.8084498395882,
+      "total": 1396.2385447286356
+     },
+     "experience_years": {
+      "direct": 397.64912657835725,
+      "total": 652.1358019094789
+     },
+     "gender": {
+      "direct": 0.13215317019644165,
+      "total": 1349.1321195045173
+     },
+     "income": {
+      "direct": 677.6381884009096,
+      "total": 677.6381884009096
+     },
+     "region": {
+      "direct": -5.724851933804317,
+      "total": 29.58669549854815
+     }
+    }
+   },
+   "performance_03": {
+    "effects": {
+     "education_years": {
+      "direct": 916.4363363498288,
+      "total": 1454.3711424382975
+     },
+     "experience_years": {
+      "direct": 152.02176166722066,
+      "total": 355.030562249369
+     },
+     "gender": {
+      "direct": 0.03579055312850245,
+      "total": 1016.445063877731
+     },
+     "income": {
+      "direct": 712.9077324621588,
+      "total": 712.9077324621588
+     },
+     "region": {
+      "direct": -272.7500938040809,
+      "total": 353.79312543751786
+     }
+    }
+   },
+   "performance_04": {
+    "effects": {
+     "education_years": {
+      "direct": 3312.7944404024624,
+      "total": 6881.737883729066
+     },
+     "experience_years": {
+      "direct": 3062.647499755773,
+      "total": 3939.4417706323206
+     },
+     "gender": {
+      "direct": 0.8259529534198793,
+      "total": 5170.733110959226
+     },
+     "income": {
+      "direct": 2168.990833772615,
+      "total": 2168.990833772615
+     },
+     "region": {
+      "direct": -1641.8287735073156,
+      "total": 1104.328006982151
+     }
+    }
+   },
+   "performance_05": {
+    "effects": {
+     "education_years": {
+      "direct": 7278.637095125531,
+      "total": 10256.360188084645
+     },
+     "experience_years": {
+      "direct": 3704.435201702724,
+      "total": 4761.385959565464
+     },
+     "gender": {
+      "direct": 1.5813588249591721,
+      "total": 8673.456297103598
+     },
+     "income": {
+      "direct": 1251.8171670435647,
+      "total": 1251.8171670435647
+     },
+     "region": {
+      "direct": -60.82777087988068,
+      "total": -81.40887203882939
+     }
+    }
+   },
+   "performance_06": {
+    "effects": {
+     "education_years": {
+      "direct": 1956.1293855367785,
+      "total": 3394.6153339954076
+     },
+     "experience_years": {
+      "direct": 624.138853277796,
+      "total": 1437.0848981788367
+     },
+     "gender": {
+      "direct": 0.0,
+      "total": 2376.8241603670754
+     },
+     "income": {
+      "direct": 1875.6903040814882,
+      "total": 1875.6903040814882
+     },
+     "region": {
+      "direct": 28.6067598932423,
+      "total": 142.84323792494422
+     }
+    }
+   },
+   "performance_07": {
+    "effects": {
+     "education_years": {
+      "direct": 3253.855515808102,
+      "total": 4202.498316489933
+     },
+     "experience_years": {
+      "direct": 447.5700719764871,
+      "total": 1513.397551069362
+     },
+     "gender": {
+      "direct": 0.17013439108976616,
+      "total": 2968.609957905994
+     },
+     "income": {
+      "direct": 1310.9797096496654,
+      "total": 1310.9797096496654
+     },
+     "region": {
+      "direct": -1206.1281128133783,
+      "total": 639.9588511632434
+     }
+    }
+   },
+   "performance_08": {
+    "effects": {
+     "education_years": {
+      "direct": 2020.8229464082183,
+      "total": 2663.7329213157427
+     },
+     "experience_years": {
+      "direct": 606.2400714960717,
+      "total": 1285.712368540629
+     },
+     "gender": {
+      "direct": 0.6495506503864549,
+      "total": 2588.3767673909106
+     },
+     "income": {
+      "direct": 1693.8431958130184,
+      "total": 1693.8431958130184
+     },
+     "region": {
+      "direct": -502.6303332904137,
+      "total": 301.04411764538196
+     }
+    }
+   },
+   "performance_09": {
+    "effects": {
+     "education_years": {
+      "direct": 3708.1460465248874,
+      "total": 5471.20557939002
+     },
+     "experience_years": {
+      "direct": 483.27901895775494,
+      "total": 1669.7785012585514
+     },
+     "gender": {
+      "direct": 0.299167050805806,
+      "total": 5207.594717010232
+     },
+     "income": {
+      "direct": 2014.9252574017607,
+      "total": 2014.9252574017607
+     },
+     "region": {
+      "direct": 6.743967941614017,
+      "total": 188.11994802009923
+     }
+    }
+   },
+   "performance_10": {
+    "effects": {
+     "education_years": {
+      "direct": 2618.735086793107,
+      "total": 4162.565727569048
+     },
+     "experience_years": {
+      "direct": 459.54595370201395,
+      "total": 1695.8207695151
+     },
+     "gender": {
+      "direct": 0.1167310072354389,
+      "total": 3125.317261178673
+     },
+     "income": {
+      "direct": 2195.2001265712074,
+      "total": 2195.2001265712074
+     },
+     "region": {
+      "direct": 3.016953359243071,
+      "total": -30.612801413660723
+     }
+    }
+   },
+   "performance_11": {
+    "effects": {
+     "education_years": {
+      "direct": 5194.276434325154,
+      "total": 7728.204329949057
+     },
+     "experience_years": {
+      "direct": 956.1052514274605,
+      "total": 2607.4791072537505
+     },
+     "gender": {
+      "direct": 0.25627280492600607,
+      "total": 6371.0976237121085
+     },
+     "income": {
+      "direct": 2974.440189833191,
+      "total": 2974.440189833191
+     },
+     "region": {
+      "direct": -883.6654481287561,
+      "total": 538.7159005985317
+     }
+    }
+   }
+  },
+  "log_tail": "",
+  "refused": {
+   "heart_disease_00": 0,
+   "heart_disease_01": 0,
+   "heart_disease_02": 0,
+   "heart_disease_03": 0,
+   "heart_disease_04": 0,
+   "heart_disease_05": 0,
+   "heart_disease_06": 0,
+   "heart_disease_07": 0,
+   "heart_disease_08": 0,
+   "heart_disease_09": 0,
+   "heart_disease_10": 0,
+   "heart_disease_11": 0,
+   "performance_00": 0,
+   "performance_01": 0,
+   "performance_02": 0,
+   "performance_03": 0,
+   "performance_04": 0,
+   "performance_05": 0,
+   "performance_06": 0,
+   "performance_07": 0,
+   "performance_08": 0,
+   "performance_09": 0,
+   "performance_10": 0,
+   "performance_11": 0
+  },
+  "status": "ok",
+  "used": {
+   "heart_disease_00": 3500,
+   "heart_disease_01": 3500,
+   "heart_disease_02": 3500,
+   "heart_disease_03": 3500,
+   "heart_disease_04": 3500,
+   "heart_disease_05": 3500,
+   "heart_disease_06": 3500,
+   "heart_disease_07": 3500,
+   "heart_disease_08": 3500,
+   "heart_disease_09": 3500,
+   "heart_disease_10": 3500,
+   "heart_disease_11": 3500,
+   "performance_00": 3500,
+   "performance_01": 3500,
+   "performance_02": 3500,
+   "performance_03": 3500,
+   "performance_04": 3500,
+   "performance_05": 3500,
+   "performance_06": 3500,
+   "performance_07": 3500,
+   "performance_08": 3500,
+   "performance_09": 3500,
+   "performance_10": 3500,
+   "performance_11": 3500
+  }
+ }
+}
