@@ -4,7 +4,8 @@ For every feature f the verifier must report:
   * total influence  - Def. 4 with Z_f = a valid back-door set (parents of f):
         sum_z P(z) [ E[M'(X) | Z=z, X_f=theta_hi] - E[M'(X) | Z=z, X_f=theta_lo] ]
   * direct influence - the same contrast after also conditioning on the
-        mediators (descendants of f), i.e. with every other path blocked;
+        mediators (descendants of f), i.e. with every other path blocked
+        (for a feature without mediators this is the total contrast itself);
   * indirect influence is total - direct (computed by the evaluator).
 
 E[M'(X) | f, Z] is estimated with a lightweight regression model fitted on the
@@ -80,9 +81,14 @@ def cafe_effects(
         theta_lo, theta_hi = spec["interventions"][feature]
         backdoor, mediators = adjustment_sets(spec, feature)
         total = adjusted_contrast(frame, feature, backdoor, theta_lo, theta_hi, seed, response_model)
-        direct = adjusted_contrast(
-            frame, feature, backdoor + mediators, theta_lo, theta_hi, seed + 101, response_model
-        )
+        if mediators:
+            direct = adjusted_contrast(
+                frame, feature, backdoor + mediators, theta_lo, theta_hi, seed + 101, response_model
+            )
+        else:
+            # Def. 4 with M_f empty conditions on the same set as the total
+            # effect: the same estimand, so the indirect effect is exactly 0.
+            direct = total
         effects[feature] = {"total": total, "direct": direct}
     return effects
 

@@ -8,7 +8,10 @@ Two families follow the paper's semi-synthetic settings (Fig. 2):
   blood pressure, which the model does use. As in the paper's Fig. 7, BMI's
   mediated influence (via blood pressure) is much larger above age 50: the
   BMI -> blood-pressure slope and blood pressure's weight on risk both grow
-  with age. In drawn instances BMI's direct weight may also differ by age
+  with age. ``HeartDiseaseYoungAmplifiedSCM`` is the same family with that
+  age modulation mirrored (amplified at age <= 50 instead), so which age
+  group carries the larger mediated influence differs between instances. In
+  drawn instances BMI's direct weight may also differ by age
   (``c_bmi_old``), and every drawn instance has its own outcome scale
   (``out_scale``); the canonical instance has neither.
 * ``performance``: gender, education_years, experience_years, income -> score,
@@ -98,10 +101,14 @@ class HeartDiseaseSCM(_SCM):
         "younger": {"feature": "age", "op": "<=", "threshold": 50.0},
     }
     subgroup_features = ["bmi", "blood_pressure"]
+    # +1: mediation via blood pressure amplified above age 50 (paper Fig. 7);
+    # -1: amplified at age <= 50 (HeartDiseaseYoungAmplifiedSCM).
+    amplified_direction = 1.0
 
     @staticmethod
     def canonical_params(control_active: bool = False) -> dict:
         return {
+            "sg_dir": 1.0,
             "fh_rate": 0.3,
             "s0": float(np.log(0.42 / 0.58)),
             "s_age": 0.0,
@@ -127,10 +134,11 @@ class HeartDiseaseSCM(_SCM):
             "out_scale": 1.0,
         }
 
-    @staticmethod
-    def draw_params(rng: np.random.Generator, control_active: bool) -> dict:
+    @classmethod
+    def draw_params(cls, rng: np.random.Generator, control_active: bool) -> dict:
         u = rng.uniform
         return {
+            "sg_dir": float(cls.amplified_direction),
             "fh_rate": u(0.2, 0.4),
             "s0": u(-0.8, 0.2),
             "s_age": u(-0.5, 0.5),
@@ -201,13 +209,14 @@ class HeartDiseaseSCM(_SCM):
             + p["b_e"] * exercise
             + 1.2 * noise["bmi"],
         )
+        direction = p.get("sg_dir", 1.0)
         blood_pressure = v(
             n,
             "blood_pressure",
             do,
             lambda: 140.0
             + p["p_a"] * age
-            + (p["p_b"] + p["p_ab"] * np.maximum(age - 50.0, 0.0)) * (bmi - 24.0)
+            + (p["p_b"] + p["p_ab"] * np.maximum(direction * (age - 50.0), 0.0)) * (bmi - 24.0)
             + p["p_s"] * smoking
             + p["p_e"] * exercise
             + p["p_f"] * family_history
@@ -227,6 +236,7 @@ class HeartDiseaseSCM(_SCM):
     def outcome_values(self, frame: pd.DataFrame, noise: dict) -> np.ndarray:
         p = self.params
         older = (frame["age"].to_numpy() > 50).astype(float)
+        amplified = older if p.get("sg_dir", 1.0) > 0 else 1.0 - older
         bp = _standardize(frame["blood_pressure"])
         bmi = _standardize(frame["bmi"])
         return p["out_scale"] * (
@@ -234,12 +244,21 @@ class HeartDiseaseSCM(_SCM):
             + p["c_bmi"] * bmi
             + p["c_bmi_old"] * older * bmi
             + p["c_bp"] * bp
-            + p["c_old"] * older * bp
+            + p["c_old"] * amplified * bp
             - p["c_ex"] * _standardize(frame["exercise"])
             + p["c_sm"] * frame["smoking"].to_numpy()
             + p["c_fh"] * frame["family_history"].to_numpy()
             + 0.22 * noise["risk"]
         )
+
+
+class HeartDiseaseYoungAmplifiedSCM(HeartDiseaseSCM):
+    """Heart-Disease with the age modulation mirrored: the BMI -> blood-pressure
+    slope grows as age falls below 50, and blood pressure's extra weight on risk
+    applies at age <= 50, so the younger group carries the larger mediated
+    influence of BMI."""
+
+    amplified_direction = -1.0
 
 
 class PerformanceSCM(_SCM):

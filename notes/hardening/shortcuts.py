@@ -27,6 +27,10 @@ the hardened test must not reward them.
                           fixed guesses for the subgroup task
   cafe_prior_subgroup     CAFÉ for the feature tasks, subgroup effects from
                           a fixed public prior scaled by CAFÉ's estimates
+  cafe_zero_direct_gap    CAFÉ, but every age group's direct influence is
+                          CAFÉ's population direct estimate (assumes the
+                          paper's "identical direct effects" finding instead
+                          of measuring the per-group direct influence)
 """
 
 from __future__ import annotations
@@ -214,6 +218,14 @@ def cafe_prior_subgroup(spec, audit):
     return answer
 
 
+def cafe_zero_direct_gap(spec, audit):
+    answer = _cafe(spec, audit)
+    for entries in answer.get("subgroup_effects", {}).values():
+        for f, v in entries.items():
+            v["direct"] = answer["effects"][f]["direct"]
+    return answer
+
+
 KINDS = {
     name: fn
     for name, fn in globals().items()
@@ -232,6 +244,7 @@ KINDS = {
         "direct_retention_claim",
         "cafe_constant_subgroup",
         "cafe_prior_subgroup",
+        "cafe_zero_direct_gap",
     }
 }
 

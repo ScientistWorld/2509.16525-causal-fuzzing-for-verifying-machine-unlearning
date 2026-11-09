@@ -12,6 +12,8 @@ the scored reference is method/cafe.py.
                 additive-noise abduction (cross-fitted residuals) propagate
                 f <- theta for subsampled rows; direct by probes.
   abduction_half  the same with half the query budget (CAFÉ's own cost).
+  cafe_half_rows  CAFÉ fitted on a random half of the audit rows (half of
+                CAFÉ's queries): the efficiency / accuracy trade-off check.
   direct_only   weaker ablation: report CAFÉ's direct effect as the total
                 (ignores mediated influence).
   no_backdoor   weaker ablation: CAFÉ without the back-door adjustment set.
@@ -174,10 +176,9 @@ def no_backdoor(spec, audit, blackbox, seed):
         for feature in features:
             lo, hi = spec["interventions"][feature]
             _, mediators = cafe.adjustment_sets(spec, feature)
-            out[feature] = {
-                "total": cafe.adjusted_contrast(rows, feature, [], lo, hi, seed),
-                "direct": cafe.adjusted_contrast(rows, feature, mediators, lo, hi, seed + 101),
-            }
+            total = cafe.adjusted_contrast(rows, feature, [], lo, hi, seed)
+            direct = cafe.adjusted_contrast(rows, feature, mediators, lo, hi, seed + 101) if mediators else total
+            out[feature] = {"total": total, "direct": direct}
         return out
 
     answer = {"effects": effects(frame, spec["estimate_features"])}
@@ -189,6 +190,12 @@ def no_backdoor(spec, audit, blackbox, seed):
     return answer
 
 
+def cafe_half_rows(spec, audit, blackbox, seed):
+    rng = np.random.default_rng(seed + 404)
+    keep = np.sort(rng.choice(len(audit), size=len(audit) // 2, replace=False))
+    return cafe.estimate_task(spec, audit.iloc[keep].reset_index(drop=True), blackbox, seed=seed)
+
+
 VARIANTS = {
     "probe_direct": lambda s, a, b, seed: cafe_probe(s, a, b, seed),
     "hgb": lambda s, a, b, seed: cafe.estimate_task(s, a, b, seed=seed, response_model=hgb_response),
@@ -197,6 +204,7 @@ VARIANTS = {
     "abduction_half": lambda s, a, b, seed: abduction(s, a, b, seed, fraction=0.5),
     "direct_only": direct_only,
     "no_backdoor": no_backdoor,
+    "cafe_half_rows": cafe_half_rows,
 }
 
 

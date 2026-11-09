@@ -1,26 +1,26 @@
 ## cohort all_hardening_runs: reference seed spread = 0.0188
 | method | rank score vs cafe | paired 95% CI | failed tasks |
 |---|---:|---|---:|
-| variant_abduction_half | +0.3130 | [+0.197, +0.447] | 0 |
-| variant_hgb | +0.1404 | [+0.018, +0.279] | 0 |
+| variant_abduction_half | +0.3130 | [+0.191, +0.439] | 0 |
+| variant_hgb | +0.1404 | [+0.017, +0.266] | 0 |
 | cafe | +0.0000 | - | 0 |
 | shortcut_forged_fields | +0.0000 | [+0.000, +0.000] | 0 |
 | shortcut_scores_file_forgery | +0.0000 | [+0.000, +0.000] | 0 |
-| cafe_seed11 | -0.0168 | [-0.039, +0.003] | 0 |
-| cafe_seed19 | -0.0188 | [-0.038, -0.002] | 0 |
-| shortcut_cafe_prior_subgroup | -0.0281 | [-0.209, +0.157] | 0 |
-| shortcut_cafe_constant_subgroup | -0.0495 | [-0.228, +0.135] | 0 |
-| shortcut_direct_retention_claim | -0.2640 | [-0.275, -0.253] | 0 |
-| variant_abduction | -0.3648 | [-0.481, -0.228] | 0 |
-| causal_fuzzing | -0.5260 | [-0.691, -0.353] | 0 |
-| variant_no_backdoor | -0.6224 | [-0.782, -0.479] | 0 |
-| variant_probe_direct | -0.6302 | [-0.676, -0.588] | 0 |
-| shortcut_constant_answers | -0.8496 | [-1.097, -0.582] | 0 |
-| shortcut_flag_all_unlearned | -2.6740 | [-2.773, -2.561] | 0 |
-| variant_direct_only | -3.0064 | [-3.122, -2.882] | 0 |
-| direct_permutation | -3.3233 | [-3.450, -3.185] | 0 |
-| shortcut_zero_output | -4.1222 | [-4.231, -3.999] | 0 |
-| shortcut_rescale_units | -9.9750 | [-10.090, -9.839] | 0 |
+| cafe_seed11 | -0.0168 | [-0.038, +0.003] | 0 |
+| cafe_seed19 | -0.0188 | [-0.039, -0.002] | 0 |
+| shortcut_cafe_prior_subgroup | -0.0281 | [-0.213, +0.146] | 0 |
+| shortcut_cafe_constant_subgroup | -0.0495 | [-0.223, +0.121] | 0 |
+| shortcut_direct_retention_claim | -0.2640 | [-0.276, -0.253] | 0 |
+| variant_abduction | -0.3648 | [-0.489, -0.236] | 0 |
+| causal_fuzzing | -0.5260 | [-0.693, -0.355] | 0 |
+| variant_no_backdoor | -0.6224 | [-0.780, -0.474] | 0 |
+| variant_probe_direct | -0.6302 | [-0.675, -0.585] | 0 |
+| shortcut_constant_answers | -0.8496 | [-1.105, -0.591] | 0 |
+| shortcut_flag_all_unlearned | -2.6740 | [-2.780, -2.553] | 0 |
+| variant_direct_only | -3.0064 | [-3.123, -2.879] | 0 |
+| direct_permutation | -3.3233 | [-3.450, -3.189] | 0 |
+| shortcut_zero_output | -4.1222 | [-4.235, -4.001] | 0 |
+| shortcut_rescale_units | -9.9750 | [-10.089, -9.846] | 0 |
 | shortcut_drop_features | -12.0564 | - | 24 |
 | shortcut_nonfinite_values | -12.0564 | - | 24 |
 | shortcut_overbudget_bruteforce | -12.0564 | - | 24 |
@@ -28,17 +28,33 @@
 ## cohort honest_runs: reference seed spread = 0.0412
 | method | rank score vs cafe | paired 95% CI | failed tasks |
 |---|---:|---|---:|
-| variant_abduction_half | +2.2023 | [+1.675, +2.750] | 0 |
-| variant_abduction | +1.4256 | [+0.879, +1.990] | 0 |
-| variant_hgb | +0.9282 | [+0.510, +1.362] | 0 |
-| causal_fuzzing | +0.6644 | [-0.048, +1.425] | 0 |
+| variant_abduction_half | +2.2023 | [+1.655, +2.750] | 0 |
+| variant_abduction | +1.4256 | [+0.875, +1.986] | 0 |
+| variant_hgb | +0.9282 | [+0.503, +1.353] | 0 |
+| causal_fuzzing | +0.6644 | [-0.078, +1.393] | 0 |
 | cafe | +0.0000 | - | 0 |
-| cafe_seed19 | -0.0265 | [-0.105, +0.063] | 0 |
-| variant_probe_direct | -0.0279 | [-0.231, +0.190] | 0 |
-| cafe_seed11 | -0.0412 | [-0.134, +0.055] | 0 |
-| variant_no_backdoor | -3.4031 | [-3.905, -2.893] | 0 |
-| direct_permutation | -6.6379 | [-7.092, -6.157] | 0 |
-| variant_direct_only | -7.4769 | [-7.889, -7.058] | 0 |
+| cafe_seed19 | -0.0265 | [-0.102, +0.062] | 0 |
+| variant_probe_direct | -0.0279 | [-0.235, +0.198] | 0 |
+| cafe_seed11 | -0.0412 | [-0.135, +0.056] | 0 |
+| variant_no_backdoor | -3.4031 | [-3.911, -2.916] | 0 |
+| direct_permutation | -6.6379 | [-7.125, -6.162] | 0 |
+| variant_direct_only | -7.4769 | [-7.909, -7.055] | 0 |
+
+## each shortcut ranked in a cohort of the honest runs plus that shortcut
+| shortcut | rank score vs cafe | paired 95% CI |
+|---|---:|---|
+| shortcut_cafe_constant_subgroup | +0.1333 | [-0.391, +0.684] |
+| shortcut_cafe_prior_subgroup | +0.0288 | [-0.683, +0.681] |
+| shortcut_forged_fields | +0.0000 | [+0.000, +0.000] |
+| shortcut_scores_file_forgery | +0.0000 | [+0.000, +0.000] |
+| shortcut_direct_retention_claim | -2.2173 | [-2.312, -2.124] |
+| shortcut_constant_answers | -4.5070 | [-5.294, -3.761] |
+| shortcut_flag_all_unlearned | -6.1164 | [-6.353, -5.837] |
+| shortcut_zero_output | -9.1564 | [-9.574, -8.735] |
+| shortcut_rescale_units | -13.2913 | [-13.426, -13.140] |
+| shortcut_drop_features | -15.3802 | - |
+| shortcut_nonfinite_values | -15.3802 | - |
+| shortcut_overbudget_bruteforce | -15.3802 | - |
 
 ## raw test metrics
 ### heart_disease_feature_unlearning

@@ -7,16 +7,20 @@ metric over the ranked cohort (zero-variance metrics contribute 0). The
 reference is the ``cafe`` entry. Paired bootstraps resample held-out tasks
 (the same tasks for both methods) to put an interval on rank differences.
 
-Usage: python notes/hardening/rank.py   (reads notes/hardening/results/)
+Cohorts: all hardening runs; honest runs only; and, per shortcut, the honest
+runs plus that one shortcut (the shortcut's score there is reported in
+``shortcut_vs_honest``). Pure Python (no numpy), so it can be rerun anywhere.
+
+Usage: python notes/hardening/rank.py [results_dir]   (default notes/hardening/results/)
 """
 
 from __future__ import annotations
 
 import json
+import random
 import statistics
+import sys
 from pathlib import Path
-
-import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS = ROOT / "notes" / "hardening" / "results"
@@ -61,18 +65,31 @@ def rank_cohort(table: dict, members: list[str], specs: list[tuple]) -> tuple[di
     return scores, sigma
 
 
-def aggregate(records: list[dict], idx: np.ndarray, metric: str) -> float:
+def _mean(values) -> float:
+    values = list(values)
+    return float(sum(values) / len(values))
+
+
+def _percentile(values: list[float], q: float) -> float:
+    ordered = sorted(values)
+    pos = (len(ordered) - 1) * q / 100.0
+    lo = int(pos)
+    hi = min(lo + 1, len(ordered) - 1)
+    return float(ordered[lo] + (ordered[hi] - ordered[lo]) * (pos - lo))
+
+
+def aggregate(records: list[dict], idx: list[int], metric: str) -> float:
     if metric == "rank_spearman":
-        return float(np.mean([records[i]["spearman"] for i in idx]))
+        return _mean(records[i]["spearman"] for i in idx)
     if metric == "query_budget_fraction":
-        return float(np.mean([records[i]["query_fraction"] for i in idx]))
+        return _mean(records[i]["query_fraction"] for i in idx)
     key, empty = POOLED[metric]
     values = [v for i in idx for v in records[i][key]]
-    return float(np.mean(values)) if values else empty
+    return _mean(values) if values else empty
 
 
 def paired_bootstrap(details, method, specs, sigma, n_boot=2000, seed=0) -> dict:
-    rng = np.random.default_rng(seed)
+    rng = random.Random(seed)
     experiments = sorted({exp for exp, *_ in specs})
     sizes = {exp: len(details[REFERENCE][exp]) for exp in experiments}
 
@@ -87,23 +104,29 @@ def paired_bootstrap(details, method, specs, sigma, n_boot=2000, seed=0) -> dict
             total += weight * coef * direction * (a - b) / s
         return total
 
-    point = score_difference({exp: np.arange(n) for exp, n in sizes.items()})
-    draws = [score_difference({exp: rng.integers(0, n, n) for exp, n in sizes.items()}) for _ in range(n_boot)]
-    lo, hi = np.percentile(draws, [2.5, 97.5])
-    return {"point": float(point), "ci95": [float(lo), float(hi)], "p_not_better": float(np.mean(np.array(draws) <= 0))}
+    point = score_difference({exp: list(range(n)) for exp, n in sizes.items()})
+    draws = [
+        score_difference({exp: [rng.randrange(n) for _ in range(n)] for exp, n in sizes.items()})
+        for _ in range(n_boot)
+    ]
+    lo, hi = _percentile(draws, 2.5), _percentile(draws, 97.5)
+    return {"point": float(point), "ci95": [lo, hi], "p_not_better": float(_mean(d <= 0 for d in draws))}
 
 
 def task_wins(details, method, exp, key) -> str:
     wins = ties = 0
     pairs = list(zip(details[method][exp], details[REFERENCE][exp]))
     for mine, ref in pairs:
-        a, b = float(np.mean(mine[key])), float(np.mean(ref[key]))
+        a, b = _mean(mine[key]), _mean(ref[key])
         wins += a < b - 1e-12
         ties += abs(a - b) <= 1e-12
     return f"{wins}/{len(pairs)} better, {ties} tied"
 
 
 def main() -> None:
+    global RESULTS
+    if len(sys.argv) > 1:
+        RESULTS = Path(sys.argv[1]).resolve()
     reference = json.loads((ROOT / "scoring" / "reference.json").read_text())
     specs = metric_specs(reference)
     test = json.loads((RESULTS / "scores_test_all.json").read_text())
@@ -141,6 +164,25 @@ def main() -> None:
             failed = test["_diagnostics"][m]["failed_tasks"]
             lines.append(f"| {m} | {body['score']:+.4f} | {ci_text} | {failed} |")
         lines.append("")
+    honest = cohorts["honest_runs"]
+    shortcut_rows = {}
+    for m in methods:
+        if not m.startswith("shortcut_"):
+            continue
+        scores, sigma = rank_cohort(table, honest + [m], specs)
+        boot = None
+        if m in details and not test["_diagnostics"][m].get("failed_tasks"):
+            boot = paired_bootstrap(details, m, specs, sigma)
+        shortcut_rows[m] = {"score": scores[m]["score"], "bootstrap": boot, "terms": scores[m]["terms"]}
+    summary["shortcut_vs_honest"] = shortcut_rows
+    lines.append("## each shortcut ranked in a cohort of the honest runs plus that shortcut")
+    lines.append("| shortcut | rank score vs cafe | paired 95% CI |")
+    lines.append("|---|---:|---|")
+    for m, body in sorted(shortcut_rows.items(), key=lambda kv: -kv[1]["score"]):
+        ci = (body["bootstrap"] or {}).get("ci95")
+        ci_text = f"[{ci[0]:+.3f}, {ci[1]:+.3f}]" if ci else "-"
+        lines.append(f"| {m} | {body['score']:+.4f} | {ci_text} |")
+    lines.append("")
     lines.append("## raw test metrics")
     for exp, results in table.items():
         metrics = list(reference["experiments"][exp]["metrics"])

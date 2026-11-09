@@ -3,6 +3,9 @@
 The graphs, variable meanings, unlearning targets, controls and subgroups match
 the visible families, but the structural equations use different functional
 forms and noise, and every instance is drawn from seeds that exist only here.
+In a third of the Heart-Disease instances the age modulation of BMI's mediated
+influence is mirrored (amplified below age 50), so the sign of the subgroup gap
+must be measured, not assumed.
 Self-contained: imports nothing from data/, method/ or eval/train/.
 """
 
@@ -76,11 +79,14 @@ class HeldOutHeart(_Family):
         "younger": {"feature": "age", "op": "<=", "threshold": 50.0},
     }
     subgroup_features = ["bmi", "blood_pressure"]
+    # +1: mediation via blood pressure amplified above age 50; -1: below it.
+    amplified_direction = 1.0
 
-    @staticmethod
-    def draw_params(rng, control_active):
+    @classmethod
+    def draw_params(cls, rng, control_active):
         u = rng.uniform
         return {
+            "sg_dir": float(cls.amplified_direction),
             "fh_rate": u(0.2, 0.4),
             "s0": u(-0.9, 0.1),
             "s_age": u(-0.6, 0.6),
@@ -158,13 +164,14 @@ class HeldOutHeart(_Family):
             + p["b_q"] * (exercise - 5.0) ** 2
             + 1.2 * (1.0 + 0.15 * smoking) * noise["bmi"],
         )
+        direction = p["sg_dir"]
         bp = v(
             n,
             "blood_pressure",
             do,
             lambda: 135.0
             + p["p_a"] * age
-            + (p["p_b"] + p["p_ab"] * 5.0 * _softplus((age - 50.0) / 5.0)) * (bmi - 23.5)
+            + (p["p_b"] + p["p_ab"] * 5.0 * _softplus(direction * (age - 50.0) / 5.0)) * (bmi - 23.5)
             + p["p_s"] * smoking
             + p["p_e"] * exercise
             + p["p_f"] * fh
@@ -190,13 +197,19 @@ class HeldOutHeart(_Family):
             + p["c_bmi"] * _z(frame["bmi"])
             + p["c_bmi_old"] * _sigmoid((age - 50.0) / 3.0) * _z(frame["bmi"])
             + p["c_bp"] * _z(bp)
-            + p["c_old"] * _sigmoid((age - 50.0) / 3.0) * _z(bp)
+            + p["c_old"] * _sigmoid(p["sg_dir"] * (age - 50.0) / 3.0) * _z(bp)
             - p["c_ex"] * _z(frame["exercise"])
             + p["c_sm"] * frame["smoking"].to_numpy()
             + p["c_fh"] * frame["family_history"].to_numpy()
             + p["c_int"] * np.tanh(_z(frame["bmi"])) * _z(bp)
             + 0.25 * noise["risk"]
         )
+
+
+class HeldOutHeartYoungAmplified(HeldOutHeart):
+    """Mirrored age modulation: mediation via blood pressure amplified at younger ages."""
+
+    amplified_direction = -1.0
 
 
 class HeldOutPerformance(_Family):
@@ -332,7 +345,7 @@ def _plan(smoke: bool):
         plan.append(
             (
                 f"heart_disease_{i:02d}",
-                HeldOutHeart,
+                HeldOutHeartYoungAmplified if i % 3 == 2 else HeldOutHeart,
                 91_730_011 + 7_919 * i,
                 ARCHITECTURES[i % 4],
                 (i % 4) in (1, 2),

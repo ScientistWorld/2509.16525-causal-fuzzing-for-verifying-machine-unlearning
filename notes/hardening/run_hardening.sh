@@ -39,7 +39,7 @@ python -m eval.test.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/test"
 
 echo "=== visible train, honest verifiers $(date -u +%FT%TZ)"
 python -m eval.train.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/train" \
-  --methods cafe cafe_seed11 cafe_seed19 variant_probe_direct variant_hgb variant_abduction variant_abduction_half variant_direct_only variant_no_backdoor direct_permutation causal_fuzzing \
+  --methods cafe cafe_seed11 cafe_seed19 variant_probe_direct variant_hgb variant_abduction variant_abduction_half variant_cafe_half_rows variant_direct_only variant_no_backdoor direct_permutation causal_fuzzing \
   --scores "$RES/scores_train_all.json" || echo "TRAIN RUN FAILED"
 
 echo "=== ranking $(date -u +%FT%TZ)"

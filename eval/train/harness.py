@@ -55,7 +55,8 @@ MAX_COLS = 64
 ERROR_CAP = 2.0                   # per-quantity normalized error cap (failed tasks get it)
 DETECT_FRACTION = 0.10            # |estimate| >= 0.10 * scale counts as "influence found"
 POSITIVE_FRACTION = 0.20          # unlearned features with |truth| >= 0.20 * scale are positives
-GAP_FRACTION = 0.10               # subgroup indirect gaps >= 0.10 * subgroup scale are scored for capture
+GAP_FRACTION = 0.20               # subgroup indirect gaps >= 0.20 * subgroup scale are scored for capture
+SOLVED_FRACTION = 0.5             # efficiency credit needs total error <= 0.5 * the all-zero answer's
 VERIFIER_TIMEOUT_S = 3 * 3600
 _NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.\-]*$")
 
@@ -486,9 +487,10 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
     record["false_alarms"] = [
         1.0 if abs(est[f][0]) >= DETECT_FRACTION * scale else 0.0 for f in truth["negatives"]
     ]
-    # Efficiency counts only when the answer beats the trivial all-zero answer.
+    # Efficiency counts only on solved tasks: the total-effect error must be at
+    # most half that of the trivial all-zero answer.
     trivial = float(np.mean([min(abs(truth["total"][f]) / scale, ERROR_CAP) for f in features]))
-    solved = float(np.mean(record["total_err"])) < trivial
+    solved = float(np.mean(record["total_err"])) <= SOLVED_FRACTION * trivial
     record["query_fraction"] = float(used_rows / spec["query_budget"]) if solved else 1.0
     return record
 

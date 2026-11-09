@@ -3,19 +3,21 @@
 Task 00 of each family is the paper-style canonical instance (original fixed
 coefficients, random-forest audited model, target removed, control without a
 residual path). The others draw coefficients, audited-model architecture,
-control activity and whether the target's direct input was actually removed.
-The hidden test slice uses the same graphs and protocol but different
+control activity and whether the target's direct input was actually removed;
+in a third of the Heart-Disease tasks the age modulation of BMI's mediated
+influence is mirrored (amplified at age <= 50 instead of above 50). The
+hidden test slice uses the same graphs, protocol and task count but different
 structural forms and seeds.
 """
 
 from __future__ import annotations
 
-from data.synthetic_causal import HeartDiseaseSCM, PerformanceSCM
+from data.synthetic_causal import HeartDiseaseSCM, HeartDiseaseYoungAmplifiedSCM, PerformanceSCM
 from eval.train.harness import build_task
 
 ARCHITECTURES = ("random_forest", "mlp", "gradient_boosting", "linear")
 N_TOTAL, N_AUDIT = 10_000, 3_500
-TASKS_PER_FAMILY = 6
+TASKS_PER_FAMILY = 12
 
 
 def _plan(smoke: bool):
@@ -25,10 +27,13 @@ def _plan(smoke: bool):
         count = 1 if smoke else TASKS_PER_FAMILY
         for i in range(count):
             canonical = i == 0
+            scm_cls = family
+            if family is HeartDiseaseSCM and not canonical and i % 3 == 1:
+                scm_cls = HeartDiseaseYoungAmplifiedSCM
             plan.append(
                 {
                     "task_id": f"{family.name}_{i:02d}",
-                    "family": family,
+                    "family": scm_cls,
                     "seed": seed_base + 17 * i,
                     "architecture": "random_forest" if canonical else ARCHITECTURES[(i + offset) % 4],
                     "control_active": False if canonical else (i % 2 == 1),
