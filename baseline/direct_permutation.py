@@ -1,107 +1,77 @@
-"""Direct-only attribution baseline for unlearning verification."""
+"""Direct-only attribution baseline (permutation-importance style check).
+
+Representative of the paper's direct/associational baselines (permutation
+importance, SHAP): each feature is switched between its two contrast values
+while every other input keeps its observed value, and the change in the
+black-box output is reported as the feature's influence. Nothing is
+propagated to downstream variables, so total == direct and no mediated
+influence is ever reported. Rows are subsampled to fit the query budget.
+
+Run as a verifier:  python -m baseline.direct_permutation --tasks-dir DIR --output answers.json
+"""
 
 from __future__ import annotations
 
 import argparse
-import json
-from pathlib import Path
 
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.inspection import permutation_importance
-from sklearn.model_selection import train_test_split
+import pandas as pd
 
-from data.synthetic_causal import load_dataset
-
-
-def run_dataset(name: str, output_dir: Path, n: int, seed: int) -> dict:
-    dataset = load_dataset(name, n=n, seed=seed)
-    train, test = train_test_split(dataset.frame, test_size=0.35, random_state=seed)
-    model_features = [f for f in dataset.features if f not in dataset.train_without]
-    model = RandomForestRegressor(
-        n_estimators=160,
-        min_samples_leaf=12,
-        random_state=seed,
-        n_jobs=1,
-    )
-    model.fit(train[model_features], train[dataset.outcome])
-    result = permutation_importance(
-        model,
-        test[model_features],
-        test[dataset.outcome],
-        n_repeats=8,
-        random_state=seed,
-        n_jobs=1,
-    )
-    scores = {feature: float(abs(score)) for feature, score in zip(model_features, result.importances_mean)}
-    for omitted in dataset.train_without:
-        scores[omitted] = 0.0
-    ranking = sorted(dataset.features, key=lambda f: scores[f], reverse=True)
-    target = dataset.target_feature
-    payload = {
-        "dataset": dataset.name,
-        "method": "direct_permutation",
-        "target_feature": target,
-        "expected_top_feature": dataset.expected_top_feature,
-        "features": dataset.features,
-        "importance": scores,
-        "ranking": ranking,
-        "target_total_rank": ranking.index(target) + 1,
-        "target_total_effect": scores[target],
-        "prediction_r2": float(model.score(test[model_features], test[dataset.outcome])),
-    }
-    if dataset.name == "heart_disease":
-        subgroup_feature = "bmi"
-        subgroup_scores = {}
-        for label, rows in {
-            "age_le_50": test[test["age"] <= 50],
-            "age_gt_50": test[test["age"] > 50],
-        }.items():
-            subgroup_result = permutation_importance(
-                model,
-                rows[model_features],
-                rows[dataset.outcome],
-                n_repeats=8,
-                random_state=seed,
-                n_jobs=1,
-            )
-            importances = {
-                feature: float(abs(score))
-                for feature, score in zip(
-                    model_features, subgroup_result.importances_mean
-                )
-            }
-            subgroup_scores[label] = importances[subgroup_feature]
-        payload["subgroup_unlearning"] = {
-            "feature": subgroup_feature,
-            "split": "age > 50 vs age <= 50",
-            "age_le_50_direct_importance": subgroup_scores["age_le_50"],
-            "age_gt_50_direct_importance": subgroup_scores["age_gt_50"],
-            "direct_gap_abs": float(
-                abs(subgroup_scores["age_gt_50"] - subgroup_scores["age_le_50"])
-            ),
-        }
-    output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / f"{dataset.name}_direct_permutation.json").write_text(
-        json.dumps(payload, indent=2, sort_keys=True)
-    )
-    return payload
+from data.blackbox import BlackBox
+from data.causal_graph import load_tasks, subgroup_mask, write_answers
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--datasets", nargs="+", default=["heart_disease", "performance"])
-    parser.add_argument("--output-dir", default="outputs/baseline")
-    parser.add_argument("--n", type=int, default=10_000)
+def row_allocation(spec: dict, queries_per_row: int, budget: int) -> dict[str, int]:
+    weights = {f: (2 if f in spec.get("subgroup_features", []) else 1) for f in spec["estimate_features"]}
+    unit = budget // (queries_per_row * sum(weights.values()))
+    return {f: max(1, min(spec["n_rows"], unit * w)) for f, w in weights.items()}
+
+
+def direct_contrasts(spec, audit, blackbox, feature, rows):
+    lo, hi = spec["interventions"][feature]
+    sample = audit.iloc[rows]
+    low, high = sample.copy(), sample.copy()
+    low[feature] = lo
+    high[feature] = hi
+    preds = blackbox.predict(pd.concat([low, high], ignore_index=True))
+    return preds[len(rows) :] - preds[: len(rows)]
+
+
+def estimate_task(spec: dict, audit: pd.DataFrame, blackbox: BlackBox, seed: int = 7) -> dict:
+    rng = np.random.default_rng(seed)
+    allocation = row_allocation(spec, 2, blackbox.remaining)
+    effects, per_row = {}, {}
+    for feature in spec["estimate_features"]:
+        rows = np.sort(rng.choice(len(audit), size=allocation[feature], replace=False))
+        contrast = direct_contrasts(spec, audit, blackbox, feature, rows)
+        per_row[feature] = (rows, contrast)
+        value = float(contrast.mean())
+        effects[feature] = {"total": value, "direct": value}
+    answer = {"effects": effects}
+    if spec.get("subgroups"):
+        answer["subgroup_effects"] = {}
+        for name, rule in spec["subgroups"].items():
+            mask = subgroup_mask(audit, rule)
+            group = {}
+            for feature in spec["subgroup_features"]:
+                rows, contrast = per_row[feature]
+                inside = mask[rows]
+                value = float(contrast[inside].mean()) if inside.any() else 0.0
+                group[feature] = {"total": value, "direct": value}
+            answer["subgroup_effects"][name] = group
+    return answer
+
+
+def main(argv=None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--tasks-dir", required=True)
+    parser.add_argument("--output", required=True)
     parser.add_argument("--seed", type=int, default=7)
-    args = parser.parse_args()
-    output_dir = Path(args.output_dir)
-    summary = {
-        name: run_dataset(name, output_dir=output_dir, n=args.n, seed=args.seed)
-        for name in args.datasets
-    }
-    (output_dir / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True))
-    print(json.dumps(summary, indent=2, sort_keys=True))
+    args = parser.parse_args(argv)
+    answers = {}
+    for spec, audit in load_tasks(args.tasks_dir):
+        answers[spec["task_id"]] = estimate_task(spec, audit, BlackBox(spec), seed=args.seed)
+    write_answers(args.output, answers)
 
 
 if __name__ == "__main__":

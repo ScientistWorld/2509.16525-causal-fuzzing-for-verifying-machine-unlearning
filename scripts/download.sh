@@ -1,23 +1,18 @@
 #!/bin/bash
 # Download all data and models needed for this environment.
 #
-# Run on a node with internet access BEFORE building the container
-# or submitting compute jobs.
-#
-# This script should be idempotent — safe to run multiple times.
-# It should skip files that already exist.
-#
-# Update the storage estimate below as you add downloads.
-#
 # Estimated total download size: 0 GB
 # Estimated disk usage after extraction: 0 GB
 #
-# This reproduction uses procedural semi-synthetic data, so there are no
-# external dataset or model files to fetch.
+# Every task is generated procedurally: the visible task families live in
+# data/synthetic_causal.py and the hidden ones in eval/test/, and the audited
+# black-box models are trained by the evaluator from those samples with
+# fixed seeds. There are no external datasets or pretrained weights to fetch;
+# Python packages are installed by environment/setup.sh.
 
 set -e
 
 cd /home/user
 
 mkdir -p data/downloads
-echo "No external downloads are required; datasets are generated reproducibly by data/synthetic_causal.py."
+echo "Nothing to download: all tasks are generated from code (data/synthetic_causal.py, eval/)."

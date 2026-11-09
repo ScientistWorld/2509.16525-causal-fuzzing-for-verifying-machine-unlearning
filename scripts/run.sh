@@ -1,13 +1,10 @@
 #!/bin/bash
-# Standard reproduction job: generate method/baseline artifacts, score them,
-# and validate the main reproduction claim.
+# Hardening job: smoke checks, all hardening verifiers through the hidden
+# test (and honest ones through the visible train slice), ranking analysis,
+# then the official score files for the registered verifiers and validation.
 
-set -e
+set -euo pipefail
 
 cd /home/user
 
-bash scripts/reproduce.sh
-bash scripts/evaluate.sh outputs
-bash scripts/evaluate_train.sh outputs
-bash scripts/evaluate_test.sh outputs
-python validate.py --compare --post-reproducer
+bash notes/hardening/run_hardening.sh

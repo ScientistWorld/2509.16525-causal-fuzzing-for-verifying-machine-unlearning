@@ -1,18 +1,11 @@
 #!/bin/bash
-# Run the paper's proposed method.
-#
-# This script trains/runs the paper's method using code in method/.
-#
-# Usage:
-#   bash scripts/method.sh
+# Run the paper's method (CAFÉ, method/cafe.py) on the visible tasks through
+# the evaluator-owned oracle and score it. CAFÉ needs no training; the
+# evaluator calls scripts/verifiers/cafe.sh for every task.
 
 set -e
 
 cd /home/user
 
-DATASETS=("$@")
-if [ ${#DATASETS[@]} -eq 0 ]; then
-  DATASETS=(heart_disease performance)
-fi
-
-python -m method.cafe --datasets "${DATASETS[@]}" --output-dir outputs/method
+mkdir -p outputs
+python -m eval.train.evaluate --methods cafe --scores outputs/cafe_train_scores.json

@@ -1,24 +1,16 @@
 #!/bin/bash
-# Evaluation script — the standard way to evaluate work in this environment.
+# Standard evaluation: score every registered verifier (scripts/verifiers/*.sh)
+# on the visible tasks and write scoring/scores.json (same metrics and keys as
+# scoring/reference.json). Uses only eval/ (plus the public task families in
+# data/); never imports method/.
 #
-# This script must be SELF-CONTAINED using only code in eval/.
-# Do NOT import from method/ — evaluate.sh must work even when the
-# paper's method code is hidden from a scientist agent.
+# A verifier is any script scripts/verifiers/<name>.sh called as
+#   bash <name>.sh <tasks_dir> <answers.json>
+# that writes {"tasks": {task_id: {"effects": {feature: {"total", "direct"}},
+# "subgroup_effects": {group: {feature: {"total", "direct"}}}}}}; see
+# briefing/evaluation.md.
 #
-# Design it so that anyone following the same output format can run
-# this script to evaluate their results.
-#
-# OUTPUT CONTRACT: This script MUST write scoring/scores.json containing
-# a JSON dict nested by experiment, e.g.:
-#   {"imagenet_classification": {"top1_accuracy": 82.1, "top5_accuracy": 94.8}}
-# Experiment and metric names must match the keys in scoring/reference.json.
-# This file is read by the system for automated comparison.
-#
-# Example usage:
-#   ./evaluate.sh <method_and_run_name>                             # evaluate with defaults
-#   ./evaluate.sh <method_and_run_name> checkpoints/epoch_10.pt     # evaluate a specific checkpoint
-#
-# Called from run.sh after training, or independently.
+# Optional: $1 = alternative verifier registry directory.
 
 set -e
 
@@ -26,4 +18,8 @@ cd /home/user
 
 mkdir -p scoring
 
-python -m eval.evaluate_outputs --outputs-dir "${1:-outputs}" --scores scoring/scores.json
+if [ -n "${1:-}" ]; then
+  python -m eval.evaluate_outputs --verifiers-dir "$1" --scores scoring/scores.json
+else
+  python -m eval.evaluate_outputs --scores scoring/scores.json
+fi

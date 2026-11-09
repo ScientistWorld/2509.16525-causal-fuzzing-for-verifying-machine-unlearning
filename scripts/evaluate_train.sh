@@ -1,6 +1,9 @@
 #!/bin/bash
-# Visible train-slice evaluator. Mirrors scripts/evaluate.sh's artifact
-# contract: the first argument is the outputs directory, defaulting to outputs.
+# Visible train slice: same protocol and metrics as the hidden test, on the
+# visible task families in data/synthetic_causal.py. Runs every verifier
+# registered as scripts/verifiers/*.sh and writes scoring/scores_train.json.
+#
+# Optional: $1 = alternative verifier registry directory.
 
 set -e
 
@@ -8,4 +11,8 @@ cd /home/user
 
 mkdir -p scoring
 
-python -m eval.train.evaluate --outputs-dir "${1:-outputs}" --scores scoring/scores_train.json
+if [ -n "${1:-}" ]; then
+  python -m eval.train.evaluate --verifiers-dir "$1" --scores scoring/scores_train.json
+else
+  python -m eval.train.evaluate --scores scoring/scores_train.json
+fi

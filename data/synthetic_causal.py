@@ -1,29 +1,35 @@
-"""Semi-synthetic tabular datasets with known causal DAGs.
+"""Public semi-synthetic structural causal models (the visible task families).
 
-These generators define fixed residual-influence verification tasks: an
-upstream target feature has little or no direct access in the audited model,
-but affects model predictions through downstream mediators.
+Two families follow the paper's semi-synthetic settings (Fig. 2):
+
+* ``heart_disease``: age, smoking, exercise, bmi, blood_pressure -> risk, plus a
+  ``family_history`` control. ``smoking`` is the paper's unlearning target: the
+  audited model is trained without it, yet it still moves exercise, BMI and
+  blood pressure, which the model does use.
+* ``performance``: gender, education_years, experience_years, income -> score,
+  plus a ``region`` control. ``gender`` is the paper's unlearning target.
+
+Each family is parameterised: ``draw_params`` samples coefficients for a task
+instance, ``canonical_params`` reproduces the original fixed generator used by
+the first reproduction. The control feature is always removed from the audited
+model; depending on the draw it either reaches a model input through a mediator
+(residual influence) or has no path to any model input at all (no residual
+influence, although the graph still lists the edge).
+
+``features(noise, do=...)`` evaluates the structural equations row by row from
+exogenous noise, so the same noise with an intervention gives unit-level
+counterfactuals. Only the visible (train) slice uses these exact equations; the
+hidden test slice uses different functional forms over the same graphs.
 """
 
 from __future__ import annotations
-
-from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
 
 
-@dataclass(frozen=True)
-class CausalDataset:
-    name: str
-    features: list[str]
-    outcome: str
-    edges: list[tuple[str, str]]
-    target_feature: str
-    expected_top_feature: str
-    expected_low_direct_feature: str
-    train_without: list[str]
-    frame: pd.DataFrame
+def _sigmoid(x: np.ndarray) -> np.ndarray:
+    return 1.0 / (1.0 + np.exp(-x))
 
 
 def _standardize(values: np.ndarray) -> np.ndarray:
@@ -31,126 +37,337 @@ def _standardize(values: np.ndarray) -> np.ndarray:
     return (values - values.mean()) / (values.std() + 1e-8)
 
 
-def make_heart_disease(n: int = 10_000, seed: int = 7) -> CausalDataset:
-    rng = np.random.default_rng(seed)
-    age = rng.normal(52.0, 12.0, n).clip(20, 85)
-    smoking = rng.binomial(1, 0.42, n)
-    exercise = (rng.normal(4.8, 1.4, n) - 1.15 * smoking - 0.004 * (age - 50)).clip(0, 9)
-    bmi = 24.0 + 0.025 * (age - 50) + 6.4 * smoking - 0.75 * exercise + rng.normal(0, 1.2, n)
-    age_over_50 = np.maximum(age - 50, 0)
-    blood_pressure = (
-        104.0
-        + 0.16 * age
-        + (1.65 + 0.10 * age_over_50) * bmi
-        + 12.0 * smoking
-        - 1.6 * exercise
-        + rng.normal(0, 4.5, n)
-    )
-    older_bp_burden = (age > 50).astype(float) * blood_pressure
-    risk = (
-        0.06 * _standardize(age)
-        + 1.15 * _standardize(bmi)
-        + 0.95 * _standardize(blood_pressure)
-        + 1.35 * _standardize(older_bp_burden)
-        - 0.55 * _standardize(exercise)
-        + 0.12 * smoking
-        + rng.normal(0, 0.22, n)
-    )
-    frame = pd.DataFrame(
-        {
-            "age": age,
-            "smoking": smoking.astype(float),
-            "exercise": exercise,
-            "bmi": bmi,
-            "blood_pressure": blood_pressure,
-            "risk": risk,
+class _SCM:
+    name: str
+    features: list[str]
+    binary_features: list[str]
+    outcome: str
+    edges: list[tuple[str, str]]
+    target: str
+    control: str
+    subgroups: dict = {}
+    subgroup_features: list[str] = []
+
+    def __init__(self, params: dict):
+        self.params = dict(params)
+
+    @property
+    def unlearned(self) -> list[str]:
+        return [self.target, self.control]
+
+    @staticmethod
+    def _value(n: int, name: str, do: dict, compute):
+        if name in do:
+            return np.full(n, float(do[name]))
+        return compute()
+
+
+class HeartDiseaseSCM(_SCM):
+    name = "heart_disease"
+    features = ["age", "smoking", "exercise", "bmi", "blood_pressure", "family_history"]
+    binary_features = ["smoking", "family_history"]
+    outcome = "risk"
+    edges = [
+        ("age", "smoking"),
+        ("age", "exercise"),
+        ("age", "bmi"),
+        ("age", "blood_pressure"),
+        ("smoking", "exercise"),
+        ("smoking", "bmi"),
+        ("smoking", "blood_pressure"),
+        ("exercise", "bmi"),
+        ("exercise", "blood_pressure"),
+        ("bmi", "blood_pressure"),
+        ("family_history", "blood_pressure"),
+        ("age", "risk"),
+        ("smoking", "risk"),
+        ("exercise", "risk"),
+        ("bmi", "risk"),
+        ("blood_pressure", "risk"),
+        ("family_history", "risk"),
+    ]
+    target = "smoking"
+    control = "family_history"
+    subgroups = {
+        "older": {"feature": "age", "op": ">", "threshold": 50.0},
+        "younger": {"feature": "age", "op": "<=", "threshold": 50.0},
+    }
+    subgroup_features = ["bmi", "blood_pressure"]
+
+    @staticmethod
+    def canonical_params(control_active: bool = False) -> dict:
+        return {
+            "fh_rate": 0.3,
+            "s0": float(np.log(0.42 / 0.58)),
+            "s_age": 0.0,
+            "e_s": -1.15,
+            "e_a": -0.004,
+            "b_a": 0.025,
+            "b_s": 6.4,
+            "b_e": -0.75,
+            "p_a": 0.16,
+            "p_b": 1.65,
+            "p_ab": 0.10,
+            "p_s": 12.0,
+            "p_e": -1.6,
+            "p_f": 8.0 if control_active else 0.0,
+            "c_age": 0.06,
+            "c_bmi": 1.15,
+            "c_bp": 0.95,
+            "c_old": 1.35,
+            "c_ex": 0.55,
+            "c_sm": 0.12,
+            "c_fh": 0.35,
         }
-    )
-    return CausalDataset(
-        name="heart_disease",
-        features=["age", "smoking", "exercise", "bmi", "blood_pressure"],
-        outcome="risk",
-        edges=[
-            ("age", "smoking"),
-            ("age", "exercise"),
-            ("age", "bmi"),
-            ("age", "blood_pressure"),
-            ("smoking", "exercise"),
-            ("smoking", "bmi"),
-            ("smoking", "blood_pressure"),
-            ("exercise", "bmi"),
-            ("exercise", "blood_pressure"),
-            ("bmi", "blood_pressure"),
-            ("age", "risk"),
-            ("smoking", "risk"),
-            ("exercise", "risk"),
-            ("bmi", "risk"),
-            ("blood_pressure", "risk"),
-        ],
-        target_feature="smoking",
-        expected_top_feature="smoking",
-        expected_low_direct_feature="smoking",
-        train_without=["smoking"],
-        frame=frame,
-    )
 
-
-def make_performance(n: int = 10_000, seed: int = 11) -> CausalDataset:
-    rng = np.random.default_rng(seed)
-    gender = rng.binomial(1, 0.48, n)
-    education_years = (11.0 + 1.9 * gender + rng.normal(0, 1.4, n)).clip(6, 20)
-    experience_years = (
-        2.0 + 1.25 * education_years + 1.3 * gender + rng.normal(0, 2.0, n)
-    ).clip(0, 35)
-    income = (
-        18_000
-        + 2_200 * education_years
-        + 1_450 * experience_years
-        + 3_200 * gender
-        + rng.normal(0, 5_000, n)
-    )
-    score = (
-        1.45 * _standardize(education_years)
-        + 0.82 * _standardize(experience_years)
-        + 0.92 * _standardize(income)
-        + 0.03 * gender
-        + rng.normal(0, 0.25, n)
-    )
-    frame = pd.DataFrame(
-        {
-            "gender": gender.astype(float),
-            "education_years": education_years,
-            "experience_years": experience_years,
-            "income": income,
-            "score": score,
+    @staticmethod
+    def draw_params(rng: np.random.Generator, control_active: bool) -> dict:
+        u = rng.uniform
+        return {
+            "fh_rate": u(0.2, 0.4),
+            "s0": u(-0.8, 0.2),
+            "s_age": u(-0.5, 0.5),
+            "e_s": u(-1.6, -0.7),
+            "e_a": u(-0.012, 0.0),
+            "b_a": u(0.0, 0.05),
+            "b_s": u(3.5, 7.5),
+            "b_e": u(-1.0, -0.4),
+            "p_a": u(0.08, 0.25),
+            "p_b": u(1.2, 2.0),
+            "p_ab": u(0.0, 0.14),
+            "p_s": u(6.0, 14.0),
+            "p_e": u(-2.2, -1.0),
+            "p_f": u(5.0, 10.0) if control_active else 0.0,
+            "c_age": u(0.0, 0.15),
+            "c_bmi": u(0.7, 1.4),
+            "c_bp": u(0.6, 1.2),
+            "c_old": u(0.4, 1.6),
+            "c_ex": u(0.3, 0.8),
+            "c_sm": u(0.0, 0.3),
+            "c_fh": u(0.2, 0.5),
         }
-    )
-    return CausalDataset(
-        name="performance",
-        features=["gender", "education_years", "experience_years", "income"],
-        outcome="score",
-        edges=[
-            ("gender", "education_years"),
-            ("gender", "experience_years"),
-            ("education_years", "experience_years"),
-            ("education_years", "income"),
-            ("experience_years", "income"),
-            ("gender", "score"),
-            ("education_years", "score"),
-            ("experience_years", "score"),
-            ("income", "score"),
-        ],
-        target_feature="gender",
-        expected_top_feature="gender",
-        expected_low_direct_feature="gender",
-        train_without=["gender"],
-        frame=frame,
-    )
+
+    @staticmethod
+    def draw_noise(rng: np.random.Generator, n: int) -> dict[str, np.ndarray]:
+        return {
+            "age": rng.normal(size=n),
+            "family_history": rng.uniform(size=n),
+            "smoking": rng.uniform(size=n),
+            "exercise": rng.normal(size=n),
+            "bmi": rng.normal(size=n),
+            "blood_pressure": rng.normal(size=n),
+            "risk": rng.normal(size=n),
+        }
+
+    def features_frame(self, noise: dict, do: dict | None = None) -> pd.DataFrame:
+        do = do or {}
+        p = self.params
+        n = len(noise["age"])
+        v = self._value
+        age = v(n, "age", do, lambda: np.clip(52.0 + 12.0 * noise["age"], 20.0, 85.0))
+        family_history = v(
+            n, "family_history", do, lambda: (noise["family_history"] < p["fh_rate"]).astype(float)
+        )
+        smoking = v(
+            n,
+            "smoking",
+            do,
+            lambda: (noise["smoking"] < _sigmoid(p["s0"] + p["s_age"] * (age - 52.0) / 12.0)).astype(float),
+        )
+        exercise = v(
+            n,
+            "exercise",
+            do,
+            lambda: np.clip(
+                4.8 + p["e_s"] * smoking + p["e_a"] * (age - 50.0) + 1.4 * noise["exercise"], 0.0, 9.0
+            ),
+        )
+        bmi = v(
+            n,
+            "bmi",
+            do,
+            lambda: 24.0
+            + p["b_a"] * (age - 50.0)
+            + p["b_s"] * smoking
+            + p["b_e"] * exercise
+            + 1.2 * noise["bmi"],
+        )
+        blood_pressure = v(
+            n,
+            "blood_pressure",
+            do,
+            lambda: 104.0
+            + p["p_a"] * age
+            + (p["p_b"] + p["p_ab"] * np.maximum(age - 50.0, 0.0)) * bmi
+            + p["p_s"] * smoking
+            + p["p_e"] * exercise
+            + p["p_f"] * family_history
+            + 4.5 * noise["blood_pressure"],
+        )
+        return pd.DataFrame(
+            {
+                "age": age,
+                "smoking": smoking,
+                "exercise": exercise,
+                "bmi": bmi,
+                "blood_pressure": blood_pressure,
+                "family_history": family_history,
+            }
+        )
+
+    def outcome_values(self, frame: pd.DataFrame, noise: dict) -> np.ndarray:
+        p = self.params
+        older_bp = (frame["age"].to_numpy() > 50).astype(float) * frame["blood_pressure"].to_numpy()
+        return (
+            p["c_age"] * _standardize(frame["age"])
+            + p["c_bmi"] * _standardize(frame["bmi"])
+            + p["c_bp"] * _standardize(frame["blood_pressure"])
+            + p["c_old"] * _standardize(older_bp)
+            - p["c_ex"] * _standardize(frame["exercise"])
+            + p["c_sm"] * frame["smoking"].to_numpy()
+            + p["c_fh"] * frame["family_history"].to_numpy()
+            + 0.22 * noise["risk"]
+        )
 
 
-def load_dataset(name: str, n: int = 10_000, seed: int = 7) -> CausalDataset:
-    if name == "heart_disease":
-        return make_heart_disease(n=n, seed=seed)
-    if name == "performance":
-        return make_performance(n=n, seed=seed)
-    raise ValueError(f"Unknown dataset: {name}")
+class PerformanceSCM(_SCM):
+    name = "performance"
+    features = ["gender", "education_years", "experience_years", "income", "region"]
+    binary_features = ["gender", "region"]
+    outcome = "score"
+    edges = [
+        ("gender", "education_years"),
+        ("gender", "experience_years"),
+        ("gender", "income"),
+        ("education_years", "experience_years"),
+        ("education_years", "income"),
+        ("experience_years", "income"),
+        ("region", "income"),
+        ("gender", "score"),
+        ("education_years", "score"),
+        ("experience_years", "score"),
+        ("income", "score"),
+        ("region", "score"),
+    ]
+    target = "gender"
+    control = "region"
+
+    @staticmethod
+    def canonical_params(control_active: bool = False) -> dict:
+        return {
+            "g_rate": 0.48,
+            "r_rate": 0.5,
+            "ed_g": 1.9,
+            "ex_e": 1.25,
+            "ex_g": 1.3,
+            "in_e": 2200.0,
+            "in_x": 1450.0,
+            "in_g": 3200.0,
+            "in_r": 5000.0 if control_active else 0.0,
+            "c_e": 1.45,
+            "c_x": 0.82,
+            "c_i": 0.92,
+            "c_g": 0.03,
+            "c_r": 0.3,
+        }
+
+    @staticmethod
+    def draw_params(rng: np.random.Generator, control_active: bool) -> dict:
+        u = rng.uniform
+        return {
+            "g_rate": u(0.4, 0.55),
+            "r_rate": u(0.35, 0.65),
+            "ed_g": u(1.0, 2.6),
+            "ex_e": u(0.8, 1.6),
+            "ex_g": u(0.5, 2.0),
+            "in_e": u(1500.0, 3000.0),
+            "in_x": u(900.0, 2000.0),
+            "in_g": u(1500.0, 4500.0),
+            "in_r": u(3000.0, 7000.0) if control_active else 0.0,
+            "c_e": u(1.0, 1.8),
+            "c_x": u(0.5, 1.1),
+            "c_i": u(0.6, 1.2),
+            "c_g": u(0.0, 0.1),
+            "c_r": u(0.2, 0.5),
+        }
+
+    @staticmethod
+    def draw_noise(rng: np.random.Generator, n: int) -> dict[str, np.ndarray]:
+        return {
+            "gender": rng.uniform(size=n),
+            "region": rng.uniform(size=n),
+            "education_years": rng.normal(size=n),
+            "experience_years": rng.normal(size=n),
+            "income": rng.normal(size=n),
+            "score": rng.normal(size=n),
+        }
+
+    def features_frame(self, noise: dict, do: dict | None = None) -> pd.DataFrame:
+        do = do or {}
+        p = self.params
+        n = len(noise["gender"])
+        v = self._value
+        gender = v(n, "gender", do, lambda: (noise["gender"] < p["g_rate"]).astype(float))
+        region = v(n, "region", do, lambda: (noise["region"] < p["r_rate"]).astype(float))
+        education = v(
+            n,
+            "education_years",
+            do,
+            lambda: np.clip(11.0 + p["ed_g"] * gender + 1.4 * noise["education_years"], 6.0, 20.0),
+        )
+        experience = v(
+            n,
+            "experience_years",
+            do,
+            lambda: np.clip(
+                2.0 + p["ex_e"] * education + p["ex_g"] * gender + 2.0 * noise["experience_years"],
+                0.0,
+                35.0,
+            ),
+        )
+        income = v(
+            n,
+            "income",
+            do,
+            lambda: 18_000.0
+            + p["in_e"] * education
+            + p["in_x"] * experience
+            + p["in_g"] * gender
+            + p["in_r"] * region
+            + 5_000.0 * noise["income"],
+        )
+        return pd.DataFrame(
+            {
+                "gender": gender,
+                "education_years": education,
+                "experience_years": experience,
+                "income": income,
+                "region": region,
+            }
+        )
+
+    def outcome_values(self, frame: pd.DataFrame, noise: dict) -> np.ndarray:
+        p = self.params
+        return (
+            p["c_e"] * _standardize(frame["education_years"])
+            + p["c_x"] * _standardize(frame["experience_years"])
+            + p["c_i"] * _standardize(frame["income"])
+            + p["c_g"] * frame["gender"].to_numpy()
+            + p["c_r"] * frame["region"].to_numpy()
+            + 0.25 * noise["score"]
+        )
+
+
+FAMILIES = {cls.name: cls for cls in (HeartDiseaseSCM, PerformanceSCM)}
+
+
+def sample_dataset(name: str, n: int = 10_000, seed: int = 7, control_active: bool = False):
+    """Convenience: one observational sample (features + outcome) of a family."""
+
+    cls = FAMILIES[name]
+    rng = np.random.default_rng(seed)
+    scm = cls(cls.canonical_params(control_active))
+    noise = cls.draw_noise(rng, n)
+    frame = scm.features_frame(noise)
+    frame[cls.outcome] = scm.outcome_values(frame, noise)
+    return scm, frame
