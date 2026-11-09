@@ -21,15 +21,36 @@ The paper argues that conventional feature-attribution and fairness tests can mi
 
 ## Research Question
 
-How can a deployed black-box tabular ML model be audited to determine whether a specified feature or feature-subgroup target still influences predictions after unlearning?
+How can a deployed black-box tabular ML model be audited to determine whether
+a specified feature, or a feature within a subgroup of the population, still
+influences its predictions after unlearning — directly, or indirectly through
+other inputs that the feature causally affects?
 
 ## Why It Matters
 
-Unlearning claims are difficult to verify when the removed signal can still affect predictions through correlated or downstream variables. A useful verifier should detect residual influence without requiring model weights, gradients, or training logs.
+Unlearning claims are difficult to verify when the removed signal can still
+affect predictions through correlated or downstream variables. A useful
+verifier should detect residual influence without requiring model weights,
+gradients, or training logs, and should say whether the influence is direct
+or mediated so that the unlearning can be corrected.
+
+## Setting
+
+The verifier receives a causal graph over the tabular features and the model
+outcome, a sample of observational audit rows, the unlearning targets, and
+prediction-only access to the audited model under a fixed query budget. It
+must report, for every feature, the total and the direct influence of a
+specified intervention on the model output (indirect = total − direct), and
+the same quantities within age subgroups where the task defines them.
 
 ## Success Criteria
 
-An effective verifier should identify target features with residual influence, separate direct influence from mediated influence, work with prediction-only access, and expose cases where direct-only attribution methods incorrectly conclude that unlearning succeeded.
+An effective verifier estimates these influences accurately against exact
+ground truth on unseen task instances: it recovers the residual (largely
+mediated) influence of removed features, does not report influence for
+features that truly have none, separates direct from mediated influence,
+identifies which subgroup retains more mediated influence, and does so with
+few black-box queries.
 
 ---
 
@@ -57,28 +78,100 @@ The paper also presents a causal-fuzzing oracle that intervenes on target featur
 
 # Evaluation
 
-This file defines how a residual-influence verifier is scored. It describes
-only the target behavior and metrics; implementation details belong outside the
-problem definition.
+How a residual-influence verifier is scored. This describes the tasks, the
+interface and the metrics only; how to estimate the quantities is up to you.
 
-## Metrics
+## Protocol
 
-- `target_rank`: rank of the unlearned target feature by residual influence; lower is better.
-- `rank_score`: normalized rank quality, where 1 means the target is ranked first and 0 means last; higher is better.
-- `indirect_detected`: binary indicator that the verifier found substantial mediated residual influence; higher is better.
-- `direct_unlearned`: binary indicator that the direct effect is near zero after direct feature removal; higher is better.
-- `fuzzing_agreement`: binary indicator that the submitted verifier and an intervention-oracle artifact agree that mediated influence remains; higher is better.
-- `query_ratio_vs_fuzzing`: model-query ratio of the intervention oracle over the submitted verifier artifact; higher is better.
-- `indirect_gap_detected`: binary indicator that subgroup-specific mediated influence differs across target subpopulations; higher is better.
-- `direct_gap_small`: binary indicator that a subgroup result is not explained by a large direct-only subgroup difference; higher is better.
+The evaluator owns everything on the far side of the comparison. For every
+task it samples data from a structural causal model over a fixed causal graph,
+trains the audited black-box model (with the unlearning target, and a control
+feature, removed from its inputs — or, in some tasks, the target's direct
+input left in place: a failed unlearning), fixes the two intervention values
+per feature, the query budget and the exact ground truth, then runs every
+registered verifier as a separate process.
 
-## Baseline And Targets
+- **Verifiers.** Any executable `scripts/verifiers/<name>.sh` is a verifier;
+  it is called as `bash <name>.sh <tasks_dir> <answers.json>`. No method name
+  is hard-coded: `scripts/evaluate_train.sh` (visible tasks) and the hidden
+  `scripts/evaluate_test.sh` (held-out tasks, run as its own job) score every
+  verifier on disk the same way.
+- **Inputs per task** (`<tasks_dir>/<task_id>/`): `spec.json` (feature names,
+  binary features, the causal graph as `edges`, the unlearned features, the
+  features to estimate, the two intervention values per feature, the
+  subgroup rules and subgroup features where present, the number of audit
+  rows and the query budget) and `audit.csv` (the observational audit rows).
+  `data/causal_graph.py` has small helpers to read them.
+- **Black-box access.** The audited model never leaves the evaluator. A
+  verifier obtains predictions only through the counted oracle (client:
+  `data/blackbox.py`, `BlackBox(spec).predict(rows)`). The budget is 2 rows
+  per audit row; requests beyond it are refused.
+- **Answers.** `{"tasks": {task_id: {"effects": {feature: {"total": t,
+  "direct": d}}, "subgroup_effects": {group: {feature: {"total": t,
+  "direct": d}}}}}}` — the influence of switching each feature from its low
+  to its high intervention value on the black-box output: *total* (the change
+  propagated through the feature's causal descendants) and *direct* (only
+  the feature changes, every other input keeps its observed value).
+  `subgroup_effects` is required for tasks that define subgroups. A task
+  with a missing, non-numeric, NaN or infinite value fails and gets the worst
+  score on every metric. Any other field you write is ignored; the evaluator
+  derives indirect effects, gaps, rankings and detections itself.
+- **Ground truth** is exact: interventions propagated through the true
+  structural equations with each audit row's own exogenous noise, read off
+  the audited model. Errors are measured in units of the task's largest true
+  total influence, so a task's output scale does not matter.
 
-The main baseline is direct permutation importance, representative of direct-only attribution checks. The target behavior is that direct-only checks rank the removed feature last or near-last, while a successful verifier still detects residual mediated influence. In the Heart-Disease setting, the ground-truth target is that `smoking` retains mediated residual influence even though it is omitted from the audited predictor.
+## Experiments and metrics
 
-## Evaluation Protocol
+`heart_disease_feature_unlearning` and `performance_feature_unlearning`
+(12 tasks each per slice; varied coefficients, audited-model architectures,
+controls with and without a residual path, some failed unlearnings):
 
-Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, train the fixed black-box audited predictors with the target feature omitted, run the direct-only baseline and submitted verifier, and write comparable artifacts under `outputs/`. Then run `scripts/evaluate.sh outputs`; evaluation reads only those artifacts and writes `scoring/scores.json`.
+- `total_effect_nmae`, `indirect_effect_nmae`, `direct_effect_nmae` (lower is
+  better): mean absolute error of every feature's total, indirect
+  (total − direct) and direct influence, capped at 2 per value.
+- `rank_spearman` (higher): Spearman correlation between the features'
+  ranking by reported |total influence| and the true ranking.
+- `residual_capture` (higher): for unlearned features whose true residual
+  total influence is at least 20% of the task scale, credit 1 when the
+  reported value has the true sign and is within a factor of two of the
+  truth, linearly less outside (0 at zero, the wrong sign, or 3× the truth).
+- `false_alarm_rate` (lower, constraint): fraction of unlearned features with
+  exactly zero true influence that are reported with |total| ≥ 10% of scale.
+- `query_budget_fraction` (lower, constraint): oracle rows used, counted by
+  the evaluator, as a fraction of the budget; one pass over the audit rows is
+  free (value 0.5), so only querying beyond one pass costs. A task counts as
+  1.0 unless its total-effect error is at most half that of the all-zero
+  answer.
+
+`heart_disease_subgroup_unlearning` (the 12 Heart-Disease tasks): for BMI and
+blood pressure, total and direct influence within age > 50 and age ≤ 50.
+Which age group carries the larger mediated influence varies across tasks.
+
+- `indirect_gap_nmae`, `direct_gap_nmae` (lower): error of the between-group
+  gap (age > 50 minus age ≤ 50) in mediated and in direct influence.
+- `subgroup_effect_nmae` (lower): error of each group's total, direct and
+  mediated influence.
+- `indirect_gap_capture` (higher): for features whose true mediated gap is at
+  least 20% of the subgroup scale, the same factor-of-two credit as above.
+- `indirect_gap_direction` (higher, primary): for the same features, credit 1
+  when the reported mediated gap is detected (≥ 10% of scale) and points to
+  the right group.
+
+## Baselines
+
+`direct_permutation` switches each feature with all other inputs held at
+their observed values (a direct-only attribution check, reporting total =
+direct). `causal_fuzzing` propagates interventions through learned
+structural models and queries the black box per instance, within the same
+budget. The scored reference is `cafe`; see `scoring/scores_train.json`.
+
+## Ranking
+
+A method's rank sums, over experiments and metrics, the experiment weight
+times the metric coefficient (`scoring/reference.json`) times its improvement
+over the reference in the metric's better direction, each improvement divided
+by that metric's spread across ranked attempts.
 
 ---
 
@@ -333,6 +426,54 @@ Run `scripts/reproduce.sh` to generate the semi-synthetic tabular datasets, trai
 ### Iteration 10: gpt-6.1-sol (redteam)
 - **Milestone**: `secondary_claims` | **Status**: done
 - **Working time**: 7m | **GPU**: 0.0h
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-31 16:12] - none
+- Audited the existing scaffold and found that the previous CAFÉ estimator used adjusted regression coefficients rather than the paper's expected-prediction contrast.
+- Replaced the CAFÉ path with a backdoor/mediator-conditioned expected prediction contrast estimator and submitted a fresh CPU job to verify it end-to-end.
+
+### [2026-05-31 16:16] - core_claim_plus
+- CPU job `8970ea62-4e7` completed successfully with the patched CAFÉ estimator.
+- Reproduced the core claim on Heart-Disease and Performance feature-unlearning settings: CAFÉ detected mediated residual influence while direct permutation ranked the omitted target feature last.
+- The secondary subgroup experiment regressed after the estimator fix, so the Heart-Disease generator and scale-aware subgroup constraint were patched and another CPU job is being submitted.
+
+### [2026-05-31 16:20] - secondary_claims
+- CPU job `5a7287c3-8f1` completed successfully after the subgroup-generator patch.
+- `python validate.py --compare` passes in the scheduler container.
+- Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
+
+</details>
+
+### Iteration 11: claude-opus-5-5 (hardener)
+- **Milestone**: `secondary_claims` | **Status**: error
+- **Working time**: 44m | **GPU**: 0.0h
+- **Jobs**: 4 total (2 completed, 0 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-31 16:12] - none
+- Audited the existing scaffold and found that the previous CAFÉ estimator used adjusted regression coefficients rather than the paper's expected-prediction contrast.
+- Replaced the CAFÉ path with a backdoor/mediator-conditioned expected prediction contrast estimator and submitted a fresh CPU job to verify it end-to-end.
+
+### [2026-05-31 16:16] - core_claim_plus
+- CPU job `8970ea62-4e7` completed successfully with the patched CAFÉ estimator.
+- Reproduced the core claim on Heart-Disease and Performance feature-unlearning settings: CAFÉ detected mediated residual influence while direct permutation ranked the omitted target feature last.
+- The secondary subgroup experiment regressed after the estimator fix, so the Heart-Disease generator and scale-aware subgroup constraint were patched and another CPU job is being submitted.
+
+### [2026-05-31 16:20] - secondary_claims
+- CPU job `5a7287c3-8f1` completed successfully after the subgroup-generator patch.
+- `python validate.py --compare` passes in the scheduler container.
+- Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
+
+</details>
+
+### Iteration 11: claude-opus-5-5 (hardener)
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 23m | **GPU**: 0.0h
+- **Jobs**: 6 total (4 completed, 0 failed)
 
 <details>
 <summary>Progress Log</summary>
