@@ -56,8 +56,8 @@ def _plan(smoke: bool):
                 "family": AdultIncomeSCM,
                 "seed": 3_000 + 23 * i,
                 "architecture": "random_forest" if canonical else ARCHITECTURES[(i + 1) % 4],
-                "control_active": True if canonical else (i // 4 + i) % 2 == 1,
-                "target_retained": False if canonical else i % 3 == 1,
+                "control_active": True if canonical else i % 3 != 2,
+                "target_retained": False if canonical else (i // 4) % 3 == 2,
                 "params": AdultIncomeSCM.canonical_params() if canonical else None,
                 "n_total": ADULT_TOTAL,
             }

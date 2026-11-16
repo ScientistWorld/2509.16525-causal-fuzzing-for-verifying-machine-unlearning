@@ -185,26 +185,27 @@ class HeldOutAdult:
         the path b -> v (logit units for binary attributes, residual-scale
         units for counts), so mediated influences can partly cancel. sex (the
         unlearning target) always has its real paths. race (the control) has
-        none unless ``control_active``, and then weak or strong paths; native
-        country has none, weak or strong paths with equal odds. "None" means
-        k = a = 0: no causal path to the audited model at all. Weak paths put
-        the residual influence near the verification threshold.
+        none unless ``control_active``, and then moderate or strong paths;
+        native country has none (1/4), moderate (3/8) or strong (3/8) paths.
+        "None" means k = a = 0: no causal path to the audited model at all.
+        Moderate paths put the residual influence around the verification
+        threshold.
         """
 
         def strength(mode):
             if mode == "target":
                 return float(rng.uniform(0.5, 1.5)), float(rng.uniform(0.0, 0.4))
-            if mode == "weak":
-                return float(rng.uniform(0.0, 0.35)), float(rng.uniform(0.0, 0.12))
+            if mode == "moderate":
+                return float(rng.uniform(0.15, 0.6)), float(rng.uniform(0.0, 0.15))
             if mode == "strong":
-                return float(rng.uniform(0.35, 2.0)), float(rng.uniform(0.0, 0.6))
+                return float(rng.uniform(0.6, 2.0)), float(rng.uniform(0.0, 0.6))
             return 0.0, 0.0
 
         race_draw, country_draw = float(rng.uniform()), float(rng.uniform())
         modes = {
             "sex": "target",
-            "race": ("weak" if race_draw < 0.5 else "strong") if control_active else "none",
-            "native_country": "none" if country_draw < 1 / 3 else ("weak" if country_draw < 2 / 3 else "strong"),
+            "race": ("moderate" if race_draw < 0.5 else "strong") if control_active else "none",
+            "native_country": "none" if country_draw < 0.25 else ("moderate" if country_draw < 0.625 else "strong"),
         }
         k, a = {}, {}
         for b in PROHIBITED:

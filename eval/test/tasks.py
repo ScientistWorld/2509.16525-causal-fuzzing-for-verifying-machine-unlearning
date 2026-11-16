@@ -374,8 +374,8 @@ def _plan(smoke: bool):
                 HeldOutAdult,
                 63_018_427 + 5_903 * i,
                 ARCHITECTURES[i % 4],
-                (i // 4 + i) % 2 == 0,
-                i % 3 == 2,
+                i % 3 != 0,
+                (i // 4) % 3 == 1,
             )
         )
     return plan
