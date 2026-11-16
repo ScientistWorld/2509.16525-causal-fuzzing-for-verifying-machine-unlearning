@@ -1,0 +1,1502 @@
+[
+ {
+  "task_id": "adult_income_00",
+  "architecture": "random_forest",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 4.8,
+  "scale": 0.2876,
+  "pred_mean": 0.242,
+  "pred_sd": 0.254,
+  "rel_total": {
+   "age": 0.973,
+   "sex": 0.542,
+   "race": 0.278,
+   "native_country": 0.304,
+   "married": 1.0,
+   "education_num": 0.444,
+   "self_employed": 0.053,
+   "professional_job": 0.353,
+   "hours_per_week": 0.153
+  },
+  "rel_direct": {
+   "age": 0.495,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.959,
+   "education_num": 0.318,
+   "self_employed": 0.025,
+   "professional_job": 0.333,
+   "hours_per_week": 0.153
+  },
+  "positives": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    12.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    36.0,
+    47.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.528,
+   "sex": 0.671,
+   "race": 0.867,
+   "native_country": 0.912,
+   "married": 0.449,
+   "education_num": 10.029,
+   "self_employed": 0.112,
+   "professional_job": 0.259,
+   "hours_per_week": 41.137
+  }
+ },
+ {
+  "task_id": "adult_income_01",
+  "architecture": "gradient_boosting",
+  "control_active": true,
+  "target_retained": true,
+  "build_s": 1.8,
+  "scale": 0.2581,
+  "pred_mean": 0.179,
+  "pred_sd": 0.234,
+  "rel_total": {
+   "age": 1.0,
+   "sex": 0.573,
+   "race": 0.269,
+   "native_country": 0.108,
+   "married": 0.91,
+   "education_num": 0.511,
+   "self_employed": 0.079,
+   "professional_job": 0.239,
+   "hours_per_week": 0.085
+  },
+  "rel_direct": {
+   "age": 0.49,
+   "sex": 0.115,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.865,
+   "education_num": 0.445,
+   "self_employed": 0.027,
+   "professional_job": 0.218,
+   "hours_per_week": 0.085
+  },
+  "positives": [
+   "sex",
+   "race"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    8.0,
+    11.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    32.0,
+    43.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.564,
+   "sex": 0.667,
+   "race": 0.858,
+   "native_country": 0.911,
+   "married": 0.399,
+   "education_num": 9.361,
+   "self_employed": 0.139,
+   "professional_job": 0.234,
+   "hours_per_week": 37.435
+  }
+ },
+ {
+  "task_id": "adult_income_02",
+  "architecture": "linear",
+  "control_active": false,
+  "target_retained": false,
+  "build_s": 0.1,
+  "scale": 0.3696,
+  "pred_mean": 0.293,
+  "pred_sd": 0.299,
+  "rel_total": {
+   "age": 0.716,
+   "sex": 0.722,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 1.0,
+   "education_num": 0.482,
+   "self_employed": 0.071,
+   "professional_job": 0.258,
+   "hours_per_week": 0.176
+  },
+  "rel_direct": {
+   "age": 0.23,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.949,
+   "education_num": 0.355,
+   "self_employed": 0.026,
+   "professional_job": 0.238,
+   "hours_per_week": 0.176
+  },
+  "positives": [
+   "sex"
+  ],
+  "negatives": [
+   "race",
+   "native_country"
+  ],
+  "verdict_residual": [
+   "sex"
+  ],
+  "verdict_clear": [
+   "race",
+   "native_country"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    10.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    30.0,
+    43.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.616,
+   "sex": 0.677,
+   "race": 0.862,
+   "native_country": 0.912,
+   "married": 0.407,
+   "education_num": 10.971,
+   "self_employed": 0.14,
+   "professional_job": 0.316,
+   "hours_per_week": 37.15
+  }
+ },
+ {
+  "task_id": "adult_income_03",
+  "architecture": "random_forest",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 2.3,
+  "scale": 0.2342,
+  "pred_mean": 0.183,
+  "pred_sd": 0.229,
+  "rel_total": {
+   "age": 0.972,
+   "sex": 0.794,
+   "race": 0.428,
+   "native_country": 0.0,
+   "married": 1.0,
+   "education_num": 0.464,
+   "self_employed": 0.045,
+   "professional_job": 0.373,
+   "hours_per_week": 0.308
+  },
+  "rel_direct": {
+   "age": 0.452,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.947,
+   "education_num": 0.405,
+   "self_employed": -0.002,
+   "professional_job": 0.357,
+   "hours_per_week": 0.308
+  },
+  "positives": [
+   "sex",
+   "race"
+  ],
+  "negatives": [
+   "native_country"
+  ],
+  "verdict_residual": [
+   "sex",
+   "race"
+  ],
+  "verdict_clear": [
+   "native_country"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    7.0,
+    10.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    34.0,
+    45.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.413,
+   "sex": 0.674,
+   "race": 0.867,
+   "native_country": 0.911,
+   "married": 0.391,
+   "education_num": 8.555,
+   "self_employed": 0.103,
+   "professional_job": 0.147,
+   "hours_per_week": 39.916
+  }
+ },
+ {
+  "task_id": "adult_income_04",
+  "architecture": "mlp",
+  "control_active": true,
+  "target_retained": true,
+  "build_s": 0.5,
+  "scale": 0.3129,
+  "pred_mean": 0.297,
+  "pred_sd": 0.279,
+  "rel_total": {
+   "age": 1.0,
+   "sex": 0.23,
+   "race": 0.198,
+   "native_country": 0.584,
+   "married": 0.881,
+   "education_num": 0.589,
+   "self_employed": 0.035,
+   "professional_job": 0.328,
+   "hours_per_week": 0.23
+  },
+  "rel_direct": {
+   "age": 0.492,
+   "sex": -0.008,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.812,
+   "education_num": 0.461,
+   "self_employed": -0.014,
+   "professional_job": 0.305,
+   "hours_per_week": 0.23
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    12.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    37.0,
+    48.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.196,
+   "sex": 0.673,
+   "race": 0.859,
+   "native_country": 0.915,
+   "married": 0.573,
+   "education_num": 10.222,
+   "self_employed": 0.173,
+   "professional_job": 0.302,
+   "hours_per_week": 42.379
+  }
+ },
+ {
+  "task_id": "adult_income_05",
+  "architecture": "gradient_boosting",
+  "control_active": false,
+  "target_retained": false,
+  "build_s": 1.7,
+  "scale": 0.3127,
+  "pred_mean": 0.281,
+  "pred_sd": 0.285,
+  "rel_total": {
+   "age": 1.0,
+   "sex": 0.578,
+   "race": 0.0,
+   "native_country": 0.259,
+   "married": 0.959,
+   "education_num": 0.675,
+   "self_employed": -0.029,
+   "professional_job": 0.268,
+   "hours_per_week": 0.145
+  },
+  "rel_direct": {
+   "age": 0.504,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.929,
+   "education_num": 0.531,
+   "self_employed": -0.057,
+   "professional_job": 0.251,
+   "hours_per_week": 0.145
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [
+   "race"
+  ],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [
+   "race"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    38.0,
+    48.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.573,
+   "sex": 0.682,
+   "race": 0.863,
+   "native_country": 0.92,
+   "married": 0.465,
+   "education_num": 10.669,
+   "self_employed": 0.124,
+   "professional_job": 0.322,
+   "hours_per_week": 42.835
+  }
+ },
+ {
+  "task_id": "adult_income_06",
+  "architecture": "linear",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 0.2,
+  "scale": 0.2264,
+  "pred_mean": 0.158,
+  "pred_sd": 0.21,
+  "rel_total": {
+   "age": 0.738,
+   "sex": 0.388,
+   "race": 0.525,
+   "native_country": 0.366,
+   "married": 1.0,
+   "education_num": 0.554,
+   "self_employed": 0.013,
+   "professional_job": 0.31,
+   "hours_per_week": 0.179
+  },
+  "rel_direct": {
+   "age": 0.249,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.941,
+   "education_num": 0.493,
+   "self_employed": -0.057,
+   "professional_job": 0.29,
+   "hours_per_week": 0.179
+  },
+  "positives": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    8.0,
+    11.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    32.0,
+    43.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.53,
+   "sex": 0.672,
+   "race": 0.854,
+   "native_country": 0.913,
+   "married": 0.42,
+   "education_num": 8.976,
+   "self_employed": 0.096,
+   "professional_job": 0.169,
+   "hours_per_week": 37.737
+  }
+ },
+ {
+  "task_id": "adult_income_07",
+  "architecture": "random_forest",
+  "control_active": false,
+  "target_retained": true,
+  "build_s": 2.3,
+  "scale": 0.2885,
+  "pred_mean": 0.259,
+  "pred_sd": 0.268,
+  "rel_total": {
+   "age": 0.923,
+   "sex": 0.795,
+   "race": 0.0,
+   "native_country": 0.58,
+   "married": 1.0,
+   "education_num": 0.576,
+   "self_employed": 0.007,
+   "professional_job": 0.342,
+   "hours_per_week": 0.243
+  },
+  "rel_direct": {
+   "age": 0.522,
+   "sex": 0.1,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.955,
+   "education_num": 0.461,
+   "self_employed": -0.023,
+   "professional_job": 0.324,
+   "hours_per_week": 0.243
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [
+   "race"
+  ],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [
+   "race"
+  ],
+  "interventions": {
+   "age": [
+    27.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    12.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    35.0,
+    48.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.087,
+   "sex": 0.665,
+   "race": 0.865,
+   "native_country": 0.912,
+   "married": 0.46,
+   "education_num": 9.83,
+   "self_employed": 0.149,
+   "professional_job": 0.265,
+   "hours_per_week": 41.468
+  }
+ },
+ {
+  "task_id": "adult_income_08",
+  "architecture": "mlp",
+  "control_active": false,
+  "target_retained": false,
+  "build_s": 0.7,
+  "scale": 0.3355,
+  "pred_mean": 0.294,
+  "pred_sd": 0.288,
+  "rel_total": {
+   "age": 0.988,
+   "sex": 0.448,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 1.0,
+   "education_num": 0.72,
+   "self_employed": 0.126,
+   "professional_job": 0.287,
+   "hours_per_week": 0.173
+  },
+  "rel_direct": {
+   "age": 0.468,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.954,
+   "education_num": 0.552,
+   "self_employed": 0.099,
+   "professional_job": 0.26,
+   "hours_per_week": 0.173
+  },
+  "positives": [
+   "sex"
+  ],
+  "negatives": [
+   "race",
+   "native_country"
+  ],
+  "verdict_residual": [
+   "sex"
+  ],
+  "verdict_clear": [
+   "race",
+   "native_country"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    35.0,
+    45.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.583,
+   "sex": 0.673,
+   "race": 0.862,
+   "native_country": 0.915,
+   "married": 0.435,
+   "education_num": 10.355,
+   "self_employed": 0.118,
+   "professional_job": 0.287,
+   "hours_per_week": 39.817
+  }
+ },
+ {
+  "task_id": "adult_income_09",
+  "architecture": "gradient_boosting",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 1.8,
+  "scale": 0.2972,
+  "pred_mean": 0.232,
+  "pred_sd": 0.285,
+  "rel_total": {
+   "age": 0.849,
+   "sex": 0.771,
+   "race": 0.545,
+   "native_country": 0.496,
+   "married": 1.0,
+   "education_num": 0.454,
+   "self_employed": -0.022,
+   "professional_job": 0.291,
+   "hours_per_week": 0.203
+  },
+  "rel_direct": {
+   "age": 0.365,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.943,
+   "education_num": 0.376,
+   "self_employed": -0.061,
+   "professional_job": 0.267,
+   "hours_per_week": 0.203
+  },
+  "positives": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    8.0,
+    11.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    35.0,
+    46.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.433,
+   "sex": 0.688,
+   "race": 0.863,
+   "native_country": 0.908,
+   "married": 0.423,
+   "education_num": 8.935,
+   "self_employed": 0.091,
+   "professional_job": 0.239,
+   "hours_per_week": 40.016
+  }
+ },
+ {
+  "task_id": "adult_income_10",
+  "architecture": "linear",
+  "control_active": false,
+  "target_retained": true,
+  "build_s": 0.2,
+  "scale": 0.3317,
+  "pred_mean": 0.277,
+  "pred_sd": 0.287,
+  "rel_total": {
+   "age": 0.763,
+   "sex": 0.818,
+   "race": 0.0,
+   "native_country": 0.624,
+   "married": 1.0,
+   "education_num": 0.637,
+   "self_employed": 0.001,
+   "professional_job": 0.274,
+   "hours_per_week": 0.115
+  },
+  "rel_direct": {
+   "age": 0.232,
+   "sex": 0.297,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.945,
+   "education_num": 0.476,
+   "self_employed": -0.035,
+   "professional_job": 0.258,
+   "hours_per_week": 0.115
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [
+   "race"
+  ],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [
+   "race"
+  ],
+  "interventions": {
+   "age": [
+    27.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    37.0,
+    47.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.318,
+   "sex": 0.695,
+   "race": 0.866,
+   "native_country": 0.91,
+   "married": 0.393,
+   "education_num": 10.44,
+   "self_employed": 0.107,
+   "professional_job": 0.35,
+   "hours_per_week": 41.618
+  }
+ },
+ {
+  "task_id": "adult_income_11",
+  "architecture": "random_forest",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 2.3,
+  "scale": 0.2509,
+  "pred_mean": 0.189,
+  "pred_sd": 0.239,
+  "rel_total": {
+   "age": 0.985,
+   "sex": 0.599,
+   "race": 0.499,
+   "native_country": 0.452,
+   "married": 1.0,
+   "education_num": 0.424,
+   "self_employed": 0.048,
+   "professional_job": 0.462,
+   "hours_per_week": 0.267
+  },
+  "rel_direct": {
+   "age": 0.493,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.955,
+   "education_num": 0.336,
+   "self_employed": 0.006,
+   "professional_job": 0.43,
+   "hours_per_week": 0.267
+  },
+  "positives": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "race",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    27.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    8.0,
+    11.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    34.0,
+    46.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.087,
+   "sex": 0.678,
+   "race": 0.861,
+   "native_country": 0.903,
+   "married": 0.391,
+   "education_num": 9.479,
+   "self_employed": 0.093,
+   "professional_job": 0.2,
+   "hours_per_week": 39.817
+  }
+ },
+ {
+  "task_id": "adult_income_12",
+  "architecture": "mlp",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 0.5,
+  "scale": 0.2826,
+  "pred_mean": 0.219,
+  "pred_sd": 0.243,
+  "rel_total": {
+   "age": 0.862,
+   "sex": 0.546,
+   "race": 0.346,
+   "native_country": 0.0,
+   "married": 1.0,
+   "education_num": 0.781,
+   "self_employed": 0.04,
+   "professional_job": 0.323,
+   "hours_per_week": 0.159
+  },
+  "rel_direct": {
+   "age": 0.428,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.948,
+   "education_num": 0.596,
+   "self_employed": -0.0,
+   "professional_job": 0.303,
+   "hours_per_week": 0.159
+  },
+  "positives": [
+   "sex",
+   "race"
+  ],
+  "negatives": [
+   "native_country"
+  ],
+  "verdict_residual": [
+   "sex",
+   "race"
+  ],
+  "verdict_clear": [
+   "native_country"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    38.0,
+    47.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.682,
+   "sex": 0.682,
+   "race": 0.849,
+   "native_country": 0.91,
+   "married": 0.431,
+   "education_num": 10.425,
+   "self_employed": 0.085,
+   "professional_job": 0.277,
+   "hours_per_week": 42.22
+  }
+ },
+ {
+  "task_id": "adult_income_13",
+  "architecture": "gradient_boosting",
+  "control_active": false,
+  "target_retained": true,
+  "build_s": 1.8,
+  "scale": 0.2401,
+  "pred_mean": 0.191,
+  "pred_sd": 0.255,
+  "rel_total": {
+   "age": 0.975,
+   "sex": 0.751,
+   "race": 0.0,
+   "native_country": 0.497,
+   "married": 1.0,
+   "education_num": 0.5,
+   "self_employed": 0.017,
+   "professional_job": 0.304,
+   "hours_per_week": 0.264
+  },
+  "rel_direct": {
+   "age": 0.459,
+   "sex": 0.059,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.913,
+   "education_num": 0.416,
+   "self_employed": -0.052,
+   "professional_job": 0.268,
+   "hours_per_week": 0.264
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [
+   "race"
+  ],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [
+   "race"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    12.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    32.0,
+    45.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.294,
+   "sex": 0.674,
+   "race": 0.864,
+   "native_country": 0.914,
+   "married": 0.449,
+   "education_num": 9.917,
+   "self_employed": 0.102,
+   "professional_job": 0.209,
+   "hours_per_week": 38.662
+  }
+ },
+ {
+  "task_id": "adult_income_14",
+  "architecture": "linear",
+  "control_active": true,
+  "target_retained": false,
+  "build_s": 0.3,
+  "scale": 0.3144,
+  "pred_mean": 0.22,
+  "pred_sd": 0.234,
+  "rel_total": {
+   "age": 0.641,
+   "sex": 0.575,
+   "race": -0.092,
+   "native_country": 0.181,
+   "married": 1.0,
+   "education_num": 0.558,
+   "self_employed": 0.044,
+   "professional_job": 0.243,
+   "hours_per_week": 0.182
+  },
+  "rel_direct": {
+   "age": 0.226,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.954,
+   "education_num": 0.421,
+   "self_employed": -0.012,
+   "professional_job": 0.225,
+   "hours_per_week": 0.182
+  },
+  "positives": [
+   "sex"
+  ],
+  "negatives": [],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    33.0,
+    45.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.603,
+   "sex": 0.687,
+   "race": 0.858,
+   "native_country": 0.906,
+   "married": 0.405,
+   "education_num": 10.487,
+   "self_employed": 0.129,
+   "professional_job": 0.298,
+   "hours_per_week": 39.329
+  }
+ },
+ {
+  "task_id": "adult_income_15",
+  "architecture": "random_forest",
+  "control_active": false,
+  "target_retained": false,
+  "build_s": 2.2,
+  "scale": 0.3422,
+  "pred_mean": 0.297,
+  "pred_sd": 0.279,
+  "rel_total": {
+   "age": 0.817,
+   "sex": 0.321,
+   "race": 0.0,
+   "native_country": 0.537,
+   "married": 1.0,
+   "education_num": 0.723,
+   "self_employed": 0.026,
+   "professional_job": 0.328,
+   "hours_per_week": 0.344
+  },
+  "rel_direct": {
+   "age": 0.424,
+   "sex": 0.0,
+   "race": 0.0,
+   "native_country": 0.0,
+   "married": 0.957,
+   "education_num": 0.562,
+   "self_employed": -0.008,
+   "professional_job": 0.306,
+   "hours_per_week": 0.344
+  },
+  "positives": [
+   "sex",
+   "native_country"
+  ],
+  "negatives": [
+   "race"
+  ],
+  "verdict_residual": [
+   "sex",
+   "native_country"
+  ],
+  "verdict_clear": [
+   "race"
+  ],
+  "interventions": {
+   "age": [
+    28.0,
+    47.0
+   ],
+   "sex": [
+    0.0,
+    1.0
+   ],
+   "race": [
+    0.0,
+    1.0
+   ],
+   "native_country": [
+    0.0,
+    1.0
+   ],
+   "married": [
+    0.0,
+    1.0
+   ],
+   "education_num": [
+    9.0,
+    13.0
+   ],
+   "self_employed": [
+    0.0,
+    1.0
+   ],
+   "professional_job": [
+    0.0,
+    1.0
+   ],
+   "hours_per_week": [
+    30.0,
+    46.0
+   ]
+  },
+  "audit_means": {
+   "age": 38.437,
+   "sex": 0.664,
+   "race": 0.863,
+   "native_country": 0.912,
+   "married": 0.49,
+   "education_num": 10.991,
+   "self_employed": 0.095,
+   "professional_job": 0.416,
+   "hours_per_week": 38.879
+  }
+ }
+]

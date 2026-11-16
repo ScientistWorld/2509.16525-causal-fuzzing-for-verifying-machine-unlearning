@@ -1,0 +1,96 @@
+{
+ "_diagnostics": {
+  "cafe": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 16
+  },
+  "causal_fuzzing": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9977142857142857,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 16
+  },
+  "direct_permutation": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.9977142857142857,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 16
+  },
+  "variant_abduction_half": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.49885714285714283,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 16
+  },
+  "variant_full_adjust": {
+   "failed_tasks": 0,
+   "mean_query_budget_fraction": 0.5,
+   "refused_rows": 0,
+   "status": "ok",
+   "tasks": 16
+  }
+ },
+ "_slice": "train",
+ "experiments": {
+  "adult_feature_unlearning": {
+   "results": {
+    "cafe": {
+     "direct_effect_nmae": 0.027647759887404585,
+     "false_alarm_rate": 0.09090909090909091,
+     "indirect_effect_nmae": 0.03556498420257386,
+     "query_budget_fraction": 0.5,
+     "rank_spearman": 0.9630066409362465,
+     "residual_capture": 1.0,
+     "total_effect_nmae": 0.03997569018413931,
+     "verdict_accuracy": 0.9545454545454546
+    },
+    "causal_fuzzing": {
+     "direct_effect_nmae": 0.013222328628014868,
+     "false_alarm_rate": 0.0,
+     "indirect_effect_nmae": 0.08183250441916277,
+     "query_budget_fraction": 0.9977142857142857,
+     "rank_spearman": 0.9619693418638577,
+     "residual_capture": 1.0,
+     "total_effect_nmae": 0.08435394730229659,
+     "verdict_accuracy": 1.0
+    },
+    "direct_permutation": {
+     "direct_effect_nmae": 0.0085651855240833,
+     "false_alarm_rate": 0.0,
+     "indirect_effect_nmae": 0.1977639257360021,
+     "query_budget_fraction": 0.9978571428571428,
+     "rank_spearman": 0.6220324506936605,
+     "residual_capture": 0.04456104167284624,
+     "total_effect_nmae": 0.20003709681782214,
+     "verdict_accuracy": 0.5142857142857142
+    },
+    "variant_abduction_half": {
+     "direct_effect_nmae": 0.017469318407865028,
+     "false_alarm_rate": 0.0,
+     "indirect_effect_nmae": 0.0349556398376735,
+     "query_budget_fraction": 0.5,
+     "rank_spearman": 0.9692610085305244,
+     "residual_capture": 1.0,
+     "total_effect_nmae": 0.04247264067375654,
+     "verdict_accuracy": 1.0
+    },
+    "variant_full_adjust": {
+     "direct_effect_nmae": 0.025897798568346828,
+     "false_alarm_rate": 0.0,
+     "indirect_effect_nmae": 0.03215647829173175,
+     "query_budget_fraction": 0.5,
+     "rank_spearman": 0.9702983076029132,
+     "residual_capture": 1.0,
+     "total_effect_nmae": 0.0349514307090477,
+     "verdict_accuracy": 1.0
+    }
+   }
+  }
+ }
+}
