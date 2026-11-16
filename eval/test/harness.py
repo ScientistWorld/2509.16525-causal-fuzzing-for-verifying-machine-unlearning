@@ -57,8 +57,8 @@ DETECT_FRACTION = 0.10            # |estimate| >= 0.10 * scale counts as "influe
 POSITIVE_FRACTION = 0.20          # unlearned features with |truth| >= 0.20 * scale are positives
 GAP_FRACTION = 0.20               # subgroup indirect gaps >= 0.20 * subgroup scale are scored for capture
 SOLVED_FRACTION = 0.5             # efficiency credit needs total error <= 0.5 * the all-zero answer's
-VERDICT_CLEAR_FRACTION = 0.06     # verdict items: unlearned features with |truth| <= 6% of scale must pass ...
-VERDICT_RESIDUAL_FRACTION = 0.14  # ... and those with |truth| >= 14% must be flagged (flag: |estimate| >= 10%)
+VERDICT_CLEAR_FRACTION = 0.09     # verdict items: unlearned features with |truth| <= 9% of scale must pass ...
+VERDICT_RESIDUAL_FRACTION = 0.11  # ... and those with |truth| >= 11% must be flagged (flag: |estimate| >= 10%)
 # Verifier limits. CPU seconds per process (independent of machine load) is the
 # binding limit; the wall-clock backstop only ends verifiers that hang idle and
 # is ~50x the slowest registered verifier's run time.
@@ -509,8 +509,9 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
     ]
     # Verification verdict (paper Def. 4 / Problem 1): an unlearned feature is
     # flagged as retaining influence when |reported total| >= 10% of scale.
-    # Correct when flagged for a true residual influence >= 14% of scale and
-    # not flagged for one <= 6% (the narrow band in between is not scored).
+    # Correct when flagged for a true residual influence >= 11% of scale and
+    # not flagged for one <= 9% (only the razor-edge band in between is not
+    # scored, so influences near the threshold count).
     flagged = {f: abs(est[f][0]) >= DETECT_FRACTION * scale for f in spec["unlearned_features"]}
     record["verdict_residual"] = [1.0 if flagged[f] else 0.0 for f in truth.get("verdict_residual", [])]
     record["verdict_clear"] = [0.0 if flagged[f] else 1.0 for f in truth.get("verdict_clear", [])]

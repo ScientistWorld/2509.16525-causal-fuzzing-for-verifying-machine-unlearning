@@ -196,9 +196,9 @@ class HeldOutAdult:
             if mode == "target":
                 return float(rng.uniform(0.5, 1.5)), float(rng.uniform(0.0, 0.4))
             if mode == "moderate":
-                return float(rng.uniform(0.15, 0.6)), float(rng.uniform(0.0, 0.15))
+                return float(rng.uniform(0.1, 0.45)), float(rng.uniform(0.0, 0.12))
             if mode == "strong":
-                return float(rng.uniform(0.6, 2.0)), float(rng.uniform(0.0, 0.6))
+                return float(rng.uniform(0.45, 2.0)), float(rng.uniform(0.0, 0.6))
             return 0.0, 0.0
 
         race_draw, country_draw = float(rng.uniform()), float(rng.uniform())

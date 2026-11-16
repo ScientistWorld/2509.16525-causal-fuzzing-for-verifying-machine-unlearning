@@ -1,6 +1,12 @@
 #!/bin/bash
-# Hardening driver (resumable: per-verifier results are cached in
-# notes/hardening/results/{test,train}/ and reused on rerun).
+# Hardening driver (resumable: phases leave markers, and per-verifier results
+# are cached in notes/hardening/results/{test,train}/ and reused on rerun).
+#   1. smoke test on every task family
+#   2. official score files from the reference verifiers (scripts/verifiers/:
+#      cafe, direct_permutation, causal_fuzzing) and validate.py
+#   3. every hardening verifier through the hidden test
+#   4. the honest ones through the visible train slice
+#   5. paired ranking (notes/hardening/rank.py)
 set -uo pipefail
 cd /home/user
 RES=notes/hardening/results
@@ -23,7 +29,7 @@ import json, sys
 test, train = (json.load(open(p)) for p in sys.argv[1:3])
 diag = {**{f"test:{k}": v for k, v in test["_diagnostics"].items()}, **{f"train:{k}": v for k, v in train["_diagnostics"].items()}}
 print(json.dumps(diag, indent=1))
-must_pass = ["test:cafe", "test:variant_probe_direct", "test:variant_abduction", "test:direct_permutation",
+must_pass = ["test:cafe", "test:variant_probe_direct", "test:variant_abduction", "test:variant_full_adjust", "test:direct_permutation",
              "test:causal_fuzzing", "test:shortcut_forged_fields", "train:cafe", "train:direct_permutation", "train:causal_fuzzing"]
 must_fail = ["test:shortcut_nonfinite_values", "test:shortcut_overbudget_bruteforce"]
 bad = [k for k in must_pass if diag[k]["failed_tasks"] != 0] + [k for k in must_fail if diag[k]["failed_tasks"] == 0]
@@ -33,9 +39,25 @@ PY
 touch "$RES/smoke_ok"
 fi
 
+if [ -f "$RES/official_ok" ]; then
+  echo "=== official score files already written, skipping"
+else
+echo "=== official score files (reference verifiers) $(date -u +%FT%TZ)"
+bash scripts/evaluate.sh && bash scripts/evaluate_train.sh && bash scripts/evaluate_test.sh \
+  && mkdir -p "$RES/official" && cp scoring/scores.json scoring/scores_train.json scoring/scores_test.json "$RES/official/" \
+  && touch "$RES/official_ok" || echo "OFFICIAL SCORING FAILED"
+echo "=== validate $(date -u +%FT%TZ)"
+python validate.py --compare --post-design || echo "VALIDATE FAILED"
+fi
+
 echo "=== hidden test, all hardening verifiers $(date -u +%FT%TZ)"
 python -m eval.test.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/test" \
   --scores "$RES/scores_test_all.json" --details "$RES/details_test.json" || echo "HIDDEN TEST RUN FAILED"
+# shortcut_scores_file_forgery overwrites scoring/scores_{train,test}.json while it
+# runs (the evaluator ignores them); put the reference run's files back.
+for f in scores.json scores_train.json scores_test.json; do
+  cmp -s "$RES/official/$f" "scoring/$f" || { echo "restoring scoring/$f (overwritten by the forgery shortcut)"; cp "$RES/official/$f" "scoring/$f"; }
+done
 
 echo "=== visible train, honest verifiers $(date -u +%FT%TZ)"
 python -m eval.train.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/train" \
@@ -44,10 +66,4 @@ python -m eval.train.evaluate --verifiers-dir "$REG" --per-method-dir "$RES/trai
 
 echo "=== ranking $(date -u +%FT%TZ)"
 python notes/hardening/rank.py || echo "RANK FAILED"
-
-echo "=== official score files $(date -u +%FT%TZ)"
-bash scripts/evaluate.sh && bash scripts/evaluate_train.sh && bash scripts/evaluate_test.sh || echo "OFFICIAL SCORING FAILED"
-
-echo "=== validate $(date -u +%FT%TZ)"
-python validate.py --compare --post-design || echo "VALIDATE FAILED"
 echo "=== done $(date -u +%FT%TZ)"
