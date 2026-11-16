@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Final hardening run (Adult experiment v3): all reference/variant/baseline/shortcut verifiers through hidden test + train, ranking, official score files, validate."
+notes: "Final hardening run (Adult v4): official reference scores + validate first, then all hardening verifiers through hidden test and train, ranking."
