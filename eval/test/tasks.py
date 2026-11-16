@@ -5,7 +5,8 @@ the visible families, but the structural equations use different functional
 forms and noise, and every instance is drawn from seeds that exist only here.
 In a third of the Heart-Disease instances the age modulation of BMI's mediated
 influence is mirrored (amplified below age 50), so the sign of the subgroup gap
-must be measured, not assumed.
+must be measured, not assumed. The Adult-Income instances (eval/test/adult.py)
+are semi-synthetic on the held-out half of the real UCI Adult data.
 Self-contained: imports nothing from data/, method/ or eval/train/.
 """
 
@@ -14,6 +15,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+from eval.test.adult import HeldOutAdult
 from eval.test.harness import build_task
 
 
@@ -332,6 +334,7 @@ class HeldOutPerformance(_Family):
 ARCHITECTURES = ("random_forest", "mlp", "gradient_boosting", "linear")
 N_TOTAL, N_AUDIT = 10_000, 3_500
 TASKS_PER_FAMILY = 12
+ADULT_TASKS, ADULT_TOTAL = 16, 15_000
 
 
 def _plan(smoke: bool):
@@ -339,6 +342,7 @@ def _plan(smoke: bool):
         return [
             ("heart_disease_00", HeldOutHeart, 91_730_011, "random_forest", True, False),
             ("performance_00", HeldOutPerformance, 44_200_173, "linear", False, True),
+            ("adult_income_00", HeldOutAdult, 63_018_427, "mlp", True, False),
         ]
     plan = []
     for i in range(TASKS_PER_FAMILY):
@@ -363,6 +367,17 @@ def _plan(smoke: bool):
                 i % 3 == 2,
             )
         )
+    for i in range(ADULT_TASKS):
+        plan.append(
+            (
+                f"adult_income_{i:02d}",
+                HeldOutAdult,
+                63_018_427 + 5_903 * i,
+                ARCHITECTURES[i % 4],
+                (i // 4 + i) % 2 == 0,
+                i % 3 == 2,
+            )
+        )
     return plan
 
 
@@ -370,6 +385,7 @@ def build_tasks(smoke: bool = False, log=None) -> dict:
     n_total, n_audit = (2_000, 700) if smoke else (N_TOTAL, N_AUDIT)
     tasks = {}
     for task_id, family, seed, architecture, control_active, target_retained in _plan(smoke):
+        adult = family is HeldOutAdult
         tasks[task_id] = build_task(
             task_id,
             family,
@@ -377,8 +393,8 @@ def build_tasks(smoke: bool = False, log=None) -> dict:
             architecture,
             control_active,
             target_retained,
-            n_total=n_total,
-            n_audit=n_audit,
+            n_total=(ADULT_TOTAL if not smoke else 3_000) if adult else n_total,
+            n_audit=n_audit if not adult or smoke else N_AUDIT,
         )
         if log is not None:
             log(f"built {task_id} ({architecture})")

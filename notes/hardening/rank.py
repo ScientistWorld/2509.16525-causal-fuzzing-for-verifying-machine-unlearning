@@ -80,6 +80,13 @@ def _percentile(values: list[float], q: float) -> float:
 
 
 def aggregate(records: list[dict], idx: list[int], metric: str) -> float:
+    if metric == "verdict_accuracy":
+        parts = []
+        for key in ("verdict_residual", "verdict_clear"):
+            values = [v for i in idx for v in records[i].get(key, [])]
+            if values:
+                parts.append(_mean(values))
+        return _mean(parts) if parts else 0.0
     if metric == "rank_spearman":
         return _mean(records[i]["spearman"] for i in idx)
     if metric == "query_budget_fraction":
@@ -202,6 +209,8 @@ def main() -> None:
             f"perf total {task_wins(details, m, 'performance_feature_unlearning', 'total_err')}",
             f"subgroup indirect gap {task_wins(details, m, 'heart_disease_subgroup_unlearning', 'indirect_gap_err')}",
         ]
+        if "adult_feature_unlearning" in details[m]:
+            parts.append(f"adult total {task_wins(details, m, 'adult_feature_unlearning', 'total_err')}")
         lines.append(f"- {m}: " + "; ".join(parts))
     train_path = RESULTS / "scores_train_all.json"
     if train_path.is_file():

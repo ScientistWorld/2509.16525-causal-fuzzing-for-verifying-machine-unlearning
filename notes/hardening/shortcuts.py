@@ -31,6 +31,14 @@ the hardened test must not reward them.
                           CAFÉ's population direct estimate (assumes the
                           paper's "identical direct effects" finding instead
                           of measuring the per-group direct influence)
+  cafe_assume_unlearned   CAFÉ, but every unlearned feature except the first
+                          (the named target) is reported as exactly zero:
+                          assumes controls / other protected attributes have
+                          no residual influence instead of measuring it
+  cafe_shrink_unlearned   CAFÉ, but unlearned features whose estimate is
+                          below 15% of CAFÉ's largest estimate are reported
+                          as zero (a hand-set decision rule tuned to the
+                          evaluator's verdict threshold)
 """
 
 from __future__ import annotations
@@ -47,7 +55,7 @@ from data.blackbox import BlackBox
 from data.causal_graph import load_tasks
 from method import cafe
 
-PAPER_TARGETS = {"smoking", "gender"}
+PAPER_TARGETS = {"smoking", "gender", "sex"}
 
 
 def _cafe(spec, audit):
@@ -226,6 +234,24 @@ def cafe_zero_direct_gap(spec, audit):
     return answer
 
 
+def cafe_assume_unlearned(spec, audit):
+    answer = _cafe(spec, audit)
+    for f in spec["unlearned_features"][1:]:
+        for entries in _all_entries(answer):
+            if f in entries:
+                entries[f] = {"total": 0.0, "direct": 0.0}
+    return answer
+
+
+def cafe_shrink_unlearned(spec, audit):
+    answer = _cafe(spec, audit)
+    biggest = max(abs(v["total"]) for v in answer["effects"].values())
+    for f in spec["unlearned_features"]:
+        if abs(answer["effects"][f]["total"]) < 0.15 * biggest:
+            answer["effects"][f] = {"total": 0.0, "direct": 0.0}
+    return answer
+
+
 KINDS = {
     name: fn
     for name, fn in globals().items()
@@ -245,6 +271,8 @@ KINDS = {
         "cafe_constant_subgroup",
         "cafe_prior_subgroup",
         "cafe_zero_direct_gap",
+        "cafe_assume_unlearned",
+        "cafe_shrink_unlearned",
     }
 }
 

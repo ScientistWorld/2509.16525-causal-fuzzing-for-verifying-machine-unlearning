@@ -57,18 +57,27 @@ DETECT_FRACTION = 0.10            # |estimate| >= 0.10 * scale counts as "influe
 POSITIVE_FRACTION = 0.20          # unlearned features with |truth| >= 0.20 * scale are positives
 GAP_FRACTION = 0.20               # subgroup indirect gaps >= 0.20 * subgroup scale are scored for capture
 SOLVED_FRACTION = 0.5             # efficiency credit needs total error <= 0.5 * the all-zero answer's
-VERIFIER_TIMEOUT_S = 3 * 3600
+VERDICT_CLEAR_FRACTION = 0.05     # verdict items: unlearned features with |truth| <= 5% of scale must pass ...
+VERDICT_RESIDUAL_FRACTION = 0.15  # ... and those with |truth| >= 15% must be flagged (flag: |estimate| >= 10%)
+# Verifier limits. CPU seconds per process (independent of machine load) is the
+# binding limit; the wall-clock backstop only ends verifiers that hang idle and
+# is ~50x the slowest registered verifier's run time.
+VERIFIER_CPU_LIMIT_S = 3 * 3600
+VERIFIER_TIMEOUT_S = 5 * 3600
 _NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.\-]*$")
 
 FEATURE_EXPERIMENTS = {
     "heart_disease": "heart_disease_feature_unlearning",
     "performance": "performance_feature_unlearning",
+    "adult_income": "adult_feature_unlearning",
 }
 SUBGROUP_EXPERIMENT = "heart_disease_subgroup_unlearning"
+VERDICT_EXPERIMENTS = {"adult_feature_unlearning"}
 EXPERIMENTS = (
     "heart_disease_feature_unlearning",
     "performance_feature_unlearning",
     SUBGROUP_EXPERIMENT,
+    "adult_feature_unlearning",
 )
 
 
@@ -107,7 +116,11 @@ def intervention_values(audit: pd.DataFrame, features: list[str], binary: list[s
             values[feature] = [0.0, 1.0]
         else:
             column = audit[feature].to_numpy(dtype=float)
-            values[feature] = [float(np.quantile(column, 0.25)), float(np.quantile(column, 0.75))]
+            for q_lo, q_hi in ((0.25, 0.75), (0.1, 0.9), (0.0, 1.0)):
+                lo, hi = float(np.quantile(column, q_lo)), float(np.quantile(column, q_hi))
+                if hi > lo:
+                    break
+            values[feature] = [lo, hi]
     return values
 
 
@@ -148,6 +161,8 @@ def compute_truth(spec: dict, audit: pd.DataFrame, noise_audit: dict, scm, predi
         raise RuntimeError(f"{spec['task_id']}: degenerate task with no feature influence")
     positives = [f for f in spec["unlearned_features"] if abs(total[f]) >= POSITIVE_FRACTION * scale]
     negatives = [f for f in spec["unlearned_features"] if abs(total[f]) <= 1e-12 * scale]
+    verdict_residual = [f for f in spec["unlearned_features"] if abs(total[f]) >= VERDICT_RESIDUAL_FRACTION * scale]
+    verdict_clear = [f for f in spec["unlearned_features"] if abs(total[f]) <= VERDICT_CLEAR_FRACTION * scale]
 
     subgroup_scale = max([abs(total[f]) for f in spec.get("subgroup_features", [])] or [scale])
     subgroups = {}
@@ -165,6 +180,8 @@ def compute_truth(spec: dict, audit: pd.DataFrame, noise_audit: dict, scm, predi
         "scale": float(scale),
         "positives": positives,
         "negatives": negatives,
+        "verdict_residual": verdict_residual,
+        "verdict_clear": verdict_clear,
         "subgroups": subgroups,
         "subgroup_scale": float(subgroup_scale if subgroup_scale > 0 else scale),
     }
@@ -337,9 +354,10 @@ def run_verifier(name: str, script: Path, tasks: dict[str, Task], timeout: int =
         [str(WORKSPACE)] + ([env["PYTHONPATH"]] if env.get("PYTHONPATH") else [])
     )
     status = "ok"
+    limit = int(VERIFIER_CPU_LIMIT_S)
     with open(log_path, "wb") as log:
         proc = subprocess.Popen(
-            ["bash", str(script), str(task_dir), str(out_path)],
+            ["bash", "-c", f'ulimit -t {limit} 2>/dev/null; exec bash "$0" "$@"', str(script), str(task_dir), str(out_path)],
             cwd=str(WORKSPACE),
             env=env,
             stdin=subprocess.DEVNULL,
@@ -473,6 +491,8 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
             spearman=-1.0,
             capture=[0.0] * len(truth["positives"]),
             false_alarms=[1.0] * len(truth["negatives"]),
+            verdict_residual=[0.0] * len(truth.get("verdict_residual", [])),
+            verdict_clear=[0.0] * len(truth.get("verdict_clear", [])),
             query_fraction=1.0,
         )
         return record
@@ -487,6 +507,13 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
     record["false_alarms"] = [
         1.0 if abs(est[f][0]) >= DETECT_FRACTION * scale else 0.0 for f in truth["negatives"]
     ]
+    # Verification verdict (paper Def. 4 / Problem 1): an unlearned feature is
+    # flagged as retaining influence when |reported total| >= 10% of scale.
+    # Correct when flagged for a true residual influence >= 15% of scale and
+    # not flagged for one <= 5% (the band in between is not scored).
+    flagged = {f: abs(est[f][0]) >= DETECT_FRACTION * scale for f in spec["unlearned_features"]}
+    record["verdict_residual"] = [1.0 if flagged[f] else 0.0 for f in truth.get("verdict_residual", [])]
+    record["verdict_clear"] = [0.0 if flagged[f] else 1.0 for f in truth.get("verdict_clear", [])]
     # Efficiency counts only on solved tasks: the total-effect error must be at
     # most half that of the trivial all-zero answer. One pass over the audit
     # rows is free (the audit sample size is fixed by the evaluator; querying
@@ -549,8 +576,19 @@ def _pooled(records: list[dict], key: str, empty: float = 0.0) -> float:
     return float(np.mean(values)) if values else empty
 
 
-def aggregate_feature(records: list[dict]) -> dict:
-    return {
+def verdict_balanced_accuracy(records: list[dict]) -> float:
+    """Mean of the pooled hit rate on residual items and the pooled pass rate on clear items."""
+
+    parts = []
+    for key in ("verdict_residual", "verdict_clear"):
+        values = [v for record in records for v in record.get(key, [])]
+        if values:
+            parts.append(float(np.mean(values)))
+    return float(np.mean(parts)) if parts else 0.0
+
+
+def aggregate_feature(records: list[dict], verdict: bool = False) -> dict:
+    metrics = {
         "total_effect_nmae": _pooled(records, "total_err", ERROR_CAP),
         "indirect_effect_nmae": _pooled(records, "indirect_err", ERROR_CAP),
         "direct_effect_nmae": _pooled(records, "direct_err", ERROR_CAP),
@@ -559,6 +597,9 @@ def aggregate_feature(records: list[dict]) -> dict:
         "false_alarm_rate": _pooled(records, "false_alarms"),
         "query_budget_fraction": float(np.mean([r["query_fraction"] for r in records])) if records else 1.0,
     }
+    if verdict:
+        metrics["verdict_accuracy"] = verdict_balanced_accuracy(records)
+    return metrics
 
 
 def aggregate_subgroup(records: list[dict]) -> dict:
@@ -585,8 +626,10 @@ def score_run(tasks: dict[str, Task], run: dict) -> dict:
     for experiment in EXPERIMENTS:
         if not records[experiment]:
             continue
-        aggregate = aggregate_subgroup if experiment == SUBGROUP_EXPERIMENT else aggregate_feature
-        metrics[experiment] = aggregate(records[experiment])
+        if experiment == SUBGROUP_EXPERIMENT:
+            metrics[experiment] = aggregate_subgroup(records[experiment])
+        else:
+            metrics[experiment] = aggregate_feature(records[experiment], verdict=experiment in VERDICT_EXPERIMENTS)
     fractions = [run["used"][t] / tasks[t].spec["query_budget"] for t in tasks]
     diagnostics = {
         "status": run["status"],
@@ -648,13 +691,61 @@ def _task_experiments(task: Task) -> list[str]:
 # ── audited black-box models ─────────────────────────────────────────────────
 
 
-def make_model(architecture: str, seed: int):
+class ProbabilityModel:
+    """Audited classifier whose black-box output is P(positive class)."""
+
+    def __init__(self, classifier):
+        self.classifier = classifier
+
+    def fit(self, x, y):
+        self.classifier.fit(x, np.asarray(y).astype(int))
+        return self
+
+    def predict(self, x):
+        return self.classifier.predict_proba(x)[:, 1]
+
+
+def make_classifier(architecture: str, seed: int) -> ProbabilityModel:
+    from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+
+    if architecture == "random_forest":
+        model = RandomForestClassifier(n_estimators=160, min_samples_leaf=12, random_state=seed, n_jobs=1)
+    elif architecture == "gradient_boosting":
+        model = HistGradientBoostingClassifier(
+            max_iter=250, learning_rate=0.06, max_leaf_nodes=31, early_stopping=False, random_state=seed
+        )
+    elif architecture == "mlp":
+        model = make_pipeline(
+            StandardScaler(),
+            MLPClassifier(
+                hidden_layer_sizes=(64, 32),
+                alpha=1e-3,
+                learning_rate_init=1e-3,
+                max_iter=300,
+                early_stopping=True,
+                random_state=seed,
+            ),
+        )
+    elif architecture == "linear":
+        model = make_pipeline(StandardScaler(), LogisticRegression(C=1.0, max_iter=2000))
+    else:
+        raise ValueError(f"Unknown architecture {architecture}")
+    return ProbabilityModel(model)
+
+
+def make_model(architecture: str, seed: int, kind: str = "regression"):
     from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
     from sklearn.linear_model import Ridge
     from sklearn.neural_network import MLPRegressor
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import StandardScaler
 
+    if kind == "classification":
+        return make_classifier(architecture, seed)
     if architecture == "random_forest":
         return RandomForestRegressor(n_estimators=160, min_samples_leaf=12, random_state=seed, n_jobs=1)
     if architecture == "gradient_boosting":
@@ -704,7 +795,7 @@ def build_task(
     removed = [f for f in scm.unlearned if not (target_retained and f == scm_cls.target)]
     model_columns = [i for i, f in enumerate(features) if f not in removed]
     matrix = frame[features].to_numpy(dtype=float)
-    model = make_model(architecture, seed % (2**31))
+    model = make_model(architecture, seed % (2**31), getattr(scm_cls, "task_kind", "regression"))
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         model.fit(matrix[train_idx][:, model_columns], outcome[train_idx])

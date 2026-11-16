@@ -10,7 +10,13 @@ the scored reference is method/cafe.py.
   hgb_probe     both of the above.
   abduction     counterfactual fuzzing: learned structural models with
                 additive-noise abduction (cross-fitted residuals) propagate
-                f <- theta for subsampled rows; direct by probes.
+                f <- theta for subsampled rows; direct by probes. Binary
+                downstream nodes use threshold abduction instead (a
+                per-row uniform drawn consistent with the observed value
+                under the cross-fitted probability).
+  full_adjust   CAFÉ with every non-descendant of f as the adjustment set
+                (still a valid back-door set; more precise than parents
+                only) and every other input for the direct contrast.
   abduction_half  the same with half the query budget (CAFÉ's own cost).
   cafe_half_rows  CAFÉ fitted on a random half of the audit rows (half of
                 CAFÉ's queries): the efficiency / accuracy trade-off check.
@@ -84,6 +90,7 @@ def cafe_probe(spec, audit, blackbox, seed, response=cafe.random_forest_response
 
 
 def _crossfit_models(audit, spec, seed):
+    rng = np.random.default_rng(seed + 77)
     models = {}
     for node in spec["features"]:
         node_parents = [p for p in parents(spec["edges"], node) if p in spec["features"]]
@@ -98,7 +105,14 @@ def _crossfit_models(audit, spec, seed):
             oof[held] = model.predict(x[held])
         final = RandomForestRegressor(n_estimators=80, min_samples_leaf=10, random_state=seed, n_jobs=1)
         final.fit(x, y)
-        models[node] = (node_parents, final, y - oof)
+        if np.isin(y, (0.0, 1.0)).all():
+            # threshold abduction: node = 1[u < p(parents)], u drawn given the observed value
+            p = np.clip(oof, 1e-3, 1 - 1e-3)
+            draw = rng.uniform(size=len(y))
+            u = np.where(y > 0.5, draw * p, p + draw * (1.0 - p))
+            models[node] = (node_parents, final, ("binary", u))
+        else:
+            models[node] = (node_parents, final, y - oof)
     return models
 
 
@@ -112,7 +126,11 @@ def _abduct(sample, rows, spec, models, feature, value):
             continue
         node_parents, model, residual = models[node]
         if changed.intersection(node_parents):
-            out[node] = model.predict(out[node_parents].to_numpy(float)) + residual[rows]
+            fitted = model.predict(out[node_parents].to_numpy(float))
+            if isinstance(residual, tuple):
+                out[node] = (residual[1][rows] < np.clip(fitted, 0.0, 1.0)).astype(float)
+            else:
+                out[node] = fitted + residual[rows]
             changed.add(node)
     return out
 
@@ -190,6 +208,34 @@ def no_backdoor(spec, audit, blackbox, seed):
     return answer
 
 
+def full_adjust(spec, audit, blackbox, seed):
+    frame = audit.copy()
+    frame[cafe.PREDICTION] = blackbox.predict(audit)
+
+    def effects(rows, features):
+        out = {}
+        for feature in features:
+            lo, hi = spec["interventions"][feature]
+            downstream = descendants(spec["edges"], feature)
+            controls = [f for f in spec["features"] if f != feature and f not in downstream]
+            others = [f for f in spec["features"] if f != feature]
+            total = cafe.adjusted_contrast(rows, feature, controls, lo, hi, seed)
+            if any(f in downstream for f in spec["features"]):
+                direct = cafe.adjusted_contrast(rows, feature, others, lo, hi, seed + 101)
+            else:
+                direct = total
+            out[feature] = {"total": total, "direct": direct}
+        return out
+
+    answer = {"effects": effects(frame, spec["estimate_features"])}
+    if spec.get("subgroups"):
+        answer["subgroup_effects"] = {
+            name: effects(frame[subgroup_mask(audit, rule)], spec["subgroup_features"])
+            for name, rule in spec["subgroups"].items()
+        }
+    return answer
+
+
 def cafe_half_rows(spec, audit, blackbox, seed):
     rng = np.random.default_rng(seed + 404)
     keep = np.sort(rng.choice(len(audit), size=len(audit) // 2, replace=False))
@@ -205,6 +251,7 @@ VARIANTS = {
     "direct_only": direct_only,
     "no_backdoor": no_backdoor,
     "cafe_half_rows": cafe_half_rows,
+    "full_adjust": full_adjust,
 }
 
 
