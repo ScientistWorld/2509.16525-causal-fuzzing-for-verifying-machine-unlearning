@@ -3,6 +3,6 @@
 # only after your turn ends.
 action: submit
 gpus: 0
-test: true
+test: false
 milestone: secondary_claims
-notes: "Calibration of the new Adult-Income real-data experiment: smoke test of all families, Adult truth distribution, key verifiers on Adult tasks (train+test)."
+notes: "Final hardening run (Adult experiment v3): all reference/variant/baseline/shortcut verifiers through hidden test + train, ranking, official score files, validate."
