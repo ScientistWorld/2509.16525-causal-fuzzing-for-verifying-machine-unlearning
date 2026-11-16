@@ -1,6 +1,8 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: done
+action: pending
+gpus: 0
+test: false
 milestone: secondary_claims
-notes: "Hardened: evaluator-owned hidden test, all red-team shortcuts fail; equal-cost better verifier +0.41 (all) / +2.30 (honest) over CAFE vs 0.03 seed spread; validate passes. Left: zero-direct-gap variant (+0.17 all, tie among honest). See HARDENING.md."
+notes: ""
