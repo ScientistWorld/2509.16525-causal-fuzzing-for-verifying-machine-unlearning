@@ -14,7 +14,7 @@ if [ -f "$RES/smoke_ok" ]; then
 else
 echo "=== smoke $(date -u +%FT%TZ)"
 python -m eval.test.evaluate --smoke --verifiers-dir "$REG" \
-  --methods cafe variant_probe_direct variant_abduction direct_permutation causal_fuzzing shortcut_forged_fields shortcut_nonfinite_values shortcut_overbudget_bruteforce \
+  --methods cafe variant_probe_direct variant_abduction variant_full_adjust direct_permutation causal_fuzzing shortcut_forged_fields shortcut_nonfinite_values shortcut_overbudget_bruteforce \
   --scores "$RES/smoke_test.json" || { echo "SMOKE TEST FAILED"; exit 1; }
 python -m eval.train.evaluate --smoke --methods cafe direct_permutation causal_fuzzing --scores "$RES/smoke_train.json" \
   || { echo "SMOKE TRAIN FAILED"; exit 1; }

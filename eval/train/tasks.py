@@ -24,7 +24,7 @@ from eval.train.harness import build_task
 ARCHITECTURES = ("random_forest", "mlp", "gradient_boosting", "linear")
 N_TOTAL, N_AUDIT = 10_000, 3_500
 TASKS_PER_FAMILY = 12
-ADULT_TASKS, ADULT_TOTAL = 16, 15_000
+ADULT_TASKS, ADULT_TOTAL = 24, 15_000
 
 
 def _plan(smoke: bool):

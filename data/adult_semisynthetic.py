@@ -190,18 +190,40 @@ class AdultIncomeSCM:
 
     @staticmethod
     def draw_params(rng, control_active):
-        active = {"sex": True, "race": bool(control_active), "native_country": bool(rng.uniform() < 0.67)}
+        """Per-task path strengths of the prohibited attributes.
+
+        ``k[b]`` rescales the fitted real dependence of every downstream
+        attribute on ``b``; ``a[b][v]`` is an extra shift of random sign on
+        the path b -> v (logit units for binary attributes, residual-scale
+        units for counts), so mediated influences can partly cancel. sex (the
+        unlearning target) always has its real paths. race (the control) has
+        none unless ``control_active``, and then weak or strong paths; native
+        country has none, weak or strong paths with equal odds. "None" means
+        k = a = 0: no causal path to the audited model at all. Weak paths put
+        the residual influence near the verification threshold.
+        """
+
+        def strength(mode):
+            if mode == "target":
+                return float(rng.uniform(0.5, 1.5)), float(rng.uniform(0.0, 0.4))
+            if mode == "weak":
+                return float(rng.uniform(0.0, 0.35)), float(rng.uniform(0.0, 0.12))
+            if mode == "strong":
+                return float(rng.uniform(0.35, 2.0)), float(rng.uniform(0.0, 0.6))
+            return 0.0, 0.0
+
+        race_draw, country_draw = float(rng.uniform()), float(rng.uniform())
+        modes = {
+            "sex": "target",
+            "race": ("weak" if race_draw < 0.5 else "strong") if control_active else "none",
+            "native_country": "none" if country_draw < 1 / 3 else ("weak" if country_draw < 2 / 3 else "strong"),
+        }
         k, a = {}, {}
         for b in PROHIBITED:
-            if active[b]:
-                k[b] = float(rng.uniform(0.5, 1.5) if b == "sex" else rng.uniform(0.3, 2.5))
-                spread = float(rng.uniform(0.0, 0.6) if b == "sex" else rng.uniform(0.0, 1.0))
-                a[b] = {v: float(rng.normal(0.0, spread)) for v in DOWNSTREAM}
-            else:
-                k[b] = 0.0
-                a[b] = {v: 0.0 for v in DOWNSTREAM}
-        shift = {v: float(rng.uniform(-0.35, 0.35)) for v in DOWNSTREAM}
-        return {"k": k, "a": a, "shift": shift}
+            k[b], spread = strength(modes[b])
+            a[b] = {v: float(rng.normal(0.0, spread)) if spread > 0 else 0.0 for v in DOWNSTREAM}
+        shift = {v: float(rng.uniform(-0.25, 0.25)) for v in DOWNSTREAM}
+        return {"k": k, "a": a, "shift": shift, "modes": modes}
 
     @staticmethod
     def draw_noise(rng, n):
