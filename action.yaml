@@ -1,8 +1,6 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: submit
-gpus: 0
-test: false
+action: done
 milestone: secondary_claims
-notes: "Rescore with the multi-threshold Adult verdict: official reference scores rerun + validate, all cached hardening answers (test + train) rescored, ranking."
+notes: "Final hardening: added scored real-data experiment adult_feature_unlearning (UCI Adult, verdict primary, reference 0.953 with headroom to 0.972); better variants beat the reference beyond seed spread, all major shortcuts fail, shrink rule closed to a tie; validate passes."
