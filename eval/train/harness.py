@@ -57,8 +57,11 @@ DETECT_FRACTION = 0.10            # |estimate| >= 0.10 * scale counts as "influe
 POSITIVE_FRACTION = 0.20          # unlearned features with |truth| >= 0.20 * scale are positives
 GAP_FRACTION = 0.20               # subgroup indirect gaps >= 0.20 * subgroup scale are scored for capture
 SOLVED_FRACTION = 0.5             # efficiency credit needs total error <= 0.5 * the all-zero answer's
-VERDICT_CLEAR_FRACTION = 0.09     # verdict items: unlearned features with |truth| <= 9% of scale must pass ...
-VERDICT_RESIDUAL_FRACTION = 0.11  # ... and those with |truth| >= 11% must be flagged (flag: |estimate| >= 10%)
+# Verification verdicts are judged at several regulatory thresholds (fractions
+# of the task scale); a feature within VERDICT_MARGIN of a threshold is not
+# scored at that threshold.
+VERDICT_THRESHOLDS = (0.05, 0.10, 0.20, 0.30)
+VERDICT_MARGIN = 0.01
 # Verifier limits. CPU seconds per process (independent of machine load) is the
 # binding limit; the wall-clock backstop only ends verifiers that hang idle and
 # is ~50x the slowest registered verifier's run time.
@@ -161,8 +164,13 @@ def compute_truth(spec: dict, audit: pd.DataFrame, noise_audit: dict, scm, predi
         raise RuntimeError(f"{spec['task_id']}: degenerate task with no feature influence")
     positives = [f for f in spec["unlearned_features"] if abs(total[f]) >= POSITIVE_FRACTION * scale]
     negatives = [f for f in spec["unlearned_features"] if abs(total[f]) <= 1e-12 * scale]
-    verdict_residual = [f for f in spec["unlearned_features"] if abs(total[f]) >= VERDICT_RESIDUAL_FRACTION * scale]
-    verdict_clear = [f for f in spec["unlearned_features"] if abs(total[f]) <= VERDICT_CLEAR_FRACTION * scale]
+    verdict_residual, verdict_clear = [], []
+    for f in spec["unlearned_features"]:
+        for t in VERDICT_THRESHOLDS:
+            if abs(total[f]) >= (t + VERDICT_MARGIN) * scale:
+                verdict_residual.append([f, t])
+            elif abs(total[f]) <= (t - VERDICT_MARGIN) * scale:
+                verdict_clear.append([f, t])
 
     subgroup_scale = max([abs(total[f]) for f in spec.get("subgroup_features", [])] or [scale])
     subgroups = {}
@@ -507,14 +515,14 @@ def feature_record(task: Task, parsed: dict | None, used_rows: int = 0) -> dict:
     record["false_alarms"] = [
         1.0 if abs(est[f][0]) >= DETECT_FRACTION * scale else 0.0 for f in truth["negatives"]
     ]
-    # Verification verdict (paper Def. 4 / Problem 1): an unlearned feature is
-    # flagged as retaining influence when |reported total| >= 10% of scale.
-    # Correct when flagged for a true residual influence >= 11% of scale and
-    # not flagged for one <= 9% (only the razor-edge band in between is not
-    # scored, so influences near the threshold count).
-    flagged = {f: abs(est[f][0]) >= DETECT_FRACTION * scale for f in spec["unlearned_features"]}
-    record["verdict_residual"] = [1.0 if flagged[f] else 0.0 for f in truth.get("verdict_residual", [])]
-    record["verdict_clear"] = [0.0 if flagged[f] else 1.0 for f in truth.get("verdict_clear", [])]
+    # Verification verdicts (paper Def. 4 / Problem 1): at each threshold t an
+    # unlearned feature is flagged as retaining influence when |reported total|
+    # >= t * scale. Correct when flagged for a true influence >= (t + 1%) of
+    # scale and not flagged for one <= (t - 1%); influences near the
+    # thresholds count, only the razor-edge band around each is not scored.
+    flagged = lambda f, t: abs(est[f][0]) >= t * scale  # noqa: E731
+    record["verdict_residual"] = [1.0 if flagged(f, t) else 0.0 for f, t in truth.get("verdict_residual", [])]
+    record["verdict_clear"] = [0.0 if flagged(f, t) else 1.0 for f, t in truth.get("verdict_clear", [])]
     # Efficiency counts only on solved tasks: the total-effect error must be at
     # most half that of the trivial all-zero answer. One pass over the audit
     # rows is free (the audit sample size is fixed by the evaluator; querying

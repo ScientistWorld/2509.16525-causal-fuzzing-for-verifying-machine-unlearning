@@ -392,7 +392,7 @@
         "verdict_accuracy": {
           "higher_is_better": true,
           "coefficient": 1.0,
-          "description": "The unlearning verification decision (paper Def. 4 / Problem 1) for each prohibited attribute: the evaluator flags residual influence when the reported |total influence| is at least 10% of the task scale. Balanced accuracy, pooled over tasks: the mean of the hit rate on attributes whose true residual influence is at least 11% of scale and the pass rate on attributes whose true influence is at most 9% of scale (influences in between are not scored). Invalid answers count every item as wrong."
+          "description": "The unlearning verification decision (paper Def. 4 / Problem 1: effectively unlearned when the residual influence stays below a threshold) for each prohibited attribute, judged at the regulatory thresholds 5%, 10%, 20% and 30% of the task scale: at threshold t the evaluator flags residual influence when the reported |total influence| >= t * scale. Balanced accuracy pooled over tasks, attributes and thresholds: the mean of the hit rate on (attribute, threshold) pairs whose true influence is at least t + 1% of scale and the pass rate on pairs whose true influence is at most t - 1% (pairs within 1% of a threshold are not scored). Invalid answers count every pair as wrong."
         },
         "query_budget_fraction": {
           "higher_is_better": false,
