@@ -9,9 +9,10 @@ affects, using only predictions and a causal graph.
 ## Core Contribution
 Causal residual-influence estimation with a decomposition into direct and
 mediated effects. Improvements should make such a verifier more accurate
-(total, direct and mediated influence, subgroup differences), more robust
-across audited-model architectures and causal mechanisms, or cheaper in
-black-box queries at the same accuracy.
+(total, direct and mediated influence, subgroup differences, correct
+verdicts for residual influence near a decision threshold), more robust
+across audited-model architectures, causal mechanisms and real data, or
+cheaper in black-box queries at the same accuracy.
 
 ## Approach Scope
 Work within causal or intervention-aware verification under the given graph
@@ -25,4 +26,8 @@ query-efficient designs.
   from mediated influence.
 - Retraining or unlearning the model instead of verifying the given one.
 - Using knowledge of the task generators, fixed priors or published answer
-  patterns in place of measurement.
+  patterns in place of measurement (for example, assuming that some
+  prohibited attributes or controls have no influence, or zeroing small
+  estimates by a hand-set rule).
+- Reading the evaluator's source data (`data/downloads/`) or code at run
+  time.

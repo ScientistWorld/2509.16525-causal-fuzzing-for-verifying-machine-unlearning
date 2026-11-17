@@ -1,5 +1,11 @@
 # Progress
 
+## Final hardening, second pass (iteration 12)
+
+- REVIEW.md asked for a scored experiment on the paper's real datasets and headroom on the main metrics. Added `adult_feature_unlearning` (weight 0.25): 24 semi-synthetic tasks per slice on the real UCI Adult data (visible: `adult.data`, hidden: `adult.test`), with the paper's Adult causal graph, real root marginals and residuals, mechanisms fitted to the real rows, and per-task prohibited-path strengths (sex, race, native country) for exact ground truth. Primary metric `verdict_accuracy`: the unlearning verdict at thresholds 5/10/20/30% of scale.
+- Hidden test: CAFÉ verdict 0.953, rank 0.976 vs direct permutation 0.515 / 0.666; an equal-cost honest variant reaches 0.972. Better variants score above the reference by more than the seed spread (0.020); all major shortcuts fail; a new hand-set shrinkage shortcut was closed by redesigning the Adult tasks (now a tie within noise). `validate.py --post-design` passes. See `HARDENING.md`.
+- Verifier limit is now CPU time (load-independent), not wall-clock.
+
 ## Final hardening (iteration 11)
 
 - The gym was rebuilt around an evaluator-owned protocol. Hidden held-out SCM tasks live in `eval/test/`. Audited black-box models are reachable only through a counted oracle. Ground truth is exact, and every metric is recomputed from raw per-feature total/direct estimates. CAFÉ (`method/cafe.py`) and the baselines are verifiers in `scripts/verifiers/`.

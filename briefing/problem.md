@@ -22,13 +22,18 @@ outcome, a sample of observational audit rows, the unlearning targets, and
 prediction-only access to the audited model under a fixed query budget. It
 must report, for every feature, the total and the direct influence of a
 specified intervention on the model output (indirect = total − direct), and
-the same quantities within age subgroups where the task defines them.
+the same quantities within age subgroups where the task defines them. Tasks
+come from two semi-synthetic health and labour-market settings and from the
+real Adult Income census data, where a deployed income classifier must no
+longer use sex, race or national origin.
 
 ## Success Criteria
 
 An effective verifier estimates these influences accurately against exact
 ground truth on unseen task instances: it recovers the residual (largely
 mediated) influence of removed features, does not report influence for
-features that truly have none, separates direct from mediated influence,
+features that truly have none, reaches the right verdict on whether a
+removed feature's residual influence exceeds a regulator's threshold (also
+when it lies close to it), separates direct from mediated influence,
 identifies which subgroup retains more mediated influence, and does so with
 few black-box queries.

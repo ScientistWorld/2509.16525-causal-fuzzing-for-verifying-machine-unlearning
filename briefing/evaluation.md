@@ -7,11 +7,20 @@ interface and the metrics only; how to estimate the quantities is up to you.
 
 The evaluator owns everything on the far side of the comparison. For every
 task it samples data from a structural causal model over a fixed causal graph,
-trains the audited black-box model (with the unlearning target, and a control
-feature, removed from its inputs — or, in some tasks, the target's direct
-input left in place: a failed unlearning), fixes the two intervention values
-per feature, the query budget and the exact ground truth, then runs every
-registered verifier as a separate process.
+trains the audited black-box model (with the unlearning target, and one or
+two other unlearned features, removed from its inputs — or, in some tasks,
+the target's direct input left in place: a failed unlearning), fixes the two
+intervention values per feature, the query budget and the exact ground
+truth, then runs every registered verifier as a separate process.
+
+Three task families are scored. Heart-Disease and Performance are
+semi-synthetic families over the paper's two causal graphs. Adult-Income is
+built on the real UCI Adult Income data (fetched by `scripts/download.sh`):
+root attributes and the noise of the count attributes come from real rows,
+the structural mechanisms are fitted to the real rows, and only the strength
+of the prohibited attributes' paths is set per task, so that exact ground
+truth exists. The visible slice uses the UCI training file, the hidden slice
+the UCI test file and different mechanism models.
 
 - **Verifiers.** Any executable `scripts/verifiers/<name>.sh` is a verifier;
   it is called as `bash <name>.sh <tasks_dir> <answers.json>`. No method name
@@ -47,7 +56,12 @@ registered verifier as a separate process.
 
 `heart_disease_feature_unlearning` and `performance_feature_unlearning`
 (12 tasks each per slice; varied coefficients, audited-model architectures,
-controls with and without a residual path, some failed unlearnings):
+controls with and without a residual path, some failed unlearnings) and
+`adult_feature_unlearning` (24 tasks per slice; real-data Adult-Income
+family, audited income classifiers whose output is the predicted probability
+of income > 50K; the unlearned features are the prohibited attributes sex,
+race and native country, whose residual paths are absent, near the decision
+thresholds or strong, varying across tasks):
 
 - `total_effect_nmae`, `indirect_effect_nmae`, `direct_effect_nmae` (lower is
   better): mean absolute error of every feature's total, indirect
@@ -65,6 +79,14 @@ controls with and without a residual path, some failed unlearnings):
   free (value 0.5), so only querying beyond one pass costs. A task counts as
   1.0 unless its total-effect error is at most half that of the all-zero
   answer.
+- `verdict_accuracy` (higher; `adult_feature_unlearning` only, primary): the
+  unlearning verification decision for each unlearned feature at the
+  thresholds 5%, 10%, 20% and 30% of the task scale — the evaluator flags
+  residual influence at threshold t when the reported |total| ≥ t × scale.
+  Balanced accuracy: the mean of the hit rate on (feature, threshold) pairs
+  whose true influence is at least t + 1% of scale and the pass rate on pairs
+  whose true influence is at most t − 1% (pairs within 1% of a threshold are
+  not scored).
 
 `heart_disease_subgroup_unlearning` (the 12 Heart-Disease tasks): for BMI and
 blood pressure, total and direct influence within age > 50 and age ≤ 50.

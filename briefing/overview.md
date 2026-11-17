@@ -13,4 +13,5 @@ The paper argues that conventional feature-attribution and fairness tests can mi
 
 - On the Heart-Disease semi-synthetic setting, the paper reports that smoking is the most influential feature under ground truth and CAFÉ, while conventional baselines rank it near the bottom.
 - On the Performance setting, standard fairness metrics and direct checks miss substantial mediated influence for gender after direct unlearning.
+- On the real Adult Income data (causal graph from Chiappa 2019), CAFÉ ranks education, sex and age as the top influences across logistic, random-forest and neural-network models, where FairTest understates sex and SHAP / permutation importance overstate marital status's direct role.
 - Table 3 reports CAFÉ running in roughly 0.026-0.030 seconds across LR, RF, and NN settings, much faster than causal fuzzing and most attribution baselines.
