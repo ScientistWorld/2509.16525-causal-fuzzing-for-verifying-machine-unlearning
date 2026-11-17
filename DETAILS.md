@@ -13,6 +13,7 @@ The paper argues that conventional feature-attribution and fairness tests can mi
 
 - On the Heart-Disease semi-synthetic setting, the paper reports that smoking is the most influential feature under ground truth and CAFÉ, while conventional baselines rank it near the bottom.
 - On the Performance setting, standard fairness metrics and direct checks miss substantial mediated influence for gender after direct unlearning.
+- On the real Adult Income data (causal graph from Chiappa 2019), CAFÉ ranks education, sex and age as the top influences across logistic, random-forest and neural-network models, where FairTest understates sex and SHAP / permutation importance overstate marital status's direct role.
 - Table 3 reports CAFÉ running in roughly 0.026-0.030 seconds across LR, RF, and NN settings, much faster than causal fuzzing and most attribution baselines.
 
 ---
@@ -41,14 +42,19 @@ outcome, a sample of observational audit rows, the unlearning targets, and
 prediction-only access to the audited model under a fixed query budget. It
 must report, for every feature, the total and the direct influence of a
 specified intervention on the model output (indirect = total − direct), and
-the same quantities within age subgroups where the task defines them.
+the same quantities within age subgroups where the task defines them. Tasks
+come from two semi-synthetic health and labour-market settings and from the
+real Adult Income census data, where a deployed income classifier must no
+longer use sex, race or national origin.
 
 ## Success Criteria
 
 An effective verifier estimates these influences accurately against exact
 ground truth on unseen task instances: it recovers the residual (largely
 mediated) influence of removed features, does not report influence for
-features that truly have none, separates direct from mediated influence,
+features that truly have none, reaches the right verdict on whether a
+removed feature's residual influence exceeds a regulator's threshold (also
+when it lies close to it), separates direct from mediated influence,
 identifies which subgroup retains more mediated influence, and does so with
 few black-box queries.
 
@@ -85,11 +91,20 @@ interface and the metrics only; how to estimate the quantities is up to you.
 
 The evaluator owns everything on the far side of the comparison. For every
 task it samples data from a structural causal model over a fixed causal graph,
-trains the audited black-box model (with the unlearning target, and a control
-feature, removed from its inputs — or, in some tasks, the target's direct
-input left in place: a failed unlearning), fixes the two intervention values
-per feature, the query budget and the exact ground truth, then runs every
-registered verifier as a separate process.
+trains the audited black-box model (with the unlearning target, and one or
+two other unlearned features, removed from its inputs — or, in some tasks,
+the target's direct input left in place: a failed unlearning), fixes the two
+intervention values per feature, the query budget and the exact ground
+truth, then runs every registered verifier as a separate process.
+
+Three task families are scored. Heart-Disease and Performance are
+semi-synthetic families over the paper's two causal graphs. Adult-Income is
+built on the real UCI Adult Income data (fetched by `scripts/download.sh`):
+root attributes and the noise of the count attributes come from real rows,
+the structural mechanisms are fitted to the real rows, and only the strength
+of the prohibited attributes' paths is set per task, so that exact ground
+truth exists. The visible slice uses the UCI training file, the hidden slice
+the UCI test file and different mechanism models.
 
 - **Verifiers.** Any executable `scripts/verifiers/<name>.sh` is a verifier;
   it is called as `bash <name>.sh <tasks_dir> <answers.json>`. No method name
@@ -125,7 +140,12 @@ registered verifier as a separate process.
 
 `heart_disease_feature_unlearning` and `performance_feature_unlearning`
 (12 tasks each per slice; varied coefficients, audited-model architectures,
-controls with and without a residual path, some failed unlearnings):
+controls with and without a residual path, some failed unlearnings) and
+`adult_feature_unlearning` (24 tasks per slice; real-data Adult-Income
+family, audited income classifiers whose output is the predicted probability
+of income > 50K; the unlearned features are the prohibited attributes sex,
+race and native country, whose residual paths are absent, near the decision
+thresholds or strong, varying across tasks):
 
 - `total_effect_nmae`, `indirect_effect_nmae`, `direct_effect_nmae` (lower is
   better): mean absolute error of every feature's total, indirect
@@ -143,6 +163,14 @@ controls with and without a residual path, some failed unlearnings):
   free (value 0.5), so only querying beyond one pass costs. A task counts as
   1.0 unless its total-effect error is at most half that of the all-zero
   answer.
+- `verdict_accuracy` (higher; `adult_feature_unlearning` only, primary): the
+  unlearning verification decision for each unlearned feature at the
+  thresholds 5%, 10%, 20% and 30% of the task scale — the evaluator flags
+  residual influence at threshold t when the reported |total| ≥ t × scale.
+  Balanced accuracy: the mean of the hit rate on (feature, threshold) pairs
+  whose true influence is at least t + 1% of scale and the pass rate on pairs
+  whose true influence is at most t − 1% (pairs within 1% of a threshold are
+  not scored).
 
 `heart_disease_subgroup_unlearning` (the 12 Heart-Disease tasks): for BMI and
 blood pressure, total and direct influence within age > 50 and age ≤ 50.
@@ -474,6 +502,30 @@ by that metric's spread across ranked attempts.
 - **Milestone**: `secondary_claims` | **Status**: done
 - **Working time**: 23m | **GPU**: 0.0h
 - **Jobs**: 6 total (4 completed, 0 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-31 16:12] - none
+- Audited the existing scaffold and found that the previous CAFÉ estimator used adjusted regression coefficients rather than the paper's expected-prediction contrast.
+- Replaced the CAFÉ path with a backdoor/mediator-conditioned expected prediction contrast estimator and submitted a fresh CPU job to verify it end-to-end.
+
+### [2026-05-31 16:16] - core_claim_plus
+- CPU job `8970ea62-4e7` completed successfully with the patched CAFÉ estimator.
+- Reproduced the core claim on Heart-Disease and Performance feature-unlearning settings: CAFÉ detected mediated residual influence while direct permutation ranked the omitted target feature last.
+- The secondary subgroup experiment regressed after the estimator fix, so the Heart-Disease generator and scale-aware subgroup constraint were patched and another CPU job is being submitted.
+
+### [2026-05-31 16:20] - secondary_claims
+- CPU job `5a7287c3-8f1` completed successfully after the subgroup-generator patch.
+- `python validate.py --compare` passes in the scheduler container.
+- Reproduced the core feature-unlearning claim on two semi-synthetic settings and the secondary Heart-Disease subgroup-unlearning claim: CAFÉ detects an age-subgroup mediated BMI gap while preserving the direct-gap constraint, whereas direct permutation reports no mediated gap.
+
+</details>
+
+### Iteration 11: claude-opus-5-5 (hardener)
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 57m | **GPU**: 0.0h
+- **Jobs**: 11 total (7 completed, 0 failed)
 
 <details>
 <summary>Progress Log</summary>

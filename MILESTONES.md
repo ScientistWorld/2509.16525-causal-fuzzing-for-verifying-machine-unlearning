@@ -20,7 +20,3 @@
 
 ## Stop Justification
 - Completed at milestone `secondary_claims`.
-
-### [2026-11-17] - secondary_claims
-- Final hardening (second pass): added the scored real-data experiment `adult_feature_unlearning` on UCI Adult (the paper's real-data evaluation, semi-synthetic only where exact ground truth requires it), with the reference and both baselines run on it. CAFÉ detects the removed attributes' mediated influence on real data (residual capture 1.0, verdict 0.953) where direct-only attribution fails (0.04 / 0.51). Unscored paper claims remain (German, Drug, graph misspecification, multi-feature), so the milestone stays `secondary_claims`.
-
