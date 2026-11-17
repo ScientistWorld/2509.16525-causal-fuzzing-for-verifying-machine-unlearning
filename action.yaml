@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Final hardening run (Adult v4): official reference scores + validate first, then all hardening verifiers through hidden test and train, ranking."
+notes: "Rescore with the multi-threshold Adult verdict: official reference scores rerun + validate, all cached hardening answers (test + train) rescored, ranking."

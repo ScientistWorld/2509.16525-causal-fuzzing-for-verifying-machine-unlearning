@@ -1,103 +1,103 @@
-## cohort all_hardening_runs: reference seed spread = 0.0360
+## cohort all_hardening_runs: reference seed spread = 0.0200
 | method | rank score vs cafe | paired 95% CI | failed tasks |
 |---|---:|---|---:|
-| variant_abduction_half | +0.2743 | [+0.100, +0.437] | 0 |
+| variant_abduction_half | +0.2886 | [+0.111, +0.451] | 0 |
 | variant_hgb | +0.1398 | [-0.028, +0.292] | 0 |
 | shortcut_cafe_zero_direct_gap | +0.1357 | [+0.019, +0.255] | 0 |
-| variant_full_adjust | +0.0188 | [-0.023, +0.062] | 0 |
+| variant_full_adjust | +0.0510 | [+0.011, +0.093] | 0 |
+| shortcut_cafe_shrink_unlearned | +0.0046 | [-0.029, +0.036] | 0 |
 | cafe | +0.0000 | - | 0 |
 | shortcut_forged_fields | +0.0000 | [+0.000, +0.000] | 0 |
 | shortcut_scores_file_forgery | +0.0000 | [+0.000, +0.000] | 0 |
-| cafe_seed11 | -0.0079 | [-0.026, +0.007] | 0 |
-| shortcut_cafe_shrink_unlearned | -0.0226 | [-0.062, +0.007] | 0 |
-| cafe_seed19 | -0.0360 | [-0.077, -0.006] | 0 |
+| cafe_seed11 | -0.0079 | [-0.027, +0.010] | 0 |
+| cafe_seed19 | -0.0200 | [-0.043, +0.000] | 0 |
 | shortcut_cafe_constant_subgroup | -0.1046 | [-0.304, +0.089] | 0 |
-| variant_cafe_half_rows | -0.1237 | [-0.271, +0.007] | 0 |
+| variant_cafe_half_rows | -0.1051 | [-0.234, +0.011] | 0 |
 | shortcut_cafe_prior_subgroup | -0.1248 | [-0.346, +0.082] | 0 |
 | shortcut_direct_retention_claim | -0.2686 | [-0.280, -0.257] | 0 |
-| shortcut_cafe_assume_unlearned | -0.6896 | [-0.812, -0.538] | 0 |
-| variant_abduction | -1.4015 | [-1.572, -1.231] | 0 |
+| shortcut_cafe_assume_unlearned | -0.6540 | [-0.781, -0.501] | 0 |
+| variant_abduction | -1.3913 | [-1.568, -1.223] | 0 |
 | variant_no_backdoor | -1.5673 | [-1.911, -1.242] | 0 |
-| causal_fuzzing | -1.6001 | [-1.818, -1.401] | 0 |
-| variant_probe_direct | -1.6773 | [-1.717, -1.641] | 0 |
-| shortcut_constant_answers | -4.3387 | [-4.645, -4.008] | 0 |
-| shortcut_flag_all_unlearned | -4.5053 | [-4.735, -4.251] | 0 |
-| variant_direct_only | -4.8230 | [-4.957, -4.681] | 0 |
-| direct_permutation | -5.0173 | [-5.168, -4.861] | 0 |
-| shortcut_zero_output | -6.0483 | [-6.180, -5.906] | 0 |
-| shortcut_rescale_units | -11.6746 | [-11.804, -11.539] | 0 |
-| shortcut_drop_features | -15.3974 | - | 48 |
-| shortcut_nonfinite_values | -15.3974 | - | 48 |
-| shortcut_overbudget_bruteforce | -15.3974 | - | 48 |
+| causal_fuzzing | -1.5712 | [-1.778, -1.383] | 0 |
+| variant_probe_direct | -1.6736 | [-1.714, -1.638] | 0 |
+| shortcut_constant_answers | -4.3068 | [-4.616, -3.973] | 0 |
+| shortcut_flag_all_unlearned | -4.4856 | [-4.714, -4.230] | 0 |
+| variant_direct_only | -4.8010 | [-4.937, -4.655] | 0 |
+| direct_permutation | -5.0031 | [-5.157, -4.848] | 0 |
+| shortcut_zero_output | -6.0286 | [-6.165, -5.884] | 0 |
+| shortcut_rescale_units | -11.6549 | [-11.785, -11.522] | 0 |
+| shortcut_drop_features | -15.3958 | - | 48 |
+| shortcut_nonfinite_values | -15.3958 | - | 48 |
+| shortcut_overbudget_bruteforce | -15.3958 | - | 48 |
 
-## cohort honest_runs: reference seed spread = 0.0700
+## cohort honest_runs: reference seed spread = 0.0395
 | method | rank score vs cafe | paired 95% CI | failed tasks |
 |---|---:|---|---:|
-| variant_abduction_half | +1.6524 | [+1.196, +2.106] | 0 |
+| variant_abduction_half | +1.6790 | [+1.234, +2.142] | 0 |
 | variant_hgb | +0.8365 | [+0.490, +1.179] | 0 |
-| variant_full_adjust | +0.3031 | [+0.161, +0.450] | 0 |
-| variant_abduction | +0.0347 | [-0.423, +0.483] | 0 |
-| cafe_seed11 | +0.0152 | [-0.050, +0.074] | 0 |
+| variant_full_adjust | +0.3652 | [+0.220, +0.516] | 0 |
+| variant_abduction | +0.0544 | [-0.402, +0.515] | 0 |
+| cafe_seed11 | +0.0152 | [-0.054, +0.077] | 0 |
 | cafe | +0.0000 | - | 0 |
-| cafe_seed19 | -0.0547 | [-0.152, +0.023] | 0 |
-| causal_fuzzing | -1.1344 | [-1.806, -0.502] | 0 |
-| variant_cafe_half_rows | -1.1523 | [-2.803, -0.144] | 0 |
-| variant_probe_direct | -1.1900 | [-1.355, -1.017] | 0 |
+| cafe_seed19 | -0.0243 | [-0.090, +0.037] | 0 |
+| causal_fuzzing | -1.0801 | [-1.737, -0.457] | 0 |
+| variant_cafe_half_rows | -1.1174 | [-2.713, -0.138] | 0 |
+| variant_probe_direct | -1.1828 | [-1.347, -1.015] | 0 |
 | variant_no_backdoor | -5.3569 | [-6.021, -4.738] | 0 |
-| direct_permutation | -9.4151 | [-9.864, -8.928] | 0 |
-| variant_direct_only | -10.2542 | [-10.688, -9.810] | 0 |
+| direct_permutation | -9.4038 | [-9.851, -8.928] | 0 |
+| variant_direct_only | -10.2286 | [-10.652, -9.789] | 0 |
 
 ## each shortcut ranked in a cohort of the honest runs plus that shortcut
 | shortcut | rank score vs cafe | paired 95% CI |
 |---|---:|---|
 | shortcut_cafe_zero_direct_gap | +0.0390 | [-0.269, +0.349] |
+| shortcut_cafe_shrink_unlearned | +0.0284 | [-0.072, +0.122] |
 | shortcut_forged_fields | +0.0000 | [+0.000, +0.000] |
 | shortcut_scores_file_forgery | +0.0000 | [+0.000, +0.000] |
-| shortcut_cafe_shrink_unlearned | -0.0252 | [-0.131, +0.061] |
 | shortcut_cafe_constant_subgroup | -0.0868 | [-0.512, +0.379] |
 | shortcut_cafe_prior_subgroup | -0.2160 | [-0.820, +0.369] |
-| shortcut_cafe_assume_unlearned | -1.3426 | [-1.618, -1.029] |
+| shortcut_cafe_assume_unlearned | -1.2826 | [-1.566, -0.969] |
 | shortcut_direct_retention_claim | -2.4612 | [-2.580, -2.338] |
-| shortcut_flag_all_unlearned | -9.6161 | [-10.041, -9.143] |
-| shortcut_constant_answers | -9.6484 | [-10.355, -8.921] |
-| shortcut_zero_output | -12.2150 | [-12.589, -11.812] |
-| shortcut_rescale_units | -15.9694 | [-16.137, -15.799] |
-| shortcut_drop_features | -18.9324 | - |
-| shortcut_nonfinite_values | -18.9324 | - |
-| shortcut_overbudget_bruteforce | -18.9324 | - |
+| shortcut_constant_answers | -9.5954 | [-10.296, -8.859] |
+| shortcut_flag_all_unlearned | -9.5976 | [-10.026, -9.113] |
+| shortcut_zero_output | -12.1966 | [-12.573, -11.793] |
+| shortcut_rescale_units | -15.9510 | [-16.123, -15.776] |
+| shortcut_drop_features | -18.9282 | - |
+| shortcut_nonfinite_values | -18.9282 | - |
+| shortcut_overbudget_bruteforce | -18.9282 | - |
 
 ## raw test metrics
 ### adult_feature_unlearning
 | method | total_effect_nmae | indirect_effect_nmae | direct_effect_nmae | rank_spearman | residual_capture | false_alarm_rate | verdict_accuracy | query_budget_fraction |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| cafe | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| cafe_seed11 | 0.0369 | 0.0349 | 0.0292 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| cafe_seed19 | 0.0365 | 0.0356 | 0.0294 | 0.9783 | 1.0000 | 0.0000 | 0.9792 | 0.5000 |
-| causal_fuzzing | 0.0991 | 0.0966 | 0.0125 | 0.9436 | 0.9738 | 0.0000 | 0.9375 | 0.9978 |
-| direct_permutation | 0.1644 | 0.1609 | 0.0079 | 0.6664 | 0.0361 | 0.0000 | 0.5222 | 0.9977 |
-| shortcut_cafe_assume_unlearned | 0.0673 | 0.0656 | 0.0289 | 0.8806 | 0.5854 | 0.0000 | 0.7667 | 0.5000 |
-| shortcut_cafe_constant_subgroup | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| shortcut_cafe_prior_subgroup | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| shortcut_cafe_shrink_unlearned | 0.0377 | 0.0360 | 0.0291 | 0.9800 | 1.0000 | 0.0000 | 0.9667 | 0.5000 |
-| shortcut_cafe_zero_direct_gap | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| shortcut_constant_answers | 1.1500 | 0.3213 | 0.9543 | 0.4539 | 0.0000 | 0.0000 | 0.7667 | 1.0000 |
-| shortcut_direct_retention_claim | 0.0373 | 0.1236 | 0.1282 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
+| cafe | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| cafe_seed11 | 0.0369 | 0.0349 | 0.0292 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| cafe_seed19 | 0.0365 | 0.0356 | 0.0294 | 0.9783 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| causal_fuzzing | 0.0991 | 0.0966 | 0.0125 | 0.9436 | 0.9738 | 0.0000 | 0.9293 | 0.9978 |
+| direct_permutation | 0.1644 | 0.1609 | 0.0079 | 0.6664 | 0.0361 | 0.0000 | 0.5145 | 0.9977 |
+| shortcut_cafe_assume_unlearned | 0.0673 | 0.0656 | 0.0289 | 0.8806 | 0.5854 | 0.0000 | 0.7746 | 0.5000 |
+| shortcut_cafe_constant_subgroup | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| shortcut_cafe_prior_subgroup | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| shortcut_cafe_shrink_unlearned | 0.0377 | 0.0360 | 0.0291 | 0.9800 | 1.0000 | 0.0000 | 0.9550 | 0.5000 |
+| shortcut_cafe_zero_direct_gap | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| shortcut_constant_answers | 1.1500 | 0.3213 | 0.9543 | 0.4539 | 0.0000 | 0.0000 | 0.7700 | 1.0000 |
+| shortcut_direct_retention_claim | 0.0373 | 0.1236 | 0.1282 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
 | shortcut_drop_features | 2.0000 | 2.0000 | 2.0000 | -1.0000 | 0.0000 | 1.0000 | 0.0000 | 1.0000 |
 | shortcut_flag_all_unlearned | 0.2723 | 0.2717 | 0.0283 | 0.3348 | 0.6313 | 1.0000 | 0.5000 | 0.9375 |
-| shortcut_forged_fields | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
+| shortcut_forged_fields | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
 | shortcut_nonfinite_values | 2.0000 | 2.0000 | 2.0000 | -1.0000 | 0.0000 | 1.0000 | 0.0000 | 1.0000 |
 | shortcut_overbudget_bruteforce | 2.0000 | 2.0000 | 2.0000 | -1.0000 | 0.0000 | 1.0000 | 0.0000 | 1.0000 |
 | shortcut_rescale_units | 1.9923 | 1.7339 | 1.7548 | 0.9762 | 0.0000 | 1.0000 | 0.5000 | 1.0000 |
-| shortcut_scores_file_forgery | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
+| shortcut_scores_file_forgery | 0.0373 | 0.0356 | 0.0294 | 0.9762 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
 | shortcut_zero_output | 0.4184 | 0.1609 | 0.2632 | 0.0000 | 0.0000 | 0.0000 | 0.5000 | 1.0000 |
-| variant_abduction | 0.0376 | 0.0335 | 0.0125 | 0.9752 | 1.0000 | 0.0000 | 0.9889 | 0.9977 |
-| variant_abduction_half | 0.0440 | 0.0348 | 0.0180 | 0.9689 | 1.0000 | 0.0000 | 0.9583 | 0.5000 |
-| variant_cafe_half_rows | 0.0498 | 0.0488 | 0.0373 | 0.9505 | 1.0000 | 0.0714 | 0.9583 | 0.5000 |
-| variant_direct_only | 0.1723 | 0.1609 | 0.0294 | 0.6925 | 0.0085 | 0.0000 | 0.5000 | 0.5000 |
-| variant_full_adjust | 0.0341 | 0.0326 | 0.0280 | 0.9731 | 1.0000 | 0.0000 | 0.9778 | 0.5000 |
-| variant_hgb | 0.0305 | 0.0284 | 0.0130 | 0.9818 | 1.0000 | 0.0000 | 1.0000 | 0.5000 |
-| variant_no_backdoor | 0.2388 | 0.0645 | 0.1875 | 0.6674 | 1.0000 | 0.0000 | 1.0000 | 0.9167 |
-| variant_probe_direct | 0.0394 | 0.0356 | 0.0132 | 0.9710 | 1.0000 | 0.0000 | 1.0000 | 0.9989 |
+| variant_abduction | 0.0376 | 0.0335 | 0.0125 | 0.9752 | 1.0000 | 0.0000 | 0.9551 | 0.9977 |
+| variant_abduction_half | 0.0440 | 0.0348 | 0.0180 | 0.9689 | 1.0000 | 0.0000 | 0.9310 | 0.5000 |
+| variant_cafe_half_rows | 0.0498 | 0.0488 | 0.0373 | 0.9505 | 1.0000 | 0.0714 | 0.9363 | 0.5000 |
+| variant_direct_only | 0.1723 | 0.1609 | 0.0294 | 0.6925 | 0.0085 | 0.0000 | 0.5029 | 0.5000 |
+| variant_full_adjust | 0.0341 | 0.0326 | 0.0280 | 0.9731 | 1.0000 | 0.0000 | 0.9718 | 0.5000 |
+| variant_hgb | 0.0305 | 0.0284 | 0.0130 | 0.9818 | 1.0000 | 0.0000 | 0.9529 | 0.5000 |
+| variant_no_backdoor | 0.2388 | 0.0645 | 0.1875 | 0.6674 | 1.0000 | 0.0000 | 0.9529 | 0.9167 |
+| variant_probe_direct | 0.0394 | 0.0356 | 0.0132 | 0.9710 | 1.0000 | 0.0000 | 0.9575 | 0.9989 |
 
 ### heart_disease_feature_unlearning
 | method | total_effect_nmae | indirect_effect_nmae | direct_effect_nmae | rank_spearman | residual_capture | false_alarm_rate | query_budget_fraction |
@@ -225,19 +225,19 @@
 ### adult_feature_unlearning
 | method | total_effect_nmae train/test | indirect_effect_nmae train/test | direct_effect_nmae train/test | rank_spearman train/test | residual_capture train/test | false_alarm_rate train/test | verdict_accuracy train/test | query_budget_fraction train/test |
 |---|---|---|---|---|---|---|---|---|
-| cafe | 0.034/0.037 | 0.033/0.036 | 0.026/0.029 | 0.972/0.976 | 1.000/1.000 | 0.000/0.000 | 0.859/1.000 | 0.500/0.500 |
-| cafe_seed11 | 0.035/0.037 | 0.033/0.035 | 0.026/0.029 | 0.973/0.976 | 1.000/1.000 | 0.000/0.000 | 0.870/1.000 | 0.500/0.500 |
-| cafe_seed19 | 0.035/0.037 | 0.034/0.036 | 0.026/0.029 | 0.970/0.978 | 1.000/1.000 | 0.000/0.000 | 0.859/0.979 | 0.500/0.500 |
-| causal_fuzzing | 0.090/0.099 | 0.090/0.097 | 0.012/0.013 | 0.953/0.944 | 0.983/0.974 | 0.083/0.000 | 0.870/0.938 | 0.998/0.998 |
-| direct_permutation | 0.171/0.164 | 0.169/0.161 | 0.008/0.008 | 0.704/0.666 | 0.034/0.036 | 0.000/0.000 | 0.533/0.522 | 0.998/0.998 |
-| variant_abduction | 0.036/0.038 | 0.029/0.034 | 0.012/0.013 | 0.974/0.975 | 1.000/1.000 | 0.000/0.000 | 0.946/0.989 | 0.998/0.998 |
-| variant_abduction_half | 0.040/0.044 | 0.031/0.035 | 0.019/0.018 | 0.962/0.969 | 1.000/1.000 | 0.000/0.000 | 0.902/0.958 | 0.500/0.500 |
-| variant_cafe_half_rows | 0.052/0.050 | 0.048/0.049 | 0.033/0.037 | 0.959/0.950 | 1.000/1.000 | 0.000/0.071 | 0.859/0.958 | 0.500/0.500 |
-| variant_direct_only | 0.174/0.172 | 0.169/0.161 | 0.026/0.029 | 0.747/0.692 | 0.011/0.009 | 0.000/0.000 | 0.500/0.500 | 0.500/0.500 |
-| variant_full_adjust | 0.030/0.034 | 0.031/0.033 | 0.025/0.028 | 0.971/0.973 | 1.000/1.000 | 0.000/0.000 | 0.913/0.978 | 0.500/0.500 |
-| variant_hgb | 0.027/0.030 | 0.026/0.028 | 0.012/0.013 | 0.974/0.982 | 1.000/1.000 | 0.000/0.000 | 0.859/1.000 | 0.500/0.500 |
-| variant_no_backdoor | 0.233/0.239 | 0.063/0.065 | 0.184/0.187 | 0.645/0.667 | 1.000/1.000 | 0.000/0.000 | 0.859/1.000 | 0.854/0.917 |
-| variant_probe_direct | 0.037/0.039 | 0.033/0.036 | 0.011/0.013 | 0.968/0.971 | 1.000/1.000 | 0.000/0.000 | 0.880/1.000 | 0.999/0.999 |
+| cafe | 0.034/0.037 | 0.033/0.036 | 0.026/0.029 | 0.972/0.976 | 1.000/1.000 | 0.000/0.000 | 0.938/0.953 | 0.500/0.500 |
+| cafe_seed11 | 0.035/0.037 | 0.033/0.035 | 0.026/0.029 | 0.973/0.976 | 1.000/1.000 | 0.000/0.000 | 0.935/0.953 | 0.500/0.500 |
+| cafe_seed19 | 0.035/0.037 | 0.034/0.036 | 0.026/0.029 | 0.970/0.978 | 1.000/1.000 | 0.000/0.000 | 0.935/0.953 | 0.500/0.500 |
+| causal_fuzzing | 0.090/0.099 | 0.090/0.097 | 0.012/0.013 | 0.953/0.944 | 0.983/0.974 | 0.083/0.000 | 0.899/0.929 | 0.998/0.998 |
+| direct_permutation | 0.171/0.164 | 0.169/0.161 | 0.008/0.008 | 0.704/0.666 | 0.034/0.036 | 0.000/0.000 | 0.527/0.514 | 0.998/0.998 |
+| variant_abduction | 0.036/0.038 | 0.029/0.034 | 0.012/0.013 | 0.974/0.975 | 1.000/1.000 | 0.000/0.000 | 0.962/0.955 | 0.998/0.998 |
+| variant_abduction_half | 0.040/0.044 | 0.031/0.035 | 0.019/0.018 | 0.962/0.969 | 1.000/1.000 | 0.000/0.000 | 0.936/0.931 | 0.500/0.500 |
+| variant_cafe_half_rows | 0.052/0.050 | 0.048/0.049 | 0.033/0.037 | 0.959/0.950 | 1.000/1.000 | 0.000/0.071 | 0.916/0.936 | 0.500/0.500 |
+| variant_direct_only | 0.174/0.172 | 0.169/0.161 | 0.026/0.029 | 0.747/0.692 | 0.011/0.009 | 0.000/0.000 | 0.503/0.503 | 0.500/0.500 |
+| variant_full_adjust | 0.030/0.034 | 0.031/0.033 | 0.025/0.028 | 0.971/0.973 | 1.000/1.000 | 0.000/0.000 | 0.947/0.972 | 0.500/0.500 |
+| variant_hgb | 0.027/0.030 | 0.026/0.028 | 0.012/0.013 | 0.974/0.982 | 1.000/1.000 | 0.000/0.000 | 0.927/0.953 | 0.500/0.500 |
+| variant_no_backdoor | 0.233/0.239 | 0.063/0.065 | 0.184/0.187 | 0.645/0.667 | 1.000/1.000 | 0.000/0.000 | 0.938/0.953 | 0.854/0.917 |
+| variant_probe_direct | 0.037/0.039 | 0.033/0.036 | 0.011/0.013 | 0.968/0.971 | 1.000/1.000 | 0.000/0.000 | 0.939/0.958 | 0.999/0.999 |
 
 ### heart_disease_feature_unlearning
 | method | total_effect_nmae train/test | indirect_effect_nmae train/test | direct_effect_nmae train/test | rank_spearman train/test | residual_capture train/test | false_alarm_rate train/test | query_budget_fraction train/test |

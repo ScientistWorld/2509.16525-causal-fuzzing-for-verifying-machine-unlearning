@@ -34,7 +34,7 @@
           "rank_spearman": 0.9720395127178042,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.034216562840339776,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9378038469668146
         },
         "causal_fuzzing": {
           "direct_effect_nmae": 0.011865861890870598,
@@ -44,7 +44,7 @@
           "rank_spearman": 0.9525921565438411,
           "residual_capture": 0.9831820344235225,
           "total_effect_nmae": 0.09042065681738617,
-          "verdict_accuracy": 0.8695652173913043
+          "verdict_accuracy": 0.8994398647220461
         },
         "direct_permutation": {
           "direct_effect_nmae": 0.008207755621102127,
@@ -54,7 +54,7 @@
           "rank_spearman": 0.703842861565116,
           "residual_capture": 0.033958731671346665,
           "total_effect_nmae": 0.1708068564752916,
-          "verdict_accuracy": 0.532608695652174
+          "verdict_accuracy": 0.5271084337349398
         }
       }
     },

@@ -34,43 +34,43 @@
    "paired_bootstrap_vs_reference": {
     "cafe_seed11": {
      "ci95": [
-      -0.0256142878003913,
-      0.006503949212958446
+      -0.027455486420044837,
+      0.009640401803056954
      ],
-     "p_not_better": 0.838,
+     "p_not_better": 0.799,
      "point": -0.007875214290107464
     },
     "cafe_seed19": {
      "ci95": [
-      -0.07696143845744641,
-      -0.005615567691504941
+      -0.04342503159957639,
+      0.00039556103720578864
      ],
-     "p_not_better": 0.9925,
-     "point": -0.03600080680188225
+     "p_not_better": 0.971,
+     "point": -0.02004559596301149
     },
     "causal_fuzzing": {
      "ci95": [
-      -1.8179160271571073,
-      -1.401226800478318
+      -1.7783522352960972,
+      -1.3831309988858598
      ],
      "p_not_better": 1.0,
-     "point": -1.6001010986158803
+     "point": -1.57118423987097
     },
     "direct_permutation": {
      "ci95": [
-      -5.167954761575116,
-      -4.861444710764002
+      -5.156892313384465,
+      -4.848492344821748
      ],
      "p_not_better": 1.0,
-     "point": -5.017281867628834
+     "point": -5.003065790934649
     },
     "shortcut_cafe_assume_unlearned": {
      "ci95": [
-      -0.8115718011671289,
-      -0.5378567865448249
+      -0.7805376540566681,
+      -0.500681497189209
      ],
      "p_not_better": 1.0,
-     "point": -0.6895988022219253
+     "point": -0.6539626194598356
     },
     "shortcut_cafe_constant_subgroup": {
      "ci95": [
@@ -90,11 +90,11 @@
     },
     "shortcut_cafe_shrink_unlearned": {
      "ci95": [
-      -0.06171628019922725,
-      0.007348437450421187
+      -0.028723579558574904,
+      0.0355545082428231
      ],
-     "p_not_better": 0.881,
-     "point": -0.02256844835238655
+     "p_not_better": 0.378,
+     "point": 0.004576170478750928
     },
     "shortcut_cafe_zero_direct_gap": {
      "ci95": [
@@ -106,11 +106,11 @@
     },
     "shortcut_constant_answers": {
      "ci95": [
-      -4.6451919113230185,
-      -4.0078682179371246
+      -4.6162846988485295,
+      -3.972617277332556
      ],
      "p_not_better": 1.0,
-     "point": -4.338728570489936
+     "point": -4.306771554801363
     },
     "shortcut_direct_retention_claim": {
      "ci95": [
@@ -122,11 +122,11 @@
     },
     "shortcut_flag_all_unlearned": {
      "ci95": [
-      -4.735099191909174,
-      -4.251111047336043
+      -4.714467230471071,
+      -4.230244869951317
      ],
      "p_not_better": 1.0,
-     "point": -4.505279539228053
+     "point": -4.485635010597072
     },
     "shortcut_forged_fields": {
      "ci95": [
@@ -138,11 +138,11 @@
     },
     "shortcut_rescale_units": {
      "ci95": [
-      -11.804354929228372,
-      -11.538771461903407
+      -11.78515977484968,
+      -11.521556491012992
      ],
      "p_not_better": 1.0,
-     "point": -11.67455889163212
+     "point": -11.654914363001138
     },
     "shortcut_scores_file_forgery": {
      "ci95": [
@@ -154,51 +154,51 @@
     },
     "shortcut_zero_output": {
      "ci95": [
-      -6.179695036452476,
-      -5.905998564372722
+      -6.1652648747077805,
+      -5.884304450846219
      ],
      "p_not_better": 1.0,
-     "point": -6.048255133766597
+     "point": -6.028610605135616
     },
     "variant_abduction": {
      "ci95": [
-      -1.572439820234479,
-      -1.2309317262267363
+      -1.5676676551545061,
+      -1.2231748674199883
      ],
      "p_not_better": 1.0,
-     "point": -1.4015281428658644
+     "point": -1.3912535475643126
     },
     "variant_abduction_half": {
      "ci95": [
-      0.10027080829535631,
-      0.4367709672999031
+      0.11094472255780503,
+      0.4508846734164656
      ],
      "p_not_better": 0.0005,
-     "point": 0.27425064092893625
+     "point": 0.2885733679835608
     },
     "variant_cafe_half_rows": {
      "ci95": [
-      -0.27060012714618725,
-      0.006578434859826828
+      -0.2336234069599409,
+      0.01066593771170343
      ],
-     "p_not_better": 0.966,
-     "point": -0.12368815165904828
+     "p_not_better": 0.958,
+     "point": -0.10513331912679347
     },
     "variant_direct_only": {
      "ci95": [
-      -4.956583788666237,
-      -4.680991563476671
+      -4.936632871477603,
+      -4.655190518042883
      ],
      "p_not_better": 1.0,
-     "point": -4.822986382604691
+     "point": -4.801023766048776
     },
     "variant_full_adjust": {
      "ci95": [
-      -0.023300612074352522,
-      0.06228514362881404
+      0.010815283951391728,
+      0.09288107503039941
      ],
-     "p_not_better": 0.185,
-     "point": 0.018830141201162276
+     "p_not_better": 0.0045,
+     "point": 0.050969771428931755
     },
     "variant_hgb": {
      "ci95": [
@@ -218,14 +218,14 @@
     },
     "variant_probe_direct": {
      "ci95": [
-      -1.716708893498019,
-      -1.6413355528668057
+      -1.7136471331926848,
+      -1.6376863760509643
      ],
      "p_not_better": 1.0,
-     "point": -1.6773024336437248
+     "point": -1.673623266570207
     }
    },
-   "reference_seed_spread": 0.03600080680188221,
+   "reference_seed_spread": 0.020045595963011455,
    "scores": {
     "cafe": {
      "score": 0.0,
@@ -292,7 +292,7 @@
      }
     },
     "cafe_seed19": {
-     "score": -0.03600080680188221,
+     "score": -0.020045595963011455,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -2.1825946824177016e-06,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -301,7 +301,7 @@
       "adult_feature_unlearning/rank_spearman": 0.0006753186752864442,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": 0.00027008901405884794,
-      "adult_feature_unlearning/verdict_accuracy": -0.01595521083887076,
+      "adult_feature_unlearning/verdict_accuracy": 0.0,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.00026755908586847764,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0005853322251401606,
@@ -324,7 +324,7 @@
      }
     },
     "causal_fuzzing": {
-     "score": -1.6001010986158806,
+     "score": -1.57118423987097,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.0031176853301167905,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -333,7 +333,7 @@
       "adult_feature_unlearning/rank_spearman": -0.010579992579487626,
       "adult_feature_unlearning/residual_capture": -0.011834474978706454,
       "adult_feature_unlearning/total_effect_nmae": -0.022503815799474743,
-      "adult_feature_unlearning/verdict_accuracy": -0.04786563251661244,
+      "adult_feature_unlearning/verdict_accuracy": -0.018948773771701795,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.012729726136697764,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0019242572486396707,
@@ -356,7 +356,7 @@
      }
     },
     "direct_permutation": {
-     "score": -5.017281867628833,
+     "score": -5.003065790934648,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.0039723591799848326,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -365,7 +365,7 @@
       "adult_feature_unlearning/rank_spearman": -0.10041460108653076,
       "adult_feature_unlearning/residual_capture": -0.43588274131685295,
       "adult_feature_unlearning/total_effect_nmae": -0.046254339024736205,
-      "adult_feature_unlearning/verdict_accuracy": -0.3659061685714373,
+      "adult_feature_unlearning/verdict_accuracy": -0.3516900918772521,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.012837659873540788,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.10658098018864183,
@@ -388,7 +388,7 @@
      }
     },
     "shortcut_cafe_assume_unlearned": {
-     "score": -0.6895988022219253,
+     "score": -0.6539626194598356,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 9.000676791177135e-05,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -397,7 +397,7 @@
       "adult_feature_unlearning/rank_spearman": -0.030994107094971624,
       "adult_feature_unlearning/residual_capture": -0.1875008927847008,
       "adult_feature_unlearning/total_effect_nmae": -0.010948249234127799,
-      "adult_feature_unlearning/verdict_accuracy": -0.17869836139535317,
+      "adult_feature_unlearning/verdict_accuracy": -0.14306217863326337,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.003749220905360384,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.003814253163228747,
@@ -484,7 +484,7 @@
      }
     },
     "shortcut_cafe_shrink_unlearned": {
-     "score": -0.02256844835238656,
+     "score": 0.004576170478750919,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 5.382644040639154e-05,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -493,7 +493,7 @@
       "adult_feature_unlearning/rank_spearman": 0.001229350201001902,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.00016165480283809842,
-      "adult_feature_unlearning/verdict_accuracy": -0.025528337342193296,
+      "adult_feature_unlearning/verdict_accuracy": 0.001616281488944182,
       "heart_disease_feature_unlearning/direct_effect_nmae": 6.1001383420230306e-05,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.0004050071974769597,
@@ -548,7 +548,7 @@
      }
     },
     "shortcut_constant_answers": {
-     "score": -4.338728570489936,
+     "score": -4.306771554801363,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.17161345934459865,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -557,7 +557,7 @@
       "adult_feature_unlearning/rank_spearman": -0.16929324173871818,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.40475223124028514,
-      "adult_feature_unlearning/verdict_accuracy": -0.17869836139535317,
+      "adult_feature_unlearning/verdict_accuracy": -0.1467413457067811,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.026052165254623807,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.08096092351050985,
@@ -612,7 +612,7 @@
      }
     },
     "shortcut_drop_features": {
-     "score": -15.397379040480132,
+     "score": -15.395838662729696,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.3656472427795424,
       "adult_feature_unlearning/false_alarm_rate": -0.5235166169205249,
@@ -621,7 +621,7 @@
       "adult_feature_unlearning/rank_spearman": -0.6405904957121303,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.7139349779088399,
-      "adult_feature_unlearning/verdict_accuracy": -0.765850120265799,
+      "adult_feature_unlearning/verdict_accuracy": -0.7643097425153632,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.4483103190516741,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.6266432311374909,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.9090214382748846,
@@ -644,7 +644,7 @@
      }
     },
     "shortcut_flag_all_unlearned": {
-     "score": -4.505279539228053,
+     "score": -4.485635010597072,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.00019012920870978598,
       "adult_feature_unlearning/false_alarm_rate": -0.5235166169205249,
@@ -653,7 +653,7 @@
       "adult_feature_unlearning/rank_spearman": -0.20792321781769055,
       "adult_feature_unlearning/residual_capture": -0.16673239752720279,
       "adult_feature_unlearning/total_effect_nmae": -0.0854798148014907,
-      "adult_feature_unlearning/verdict_accuracy": -0.3829250601328995,
+      "adult_feature_unlearning/verdict_accuracy": -0.36328053150191814,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.003749510025889873,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.6266432311374909,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.05871587535597792,
@@ -708,7 +708,7 @@
      }
     },
     "shortcut_nonfinite_values": {
-     "score": -15.397379040480132,
+     "score": -15.395838662729696,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.3656472427795424,
       "adult_feature_unlearning/false_alarm_rate": -0.5235166169205249,
@@ -717,7 +717,7 @@
       "adult_feature_unlearning/rank_spearman": -0.6405904957121303,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.7139349779088399,
-      "adult_feature_unlearning/verdict_accuracy": -0.765850120265799,
+      "adult_feature_unlearning/verdict_accuracy": -0.7643097425153632,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.4483103190516741,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.6266432311374909,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.9090214382748846,
@@ -740,7 +740,7 @@
      }
     },
     "shortcut_overbudget_bruteforce": {
-     "score": -15.397379040480132,
+     "score": -15.395838662729696,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.3656472427795424,
       "adult_feature_unlearning/false_alarm_rate": -0.5235166169205249,
@@ -749,7 +749,7 @@
       "adult_feature_unlearning/rank_spearman": -0.6405904957121303,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.7139349779088399,
-      "adult_feature_unlearning/verdict_accuracy": -0.765850120265799,
+      "adult_feature_unlearning/verdict_accuracy": -0.7643097425153632,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.4483103190516741,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.6266432311374909,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.9090214382748846,
@@ -772,7 +772,7 @@
      }
     },
     "shortcut_rescale_units": {
-     "score": -11.674558891632119,
+     "score": -11.654914363001136,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.32015897125799325,
       "adult_feature_unlearning/false_alarm_rate": -0.5235166169205249,
@@ -781,7 +781,7 @@
       "adult_feature_unlearning/rank_spearman": 0.0,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.7111318651894327,
-      "adult_feature_unlearning/verdict_accuracy": -0.3829250601328995,
+      "adult_feature_unlearning/verdict_accuracy": -0.36328053150191814,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.3616599955873618,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.6266432311374909,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.745077366860302,
@@ -836,7 +836,7 @@
      }
     },
     "shortcut_zero_output": {
-     "score": -6.048255133766597,
+     "score": -6.028610605135616,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.04339620943839087,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -845,7 +845,7 @@
       "adult_feature_unlearning/rank_spearman": -0.31643753157463594,
       "adult_feature_unlearning/residual_capture": -0.4522080355395725,
       "adult_feature_unlearning/total_effect_nmae": -0.1386530187411924,
-      "adult_feature_unlearning/verdict_accuracy": -0.3829250601328995,
+      "adult_feature_unlearning/verdict_accuracy": -0.36328053150191814,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.027631337338089607,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.10658098018864183,
@@ -868,7 +868,7 @@
      }
     },
     "variant_abduction": {
-     "score": -1.4015281428658644,
+     "score": -1.3912535475643126,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.0031176853301167905,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -877,7 +877,7 @@
       "adult_feature_unlearning/rank_spearman": -0.00033718741476609264,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.00012443282744894278,
-      "adult_feature_unlearning/verdict_accuracy": -0.008509445780731071,
+      "adult_feature_unlearning/verdict_accuracy": 0.0017651495208206387,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.012729726136697764,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.019352792143687146,
@@ -900,7 +900,7 @@
      }
     },
     "variant_abduction_half": {
-     "score": 0.27425064092893636,
+     "score": 0.2885733679835609,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.002099462543042649,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -909,7 +909,7 @@
       "adult_feature_unlearning/rank_spearman": -0.0023640872863796127,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.0024466950411301458,
-      "adult_feature_unlearning/verdict_accuracy": -0.031910421677741684,
+      "adult_feature_unlearning/verdict_accuracy": -0.01758769462311711,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.012480096065589436,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.019006172034648185,
@@ -932,7 +932,7 @@
      }
     },
     "variant_cafe_half_rows": {
-     "score": -0.12368815165904837,
+     "score": -0.10513331912679355,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.0014741689872891993,
       "adult_feature_unlearning/false_alarm_rate": -0.03739404406575177,
@@ -941,7 +941,7 @@
       "adult_feature_unlearning/rank_spearman": -0.008332705711549775,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.00455042411261248,
-      "adult_feature_unlearning/verdict_accuracy": -0.031910421677741684,
+      "adult_feature_unlearning/verdict_accuracy": -0.013355589145486877,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.0012522796919375097,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.004359817007271228,
@@ -964,7 +964,7 @@
      }
     },
     "variant_direct_only": {
-     "score": -4.822986382604691,
+     "score": -4.801023766048776,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.0,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -973,7 +973,7 @@
       "adult_feature_unlearning/rank_spearman": -0.09197618563522061,
       "adult_feature_unlearning/residual_capture": -0.4483514835334762,
       "adult_feature_unlearning/total_effect_nmae": -0.04912237947053371,
-      "adult_feature_unlearning/verdict_accuracy": -0.3829250601328995,
+      "adult_feature_unlearning/verdict_accuracy": -0.3609624435769849,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.10658098018864183,
@@ -996,7 +996,7 @@
      }
     },
     "variant_full_adjust": {
-     "score": 0.0188301412011624,
+     "score": 0.05096977142893188,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.00025294959456647926,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1005,7 +1005,7 @@
       "adult_feature_unlearning/rank_spearman": -0.001014393781560947,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": 0.001160382727493377,
-      "adult_feature_unlearning/verdict_accuracy": -0.017018891561462142,
+      "adult_feature_unlearning/verdict_accuracy": 0.015120738666307337,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.003740580654394709,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.012137333371071323,
@@ -1092,7 +1092,7 @@
      }
     },
     "variant_probe_direct": {
-     "score": -1.6773024336437246,
+     "score": -1.6736232665702069,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.0029905441731703955,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1101,7 +1101,7 @@
       "adult_feature_unlearning/rank_spearman": -0.001688768611093204,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.0007701420687241842,
-      "adult_feature_unlearning/verdict_accuracy": 0.0,
+      "adult_feature_unlearning/verdict_accuracy": 0.0036791670735177337,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.012618802006791835,
       "heart_disease_feature_unlearning/false_alarm_rate": -0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
@@ -1132,7 +1132,7 @@
     "adult_feature_unlearning/rank_spearman": 0.6169926612645966,
     "adult_feature_unlearning/residual_capture": 0.4422743168669282,
     "adult_feature_unlearning/total_effect_nmae": 0.6872997710538034,
-    "adult_feature_unlearning/verdict_accuracy": 0.32643462915855387,
+    "adult_feature_unlearning/verdict_accuracy": 0.311697992483169,
     "heart_disease_feature_unlearning/direct_effect_nmae": 0.6501843444141796,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.38299304624155744,
     "heart_disease_feature_unlearning/indirect_effect_nmae": 0.6309077025809757,
@@ -1173,75 +1173,75 @@
    "paired_bootstrap_vs_reference": {
     "cafe_seed11": {
      "ci95": [
-      -0.050008123206362776,
-      0.0742215581773122
+      -0.05380543762774142,
+      0.077103194681951
      ],
-     "p_not_better": 0.303,
+     "p_not_better": 0.324,
      "point": 0.015228947475510672
     },
     "cafe_seed19": {
      "ci95": [
-      -0.15185751091601896,
-      0.022693696386700712
+      -0.09006065752265092,
+      0.03728446971489961
      ],
-     "p_not_better": 0.905,
-     "point": -0.054730862526015236
+     "p_not_better": 0.7775,
+     "point": -0.024267312305465156
     },
     "causal_fuzzing": {
      "ci95": [
-      -1.8064041387707297,
-      -0.5024415987160763
+      -1.736816843501938,
+      -0.4571323219825305
      ],
      "p_not_better": 1.0,
-     "point": -1.1344256536626565
+     "point": -1.0800677100753633
     },
     "direct_permutation": {
      "ci95": [
-      -9.864282233879855,
-      -8.928039251498031
+      -9.851359498149694,
+      -8.927804791364116
      ],
      "p_not_better": 1.0,
-     "point": -9.415083361529538
+     "point": -9.403781315628315
     },
     "variant_abduction": {
      "ci95": [
-      -0.4231536977157604,
-      0.4829128560381086
+      -0.4021264602633084,
+      0.5150341867012078
      ],
-     "p_not_better": 0.4435,
-     "point": 0.03474504860827543
+     "p_not_better": 0.4095,
+     "point": 0.054442011292873516
     },
     "variant_abduction_half": {
      "ci95": [
-      1.1956419917405918,
-      2.1061071907686366
+      1.2336715539362708,
+      2.1424783147153477
      ],
      "p_not_better": 0.0,
-     "point": 1.6524080642900822
+     "point": 1.6789624949775426
     },
     "variant_cafe_half_rows": {
      "ci95": [
-      -2.8030903744262634,
-      -0.1442182368043693
+      -2.712695973753016,
+      -0.1383335889113428
      ],
      "p_not_better": 0.9995,
-     "point": -1.1522682732068432
+     "point": -1.1174427889752787
     },
     "variant_direct_only": {
      "ci95": [
-      -10.688325623570806,
-      -9.809527620498764
+      -10.65239250572279,
+      -9.788701641632617
      ],
      "p_not_better": 1.0,
-     "point": -10.254242340768862
+     "point": -10.228567345546438
     },
     "variant_full_adjust": {
      "ci95": [
-      0.16064614787814802,
-      0.45016543705306783
+      0.21981799479478123,
+      0.516207145813402
      ],
      "p_not_better": 0.0,
-     "point": 0.3031274873682124
+     "point": 0.36517329304663954
     },
     "variant_hgb": {
      "ci95": [
@@ -1261,14 +1261,14 @@
     },
     "variant_probe_direct": {
      "ci95": [
-      -1.3546757068750377,
-      -1.016926237598081
+      -1.3468959059356642,
+      -1.0145613215995897
      ],
      "p_not_better": 1.0,
-     "point": -1.189974641013782
+     "point": -1.182784227631219
     }
    },
-   "reference_seed_spread": 0.06995981000152592,
+   "reference_seed_spread": 0.03949625978097583,
    "scores": {
     "cafe": {
      "score": 0.0,
@@ -1335,7 +1335,7 @@
      }
     },
     "cafe_seed19": {
-     "score": -0.05473086252601506,
+     "score": -0.024267312305464986,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -3.2622109581453754e-05,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1344,7 +1344,7 @@
       "adult_feature_unlearning/rank_spearman": 0.003348176440988213,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": 0.0028031210585259484,
-      "adult_feature_unlearning/verdict_accuracy": -0.030463550220550077,
+      "adult_feature_unlearning/verdict_accuracy": 0.0,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.004846872417234658,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0042653800501642886,
@@ -1367,7 +1367,7 @@
      }
     },
     "causal_fuzzing": {
-     "score": -1.1344256536626562,
+     "score": -1.080067710075363,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.046598424022045025,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1376,7 +1376,7 @@
       "adult_feature_unlearning/rank_spearman": -0.05245476424214867,
       "adult_feature_unlearning/residual_capture": -0.01486950691023367,
       "adult_feature_unlearning/total_effect_nmae": -0.233556037754843,
-      "adult_feature_unlearning/verdict_accuracy": -0.09139065066165056,
+      "adult_feature_unlearning/verdict_accuracy": -0.037032707074357345,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.230600871918215,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.014022273381183318,
@@ -1399,7 +1399,7 @@
      }
     },
     "direct_permutation": {
-     "score": -9.415083361529536,
+     "score": -9.403781315628313,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.059372790335406336,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1408,7 +1408,7 @@
       "adult_feature_unlearning/rank_spearman": -0.4978476295602904,
       "adult_feature_unlearning/residual_capture": -0.5476678471773637,
       "adult_feature_unlearning/total_effect_nmae": -0.4800510388037723,
-      "adult_feature_unlearning/verdict_accuracy": -0.6986307517246175,
+      "adult_feature_unlearning/verdict_accuracy": -0.6873287058233957,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.2325561075264375,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.7766672790221485,
@@ -1431,7 +1431,7 @@
      }
     },
     "variant_abduction": {
-     "score": 0.03474504860827521,
+     "score": 0.054442011292873294,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.046598424022045025,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1440,7 +1440,7 @@
       "adult_feature_unlearning/rank_spearman": -0.0016717484642916026,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.0012914271252738158,
-      "adult_feature_unlearning/verdict_accuracy": -0.016247226784293373,
+      "adult_feature_unlearning/verdict_accuracy": 0.0034497359003047615,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.230600871918215,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.14102591652952826,
@@ -1463,7 +1463,7 @@
      }
     },
     "variant_abduction_half": {
-     "score": 1.6524080642900827,
+     "score": 1.678962494977543,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.03137957665388812,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1472,7 +1472,7 @@
       "adult_feature_unlearning/rank_spearman": -0.011720957299660894,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.02539304465041512,
-      "adult_feature_unlearning/verdict_accuracy": -0.060927100441100474,
+      "adult_feature_unlearning/verdict_accuracy": -0.034372669753640235,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.22607878625537925,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.13850005782129376,
@@ -1495,7 +1495,7 @@
      }
     },
     "variant_cafe_half_rows": {
-     "score": -1.152268273206843,
+     "score": -1.1174427889752785,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.02203363850939937,
       "adult_feature_unlearning/false_alarm_rate": -0.7505553499465135,
@@ -1504,7 +1504,7 @@
       "adult_feature_unlearning/rank_spearman": -0.041312894155140965,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.04722661415806089,
-      "adult_feature_unlearning/verdict_accuracy": -0.060927100441100474,
+      "adult_feature_unlearning/verdict_accuracy": -0.026101616209535994,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.022685231853791895,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.03177046416798375,
@@ -1527,7 +1527,7 @@
      }
     },
     "variant_direct_only": {
-     "score": -10.25424234076886,
+     "score": -10.228567345546436,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": -0.0,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1536,7 +1536,7 @@
       "adult_feature_unlearning/rank_spearman": -0.4560106348979355,
       "adult_feature_unlearning/residual_capture": -0.5633342834903895,
       "adult_feature_unlearning/total_effect_nmae": -0.5098170202093228,
-      "adult_feature_unlearning/verdict_accuracy": -0.7311252052932045,
+      "adult_feature_unlearning/verdict_accuracy": -0.7054502100707803,
       "heart_disease_feature_unlearning/direct_effect_nmae": -0.0,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.7766672790221485,
@@ -1559,7 +1559,7 @@
      }
     },
     "variant_full_adjust": {
-     "score": 0.3031274873682133,
+     "score": 0.3651732930466405,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.0037807062662644107,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1568,7 +1568,7 @@
       "adult_feature_unlearning/rank_spearman": -0.005029283930089297,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": 0.01204304170134722,
-      "adult_feature_unlearning/verdict_accuracy": -0.03249445356858675,
+      "adult_feature_unlearning/verdict_accuracy": 0.029551352109840407,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.06776117185248343,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": 0.08844607797010363,
@@ -1655,7 +1655,7 @@
      }
     },
     "variant_probe_direct": {
-     "score": -1.189974641013782,
+     "score": -1.1827842276312188,
      "terms": {
       "adult_feature_unlearning/direct_effect_nmae": 0.04469811115698127,
       "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1664,7 +1664,7 @@
       "adult_feature_unlearning/rank_spearman": -0.008372780858672858,
       "adult_feature_unlearning/residual_capture": 0.0,
       "adult_feature_unlearning/total_effect_nmae": -0.00799292580788618,
-      "adult_feature_unlearning/verdict_accuracy": 0.0,
+      "adult_feature_unlearning/verdict_accuracy": 0.0071904133825629706,
       "heart_disease_feature_unlearning/direct_effect_nmae": 0.22859146489732582,
       "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
       "heart_disease_feature_unlearning/indirect_effect_nmae": -0.0,
@@ -1695,7 +1695,7 @@
     "adult_feature_unlearning/rank_spearman": 0.12444585105069499,
     "adult_feature_unlearning/residual_capture": 0.3520012040939896,
     "adult_feature_unlearning/total_effect_nmae": 0.066223368042624,
-    "adult_feature_unlearning/verdict_accuracy": 0.1709693484714031,
+    "adult_feature_unlearning/verdict_accuracy": 0.15948860375770063,
     "heart_disease_feature_unlearning/direct_effect_nmae": 0.03589174912441914,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
     "heart_disease_feature_unlearning/indirect_effect_nmae": 0.08657859441987245,
@@ -1922,13 +1922,13 @@
   "shortcut_cafe_assume_unlearned": {
    "bootstrap": {
     "ci95": [
-     -1.617786162454472,
-     -1.029025735267075
+     -1.565875754329346,
+     -0.9686168408181055
     ],
     "p_not_better": 1.0,
-    "point": -1.3425981580674498
+    "point": -1.2826018198348865
    },
-   "score": -1.3425981580674498,
+   "score": -1.2826018198348865,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": 0.0013953158486915448,
     "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -1937,7 +1937,7 @@
     "adult_feature_unlearning/rank_spearman": -0.15930473423014885,
     "adult_feature_unlearning/residual_capture": -0.2397744342468224,
     "adult_feature_unlearning/total_effect_nmae": -0.11779647851463672,
-    "adult_feature_unlearning/verdict_accuracy": -0.3455737463046342,
+    "adult_feature_unlearning/verdict_accuracy": -0.28557740807207094,
     "heart_disease_feature_unlearning/direct_effect_nmae": 0.07047508497130169,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -0.028783113619461197,
@@ -2042,13 +2042,13 @@
   "shortcut_cafe_shrink_unlearned": {
    "bootstrap": {
     "ci95": [
-     -0.1314433781426706,
-     0.061100949372423594
+     -0.07181200085636173,
+     0.12176460061824138
     ],
-    "p_not_better": 0.646,
-    "point": -0.02521684648505454
+    "p_not_better": 0.273,
+    "point": 0.028416996644418387
    },
-   "score": -0.025216846485054602,
+   "score": 0.028416996644418324,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": 0.0008344670629340039,
     "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -2057,7 +2057,7 @@
     "adult_feature_unlearning/rank_spearman": 0.006237349480446875,
     "adult_feature_unlearning/residual_capture": 0.0,
     "adult_feature_unlearning/total_effect_nmae": -0.001717925068348486,
-    "adult_feature_unlearning/verdict_accuracy": -0.050380178291590944,
+    "adult_feature_unlearning/verdict_accuracy": 0.0032536648378819807,
     "heart_disease_feature_unlearning/direct_effect_nmae": 0.0011368195522078895,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
     "heart_disease_feature_unlearning/indirect_effect_nmae": 0.0030497145230311135,
@@ -2122,13 +2122,13 @@
   "shortcut_constant_answers": {
    "bootstrap": {
     "ci95": [
-     -10.355058971954502,
-     -8.920672733394856
+     -10.296358435402354,
+     -8.858559091953573
     ],
     "p_not_better": 1.0,
-    "point": -9.648420695341427
+    "point": -9.595369193607741
    },
-   "score": -9.648420695341427,
+   "score": -9.595369193607741,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.48002704126845697,
     "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -2137,7 +2137,7 @@
     "adult_feature_unlearning/rank_spearman": -0.6278985783145979,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.9821792489613806,
-    "adult_feature_unlearning/verdict_accuracy": -0.3455737463046342,
+    "adult_feature_unlearning/verdict_accuracy": -0.2925222445709482,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.3505942477918046,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -0.5612826028132625,
@@ -2201,7 +2201,7 @@
   },
   "shortcut_drop_features": {
    "bootstrap": null,
-   "score": -18.932439045174476,
+   "score": -18.928182217182584,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.48482880835927206,
     "adult_feature_unlearning/false_alarm_rate": -0.7788762694997797,
@@ -2210,7 +2210,7 @@
     "adult_feature_unlearning/rank_spearman": -0.7838829064145347,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.9834234377112416,
-    "adult_feature_unlearning/verdict_accuracy": -0.8730622227115361,
+    "adult_feature_unlearning/verdict_accuracy": -0.868805394719642,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.5757222035736423,
     "heart_disease_feature_unlearning/false_alarm_rate": -0.931896329658385,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -1.165757049889278,
@@ -2235,13 +2235,13 @@
   "shortcut_flag_all_unlearned": {
    "bootstrap": {
     "ci95": [
-     -10.040623095164767,
-     -9.143061555797543
+     -10.026138340766252,
+     -9.112951479399742
     ],
     "p_not_better": 1.0,
-    "point": -9.616065161972598
+    "point": -9.597647349075086
    },
-   "score": -9.616065161972598,
+   "score": -9.597647349075086,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": 0.0029471240330124,
     "adult_feature_unlearning/false_alarm_rate": -0.7788762694997797,
@@ -2250,7 +2250,7 @@
     "adult_feature_unlearning/rank_spearman": -0.6790404933107023,
     "adult_feature_unlearning/residual_capture": -0.21452693157962927,
     "adult_feature_unlearning/total_effect_nmae": -0.7252541066417513,
-    "adult_feature_unlearning/verdict_accuracy": -0.6390573185128429,
+    "adult_feature_unlearning/verdict_accuracy": -0.6206395056153302,
     "heart_disease_feature_unlearning/direct_effect_nmae": 0.07048052852842396,
     "heart_disease_feature_unlearning/false_alarm_rate": -0.931896329658385,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -0.42630447480826583,
@@ -2314,7 +2314,7 @@
   },
   "shortcut_nonfinite_values": {
    "bootstrap": null,
-   "score": -18.932439045174476,
+   "score": -18.928182217182584,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.48482880835927206,
     "adult_feature_unlearning/false_alarm_rate": -0.7788762694997797,
@@ -2323,7 +2323,7 @@
     "adult_feature_unlearning/rank_spearman": -0.7838829064145347,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.9834234377112416,
-    "adult_feature_unlearning/verdict_accuracy": -0.8730622227115361,
+    "adult_feature_unlearning/verdict_accuracy": -0.868805394719642,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.5757222035736423,
     "heart_disease_feature_unlearning/false_alarm_rate": -0.931896329658385,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -1.165757049889278,
@@ -2347,7 +2347,7 @@
   },
   "shortcut_overbudget_bruteforce": {
    "bootstrap": null,
-   "score": -18.932439045174476,
+   "score": -18.928182217182584,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.48482880835927206,
     "adult_feature_unlearning/false_alarm_rate": -0.7788762694997797,
@@ -2356,7 +2356,7 @@
     "adult_feature_unlearning/rank_spearman": -0.7838829064145347,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.9834234377112416,
-    "adult_feature_unlearning/verdict_accuracy": -0.8730622227115361,
+    "adult_feature_unlearning/verdict_accuracy": -0.868805394719642,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.5757222035736423,
     "heart_disease_feature_unlearning/false_alarm_rate": -0.931896329658385,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -1.165757049889278,
@@ -2381,13 +2381,13 @@
   "shortcut_rescale_units": {
    "bootstrap": {
     "ci95": [
-     -16.136898421811537,
-     -15.79926222709604
+     -16.12270859514185,
+     -15.77607834338939
     ],
     "p_not_better": 1.0,
-    "point": -15.969388492515531
+    "point": -15.950970679618019
    },
-   "score": -15.969388492515531,
+   "score": -15.950970679618019,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.48446577156591175,
     "adult_feature_unlearning/false_alarm_rate": -0.7788762694997797,
@@ -2396,7 +2396,7 @@
     "adult_feature_unlearning/rank_spearman": 0.0,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.9834417665385354,
-    "adult_feature_unlearning/verdict_accuracy": -0.6390573185128429,
+    "adult_feature_unlearning/verdict_accuracy": -0.6206395056153302,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.5737455760658133,
     "heart_disease_feature_unlearning/false_alarm_rate": -0.931896329658385,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -1.1614400413747656,
@@ -2461,13 +2461,13 @@
   "shortcut_zero_output": {
    "bootstrap": {
     "ci95": [
-     -12.589138541503392,
-     -11.81248177512281
+     -12.57342829903514,
+     -11.792578165344986
     ],
     "p_not_better": 1.0,
-    "point": -12.215048229343019
+    "point": -12.196630416445506
    },
-   "score": -12.215048229343019,
+   "score": -12.196630416445506,
    "terms": {
     "adult_feature_unlearning/direct_effect_nmae": -0.39934045963879383,
     "adult_feature_unlearning/false_alarm_rate": -0.0,
@@ -2476,7 +2476,7 @@
     "adult_feature_unlearning/rank_spearman": -0.7470779416397524,
     "adult_feature_unlearning/residual_capture": -0.4958304880867237,
     "adult_feature_unlearning/total_effect_nmae": -0.8796421380024523,
-    "adult_feature_unlearning/verdict_accuracy": -0.6390573185128429,
+    "adult_feature_unlearning/verdict_accuracy": -0.6206395056153302,
     "heart_disease_feature_unlearning/direct_effect_nmae": -0.36249000407471116,
     "heart_disease_feature_unlearning/false_alarm_rate": 0.0,
     "heart_disease_feature_unlearning/indirect_effect_nmae": -0.6905136563934359,

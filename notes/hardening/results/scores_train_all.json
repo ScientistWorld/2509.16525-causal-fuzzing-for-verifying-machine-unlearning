@@ -104,7 +104,7 @@
           "rank_spearman": 0.9720395127178042,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.034216562840339776,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9378038469668146
         },
         "cafe_seed11": {
           "direct_effect_nmae": 0.026228861427256778,
@@ -114,7 +114,7 @@
           "rank_spearman": 0.9727339571622488,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.034872925549692894,
-          "verdict_accuracy": 0.8695652173913043
+          "verdict_accuracy": 0.9347917987740435
         },
         "cafe_seed19": {
           "direct_effect_nmae": 0.026060235058962298,
@@ -124,7 +124,7 @@
           "rank_spearman": 0.969956179384471,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.034982862334048744,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9347917987740435
         },
         "causal_fuzzing": {
           "direct_effect_nmae": 0.011865861890870598,
@@ -134,7 +134,7 @@
           "rank_spearman": 0.9525921565438411,
           "residual_capture": 0.9831820344235225,
           "total_effect_nmae": 0.09042065681738617,
-          "verdict_accuracy": 0.8695652173913043
+          "verdict_accuracy": 0.8994398647220461
         },
         "direct_permutation": {
           "direct_effect_nmae": 0.008207755621102127,
@@ -144,7 +144,7 @@
           "rank_spearman": 0.703842861565116,
           "residual_capture": 0.033958731671346665,
           "total_effect_nmae": 0.1708068564752916,
-          "verdict_accuracy": 0.532608695652174
+          "verdict_accuracy": 0.5271084337349398
         },
         "variant_abduction": {
           "direct_effect_nmae": 0.011865861890870598,
@@ -154,7 +154,7 @@
           "rank_spearman": 0.9741315812396936,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.036490294953672335,
-          "verdict_accuracy": 0.9456521739130435
+          "verdict_accuracy": 0.9624815049672373
         },
         "variant_abduction_half": {
           "direct_effect_nmae": 0.01860792212873792,
@@ -164,7 +164,7 @@
           "rank_spearman": 0.9623143787660634,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.040097216177950847,
-          "verdict_accuracy": 0.9021739130434783
+          "verdict_accuracy": 0.9359015007398013
         },
         "variant_cafe_half_rows": {
           "direct_effect_nmae": 0.03293530400880763,
@@ -174,7 +174,7 @@
           "rank_spearman": 0.9588450682733597,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.05230015253261161,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9156098076516592
         },
         "variant_direct_only": {
           "direct_effect_nmae": 0.02628180552573993,
@@ -184,7 +184,7 @@
           "rank_spearman": 0.7470220423406921,
           "residual_capture": 0.011174592503190167,
           "total_effect_nmae": 0.17434025485069882,
-          "verdict_accuracy": 0.5
+          "verdict_accuracy": 0.5030120481927711
         },
         "variant_full_adjust": {
           "direct_effect_nmae": 0.025218407329042503,
@@ -194,7 +194,7 @@
           "rank_spearman": 0.9706477120993965,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.03046291397775307,
-          "verdict_accuracy": 0.9130434782608696
+          "verdict_accuracy": 0.9474212640033819
         },
         "variant_hgb": {
           "direct_effect_nmae": 0.012261523721389523,
@@ -204,7 +204,7 @@
           "rank_spearman": 0.9741315812396935,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.02697774610867383,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9273937856689918
         },
         "variant_no_backdoor": {
           "direct_effect_nmae": 0.18422839463726134,
@@ -214,7 +214,7 @@
           "rank_spearman": 0.6449241503597656,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.23283088477069278,
-          "verdict_accuracy": 0.8586956521739131
+          "verdict_accuracy": 0.9378038469668146
         },
         "variant_probe_direct": {
           "direct_effect_nmae": 0.011377278806513466,
@@ -224,7 +224,7 @@
           "rank_spearman": 0.9678728460511374,
           "residual_capture": 1.0,
           "total_effect_nmae": 0.03697402656098509,
-          "verdict_accuracy": 0.8804347826086956
+          "verdict_accuracy": 0.9391777636863243
         }
       }
     },
